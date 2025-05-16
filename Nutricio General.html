@@ -44,7 +44,7 @@
             min-height: calc(100vh - 136px); /* Ajusta según altura header + nav (ej. 60px + 76px) */
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: center; /* Centra el contenido si es más corto que min-height */
             align-items: center;
             padding: 2rem;
             background-size: cover;
@@ -73,21 +73,21 @@
             border-radius: 0.75rem; /* rounded-xl */
             max-width: 800px; 
             width: 90%;
-            margin: auto;
+            margin: auto; /* Centrado horizontalmente */
             color: var(--askesis-text-dark);
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            max-height: calc(100vh - 200px); /* Limitar altura y permitir scroll interno */
-            overflow-y: auto; /* Scroll si el contenido es muy largo */
+            /* Eliminado max-height y cambiado overflow-y para evitar doble scroll */
+            overflow-y: visible; 
         }
         
         .slide-content-wrapper h1, .slide-content-wrapper h2, .slide-content-wrapper h3,
         .slide-content-wrapper h4, .slide-content-wrapper h5,
         .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
-            color: inherit; /* Hereda de .slide-content-wrapper */
-            text-align: left; /* Alineación izquierda para mejor lectura del contenido principal */
+            color: inherit; 
+            text-align: left; 
         }
         .slide-content-wrapper h1, .slide-content-wrapper h2 {
-            text-align: center; /* Títulos principales centrados */
+            text-align: center; 
         }
          .slide-content-wrapper h2 i { margin-right: 0.5rem; }
 
@@ -99,22 +99,21 @@
             to { opacity: 1; transform: scale(1); }
         }
         
-        /* Estilos específicos para elementos de la guía de nutrición */
-        .slide-content-wrapper .guide-section-title { /* Para H2 */
+        .slide-content-wrapper .guide-section-title { 
             font-family: 'Roboto', sans-serif;
             color: var(--askesis-purple);
-            font-size: 1.8em; /* Tailwind text-2xl o text-3xl */
-            margin-bottom: 1rem; /* mb-4 */
-            padding-bottom: 0.5rem; /* pb-2 */
+            font-size: 1.8em; 
+            margin-bottom: 1rem; 
+            padding-bottom: 0.5rem; 
             border-bottom: 2px solid var(--askesis-border-light, #dee2e6);
         }
-        .slide-content-wrapper .guide-subsection-title { /* Para H3 */
+        .slide-content-wrapper .guide-subsection-title { 
              font-family: 'Roboto', sans-serif;
              color: var(--askesis-blue);
-             font-size: 1.4em; /* text-xl o text-2xl */
-             margin-top: 1.25rem; /* mt-5 */
-             margin-bottom: 0.75rem; /* mb-3 */
-             padding-bottom: 0.4rem; /* pb-1.5 */
+             font-size: 1.4em; 
+             margin-top: 1.25rem; 
+             margin-bottom: 0.75rem; 
+             padding-bottom: 0.4rem; 
              border-bottom: 1px dashed var(--askesis-border-light, #dee2e6);
         }
         .slide-content-wrapper .highlight {
@@ -131,7 +130,6 @@
         .slide-content-wrapper .warning-box { background-color: #f8d7da; border-left-color: #dc3545; color: #721c24;}
         .slide-content-wrapper .tip-box { background-color: #e6f2e9; border-left-color: #008037; color: #155724;}
         .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { font-family: 'Roboto'; font-size: 1.1em; display: block; margin-bottom: 0.5rem;}
-
 
     </style>
 </head>
@@ -291,11 +289,11 @@
             </section>
 
             <section id="slide-nutricion-7" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/3253498/pexels-photo-3253498.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
-                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
-                    <h2 class="guide-section-title"><i class="fas fa-dumbbell"></i>Ejemplos: Conectando Entreno y Nutrición</h2>
+                <div class="slide-content-wrapper"> <h2 class="guide-section-title"><i class="fas fa-dumbbell"></i>Ejemplos: Conectando Entreno y Nutrición</h2>
                     
                     <h3 class="guide-subsection-title text-base sm:text-lg"><i class="fas fa-shoe-prints"></i> Día de Piernas (Hipertrofia)</h3>
                     <p class="text-xs sm:text-sm mb-2">Un entreno demandante necesita buen soporte nutricional. Foco: <strong class="highlight">pre-entreno rico en carbs</strong>, <strong class="highlight">post-entreno con proteína y carbs</strong>. Superávit calórico ligero y alta proteína diaria.</p>
+                    
                     <h3 class="guide-subsection-title text-base sm:text-lg mt-3"><i class="fas fa-calendar-alt"></i> Nutrición para Mesociclos (4-6 sem)</h3>
                     <div class="text-xs sm:text-sm space-y-2">
                         <p><strong>Hipertrofia:</strong> Superávit calórico (250-500 kcal+), Proteína alta (1.6-2.2g/kg), Carbs adecuados (4-7g/kg).</p>
@@ -336,7 +334,7 @@
             </section>
 
             <section id="slide-nutricion-10" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/268030/pexels-photo-268030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
-                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]"> <h2 class="guide-section-title"><i class="fas fa-book"></i>Glosario de Términos</h2>
+                <div class="slide-content-wrapper"> <h2 class="guide-section-title"><i class="fas fa-book"></i>Glosario de Términos</h2>
                     <dl class="text-xs sm:text-sm">
                         <dt class="font-bold text-askesis-blue mt-2">Anabolismo:</dt><dd class="ml-4">Procesos que construyen moléculas.</dd>
                         <dt class="font-bold text-askesis-blue mt-2">Balance Energético:</dt><dd class="ml-4">Relación calorías consumidas vs. gastadas.</dd>
