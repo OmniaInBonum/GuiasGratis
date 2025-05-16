@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - 3 Pilares Clave para Transformar Tu Físico</title>
+    <meta name="description" content="Guía Interactiva Askesis: Descubre los 3 pilares esenciales (más allá del ejercicio) que necesitas dominar para ver resultados reales y sostenibles en el gimnasio.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--askesis-blue, #007FFF); /* Fallback color */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--askesis-blue-dark, #0059b3); /* Fallback color */
+        }
+
+        .step-content {
+            animation: fadeIn 0.6s ease-in-out;
+            min-height: 400px; /* Ensure consistent height during transitions */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .pillar-card {
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom styles for accordion-like sections within pillars */
+        .pillar-details summary {
+            cursor: pointer;
+            padding: 0.75rem 1rem;
+            border-radius: 0.375rem; /* rounded-md */
+            transition: background-color 0.2s ease-in-out;
+        }
+        .pillar-details summary:hover {
+            background-color: rgba(0, 127, 255, 0.05); /* Light Askesis Blue tint */
+        }
+        .pillar-details[open] summary {
+            font-weight: 700;
+        }
+        .pillar-details .content {
+            padding: 0.5rem 1rem 1rem 1rem;
+            border-top: 1px solid #e5e7eb; /* border-gray-200 */
+            margin-top: 0.5rem;
+        }
+         .pillar-details summary::marker { /* Or list-style-type: none; and add custom icon */
+            content: '\25B6\00a0\00a0'; /* Right-pointing triangle, or use FontAwesome */
+            color: var(--askesis-purple, #9b59b6);
+        }
+        .pillar-details[open] summary::marker {
+            content: '\25BC\00a0\00a0'; /* Down-pointing triangle */
+        }
+
+
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        askesisBlue: '#007FFF',
+                        askesisBlueDark: '#0059b3',
+                        askesisGreen: '#2ecc71',
+                        askesisGreenDark: '#27ae60',
+                        askesisOrange: '#f39c12',
+                        askesisPurple: '#9b59b6',
+                        askesisTextDark: '#34495e',
+                        askesisTextBody: '#555555',
+                        askesisTextLight: '#ecf0f1',
+                        askesisBgLight: '#ffffff',
+                        askesisBgSectionAlt: '#f8f9fa',
+                        askesisBorderLight: '#e0e0e0',
+                        askesisAccentBlueLight: '#eaf2f8',
+                        askesisAccentGreenLight: 'rgba(46, 204, 113, 0.1)', // Lighter green for tips
+                    },
+                    fontFamily: {
+                        nunito: ['Nunito', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-subtle': 'pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        'pulse-subtle': {
+                            '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+                            '50%': { opacity: '.9', transform: 'scale(1.02)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-askesisBgLight text-askesisTextBody antialiased">
+    <header class="bg-askesisBlue text-white text-center py-4 shadow-lg sticky top-0 z-50">
+        <div class="font-roboto text-3xl font-bold tracking-wider">ASKESIS</div>
+        <div class="text-sm italic text-askesisTextLight mt-1 tracking-wide font-nunito">Ciencia aplicada al movimiento</div>
+    </header>
+
+    <main class="container mx-auto max-w-3xl px-4 sm:px-6 py-8 sm:py-12">
+        <div id="interactive-guide-pilares" class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl">
+
+            <div id="step-indicator-pilares" class="text-center mb-4 text-lg font-semibold text-askesisBlue font-nunito"></div>
+            <div class="w-full bg-gray-200 rounded-full h-3 mb-8">
+                <div id="progress-bar-pilares" class="bg-gradient-to-r from-askesisGreen to-askesisBlue h-3 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+            </div>
+
+            <div id="steps-container-pilares" class="overflow-hidden">
+                <div id="step-0" class="step-content">
+                    <h1 class="text-3xl sm:text-4xl font-bold text-center text-askesisBlue font-roboto mb-2">Guía Askesis Gratuita</h1>
+                    <p class="text-center text-askesisGreen font-semibold text-xl sm:text-2xl mb-6 font-nunito">3 Pilares Esenciales para Transformar Tu Físico</p>
+                    <div class="bg-askesisAccentBlueLight p-5 rounded-lg border border-askesisBorderLight space-y-4 text-center">
+                        <p class="text-askesisTextDark text-lg">¿Le dedicas horas al gimnasio pero sientes que tus resultados no reflejan tu esfuerzo? 🤔 ¡No estás solo/a!</p>
+                        <p class="text-askesisTextDark text-lg">Esta guía te revela <strong class="text-askesisBlue">3 pilares fundamentales</strong>, más allá de simplemente levantar pesas, que necesitas dominar para desbloquear tu verdadero potencial. ¡Empecemos!</p>
+                    </div>
+                </div>
+
+                <div id="step-1" class="step-content hidden">
+                    <div class="pillar-card bg-white p-6 rounded-lg border border-askesisBorderLight shadow-lg">
+                        <h2 class="flex items-center text-2xl sm:text-3xl font-bold text-askesisPurple font-roboto mb-5 pb-3 border-b-2 border-askesisPurple">
+                            <i class="fas fa-vector-square text-3xl mr-4"></i>Pilar #1: Técnica Impecable
+                        </h2>
+                        <details class="pillar-details mb-4">
+                            <summary class="font-semibold text-lg text-askesisTextDark">¿Por qué es tan importante?</summary>
+                            <div class="content text-gray-700 space-y-2 mt-2">
+                                <p>Imagínate construir una casa sobre cimientos débiles. ¡Lo mismo pasa con tu cuerpo! Una mala técnica no solo frena tu progreso, sino que es la vía rápida hacia las lesiones.</p>
+                                <ul class="list-disc list-inside pl-4 space-y-1">
+                                    <li><strong>Seguridad:</strong> Protege tus articulaciones y músculos.</li>
+                                    <li><strong>Efectividad:</strong> Asegura que trabajes los músculos correctos.</li>
+                                    <li><strong>Eficiencia:</strong> Permite levantar más con menos esfuerzo perdido.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <div class="bg-askesisAccentGreenLight border-l-4 border-askesisGreen p-4 rounded-r-md mt-4">
+                            <p class="font-semibold text-askesisGreenDark"><i class="fas fa-lightbulb mr-2"></i>Tip Rápido Askesis:</p>
+                            <p class="text-askesisGreenDark">¡Menos es Más! Baja el peso y enfócate en sentir el movimiento. Grábate para autocorregirte.</p>
+                        </div>
+                        <p class="text-xs text-right italic text-gray-500 mt-4"><i class="fas fa-search-plus mr-1"></i>Domina la biomecánica con nuestras <strong class="text-askesisOrange">Guías Detalladas de Técnica</strong>.</p>
+                    </div>
+                </div>
+
+                <div id="step-2" class="step-content hidden">
+                     <div class="pillar-card bg-white p-6 rounded-lg border border-askesisBorderLight shadow-lg">
+                        <h2 class="flex items-center text-2xl sm:text-3xl font-bold text-askesisPurple font-roboto mb-5 pb-3 border-b-2 border-askesisPurple">
+                            <i class="fas fa-utensils text-3xl mr-4"></i>Pilar #2: Nutrición Inteligente
+                        </h2>
+                        <details class="pillar-details mb-4">
+                            <summary class="font-semibold text-lg text-askesisTextDark">¿Por qué es tan importante?</summary>
+                            <div class="content text-gray-700 space-y-2 mt-2">
+                                <p>Puedes entrenar como una bestia, pero sin los materiales adecuados, tu cuerpo no podrá construir ni recuperarse. La comida es información para tus células.</p>
+                                <ul class="list-disc list-inside pl-4 space-y-1">
+                                    <li><strong>Energía:</strong> Carbohidratos y grasas para rendir.</li>
+                                    <li><strong>Construcción y Reparación:</strong> Proteínas para el músculo.</li>
+                                    <li><strong>Salud General:</strong> Vitaminas, minerales y agua son esenciales.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <div class="bg-askesisAccentGreenLight border-l-4 border-askesisGreen p-4 rounded-r-md mt-4">
+                            <p class="font-semibold text-askesisGreenDark"><i class="fas fa-lightbulb mr-2"></i>Tip Rápido Askesis:</p>
+                            <p class="text-askesisGreenDark">Incluye <strong class="font-bold">proteína</strong> en cada comida, no temas a los <strong class="font-bold">carbohidratos</strong> (especialmente pre/post entreno) y bebe <strong class="font-bold">agua</strong>.</p>
+                        </div>
+                        <p class="text-xs text-right italic text-gray-500 mt-4"><i class="fas fa-search-plus mr-1"></i>Aprende cuánto y qué comer con nuestras <strong class="text-askesisOrange">Guías Completas de Nutrición</strong>.</p>
+                    </div>
+                </div>
+
+                <div id="step-3" class="step-content hidden">
+                    <div class="pillar-card bg-white p-6 rounded-lg border border-askesisBorderLight shadow-lg">
+                        <h2 class="flex items-center text-2xl sm:text-3xl font-bold text-askesisPurple font-roboto mb-5 pb-3 border-b-2 border-askesisPurple">
+                            <i class="fas fa-bed text-3xl mr-4"></i>Pilar #3: Recuperación Activa
+                        </h2>
+                        <details class="pillar-details mb-4">
+                            <summary class="font-semibold text-lg text-askesisTextDark">¿Por qué es tan importante?</summary>
+                            <div class="content text-gray-700 space-y-2 mt-2">
+                                <p>El músculo NO crece mientras entrenas, ¡crece mientras descansas! Ignorar la recuperación es como plantar una semilla y no regarla.</p>
+                                <ul class="list-disc list-inside pl-4 space-y-1">
+                                    <li><strong>Reparación Muscular:</strong> El cuerpo repara micro-lesiones.</li>
+                                    <li><strong>Adaptación y Crecimiento:</strong> Te vuelves más fuerte/grande.</li>
+                                    <li><strong>Prevención del Sobreentrenamiento:</strong> Evita fatiga crónica.</li>
+                                    <li><strong>Salud Mental y Hormonal:</strong> Regula hormonas y mejora ánimo.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <div class="bg-askesisAccentGreenLight border-l-4 border-askesisGreen p-4 rounded-r-md mt-4">
+                            <p class="font-semibold text-askesisGreenDark"><i class="fas fa-lightbulb mr-2"></i>Tip Rápido Askesis:</p>
+                            <p class="text-askesisGreenDark">¡Duerme! Prioriza <strong>7-9 horas de sueño de calidad</strong>. Es la herramienta de recuperación más potente y gratuita.</p>
+                        </div>
+                        <p class="text-xs text-right italic text-gray-500 mt-4"><i class="fas fa-search-plus mr-1"></i>Descubre más sobre sueño y estrés en nuestras <strong class="text-askesisOrange">Guías Detalladas de Recuperación</strong>.</p>
+                    </div>
+                </div>
+
+                <div id="step-4" class="step-content hidden">
+                    <h2 class="flex items-center text-2xl sm:text-3xl font-bold text-askesisBlue font-roboto mb-5 pb-3 border-b-2 border-askesisBlue">
+                        <i class="fas fa-check-double text-3xl mr-4"></i>La Diferencia Askesis
+                    </h2>
+                    <div class="space-y-4 text-lg text-askesisTextDark">
+                        <p>Conocer estos pilares es genial, pero la verdadera clave está en <strong>integrarlos de forma inteligente y personalizada</strong>.</p>
+                        <p>¿Cómo se combinan la técnica, la nutrición y la recuperación en un plan estructurado (periodización) que se adapte a TUS objetivos, TU vida y TU cuerpo? Ahí es donde entra en juego el enfoque <strong class="font-bold text-askesisBlue">Askesis</strong>. No ofrecemos soluciones genéricas, sino planes detallados y basados en ciencia, adaptados a ti.</p>
+                    </div>
+                </div>
+
+                <div id="step-5" class="step-content hidden">
+                    <div class="bg-askesisAccentBlueLight p-6 sm:p-8 rounded-lg border border-askesisBlue shadow-xl text-center">
+                        <h2 class="text-2xl sm:text-3xl font-bold text-askesisBlue font-roboto mb-4">¿Hoja de Ruta Completa?</h2>
+                        <p class="text-askesisTextDark text-lg mb-6">Esta guía gratuita te da las bases. Si estás listo/a para ver resultados reales y sostenibles con un plan diseñado científicamente para ti, explora nuestras guías completas y servicios.</p>
+                        <p class="text-askesisTextDark font-semibold text-lg mb-6">Invierte en tu conocimiento, invierte en ti.</p>
+                        <a href="https://www.instagram.com/askesis111" target="_blank" class="inline-block bg-askesisOrange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 animate-pulse-subtle">
+                            <i class="fas fa-graduation-cap mr-2"></i>Ver Guías y Servicios Askesis
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="navigation-buttons-pilares" class="mt-10 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+                <button id="prev-button-pilares" class="w-full sm:w-auto bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center">
+                    <i class="fas fa-arrow-left mr-2"></i>Anterior
+                </button>
+                <button id="next-button-pilares" class="w-full sm:w-auto bg-askesisBlue hover:bg-askesisBlueDark text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center">
+                    Siguiente<i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+            <div id="completion-container-pilares" class="hidden mt-10 text-center">
+                <div class="text-2xl font-semibold text-askesisGreen p-6 bg-green-50 rounded-lg shadow-lg mb-6">
+                    <i class="fas fa-check-circle text-3xl mr-3"></i>¡Has completado la guía de los 3 Pilares!
+                </div>
+                <p class="text-lg text-askesisTextDark mb-6">Esperamos que esta información te impulse hacia tus objetivos. ¡El conocimiento es poder!</p>
+                <button id="restart-button-pilares" class="bg-askesisOrange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-redo mr-2"></i>Reiniciar Guía
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-askesisTextDark text-askesisTextLight text-center py-10 mt-12">
+        <div class="container mx-auto max-w-3xl px-4">
+            <div class="mb-4">
+                <div class="font-roboto text-2xl font-bold">ASKESIS</div>
+                <div class="text-sm italic mt-1">Ciencia aplicada al movimiento</div>
+            </div>
+            <hr class="border-gray-600 w-1/4 mx-auto my-6">
+            <div class="mb-4">
+                <p class="font-semibold">Luis Patricio Ruiz Ruiz</p>
+                <p class="text-xs">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="flex justify-center space-x-4 mb-6">
+                <a href="mailto:luistdu111@gmail.com" class="hover:text-askesisBlue transition-colors"><i class="fas fa-envelope fa-lg"></i></a>
+                <a href="https://wa.me/56975401150" target="_blank" class="hover:text-askesisGreen transition-colors"><i class="fab fa-whatsapp fa-lg"></i></a>
+                <a href="https://www.instagram.com/askesis111" target="_blank" class="hover:text-askesisPurple transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" target="_blank" class="hover:text-red-500 transition-colors" title="YouTube (Próximamente)"><i class="fab fa-youtube fa-lg"></i></a>
+            </div>
+             <p class="text-xs text-gray-400">&copy; <span id="current-year"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const steps = document.querySelectorAll('#steps-container-pilares .step-content');
+            const prevButton = document.getElementById('prev-button-pilares');
+            const nextButton = document.getElementById('next-button-pilares');
+            const stepIndicator = document.getElementById('step-indicator-pilares');
+            const progressBar = document.getElementById('progress-bar-pilares');
+            const navigationButtonsContainer = document.getElementById('navigation-buttons-pilares');
+            const completionContainer = document.getElementById('completion-container-pilares');
+            const restartButton = document.getElementById('restart-button-pilares');
+            
+            let currentStep = 0;
+            const totalSteps = steps.length;
+
+            // Update current year in footer
+            const yearSpan = document.getElementById('current-year');
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateStepDisplay() {
+                steps.forEach((step, index) => {
+                    step.classList.add('hidden');
+                });
+
+                if (steps[currentStep]) {
+                    steps[currentStep].classList.remove('hidden');
+                }
+                
+                stepIndicator.textContent = `Paso ${currentStep + 1} de ${totalSteps}`;
+                const progressPercentage = ((currentStep + 1) / totalSteps) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentStep === 0;
+                
+                if (currentStep === totalSteps - 1) {
+                    nextButton.innerHTML = 'Finalizar <i class="fas fa-check ml-2"></i>';
+                    // On the last step, hide nav buttons and show completion message
+                    navigationButtonsContainer.classList.add('hidden');
+                    completionContainer.classList.remove('hidden');
+                } else {
+                    nextButton.innerHTML = 'Siguiente <i class="fas fa-arrow-right ml-2"></i>';
+                    navigationButtonsContainer.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                // Scroll to the top of the guide for better visibility of the new step
+                const guideElement = document.getElementById('interactive-guide-pilares');
+                if(guideElement) {
+                    guideElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            nextButton.addEventListener('click', () => {
+                if (currentStep < totalSteps - 1) {
+                    currentStep++;
+                    updateStepDisplay();
+                } else if (currentStep === totalSteps - 1) {
+                    // Already handled by updateStepDisplay showing completion
+                }
+            });
+
+            prevButton.addEventListener('click', () => {
+                if (currentStep > 0) {
+                    currentStep--;
+                    updateStepDisplay();
+                }
+            });
+
+            restartButton.addEventListener('click', () => {
+                currentStep = 0;
+                updateStepDisplay();
+            });
+            
+            // Initialize
+            updateStepDisplay();
+        });
+    </script>
+</body>
+</html>
