@@ -34,8 +34,66 @@
 
         .step-content {
             animation: fadeIn 0.6s ease-in-out;
-            min-height: 400px; /* Ensure consistent height during transitions */
+            min-height: 500px; /* Altura mínima para que la imagen de fondo sea apreciable */
+            padding: 1.5rem; /* p-6 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra el content-wrapper verticalmente */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            border-radius: 0.75rem; /* rounded-xl */
+            overflow: hidden; 
+            margin-bottom: 1rem; 
         }
+        
+        /* Capa semitransparente sobre la imagen de fondo - MÁS CLARA */
+        .step-content::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.25); /* Overlay oscuro MÁS LIGERO para contraste */
+            z-index: 1;
+        }
+
+        /* Contenedor para el texto, sobre la capa y la imagen */
+        .content-wrapper { 
+            position: relative;
+            z-index: 2;
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo claro y semitransparente para la caja de texto - LIGERAMENTE MÁS TRANSPARENTE */
+            padding: 1.5rem; /* p-6 */
+            border-radius: 0.5rem; /* rounded-lg */
+            max-width: 85%; /* LIGERAMENTE MÁS ESTRECHO para ver más fondo */
+            width: auto; /* Permite que se ajuste al contenido */
+            margin: auto; /* Centra la caja de texto */
+            color: var(--askesis-text-dark, #34495e); /* Color de texto oscuro por defecto para buena legibilidad */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra suave para la caja de texto */
+        }
+         /* Asegura que los encabezados y texto dentro del wrapper tengan el color correcto */
+        .content-wrapper h1, .content-wrapper h2, .content-wrapper h3, .content-wrapper h4, 
+        .content-wrapper p, .content-wrapper ul, .content-wrapper li {
+            color: var(--askesis-text-dark, #34495e); /* Color de texto principal */
+        }
+        .content-wrapper .askesis-tip p, .content-wrapper .askesis-tip strong, .content-wrapper .askesis-tip i {
+             color: var(--askesis-green-dark, #27ae60) !important; /* Color específico para los tips */
+         }
+         .content-wrapper .pillar-importance-heading { /* Estilo para "¿Por qué es tan importante?" */
+            font-weight: 700; 
+            font-size: 1.125rem; 
+            color: var(--askesis-text-dark, #34495e);
+            margin-bottom: 0.5rem; 
+            margin-top: 1rem; 
+            padding-bottom: 0.25rem; 
+            border-bottom: 1px solid var(--askesis-border-light, #e0e0e0);
+        }
+        .content-wrapper .pillar-importance-heading i {
+            margin-right: 0.5rem;
+            color: var(--askesis-purple, #9b59b6);
+        }
+
 
         @keyframes fadeIn {
             from {
@@ -47,26 +105,32 @@
                 transform: translateY(0) scale(1);
             }
         }
-        .pillar-card {
-            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        .askesis-card { /* Estilo para las tarjetas dentro del content-wrapper si se usan */
+            background-color: var(--askesis-bg-section-alt, #f8f9fa);
+            padding: 1rem 1.5rem; 
+            border-radius: 0.5rem; 
+            border: 1px solid var(--askesis-border-light, #e0e0e0);
+            margin-bottom: 1rem; 
         }
-        .pillar-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        .askesis-card h4 { 
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-blue, #007FFF);
+            font-weight: 700; 
+            font-size: 1.25rem; 
+            margin-bottom: 0.5rem; 
         }
-        /* Styling for the "Por qué es tan importante" heading */
-        .pillar-importance-heading {
-            font-weight: 700; /* bold */
-            font-size: 1.125rem; /* text-lg */
-            color: var(--askesis-text-dark, #34495e);
-            margin-bottom: 0.5rem; /* mb-2 */
-            margin-top: 1rem; /* mt-4 */
-            padding-bottom: 0.25rem; /* pb-1 */
-            border-bottom: 1px solid var(--askesis-border-light, #e0e0e0);
+        .askesis-tip { /* Estilo para los tips dentro del content-wrapper */
+            background-color: var(--askesis-accent-green-light, rgba(46, 204, 113, 0.1));
+            border-left: 4px solid var(--askesis-green, #2ecc71);
+            padding: 0.75rem 1rem; 
+            border-radius: 0 0.375rem 0.375rem 0; 
+            margin-top: 1rem; 
         }
-        .pillar-importance-heading i {
-            margin-right: 0.5rem;
-            color: var(--askesis-purple, #9b59b6);
+        .askesis-tip strong {
+            font-weight: 700;
+        }
+         .askesis-tip i {
+            margin-right: 0.5rem; 
         }
 
     </style>
@@ -80,7 +144,7 @@
                         askesisGreen: '#2ecc71',
                         askesisGreenDark: '#27ae60',
                         askesisOrange: '#f39c12',
-                        askesisPurple: '#9b59b6',
+                        askesisPurple: '#9b59b6', 
                         askesisTextDark: '#34495e',
                         askesisTextBody: '#555555',
                         askesisTextLight: '#ecf0f1',
@@ -88,7 +152,7 @@
                         askesisBgSectionAlt: '#f8f9fa',
                         askesisBorderLight: '#e0e0e0',
                         askesisAccentBlueLight: '#eaf2f8',
-                        askesisAccentGreenLight: 'rgba(46, 204, 113, 0.1)', // Lighter green for tips
+                        askesisAccentGreenLight: 'rgba(46, 204, 113, 0.1)',
                     },
                     fontFamily: {
                         nunito: ['Nunito', 'sans-serif'],
@@ -124,23 +188,22 @@
             </div>
 
             <div id="steps-container-pilares" class="overflow-hidden">
-                <div id="step-0" class="step-content">
-                    <h1 class="text-3xl sm:text-4xl font-bold text-center text-askesisBlue font-roboto mb-2">Guía Askesis Gratuita</h1>
-                    <p class="text-center text-askesisGreen font-semibold text-xl sm:text-2xl mb-6 font-nunito">3 Pilares Esenciales para Transformar Tu Físico</p>
-                    <div class="bg-askesisAccentBlueLight p-5 rounded-lg border border-askesisBorderLight space-y-4 text-center">
-                        <p class="text-askesisTextDark text-lg">¿Le dedicas horas al gimnasio pero sientes que tus resultados no reflejan tu esfuerzo? 🤔 ¡No estás solo/a!</p>
-                        <p class="text-askesisTextDark text-lg">Esta guía te revela <strong class="text-askesisBlue">3 pilares fundamentales</strong>, más allá de simplemente levantar pesas, que necesitas dominar para desbloquear tu verdadero potencial. ¡Empecemos!</p>
+                <div id="step-0" class="step-content" style="background-image: url('https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                    <div class="content-wrapper">
+                        <h1 class="text-3xl sm:text-4xl font-bold text-center text-askesisBlue font-roboto mb-2">Guía Askesis Gratuita</h1>
+                        <p class="text-center text-askesisGreen font-semibold text-xl sm:text-2xl mb-6 font-nunito">3 Pilares Esenciales para Transformar Tu Físico</p>
+                        <p class="text-lg mb-3">¿Le dedicas horas al gimnasio pero sientes que tus resultados no reflejan tu esfuerzo? 🤔 ¡No estás solo/a!</p>
+                        <p class="text-lg">Esta guía te revela <strong class="text-askesisBlue">3 pilares fundamentales</strong>, más allá de simplemente levantar pesas, que necesitas dominar para desbloquear tu verdadero potencial. ¡Empecemos!</p>
                     </div>
                 </div>
 
-                <div id="step-1" class="step-content hidden">
-                    <div class="pillar-card bg-white p-6 rounded-lg border border-askesisBorderLight shadow-lg">
-                        <h2 class="flex items-center text-2xl sm:text-3xl font-bold text-askesisPurple font-roboto mb-5 pb-3 border-b-2 border-askesisPurple">
-                            <i class="fas fa-vector-square text-3xl mr-4"></i>Pilar #1: Técnica Impecable
+                <div id="step-1" class="step-content hidden" style="background-image: url('https://images.pexels.com/photos/3076509/pexels-photo-3076509.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                    <div class="content-wrapper">
+                        <h2 class="flex items-center text-2xl sm:text-3xl font-bold text-askesisPurple font-roboto mb-4 pb-2 border-b-2 border-askesisPurple">
+                            <i class="fas fa-vector-square text-3xl mr-3"></i>Pilar #1: Técnica Impecable
                         </h2>
-                        
                         <h3 class="pillar-importance-heading"><i class="fas fa-question-circle"></i>¿Por qué es tan importante?</h3>
-                        <div class="text-gray-700 space-y-2 mb-4">
+                        <div class="space-y-2 mb-4">
                             <p>Imagínate construir una casa sobre cimientos débiles. ¡Lo mismo pasa con tu cuerpo! Una mala técnica no solo frena tu progreso, sino que es la vía rápida hacia las lesiones.</p>
                             <ul class="list-disc list-inside pl-4 space-y-1">
                                 <li><strong>Seguridad:</strong> Protege tus articulaciones y músculos.</li>
@@ -148,23 +211,20 @@
                                 <li><strong>Eficiencia:</strong> Permite levantar más con menos esfuerzo perdido.</li>
                             </ul>
                         </div>
-
-                        <div class="bg-askesisAccentGreenLight border-l-4 border-askesisGreen p-4 rounded-r-md mt-4">
-                            <p class="font-semibold text-askesisGreenDark"><i class="fas fa-lightbulb mr-2"></i>Tip Rápido Askesis:</p>
-                            <p class="text-askesisGreenDark">¡Menos es Más! Baja el peso y enfócate en sentir el movimiento. Grábate para autocorregirte.</p>
+                        <div class="askesis-tip">
+                            <p><i class="fas fa-lightbulb mr-2"></i><strong>Tip Rápido Askesis:</strong> ¡Menos es Más! Baja el peso y enfócate en sentir el movimiento. Grábate para autocorregirte.</p>
                         </div>
-                        <p class="text-xs text-right italic text-gray-500 mt-4"><i class="fas fa-search-plus mr-1"></i>Domina la biomecánica con nuestras <strong class="text-askesisOrange">Guías Detalladas de Técnica</strong>.</p>
+                        <p class="text-xs text-right italic text-gray-500 mt-3"><i class="fas fa-search-plus mr-1"></i>Domina la biomecánica con nuestras <strong class="text-askesisOrange">Guías Detalladas de Técnica</strong>.</p>
                     </div>
                 </div>
 
-                <div id="step-2" class="step-content hidden">
-                     <div class="pillar-card bg-white p-6 rounded-lg border border-askesisBorderLight shadow-lg">
-                        <h2 class="flex items-center text-2xl sm:text-3xl font-bold text-askesisPurple font-roboto mb-5 pb-3 border-b-2 border-askesisPurple">
-                            <i class="fas fa-utensils text-3xl mr-4"></i>Pilar #2: Nutrición Inteligente
+                <div id="step-2" class="step-content hidden" style="background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                     <div class="content-wrapper">
+                        <h2 class="flex items-center text-2xl sm:text-3xl font-bold text-askesisPurple font-roboto mb-4 pb-2 border-b-2 border-askesisPurple">
+                            <i class="fas fa-utensils text-3xl mr-3"></i>Pilar #2: Nutrición Inteligente
                         </h2>
-                        
                         <h3 class="pillar-importance-heading"><i class="fas fa-question-circle"></i>¿Por qué es tan importante?</h3>
-                        <div class="text-gray-700 space-y-2 mb-4">
+                        <div class="space-y-2 mb-4">
                             <p>Puedes entrenar como una bestia, pero sin los materiales adecuados, tu cuerpo no podrá construir ni recuperarse. La comida es información para tus células.</p>
                             <ul class="list-disc list-inside pl-4 space-y-1">
                                 <li><strong>Energía:</strong> Carbohidratos y grasas para rendir.</li>
@@ -172,23 +232,20 @@
                                 <li><strong>Salud General:</strong> Vitaminas, minerales y agua son esenciales.</li>
                             </ul>
                         </div>
-
-                        <div class="bg-askesisAccentGreenLight border-l-4 border-askesisGreen p-4 rounded-r-md mt-4">
-                            <p class="font-semibold text-askesisGreenDark"><i class="fas fa-lightbulb mr-2"></i>Tip Rápido Askesis:</p>
-                            <p class="text-askesisGreenDark">Incluye <strong class="font-bold">proteína</strong> en cada comida, no temas a los <strong class="font-bold">carbohidratos</strong> (especialmente pre/post entreno) y bebe <strong class="font-bold">agua</strong>.</p>
+                        <div class="askesis-tip">
+                            <p><i class="fas fa-lightbulb mr-2"></i><strong>Tip Rápido Askesis:</strong> Incluye <strong class="font-bold">proteína</strong> en cada comida, no temas a los <strong class="font-bold">carbohidratos</strong> (especialmente pre/post entreno) y bebe <strong class="font-bold">agua</strong>.</p>
                         </div>
-                        <p class="text-xs text-right italic text-gray-500 mt-4"><i class="fas fa-search-plus mr-1"></i>Aprende cuánto y qué comer con nuestras <strong class="text-askesisOrange">Guías Completas de Nutrición</strong>.</p>
+                        <p class="text-xs text-right italic text-gray-500 mt-3"><i class="fas fa-search-plus mr-1"></i>Aprende cuánto y qué comer con nuestras <strong class="text-askesisOrange">Guías Completas de Nutrición</strong>.</p>
                     </div>
                 </div>
 
-                <div id="step-3" class="step-content hidden">
-                    <div class="pillar-card bg-white p-6 rounded-lg border border-askesisBorderLight shadow-lg">
-                        <h2 class="flex items-center text-2xl sm:text-3xl font-bold text-askesisPurple font-roboto mb-5 pb-3 border-b-2 border-askesisPurple">
-                            <i class="fas fa-bed text-3xl mr-4"></i>Pilar #3: Recuperación Activa
+                <div id="step-3" class="step-content hidden" style="background-image: url('https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                    <div class="content-wrapper">
+                        <h2 class="flex items-center text-2xl sm:text-3xl font-bold text-askesisPurple font-roboto mb-4 pb-2 border-b-2 border-askesisPurple">
+                            <i class="fas fa-bed text-3xl mr-3"></i>Pilar #3: Recuperación Activa
                         </h2>
-                        
                         <h3 class="pillar-importance-heading"><i class="fas fa-question-circle"></i>¿Por qué es tan importante?</h3>
-                        <div class="text-gray-700 space-y-2 mb-4">
+                        <div class="space-y-2 mb-4">
                             <p>El músculo NO crece mientras entrenas, ¡crece mientras descansas! Ignorar la recuperación es como plantar una semilla y no regarla.</p>
                             <ul class="list-disc list-inside pl-4 space-y-1">
                                 <li><strong>Reparación Muscular:</strong> El cuerpo repara micro-lesiones.</li>
@@ -197,30 +254,30 @@
                                 <li><strong>Salud Mental y Hormonal:</strong> Regula hormonas y mejora ánimo.</li>
                             </ul>
                         </div>
-                        
-                        <div class="bg-askesisAccentGreenLight border-l-4 border-askesisGreen p-4 rounded-r-md mt-4">
-                            <p class="font-semibold text-askesisGreenDark"><i class="fas fa-lightbulb mr-2"></i>Tip Rápido Askesis:</p>
-                            <p class="text-askesisGreenDark">¡Duerme! Prioriza <strong>7-9 horas de sueño de calidad</strong>. Es la herramienta de recuperación más potente y gratuita.</p>
+                        <div class="askesis-tip">
+                            <p><i class="fas fa-lightbulb mr-2"></i><strong>Tip Rápido Askesis:</strong> ¡Duerme! Prioriza <strong>7-9 horas de sueño de calidad</strong>. Es la herramienta de recuperación más potente y gratuita.</p>
                         </div>
-                        <p class="text-xs text-right italic text-gray-500 mt-4"><i class="fas fa-search-plus mr-1"></i>Descubre más sobre sueño y estrés en nuestras <strong class="text-askesisOrange">Guías Detalladas de Recuperación</strong>.</p>
+                        <p class="text-xs text-right italic text-gray-500 mt-3"><i class="fas fa-search-plus mr-1"></i>Descubre más sobre sueño y estrés en nuestras <strong class="text-askesisOrange">Guías Detalladas de Recuperación</strong>.</p>
                     </div>
                 </div>
 
-                <div id="step-4" class="step-content hidden">
-                    <h2 class="flex items-center text-2xl sm:text-3xl font-bold text-askesisBlue font-roboto mb-5 pb-3 border-b-2 border-askesisBlue">
-                        <i class="fas fa-check-double text-3xl mr-4"></i>La Diferencia Askesis
-                    </h2>
-                    <div class="space-y-4 text-lg text-askesisTextDark">
-                        <p>Conocer estos pilares es genial, pero la verdadera clave está en <strong>integrarlos de forma inteligente y personalizada</strong>.</p>
-                        <p>¿Cómo se combinan la técnica, la nutrición y la recuperación en un plan estructurado (periodización) que se adapte a TUS objetivos, TU vida y TU cuerpo? Ahí es donde entra en juego el enfoque <strong class="font-bold text-askesisBlue">Askesis</strong>. No ofrecemos soluciones genéricas, sino planes detallados y basados en ciencia, adaptados a ti.</p>
+                <div id="step-4" class="step-content hidden" style="background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                    <div class="content-wrapper">
+                        <h2 class="flex items-center text-2xl sm:text-3xl font-bold text-askesisBlue font-roboto mb-4 pb-2 border-b-2 border-askesisBlue">
+                            <i class="fas fa-check-double text-3xl mr-3"></i>La Diferencia Askesis
+                        </h2>
+                        <div class="space-y-3 text-lg">
+                            <p>Conocer estos pilares es genial, pero la verdadera clave está en <strong>integrarlos de forma inteligente y personalizada</strong>.</p>
+                            <p>¿Cómo se combinan la técnica, la nutrición y la recuperación en un plan estructurado (periodización) que se adapte a TUS objetivos, TU vida y TU cuerpo? Ahí es donde entra en juego el enfoque <strong class="font-bold text-askesisBlue">Askesis</strong>. No ofrecemos soluciones genéricas, sino planes detallados y basados en ciencia, adaptados a ti.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div id="step-5" class="step-content hidden">
-                    <div class="bg-askesisAccentBlueLight p-6 sm:p-8 rounded-lg border border-askesisBlue shadow-xl text-center">
-                        <h2 class="text-2xl sm:text-3xl font-bold text-askesisBlue font-roboto mb-4">¿Hoja de Ruta Completa?</h2>
-                        <p class="text-askesisTextDark text-lg mb-6">Esta guía gratuita te da las bases. Si estás listo/a para ver resultados reales y sostenibles con un plan diseñado científicamente para ti, explora nuestras guías completas y servicios.</p>
-                        <p class="text-askesisTextDark font-semibold text-lg mb-6">Invierte en tu conocimiento, invierte en ti.</p>
+                <div id="step-5" class="step-content hidden" style="background-image: url('https://images.pexels.com/photos/3253501/pexels-photo-3253501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                    <div class="content-wrapper text-center">
+                        <h2 class="text-2xl sm:text-3xl font-bold text-askesisBlue font-roboto mb-3">¿Hoja de Ruta Completa?</h2>
+                        <p class="text-lg mb-4">Esta guía gratuita te da las bases. Si estás listo/a para ver resultados reales y sostenibles con un plan diseñado científicamente para ti, explora nuestras guías completas y servicios.</p>
+                        <p class="font-semibold text-lg mb-5">Invierte en tu conocimiento, invierte en ti.</p>
                         <a href="https://www.instagram.com/askesis111" target="_blank" class="inline-block bg-askesisOrange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 animate-pulse-subtle">
                             <i class="fas fa-graduation-cap mr-2"></i>Ver Guías y Servicios Askesis
                         </a>
@@ -265,30 +322,37 @@
                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Visitar Instagram" class="hover:text-askesisPurple transition-colors"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Visita nuestro canal de YouTube: OmniaInBonum111" class="hover:text-red-500 transition-colors"><i class="fab fa-youtube"></i></a>
             </div>
-             <p class="text-xs text-gray-400">© <span id="current-year"></span> Askesis. Todos los derechos reservados.</p>
+             <p class="text-xs text-gray-400">© <span id="current-year-pilares"></span> Askesis. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const steps = document.querySelectorAll('#steps-container-pilares .step-content');
-            const prevButton = document.getElementById('prev-button-pilares');
-            const nextButton = document.getElementById('next-button-pilares');
-            const stepIndicator = document.getElementById('step-indicator-pilares');
-            const progressBar = document.getElementById('progress-bar-pilares');
-            const navigationButtonsContainer = document.getElementById('navigation-buttons-pilares');
-            const completionContainer = document.getElementById('completion-container-pilares');
-            const restartButton = document.getElementById('restart-button-pilares');
+            const guideContainer = document.getElementById('interactive-guide-pilares');
+            if (!guideContainer) return; 
+
+            const steps = guideContainer.querySelectorAll('#steps-container-pilares .step-content');
+            const prevButton = guideContainer.querySelector('#prev-button-pilares');
+            const nextButton = guideContainer.querySelector('#next-button-pilares');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-pilares');
+            const progressBar = guideContainer.querySelector('#progress-bar-pilares');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-pilares');
+            const completionContainer = guideContainer.querySelector('#completion-container-pilares');
+            const restartButton = guideContainer.querySelector('#restart-button-pilares');
+            const yearSpan = guideContainer.querySelector('#current-year-pilares'); // Unique ID for this guide's year
             
             let currentStep = 0;
             const totalSteps = steps.length;
 
-            // Update current year in footer
-            const yearSpan = document.getElementById('current-year');
             if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
             function updateStepDisplay() {
-                steps.forEach((step, index) => {
+                if (!steps.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de pilares no se encontraron.");
+                    return;
+                }
+
+                steps.forEach((step) => {
                     step.classList.add('hidden');
                 });
 
@@ -297,7 +361,7 @@
                 }
                 
                 stepIndicator.textContent = `Paso ${currentStep + 1} de ${totalSteps}`;
-                const progressPercentage = ((currentStep + 1) / totalSteps) * 100;
+                const progressPercentage = totalSteps > 0 ? ((currentStep + 1) / totalSteps) * 100 : 0;
                 progressBar.style.width = `${progressPercentage}%`;
 
                 prevButton.disabled = currentStep === 0;
@@ -312,34 +376,39 @@
                     completionContainer.classList.add('hidden');
                 }
                 
-                const guideElement = document.getElementById('interactive-guide-pilares');
-                if(guideElement) {
-                    guideElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                guideContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
 
-            nextButton.addEventListener('click', () => {
-                if (currentStep < totalSteps - 1) {
-                    currentStep++;
-                    updateStepDisplay();
-                }
-            });
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentStep < totalSteps - 1) {
+                        currentStep++;
+                        updateStepDisplay();
+                    }
+                });
+            }
 
-            prevButton.addEventListener('click', () => {
-                if (currentStep > 0) {
-                    currentStep--;
-                    updateStepDisplay();
-                }
-            });
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentStep > 0) {
+                        currentStep--;
+                        updateStepDisplay();
+                    }
+                });
+            }
 
-            restartButton.addEventListener('click', () => {
-                currentStep = 0;
-                // No need to handle closing details elements anymore
-                updateStepDisplay();
-            });
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentStep = 0;
+                    updateStepDisplay();
+                });
+            }
             
-            // Initialize
-            updateStepDisplay();
+            if (totalSteps > 0) {
+                updateStepDisplay();
+            } else {
+                console.warn("Advertencia: No se encontraron pasos en la guía de pilares.");
+            }
         });
     </script>
 </body>
