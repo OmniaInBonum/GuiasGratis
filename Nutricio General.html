@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Nutrición Deportiva Completa</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Nutrición Deportiva para optimizar el rendimiento y la recuperación, basada en ciencia.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C', // Azul más corporativo
+                        'askesis-green': '#008037', // Verde más corporativo
+                        'askesis-orange': '#F58220', // Naranja corporativo
+                        'askesis-purple': '#6f42c1', // Morado principal para esta guía
+                        'askesis-red': '#dc3545',
+                        'askesis-text-dark': '#343a40',
+                        'askesis-text-body': '#495057',
+                        'askesis-text-light-header': '#e9d8fd', // Texto claro para header morado
+                        'askesis-bg-light': '#f8f9fa',
+                        'askesis-accent-purple-light': '#f1eafa',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Lato', 'sans-serif';
+            color: var(--askesis-text-body);
+            background-color: var(--askesis-bg-light);
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 136px); /* Ajusta según altura header + nav (ej. 60px + 76px) */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+
+        .step-slide::before { /* Overlay para contraste */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.55); /* Overlay oscuro, ajustable */
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(255, 255, 255, 0.9); /* Caja de contenido clara y semitransparente */
+            padding: 1.5rem 2rem; /* p-6 sm:p-8 */
+            border-radius: 0.75rem; /* rounded-xl */
+            max-width: 800px; 
+            width: 90%;
+            margin: auto;
+            color: var(--askesis-text-dark);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            max-height: calc(100vh - 200px); /* Limitar altura y permitir scroll interno */
+            overflow-y: auto; /* Scroll si el contenido es muy largo */
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2, .slide-content-wrapper h3,
+        .slide-content-wrapper h4, .slide-content-wrapper h5,
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: inherit; /* Hereda de .slide-content-wrapper */
+            text-align: left; /* Alineación izquierda para mejor lectura del contenido principal */
+        }
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            text-align: center; /* Títulos principales centrados */
+        }
+         .slide-content-wrapper h2 i { margin-right: 0.5rem; }
+
+        .sticky-nav { position: sticky; top: 0; z-index: 50; }
+        .sticky-nav-secondary { position: sticky; top: 60px; /* Ajustar a altura del header */ z-index: 49; }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        /* Estilos específicos para elementos de la guía de nutrición */
+        .slide-content-wrapper .guide-section-title { /* Para H2 */
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-purple);
+            font-size: 1.8em; /* Tailwind text-2xl o text-3xl */
+            margin-bottom: 1rem; /* mb-4 */
+            padding-bottom: 0.5rem; /* pb-2 */
+            border-bottom: 2px solid var(--askesis-border-light, #dee2e6);
+        }
+        .slide-content-wrapper .guide-subsection-title { /* Para H3 */
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-blue);
+             font-size: 1.4em; /* text-xl o text-2xl */
+             margin-top: 1.25rem; /* mt-5 */
+             margin-bottom: 0.75rem; /* mb-3 */
+             padding-bottom: 0.4rem; /* pb-1.5 */
+             border-bottom: 1px dashed var(--askesis-border-light, #dee2e6);
+        }
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+             background-color: var(--askesis-accent-orange-light, #fff3e0);
+             padding: 1px 4px;
+             border-radius: 3px;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 4px; padding: 1rem; margin: 1.25rem 0; border-radius: 0 0.25rem 0.25rem 0; font-size: 0.95em;
+        }
+        .slide-content-wrapper .info-box { background-color: #e7f3fe; border-left-color: #005A9C; color: #343a40;}
+        .slide-content-wrapper .warning-box { background-color: #f8d7da; border-left-color: #dc3545; color: #721c24;}
+        .slide-content-wrapper .tip-box { background-color: #e6f2e9; border-left-color: #008037; color: #155724;}
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { font-family: 'Roboto'; font-size: 1.1em; display: block; margin-bottom: 0.5rem;}
+
+
+    </style>
+</head>
+
+<body class="bg-askesis-bg-light">
+
+    <header class="bg-askesis-purple text-white text-center py-3 shadow-md sticky-nav">
+        <div class="container mx-auto">
+            <div class="font-roboto text-2xl font-bold tracking-widest">ASKESIS</div>
+            <div class="text-sm italic text-askesis-text-light-header font-lato">Ciencia aplicada al movimiento</div>
+        </div>
+    </header>
+
+    <nav id="main-nav-nutricion" class="bg-askesis-text-dark shadow-md sticky-nav-secondary">
+        <ul class="container mx-auto flex flex-wrap justify-center p-2 text-xs sm:text-sm">
+            <li><a href="#slide-nutricion-0" class="nav-link-nutricion text-gray-200 hover:bg-askesis-purple hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Intro</a></li>
+            <li><a href="#slide-nutricion-1" class="nav-link-nutricion text-gray-200 hover:bg-askesis-purple hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Macros</a></li>
+            <li><a href="#slide-nutricion-2" class="nav-link-nutricion text-gray-200 hover:bg-askesis-purple hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Micros</a></li>
+            <li><a href="#slide-nutricion-3" class="nav-link-nutricion text-gray-200 hover:bg-askesis-purple hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Timing</a></li>
+            <li><a href="#slide-nutricion-4" class="nav-link-nutricion text-gray-200 hover:bg-askesis-purple hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Hidratación</a></li>
+            <li><a href="#slide-nutricion-5" class="nav-link-nutricion text-gray-200 hover:bg-askesis-purple hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Suples</a></li>
+            <li><a href="#slide-nutricion-6" class="nav-link-nutricion text-gray-200 hover:bg-askesis-purple hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Objetivos</a></li>
+            <li><a href="#slide-nutricion-7" class="nav-link-nutricion text-gray-200 hover:bg-askesis-purple hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Ejemplos</a></li>
+            <li><a href="#slide-nutricion-8" class="nav-link-nutricion text-gray-200 hover:bg-askesis-purple hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Errores</a></li>
+            <li><a href="#slide-nutricion-9" class="nav-link-nutricion text-gray-200 hover:bg-askesis-purple hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Conclusión</a></li>
+            <li><a href="#slide-nutricion-10" class="nav-link-nutricion text-gray-200 hover:bg-askesis-purple hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Glosario</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-nutricion">
+        <div id="step-indicator-nutricion" class="text-center my-4 text-lg font-semibold text-askesis-purple font-nunito"></div>
+        <div class="w-11/12 mx-auto bg-gray-300 rounded-full h-2.5 mb-6">
+            <div id="progress-bar-nutricion" class="bg-gradient-to-r from-askesis-green to-askesis-purple h-2.5 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        </div>
+
+        <div id="slides-container-nutricion">
+            <section id="slide-nutricion-0" class="step-slide" style="background-image: url('https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h1 class="guide-section-title text-3xl sm:text-4xl"><i class="fas fa-utensils"></i>Nutrición Deportiva: El Combustible para tu Motor</h1>
+                    <p class="mb-3">Si el entrenamiento es el estímulo y el descanso la reparación, la <strong>nutrición</strong> es el combustible y los materiales que hacen posible todo el proceso. Es indispensable para:</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
+                        <li>Proporcionar <strong>energía</strong> para entrenar.</li>
+                        <li>Suministrar <strong>nutrientes</strong> para reparar y construir tejidos.</li>
+                        <li>Optimizar la <strong>recuperación</strong>.</li>
+                        <li>Mantener un <strong>sistema inmunológico</strong> fuerte.</li>
+                        <li>Regular procesos metabólicos y hormonales.</li>
+                        <li>Alcanzar una <strong>composición corporal</strong> óptima.</li>
+                    </ul>
+                    <div class="info-box mt-4">
+                        <strong><i class="fas fa-balance-scale"></i> Nutrición Personalizada:</strong>
+                        <p class="text-sm">Principios generales aquí. Para un plan a tu medida, consulta un profesional.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-nutricion-1" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-cubes"></i>Macronutrientes: Los Grandes Bloques</h2>
+                    <p class="mb-4">Son los nutrientes que necesitamos en mayores cantidades y que proporcionan energía y estructura.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-bread-slice"></i> Carbohidratos</h3>
+                    <p class="text-sm mb-1"><strong>Función:</strong> Energía <strong class="highlight">preferida y más eficiente</strong> para ejercicio moderado/alto. Se almacenan como glucógeno.</p>
+                    <p class="text-sm mb-2"><strong>Importancia:</strong> Mantienen glucosa, retrasan fatiga, preservan proteína, cruciales para recuperación.</p>
+
+                    <h3 class="guide-subsection-title"><i class="fas fa-drumstick-bite"></i> Proteínas</h3>
+                    <p class="text-sm mb-1"><strong>Función:</strong> ¡Ladrillos para construir y reparar! Esenciales para <strong class="highlight">reparación muscular</strong>, hipertrofia, hormonas, enzimas, sistema inmune.</p>
+                    <p class="text-sm mb-2"><strong>Importancia:</strong> Adaptación al entreno, recuperación, previene pérdida muscular.</p>
+
+                    <h3 class="guide-subsection-title"><i class="fas fa-avocado"></i> Grasas</h3>
+                    <p class="text-sm mb-1"><strong>Función:</strong> Energía densa (ejercicio <strong class="highlight">baja intensidad/larga duración</strong>), absorción vitaminas, producción hormonas.</p>
+                    <p class="text-sm"><strong>Importancia:</strong> Salud general y hormonal. Priorizar insaturadas.</p>
+                </div>
+            </section>
+
+            <section id="slide-nutricion-2" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/139259/pexels-photo-139259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-pills"></i>Micronutrientes: Vitaminas y Minerales</h2>
+                    <p class="mb-3">Cruciales para metabolismo, energía, función inmune, salud ósea y reparación celular. Atletas pueden tener requerimientos aumentados.</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm sm:text-base mb-3">
+                        <li><strong>Complejo B:</strong> Metabolismo energético.</li>
+                        <li><strong>Vitamina D:</strong> Salud ósea, función muscular/inmune.</li>
+                        <li><strong>Hierro:</strong> Transporte de oxígeno.</li>
+                        <li><strong>Calcio:</strong> Salud ósea, contracción muscular.</li>
+                        <li><strong>Zinc y Magnesio:</strong> Función inmune, reparación, energía.</li>
+                    </ul>
+                     <div class="tip-box">
+                        <strong><i class="fas fa-apple-alt"></i> Prioriza Alimentos Reales:</strong>
+                        <p class="text-sm">Una <strong class="highlight">dieta variada</strong> (frutas, verduras, integrales, proteínas magras, grasas saludables) es la mejor fuente. Suplementos solo si hay deficiencia.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-nutricion-3" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-stopwatch-20"></i>Timing Nutricional: ¿Cuándo Comer?</h2>
+                    <p class="mb-4">El momento de ingesta puede influir en rendimiento, recuperación y adaptaciones.</p>
+                    
+                    <h3 class="guide-subsection-title text-sm sm:text-base"><i class="fas fa-hourglass-start"></i> Antes del Ejercicio (Pre-Entreno)</h3>
+                    <p class="text-xs sm:text-sm mb-2"><strong>Objetivo:</strong> Optimizar glucógeno, glucosa estable, prevenir hambre. Comida principal (2-4h antes): <strong class="highlight">carbs complejos</strong>, mod. proteína, baja grasa/fibra. Snack (30-60min antes): <strong class="highlight">carbs rápidos</strong>.</p>
+
+                    <h3 class="guide-subsection-title text-sm sm:text-base"><i class="fas fa-hourglass-half"></i> Durante el Ejercicio (Intra-Entreno)</h3>
+                    <p class="text-xs sm:text-sm mb-2"><strong>Objetivo:</strong> Mantener glucosa, reponer fluidos/electrolitos. Si >60-90min (alta intensidad): <strong class="highlight">30-60g+ carbs/hora</strong>.</p>
+
+                    <h3 class="guide-subsection-title text-sm sm:text-base"><i class="fas fa-hourglass-end"></i> Después del Ejercicio (Post-Entreno)</h3>
+                    <p class="text-xs sm:text-sm"><strong>Objetivo:</strong> Reponer glucógeno, reparar músculo, estimular síntesis proteica. <strong class="highlight">Proteínas (20-40g)</strong> y <strong class="highlight">carbs (0.8-1.2g/kg)</strong> dentro de 1-3h post-ejercicio intenso.</p>
+                </div>
+            </section>
+
+            <section id="slide-nutricion-4" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/2775030/pexels-photo-2775030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                     <h2 class="guide-section-title"><i class="fas fa-tint"></i>Hidratación: El Lubricante Esencial</h2>
+                    <p class="mb-3">Una nutrición óptima no sirve de mucho si estás deshidratado. Es crucial para:</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm sm:text-base mb-3">
+                        <li>Regulación de la temperatura corporal.</li>
+                        <li>Transporte de nutrientes y oxígeno.</li>
+                        <li>Función cognitiva y rendimiento físico.</li>
+                        <li>Lubricación articular.</li>
+                    </ul>
+                    <p class="text-sm sm:text-base">Planifica tu ingesta <strong class="highlight">antes, durante y después</strong> del ejercicio. Considera <strong class="highlight">electrolitos</strong> en sesiones largas o con mucha sudoración.</p>
+                    <div class="info-box mt-4">
+                        <strong><i class="fas fa-link"></i> Revisa la Guía Completa:</strong>
+                        <p class="text-sm">Para estrategias detalladas, consulta nuestra guía específica de hidratación.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-nutricion-5" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/4114014/pexels-photo-4114014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-capsules"></i>Suplementación Deportiva: ¿Realidad o Mito?</h2>
+                    <p class="mb-3">Bases primero: entreno, nutrición, descanso, hidratación. Pocos suplementos tienen evidencia sólida.</p>
+                    <p class="font-semibold text-askesis-green mb-1">Mayor evidencia:</p>
+                    <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm mb-3">
+                        <li><strong>Creatina Monohidrato:</strong> Rendimiento alta intensidad, fuerza, masa muscular.</li>
+                        <li><strong>Cafeína:</strong> Alerta, reduce percepción esfuerzo, rendimiento.</li>
+                        <li><strong>Proteína en Polvo:</strong> Conveniencia para ingesta proteica.</li>
+                        <li><strong>Beta-Alanina:</strong> Retrasa fatiga (ejercicios 1-4 min).</li>
+                        <li><strong>Nitrato (Zumo Remolacha):</strong> Flujo sanguíneo, eficiencia muscular.</li>
+                    </ul>
+                     <div class="warning-box">
+                        <strong><i class="fas fa-exclamation-triangle"></i> ¡Precaución y Calidad!</strong>
+                        <p class="text-sm">Consulta un profesional. Elige marcas reputadas con certificaciones.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-nutricion-6" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/669584/pexels-photo-669584.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-bullseye"></i>Adaptación Nutricional a tus Objetivos</h2>
+                    <p class="mb-3">La estrategia nutricional debe ajustarse a tus metas:</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
+                        <li><strong>Rendimiento (Resistencia):</strong> Priorizar alta ingesta de <strong class="highlight">carbohidratos</strong>, proteínas adecuadas, grasas saludables, hidratación/electrolitos.</li>
+                        <li><strong>Hipertrofia (Músculo):</strong> <strong class="highlight">Superávit calórico</strong> moderado, alta <strong class="highlight">proteína</strong> (1.6-2.2 g/kg), suficientes carbs y grasas.</li>
+                        <li><strong>Pérdida de Grasa:</strong> <strong class="highlight">Déficit calórico</strong> controlado. Mantener alta <strong class="highlight">proteína</strong> (>2.2 g/kg útil) para preservar músculo.</li>
+                        <li><strong>Fuerza/Potencia:</strong> Calorías de mantenimiento o ligero superávit, alta <strong class="highlight">proteína</strong>, suficientes carbs. Creatina útil.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-nutricion-7" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/3253498/pexels-photo-3253498.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2 class="guide-section-title"><i class="fas fa-dumbbell"></i>Ejemplos: Conectando Entreno y Nutrición</h2>
+                    
+                    <h3 class="guide-subsection-title text-base sm:text-lg"><i class="fas fa-shoe-prints"></i> Día de Piernas (Hipertrofia)</h3>
+                    <p class="text-xs sm:text-sm mb-2">Un entreno demandante necesita buen soporte nutricional. Foco: <strong class="highlight">pre-entreno rico en carbs</strong>, <strong class="highlight">post-entreno con proteína y carbs</strong>. Superávit calórico ligero y alta proteína diaria.</p>
+                    <h3 class="guide-subsection-title text-base sm:text-lg mt-3"><i class="fas fa-calendar-alt"></i> Nutrición para Mesociclos (4-6 sem)</h3>
+                    <div class="text-xs sm:text-sm space-y-2">
+                        <p><strong>Hipertrofia:</strong> Superávit calórico (250-500 kcal+), Proteína alta (1.6-2.2g/kg), Carbs adecuados (4-7g/kg).</p>
+                        <p><strong>Fuerza Máxima:</strong> Mantenimiento o ligero superávit. Proteína alta (1.6-2g/kg), Carbs suficientes (3-6g/kg). Creatina útil.</p>
+                        <p><strong>Resistencia Muscular:</strong> Carbs elevados (5-8g/kg). Hidratación clave. Beta-Alanina puede ayudar.</p>
+                        <p><strong>Descarga (Deload):</strong> Calorías de mantenimiento. Proteína adecuada (1.6g/kg). Foco en calidad nutricional.</p>
+                    </div>
+                     <div class="tip-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Sinergia Nutrición-Entrenamiento:</strong>
+                        <p class="text-sm">Adapta la nutrición a las demandas de cada fase para maximizar adaptaciones.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-nutricion-8" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/6153690/pexels-photo-6153690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title !text-askesis-red !border-askesis-red"><i class="fas fa-times-circle"></i>Errores Comunes a Evitar</h2>
+                    <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
+                        <li>Subestimar calorías totales.</li>
+                        <li>Miedo a los carbohidratos.</li>
+                        <li>Ingesta insuficiente de proteínas.</li>
+                        <li>Descuidar la hidratación.</li>
+                        <li>Timing incorrecto o inexistente.</li>
+                        <li>Confiar excesivamente en suplementos.</li>
+                        <li>Eliminar grupos de alimentos innecesariamente.</li>
+                        <li>No escuchar al cuerpo.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-nutricion-9" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/5327537/pexels-photo-5327537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title !text-askesis-green !border-askesis-green"><i class="fas fa-flag-checkered"></i>Conclusión: Nutre tu Potencial</h2>
+                    <p class="mb-3">La nutrición deportiva es una ciencia compleja pero fundamental. Entender sus principios te permitirá tomar decisiones informadas.</p>
+                    <p class="mb-3"><strong class="highlight">No existe una dieta única perfecta</strong>, pero los principios de una alimentación equilibrada, adaptada y consistente son la base del éxito.</p>
+                    <p class="font-semibold text-askesis-red">¡Alimenta tu cuerpo correctamente y liberarás tu verdadero potencial!</p>
+                </div>
+            </section>
+
+            <section id="slide-nutricion-10" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/268030/pexels-photo-268030.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]"> <h2 class="guide-section-title"><i class="fas fa-book"></i>Glosario de Términos</h2>
+                    <dl class="text-xs sm:text-sm">
+                        <dt class="font-bold text-askesis-blue mt-2">Anabolismo:</dt><dd class="ml-4">Procesos que construyen moléculas.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Balance Energético:</dt><dd class="ml-4">Relación calorías consumidas vs. gastadas.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Creatina:</dt><dd class="ml-4">Compuesto para energía en esfuerzos cortos/intensos.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Glucógeno:</dt><dd class="ml-4">Almacenamiento de glucosa en hígado/músculos.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Hipertrofia:</dt><dd class="ml-4">Aumento del tamaño de fibras musculares.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Macronutrientes:</dt><dd class="ml-4">Carbs, proteínas, grasas.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Micronutrientes:</dt><dd class="ml-4">Vitaminas y minerales.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Periodización:</dt><dd class="ml-4">Organización planificada del entrenamiento.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">RIR:</dt><dd class="ml-4">Repeticiones en Reserva.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">SPM:</dt><dd class="ml-4">Síntesis de Proteínas Musculares.</dd>
+                        </dl>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-nutricion" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4">
+            <button id="prev-button-nutricion" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-nutricion" class="w-full sm:w-auto bg-askesis-purple hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-nutricion" class="hidden my-8 text-center">
+            <button id="restart-button-nutricion" class="bg-askesis-orange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nutrición de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="bg-askesis-text-dark text-gray-300 py-10 px-4 text-center">
+        <div class="container mx-auto">
+            <div class="font-roboto text-2xl font-bold text-white mb-2">ASKESIS</div>
+            <div class="mb-3">
+                 <p class="font-semibold text-lg">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm text-gray-400">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="flex justify-center space-x-4 mb-4">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guia%20Nutricion%20Askesis" target="_blank" class="text-gray-400 hover:text-askesis-blue transition-colors"><i class="fas fa-envelope fa-lg"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20nutrición." target="_blank" class="text-gray-400 hover:text-green-500 transition-colors"><i class="fab fa-whatsapp fa-lg"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" class="text-gray-400 hover:text-purple-400 transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" class="text-gray-400 hover:text-red-600 transition-colors">
+                    <i class="fab fa-youtube fa-lg"></i>
+                 </a>
+            </div>
+            <p class="text-sm text-gray-500">© <span id="currentYearFooterNutricion"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const guideContainer = document.getElementById('interactive-presentation-container-nutricion');
+            if (!guideContainer) return; 
+
+            const slides = guideContainer.querySelectorAll('#slides-container-nutricion .step-slide');
+            const prevButton = guideContainer.querySelector('#prev-button-nutricion');
+            const nextButton = guideContainer.querySelector('#next-button-nutricion');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-nutricion');
+            const progressBar = guideContainer.querySelector('#progress-bar-nutricion');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-nutricion');
+            const completionContainer = guideContainer.querySelector('#completion-container-nutricion');
+            const restartButton = guideContainer.querySelector('#restart-button-nutricion');
+            const yearSpan = document.getElementById('currentYearFooterNutricion');
+            const navLinks = document.querySelectorAll('#main-nav-nutricion .nav-link-nutricion');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de nutrición no se encontraron.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    if (index === currentSlide) {
+                        slide.classList.remove('hidden');
+                    } else {
+                        slide.classList.add('hidden');
+                    }
+                });
+                
+                stepIndicator.textContent = `Paso ${currentSlide + 1} de ${totalSlides}`;
+                const progressPercentage = totalSlides > 0 ? ((currentSlide + 1) / totalSlides) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                    navigationButtonsContainer.classList.add('sm:justify-start'); 
+                    navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-center');
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                    navigationButtonsContainer.classList.remove('sm:justify-start');
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                     if(currentSlide === 0) { 
+                        navigationButtonsContainer.classList.remove('sm:justify-between');
+                        navigationButtonsContainer.classList.add('sm:justify-end'); 
+                    } else {
+                        navigationButtonsContainer.classList.remove('sm:justify-end');
+                        navigationButtonsContainer.classList.add('sm:justify-between');
+                    }
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = document.getElementById(`slide-nutricion-${currentSlide}`);
+                    if (targetSlideElement) {
+                        const mainNav = document.getElementById('main-nav-nutricion');
+                        if (mainNav) {
+                            mainNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => {
+                                targetSlideElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }, 150); 
+                        } else {
+                             targetSlideElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                }
+                navLinks.forEach(link => {
+                    link.classList.remove('bg-askesis-purple', 'text-white');
+                    link.classList.add('text-gray-200');
+                    if (link.getAttribute('href') === `#slide-nutricion-${currentSlide}`) {
+                        link.classList.add('bg-askesis-purple', 'text-white');
+                        link.classList.remove('text-gray-200');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = Array.from(slides).findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(false); 
+                         const targetElement = document.getElementById(targetId);
+                        if(targetElement) {
+                            const mainNav = document.getElementById('main-nav-nutricion');
+                            if (mainNav) {
+                                mainNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                setTimeout(() => {
+                                     targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                }, 150);
+                            } else {
+                                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        }
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de nutrición.");
+            }
+        });
+    </script>
+
+</body>
+</html>
