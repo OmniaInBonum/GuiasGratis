@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - La Importancia del Sueño</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre la importancia del sueño para el rendimiento deportivo y la recuperación, basada en ciencia.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037', // Color principal para esta guía
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#dc3545',
+                        'askesis-text-dark': '#343a40',
+                        'askesis-text-body': '#495057',
+                        'askesis-text-light-header': '#e0f2e0', // Texto claro para header verde
+                        'askesis-bg-light': '#f8f9fa',
+                        'askesis-accent-green-light': '#e6f2e9',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Lato', 'sans-serif';
+            color: var(--askesis-text-body);
+            background-color: var(--askesis-bg-light);
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 136px); /* Ajusta según altura header + nav */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+
+        .step-slide::before { /* Overlay para contraste */
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.50); /* Overlay oscuro, ajustable */
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: rgba(255, 255, 255, 0.92); /* Caja de contenido clara y semitransparente */
+            padding: 1.5rem 2rem;
+            border-radius: 0.75rem;
+            max-width: 800px; 
+            width: 90%;
+            margin: auto;
+            color: var(--askesis-text-dark);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            overflow-y: visible; /* Para que el contenido se expanda y use el scroll principal */
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2, .slide-content-wrapper h3,
+        .slide-content-wrapper h4, .slide-content-wrapper h5,
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: inherit; 
+            text-align: left; 
+        }
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            text-align: center; 
+        }
+         .slide-content-wrapper h2 i { margin-right: 0.5rem; }
+
+        .sticky-nav { position: sticky; top: 0; z-index: 50; }
+        .sticky-nav-secondary { position: sticky; top: 60px; /* Ajustar a altura del header */ z-index: 49; }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .slide-content-wrapper .guide-section-title { 
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-green); /* Títulos principales en verde para esta guía */
+            font-size: 1.8em; 
+            margin-bottom: 1rem; 
+            padding-bottom: 0.5rem; 
+            border-bottom: 2px solid var(--askesis-border-light, #dee2e6);
+        }
+        .slide-content-wrapper .guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-blue);
+             font-size: 1.4em; 
+             margin-top: 1.25rem; 
+             margin-bottom: 0.75rem; 
+             padding-bottom: 0.4rem; 
+             border-bottom: 1px dashed var(--askesis-border-light, #dee2e6);
+        }
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+             background-color: var(--askesis-accent-orange-light, #fff3e0); 
+             padding: 1px 4px;
+             border-radius: 3px;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 4px; padding: 1rem; margin: 1.25rem 0; border-radius: 0 0.25rem 0.25rem 0; font-size: 0.95em;
+        }
+        
+        :root { /* Definición de variables CSS globales para colores de acento */
+            --askesis-accent-orange-light: #fff3e0;
+            --askesis-accent-blue-light: #e7f3fe;
+            --askesis-border-light: #dee2e6;
+            --askesis-accent-red-light: #f8d7da; /* Añadido para warning-box */
+        }
+        .slide-content-wrapper .info-box { background-color: var(--askesis-accent-blue-light); border-left-color: var(--askesis-blue); color: var(--askesis-text-dark);}
+        .slide-content-wrapper .warning-box { background-color: var(--askesis-accent-red-light); border-left-color: var(--askesis-red); color: #721c24;}
+        .slide-content-wrapper .tip-box { background-color: var(--askesis-accent-green-light); border-left-color: var(--askesis-green); color: #155724;}
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { font-family: 'Roboto'; font-size: 1.1em; display: block; margin-bottom: 0.5rem;}
+    </style>
+</head>
+
+<body class="bg-askesis-bg-light">
+
+    <header class="bg-askesis-green text-white text-center py-3 shadow-md sticky-nav">
+        <div class="container mx-auto">
+            <div class="font-roboto text-2xl font-bold tracking-widest">ASKESIS</div>
+            <div class="text-sm italic text-askesis-text-light-header font-lato">Ciencia aplicada al movimiento</div>
+        </div>
+    </header>
+
+    <nav id="main-nav-sueño" class="bg-askesis-text-dark shadow-md sticky-nav-secondary">
+        <ul class="container mx-auto flex flex-wrap justify-center p-2 text-xs sm:text-sm">
+            <li><a href="#slide-sueño-0" class="nav-link-sueño text-gray-200 hover:bg-askesis-green hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Intro</a></li>
+            <li><a href="#slide-sueño-1" class="nav-link-sueño text-gray-200 hover:bg-askesis-green hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Arquitectura</a></li>
+            <li><a href="#slide-sueño-2" class="nav-link-sueño text-gray-200 hover:bg-askesis-green hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Hormonas</a></li>
+            <li><a href="#slide-sueño-3" class="nav-link-sueño text-gray-200 hover:bg-askesis-green hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Impacto Negativo</a></li>
+            <li><a href="#slide-sueño-4" class="nav-link-sueño text-gray-200 hover:bg-askesis-green hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Consecuencias</a></li>
+            <li><a href="#slide-sueño-5" class="nav-link-sueño text-gray-200 hover:bg-askesis-green hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Estrategias</a></li>
+            <li><a href="#slide-sueño-6" class="nav-link-sueño text-gray-200 hover:bg-askesis-green hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Conclusión</a></li>
+            <li><a href="#slide-sueño-7" class="nav-link-sueño text-gray-200 hover:bg-askesis-green hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Glosario</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-sueño">
+        <div id="step-indicator-sueño" class="text-center my-4 text-lg font-semibold text-askesis-green font-nunito"></div>
+        <div class="w-11/12 mx-auto bg-gray-300 rounded-full h-2.5 mb-6">
+            <div id="progress-bar-sueño" class="bg-gradient-to-r from-askesis-blue to-askesis-green h-2.5 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        </div>
+
+        <div id="slides-container-sueño">
+            <section id="slide-sueño-0" class="step-slide" style="background-image: url('https://images.pexels.com/photos/3771069/pexels-photo-3771069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h1 class="guide-section-title text-3xl sm:text-4xl"><i class="fas fa-bed"></i>El Pilar Olvidado del Rendimiento</h1>
+                    <p class="mb-3">En la búsqueda del máximo rendimiento, a menudo nos centramos en entrenamiento y nutrición, olvidando un pilar fundamental: <strong>el sueño</strong>. No es inactividad, sino un proceso biológico activo esencial para la recuperación física y mental.</p>
+                    <p class="mb-2">Optimizar el sueño es una <strong class="highlight">necesidad estratégica</strong> para:</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
+                        <li>Maximizar adaptaciones al entrenamiento.</li>
+                        <li>Acelerar la recuperación.</li>
+                        <li>Mejorar rendimiento deportivo.</li>
+                        <li>Reducir riesgo de lesiones y enfermedades.</li>
+                        <li>Mantener equilibrio hormonal.</li>
+                    </ul>
+                    <div class="info-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> El Sueño como Inversión:</strong>
+                        <p class="text-sm">Considera las horas de sueño una inversión directa en tus resultados. Descuidarlo puede sabotear el mejor plan.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-sueño-1" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/935777/pexels-photo-935777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-layer-group"></i>Arquitectura del Sueño: ¿Qué Pasa?</h2>
+                    <p class="mb-3">Ciclamos a través de fases <strong>No REM (NREM)</strong> y <strong>REM</strong>.</p>
+                    <h3 class="guide-subsection-title text-sm sm:text-base"><i class="fas fa-moon"></i> Sueño No REM (NREM)</h3>
+                    <p class="text-xs sm:text-sm mb-1"><strong>Etapa 3 (Sueño Profundo):</strong> ¡Crucial para recuperación física!</p>
+                    <ul class="list-disc list-inside pl-4 text-xs sm:text-sm">
+                        <li>Máxima secreción de <strong class="highlight">Hormona del Crecimiento (GH)</strong>.</li>
+                        <li>Reparación celular y tisular.</li>
+                        <li>Restauración energética.</li>
+                        <li>Fortalecimiento del sistema inmune.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title text-sm sm:text-base mt-3"><i class="fas fa-brain"></i> Sueño REM</h3>
+                    <p class="text-xs sm:text-sm mb-1">Alta actividad cerebral. Fundamental para:</p>
+                    <ul class="list-disc list-inside pl-4 text-xs sm:text-sm">
+                        <li>Consolidación de memoria y aprendizaje (habilidades motoras).</li>
+                        <li>Regulación emocional y restauración mental.</li>
+                    </ul>
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-sync-alt"></i> Ciclos de Sueño:</strong>
+                        <p class="text-sm">4-6 ciclos/noche (90-110 min c/u). NREM profundo al inicio, REM al final.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-sueño-2" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/5699456/pexels-photo-5699456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-vial"></i>Impacto Hormonal del Sueño: Regulador Maestro</h2>
+                    <p class="mb-3">El sueño influye profundamente en el equilibrio hormonal, impactando directamente nuestra capacidad de rendir y recuperarnos:</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
+                        <li><strong>Hormona del Crecimiento (GH):</strong> Su pico de secreción ocurre durante el sueño profundo. La falta de sueño <strong class="critical-text">reduce drásticamente</strong> su liberación, comprometiendo la reparación muscular.</li>
+                        <li><strong>Testosterona:</strong> Hormona anabólica clave. La privación de sueño puede <strong class="critical-text">disminuir significativamente</strong> sus niveles.</li>
+                        <li><strong>Cortisol (Estrés):</strong> La falta de sueño <strong class="critical-text">aumenta los niveles de cortisol</strong>, promoviendo la degradación muscular.</li>
+                        <li><strong>Leptina y Grelina (Apetito):</strong> Un mal descanso desregula estas hormonas, pudiendo llevar a un <strong class="highlight">aumento del apetito</strong> y antojos.</li>
+                        <li><strong>Insulina:</strong> La privación de sueño puede empeorar la sensibilidad a la insulina.</li>
+                    </ul>
+                    <div class="warning-box mt-3">
+                        <strong><i class="fas fa-balance-scale-left"></i> Desequilibrio Peligroso:</strong>
+                        <p class="text-sm">La falta crónica de sueño crea un <strong class="critical-text">entorno hormonal catabólico</strong>, dificultando la ganancia muscular y la pérdida de grasa.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-sueño-3" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/40751/running-runner-long-distance-fitness-40751.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title !text-askesis-red !border-askesis-red"><i class="fas fa-arrow-down"></i>Impacto Negativo de un Mal Sueño</h2>
+                    <p class="mb-3 text-center">Cuando el descanso no es adecuado, el rendimiento y la recuperación sufren significativamente:</p>
+                    
+                    <h3 class="guide-subsection-title text-sm sm:text-base"><i class="fas fa-dumbbell"></i> En el Rendimiento Deportivo</h3>
+                    <ul class="list-disc list-inside pl-4 text-xs sm:text-sm mb-2">
+                        <li><strong class="critical-text">Reduce</strong> la fuerza, potencia y resistencia.</li>
+                        <li><strong class="critical-text">Ralentiza</strong> el tiempo de reacción y afecta la precisión y coordinación.</li>
+                        <li><strong class="critical-text">Disminuye</strong> la concentración, la toma de decisiones y el aprendizaje motor.</li>
+                        <li><strong class="critical-text">Aumenta</strong> significativamente el riesgo de lesiones.</li>
+                    </ul>
+                    
+                    <h3 class="guide-subsection-title text-sm sm:text-base"><i class="fas fa-heartbeat"></i> En la Recuperación</h3>
+                    <ul class="list-disc list-inside pl-4 text-xs sm:text-sm">
+                        <li><strong class="critical-text">Dificulta</strong> la reparación muscular y la reposición de glucógeno.</li>
+                        <li><strong class="critical-text">Puede aumentar</strong> la inflamación sistémica, prolongando el dolor.</li>
+                        <li><strong class="critical-text">Debilita</strong> el sistema inmunológico, aumentando la susceptibilidad a enfermedades.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-sueño-4" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/3822906/pexels-photo-3822906.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                     <h2 class="guide-section-title !text-askesis-red !border-askesis-red"><i class="fas fa-exclamation-triangle"></i>Más Consecuencias de un Mal Descanso</h2>
+                    <p class="mb-2 text-center">Ignorar la necesidad de dormir tiene un coste significativo:</p>
+                    <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
+                        <li><strong class="critical-text">Disminución del Rendimiento Generalizado.</strong></li>
+                        <li><strong class="critical-text">Recuperación Lenta e Incompleta</strong> (mayor dolor muscular).</li>
+                        <li><strong class="critical-text">Mayor Riesgo de Lesiones</strong> (por fatiga neuromuscular y cognitiva).</li>
+                        <li><strong class="critical-text">Alteraciones Hormonales Negativas</strong> (entorno catabólico).</li>
+                        <li><strong class="critical-text">Sistema Inmune Debilitado</strong> (más enfermedades).</li>
+                        <li><strong class="critical-text">Impacto Negativo en Ánimo y Motivación</strong> (irritabilidad, apatía).</li>
+                        <li><strong class="critical-text">Dificultades en el Control del Peso Corporal</strong> (aumento de apetito).</li>
+                    </ul>
+                    <div class="warning-box mt-3">
+                         <strong>¡No Subestimes la Deuda de Sueño!</strong>
+                         <p class="text-sm">Incluso una o dos noches malas afectan. La privación crónica tiene efectos acumulativos devastadores.</p>
+                     </div>
+                </div>
+            </section>
+
+            <section id="slide-sueño-5" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/3768894/pexels-photo-3768894.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-clipboard-check"></i>Estrategias para un Sueño Reparador</h2>
+                    <p class="mb-2 text-sm sm:text-base">Implementa hábitos de "higiene del sueño":</p>
+                    <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm">
+                        <li><strong>Consistencia en Horarios:</strong> Acuéstate/levántate a la misma hora.</li>
+                        <li><strong>Optimiza tu Dormitorio:</strong> Oscuro, silencioso, fresco, cómodo.</li>
+                        <li><strong>Rutina Relajante Pre-Sueño:</strong> Actividades tranquilas, <strong class="critical-text">evita pantallas</strong> 1h antes.</li>
+                        <li><strong>Gestión de la Luz:</strong> Luz natural por la mañana, reduce luz brillante por la noche.</li>
+                        <li><strong>Cuidado con Comidas/Bebidas:</strong> Evita comidas copiosas, cafeína y alcohol cerca de la hora de dormir.</li>
+                        <li><strong>Ejercicio:</strong> Regularmente, pero evita entrenos muy intensos justo antes de dormir.</li>
+                        <li><strong>Siestas Inteligentes:</strong> Cortas (20-30 min) y temprano.</li>
+                        <li><strong>Manejo del Estrés.</strong></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-sueño-6" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/1111304/pexels-photo-1111304.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title !text-askesis-blue !border-askesis-blue"><i class="fas fa-award"></i>Conclusión: Prioriza tu Descanso</h2>
+                    <p class="mb-3">El sueño no es negociable para optimizar rendimiento, recuperación y salud. Es donde tu cuerpo y mente realizan tareas críticas.</p>
+                    <p class="mb-3">Entender su arquitectura e impacto hormonal subraya la importancia de su <strong class="highlight">cantidad y calidad</strong>.</p>
+                    <p class="font-semibold text-askesis-red">¡Trata tu sueño con la misma seriedad que tu entrenamiento y verás los beneficios!</p>
+                </div>
+            </section>
+
+            <section id="slide-sueño-7" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title !text-askesis-purple !border-askesis-purple"><i class="fas fa-book"></i>Glosario de Términos del Sueño</h2>
+                    <dl class="text-xs sm:text-sm text-left max-h-[60vh] overflow-y-auto pr-2"> 
+                        <dt class="font-bold text-askesis-blue mt-1.5">Arquitectura del Sueño:</dt><dd class="ml-4 text-xs">Estructura cíclica de fases NREM y REM.</dd>
+                        <dt class="font-bold text-askesis-blue mt-1.5">Atonía Muscular:</dt><dd class="ml-4 text-xs">Pérdida temporal de tono muscular en sueño REM.</dd>
+                        <dt class="font-bold text-askesis-blue mt-1.5">Ciclo de Sueño:</dt><dd class="ml-4 text-xs">Progresión NREM-REM (90-110 min), se repite.</dd>
+                        <dt class="font-bold text-askesis-blue mt-1.5">Higiene del Sueño:</dt><dd class="ml-4 text-xs">Hábitos para un sueño saludable.</dd>
+                        <dt class="font-bold text-askesis-blue mt-1.5">Hormona del Crecimiento (GH):</dt><dd class="ml-4 text-xs">Estimula crecimiento y reparación.</dd>
+                        <dt class="font-bold text-askesis-blue mt-1.5">Melatonina:</dt><dd class="ml-4 text-xs">Hormona que regula ciclo sueño-vigilia.</dd>
+                        <dt class="font-bold text-askesis-blue mt-1.5">Ritmo Circadiano:</dt><dd class="ml-4 text-xs">Reloj biológico interno (~24h).</dd>
+                        <dt class="font-bold text-askesis-blue mt-1.5">Sueño NREM:</dt><dd class="ml-4 text-xs">Etapas 1-3 (ligero y profundo), esencial para recuperación física.</dd>
+                        <dt class="font-bold text-askesis-blue mt-1.5">Sueño Profundo (NREM 3):</dt><dd class="ml-4 text-xs">Más reparador, pico de GH.</dd>
+                        <dt class="font-bold text-askesis-blue mt-1.5">Sueño REM:</dt><dd class="ml-4 text-xs">Alta actividad cerebral, importante para memoria y restauración mental.</dd>
+                    </dl>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-sueño" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4">
+            <button id="prev-button-sueño" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-sueño" class="w-full sm:w-auto bg-askesis-green hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-sueño" class="hidden my-8 text-center">
+            <button id="restart-button-sueño" class="bg-askesis-orange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                <i class="fas fa-redo mr-2"></i>Ver Guía del Sueño de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="bg-askesis-text-dark text-gray-300 py-10 px-4 text-center">
+        <div class="container mx-auto">
+            <div class="font-roboto text-2xl font-bold text-white mb-2">ASKESIS</div>
+            <div class="mb-3">
+                 <p class="font-semibold text-lg">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm text-gray-400">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="flex justify-center space-x-4 mb-4">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guia%20Sueño%20Askesis" target="_blank" class="text-gray-400 hover:text-askesis-blue transition-colors"><i class="fas fa-envelope fa-lg"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20tengo%20una%20consulta%20sobre%20la%20guía%20del%20sueño." target="_blank" class="text-gray-400 hover:text-askesis-green transition-colors"><i class="fab fa-whatsapp fa-lg"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" class="text-gray-400 hover:text-purple-400 transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" class="text-gray-400 hover:text-red-600 transition-colors">
+                    <i class="fab fa-youtube fa-lg"></i>
+                 </a>
+            </div>
+            <p class="text-sm text-gray-500">© <span id="currentYearFooterSueño"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const guideContainer = document.getElementById('interactive-presentation-container-sueño');
+            if (!guideContainer) return; 
+
+            const slides = guideContainer.querySelectorAll('#slides-container-sueño .step-slide');
+            const prevButton = guideContainer.querySelector('#prev-button-sueño');
+            const nextButton = guideContainer.querySelector('#next-button-sueño');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-sueño');
+            const progressBar = guideContainer.querySelector('#progress-bar-sueño');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-sueño');
+            const completionContainer = guideContainer.querySelector('#completion-container-sueño');
+            const restartButton = guideContainer.querySelector('#restart-button-sueño');
+            const yearSpan = document.getElementById('currentYearFooterSueño');
+            const navLinks = document.querySelectorAll('#main-nav-sueño .nav-link-sueño');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía del sueño no se encontraron.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    if (index === currentSlide) {
+                        slide.classList.remove('hidden');
+                    } else {
+                        slide.classList.add('hidden');
+                    }
+                });
+                
+                stepIndicator.textContent = `Paso ${currentSlide + 1} de ${totalSlides}`;
+                const progressPercentage = totalSlides > 0 ? ((currentSlide + 1) / totalSlides) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                    navigationButtonsContainer.classList.add('sm:justify-start'); 
+                    navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-center');
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                    navigationButtonsContainer.classList.remove('sm:justify-start');
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                     if(currentSlide === 0) { 
+                        navigationButtonsContainer.classList.remove('sm:justify-between');
+                        navigationButtonsContainer.classList.add('sm:justify-end'); 
+                    } else {
+                        navigationButtonsContainer.classList.remove('sm:justify-end');
+                        navigationButtonsContainer.classList.add('sm:justify-between');
+                    }
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = document.getElementById(`slide-sueño-${currentSlide}`);
+                    if (targetSlideElement) {
+                        const mainNav = document.getElementById('main-nav-sueño');
+                        if (mainNav) {
+                            mainNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => {
+                                targetSlideElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }, 150); 
+                        } else {
+                             targetSlideElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                }
+                navLinks.forEach(link => {
+                    link.classList.remove('bg-askesis-green', 'text-white'); 
+                    link.classList.add('text-gray-200');
+                    if (link.getAttribute('href') === `#slide-sueño-${currentSlide}`) {
+                        link.classList.add('bg-askesis-green', 'text-white');
+                        link.classList.remove('text-gray-200');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = Array.from(slides).findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(false); 
+                         const targetElement = document.getElementById(targetId);
+                        if(targetElement) {
+                            const mainNav = document.getElementById('main-nav-sueño');
+                            if (mainNav) {
+                                mainNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                setTimeout(() => {
+                                     targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                }, 150);
+                            } else {
+                                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                        }
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía del sueño.");
+            }
+        });
+    </script>
+
+</body>
+</html>
