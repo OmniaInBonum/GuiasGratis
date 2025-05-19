@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Autorregulación del Entrenamiento</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Autorregulación del Entrenamiento: RPE, RIR, feedback subjetivo y estrategias prácticas.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C', // Azul principal de Askesis
+                        'askesis-guide-blue': '#007FFF', // Azul específico de la guía original de autorregulación
+                        'askesis-green': '#008037', // Verde Askesis (o #27ae60 de la guía original)
+                        'askesis-orange': '#F58220', // Naranja Askesis (o #e67e22 de la guía original)
+                        'askesis-purple': '#6f42c1', // Morado Askesis (o #8e44ad de la guía original)
+                        'askesis-red': '#e74c3c', // Rojo para errores/advertencias
+                        'askesis-text-dark': '#2c3e50', // Texto oscuro principal
+                        'askesis-text-body': '#495057', // Cuerpo de texto (o #444)
+                        'askesis-text-light-header': '#FFFFFF',
+                        'askesis-bg-light': '#f8f9fa', // Fondo general (o #f9fafb)
+                        'askesis-bg-content-wrapper': 'rgba(255, 255, 255, 0.93)',
+                        'askesis-accent-blue-light': '#e7f3fe', // (o #eaf2f8)
+                        'askesis-accent-green-light': '#e6f2e9', // (o #e8f8f5)
+                        'askesis-accent-orange-light': '#fff3e0', // (o #fef9e7)
+                        'askesis-accent-red-light': '#fdedec', // (o #fadbd8)
+                        'askesis-accent-purple-light': '#f3eefe',
+                        'askesis-border-light': '#dee2e6', // (o #e0e0e0)
+                        'whatsapp-green': '#25D366',
+                        'askesis-feedback-bg': '#fffadf', // Fondo amarillo pálido para feedback
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-guide-blue: #007FFF;
+            --askesis-green: #27ae60; /* Verde de la guía original */
+            --askesis-orange: #e67e22; /* Naranja de la guía original */
+            --askesis-purple: #8e44ad; /* Morado de la guía original */
+            --askesis-red: #e74c3c;
+            --askesis-text-dark: #2c3e50;
+            --askesis-text-body: #444;
+            --askesis-text-light-header: #FFFFFF;
+            --askesis-bg-light: #f9fafb;
+            --askesis-bg-content-wrapper: rgba(255, 255, 255, 0.93);
+            --askesis-accent-blue-light: #eaf2f8;
+            --askesis-accent-green-light: #e8f8f5;
+            --askesis-accent-orange-light: #fef9e7;
+            --askesis-accent-red-light: #fadbd8;
+            --askesis-accent-purple-light: #f3eefe; /* Un morado claro para cajas */
+            --askesis-border-light: #e0e0e0;
+            --whatsapp-green: #25D366;
+            --askesis-feedback-bg: #fffadf;
+        }
+
+        html {
+            scroll-padding-top: 160px; /* Ajustado para 3 barras fijas */
+        }
+
+        body {
+            font-family: 'Lato', 'sans-serif';
+            color: var(--askesis-text-body);
+            background-color: var(--askesis-bg-light);
+            line-height: 1.7;
+        }
+
+        .step-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            padding: 3rem 1rem; 
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+            width: 100%; 
+        }
+
+        .step-slide::before { 
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.60); /* Overlay un poco más oscuro */
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-bg-content-wrapper);
+            padding: 2rem 2.5rem; 
+            border-radius: 0.75rem;
+            max-width: 900px; /* Un poco más ancho para este contenido */
+            width: 95%; 
+            margin: 2rem auto; 
+            color: var(--askesis-text-dark);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2, .slide-content-wrapper h3,
+        .slide-content-wrapper h4, .slide-content-wrapper h5,
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper ol, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-text-body); /* Cuerpo de texto general */
+            text-align: left; 
+        }
+        .slide-content-wrapper h1.guide-main-title, .slide-content-wrapper h2.guide-section-title {
+            text-align: center; 
+            color: var(--askesis-guide-blue); /* Azul específico de la guía */
+        }
+         .slide-content-wrapper h2.guide-section-title i, .slide-content-wrapper h1.guide-main-title i { margin-right: 0.6rem; }
+
+        .sticky-nav { position: sticky; top: 0; z-index: 1001; }
+        .sticky-nav-secondary { position: sticky; /* top se ajustará con JS */ z-index: 1000; }
+
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-content-wrapper .guide-main-title {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2em; 
+            font-weight: 700; /* Ajustado de 900 */
+            margin-bottom: 1.5rem; 
+            padding-bottom: 0.75rem; 
+            border-bottom: 3px solid var(--askesis-guide-blue);
+            display: inline-block; /* Para que el borde no ocupe todo el ancho */
+        }
+        .slide-content-wrapper .guide-section-title { /* Para H2 */
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-green); /* Verde para H2 */
+            font-size: 1.8em; 
+            margin-top: 1.5rem; /* Más espacio arriba */
+            margin-bottom: 1.25rem; 
+            padding-bottom: 0.6rem; 
+            border-bottom: 2px solid var(--askesis-green);
+        }
+        .slide-content-wrapper .guide-subsection-title { /* Para H3 */
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-guide-blue); /* Azul para H3 */
+             font-size: 1.4em; 
+             font-weight: 700;
+             margin-top: 1.5rem; 
+             margin-bottom: 0.75rem; 
+             padding-bottom: 0.4rem; 
+        }
+         .slide-content-wrapper .guide-subsubsection-title { /* Para H4 */
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-orange); /* Naranja para H4 */
+             font-size: 1.2em; 
+             font-weight: 700;
+             margin-top: 1.25rem; 
+             margin-bottom: 0.6rem;
+        }
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+        .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper ul, .slide-content-wrapper ol {
+            list-style-position: outside;
+            padding-left: 1.75rem; 
+            margin-bottom: 1rem;
+        }
+        .slide-content-wrapper ul ul, .slide-content-wrapper ol ol {
+            margin-top: 0.25rem;
+            margin-left: 1.25rem;
+        }
+        .slide-content-wrapper li {
+            margin-bottom: 0.6rem;
+        }
+        .slide-content-wrapper strong { color: var(--askesis-text-dark); font-weight: 700;}
+
+        /* Cajas de información específicas de esta guía */
+        .slide-content-wrapper .intro-box-autorregulacion {
+             border-left: 4px solid var(--askesis-guide-blue);
+             padding: 15px;
+             background-color: var(--askesis-accent-blue-light);
+             border-radius: 0 5px 5px 0;
+             margin-bottom: 2rem;
+        }
+        .slide-content-wrapper .intro-box-autorregulacion strong { color: var(--askesis-guide-blue); }
+
+        .slide-content-wrapper .tool-box { 
+             background-color: var(--askesis-accent-blue-light);
+             border: 1px solid var(--askesis-guide-blue);
+             padding: 20px;
+             margin: 1.25rem 0;
+             border-radius: 8px;
+         }
+        .slide-content-wrapper .tool-box .guide-subsubsection-title { margin-top: 0; color: var(--askesis-guide-blue); } /* H4 dentro de tool-box */
+        
+        .slide-content-wrapper .subjective-feedback-box {
+             background-color: var(--askesis-feedback-bg); 
+             border: 1px solid var(--askesis-orange);
+             padding: 20px;
+             margin: 1.25rem 0;
+             border-radius: 8px;
+        }
+        .slide-content-wrapper .subjective-feedback-box .guide-subsubsection-title { margin-top: 0; color: var(--askesis-orange); }
+        .slide-content-wrapper .subjective-feedback-box ul { list-style: none; padding-left: 0; }
+        .slide-content-wrapper .subjective-feedback-box li i { color: var(--askesis-orange); margin-right: 8px; }
+
+        .slide-content-wrapper .strategy-box { 
+             background-color: var(--askesis-accent-green-light);
+             border-left: 5px solid var(--askesis-green);
+             padding: 15px 20px;
+             margin: 1.25rem 0;
+             border-radius: 0 5px 5px 0;
+         }
+        .slide-content-wrapper .strategy-box .guide-subsubsection-title { color: var(--askesis-green); margin-top: 0; font-size: 1.25em; }
+        
+        .slide-content-wrapper .common-errors-list {
+             list-style: none;
+             padding-left: 0;
+             margin-top: 15px;
+         }
+        .slide-content-wrapper .common-errors-list li {
+             background-color: var(--askesis-accent-red-light);
+             border-left: 4px solid var(--askesis-red);
+             padding: 10px 15px;
+             margin-bottom: 10px;
+             border-radius: 4px;
+             display: flex;
+             align-items: center;
+          }
+        .slide-content-wrapper .common-errors-list li i {
+             color: var(--askesis-red);
+             margin-right: 10px;
+             font-size: 1.2em;
+           }
+        .slide-content-wrapper .rpe-rir-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.95em; }
+        .slide-content-wrapper .rpe-rir-table th, .rpe-rir-table td { border: 1px solid var(--askesis-border-light); padding: 8px; text-align: center; }
+        .slide-content-wrapper .rpe-rir-table th { background-color: var(--askesis-guide-blue); color: white; font-weight: 700; }
+        .slide-content-wrapper .rpe-rir-table td:first-child, .slide-content-wrapper .rpe-rir-table td:nth-child(2) { font-weight: bold; }
+
+        .slide-content-wrapper .info-box { /* Estilo general de info-box de la guía de recuperación */
+            border-left-width: 4px; padding: 1rem; margin: 1.25rem 0; border-radius: 0 0.25rem 0.25rem 0; font-size: 0.95em;
+        }
+        .slide-content-wrapper .info-box.green { background-color: var(--askesis-accent-green-light); border-left-color: var(--askesis-green); color: var(--askesis-text-dark);}
+        .slide-content-wrapper .info-box strong { font-family: 'Roboto', sans-serif; font-size: 1.1em; display: block; margin-bottom: 0.5rem;}
+        .slide-content-wrapper .info-box.green strong { color: var(--askesis-green); }
+
+
+        .askesis-main-header { 
+            background-color: var(--askesis-guide-blue); /* Azul de la guía original */
+            color: var(--askesis-text-light-header);
+            text-align: center;
+            padding: 0.75rem 0; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .askesis-main-header .brand-title-link {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8em; 
+            font-weight: 700; /* Ajustado de 900 */
+            letter-spacing: 3px; 
+            text-transform: uppercase;
+            color: var(--askesis-text-light-header); 
+            text-decoration: none; 
+            display: inline-block; 
+        }
+        .askesis-main-header .brand-title-link:hover {
+            opacity: 0.9; 
+        }
+        .askesis-main-header .brand-tagline {
+            font-size: 0.9em; /* Ajustado de 0.85em */
+            font-style: italic;
+            color: var(--askesis-text-light-header); 
+            opacity: 0.95; /* Un poco más opaco */
+            letter-spacing: 0.5px;
+        }
+        #main-nav-autorregulacion { /* ID específico para esta guía */
+             background-color: var(--askesis-text-dark); 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #main-nav-autorregulacion .nav-link-autorregulacion { /* Clase específica */
+            color: #e0e0e0; 
+            padding: 0.6rem 0.5rem; 
+            margin: 0 0.1rem;
+            border-radius: 0.25rem;
+            font-weight: 500; 
+            transition: background-color 0.2s ease, color 0.2s ease;
+            font-size: 0.7rem; /* Aún más pequeño para muchos ítems */
+            white-space: nowrap;
+        }
+        #main-nav-autorregulacion .nav-link-autorregulacion:hover,
+        #main-nav-autorregulacion .nav-link-autorregulacion.active {
+            background-color: var(--askesis-guide-blue); /* Azul de la guía */
+            color: var(--askesis-text-light-header);
+        }
+        #progress-bar-container-autorregulacion { /* ID específico */
+            padding: 0.5rem 1rem;
+            background-color: #e9ecef; 
+        }
+        #progress-bar-autorregulacion { /* ID específico */
+            background: linear-gradient(to right, var(--askesis-green), var(--askesis-guide-blue));
+        }
+        #navigation-buttons-autorregulacion button { /* ID específico */
+            transition: all 0.3s ease;
+        }
+        #navigation-buttons-autorregulacion button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .footer-interactive {
+            background-color: var(--askesis-text-dark);
+            color: #adb5bd; 
+            padding: 2.5rem 1rem 1.5rem; 
+            text-align: center;
+        }
+        .footer-interactive .footer-brand-link {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700; /* Ajustado de 900 */
+            color: var(--askesis-text-light-header);
+            margin-bottom: 0.25rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+         .footer-interactive .footer-brand-link:hover {
+            opacity: 0.9;
+        }
+        .footer-interactive .footer-tagline {
+            font-size: 0.9em;
+            color: #ced4da; 
+            margin-bottom: 1.5rem;
+        }
+        .footer-interactive .contact-links a {
+            color: #ced4da;
+            transition: color 0.3s ease;
+            margin: 0 0.5rem;
+        }
+        .footer-interactive .contact-links a:hover {
+            color: var(--askesis-guide-blue);
+        }
+        .footer-interactive .contact-links i {
+            margin-right: 0.3rem;
+        }
+        .footer-interactive .copyright {
+            font-size: 0.85em;
+            color: #6c757d; 
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #495057; 
+        }
+
+        .floating-whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1005; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+        .floating-whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+
+        /* Glosario específico */
+        .slide-content-wrapper .glossary-box-autorregulacion {
+            margin-top: 2rem;
+            padding: 25px;
+            background-color: #f0f0f0; /* Fondo claro para glosario */
+            border-radius: 8px;
+            border-top: 3px solid var(--askesis-guide-blue);
+        }
+        .slide-content-wrapper .glossary-box-autorregulacion .guide-section-title { /* H2 del glosario */
+             color: var(--askesis-guide-blue); 
+             border-bottom: none; 
+             text-align: center; 
+             margin-bottom: 1.5rem;
+             font-size: 1.6em; /* Un poco más pequeño */
+        }
+        .slide-content-wrapper .glossary-box-autorregulacion dl { margin: 0; padding: 0; }
+        .slide-content-wrapper .glossary-box-autorregulacion dt { 
+            font-weight: bold; 
+            color: var(--askesis-text-dark); 
+            font-size: 1.05em; 
+            margin-top: 0.75rem; 
+        }
+        .slide-content-wrapper .glossary-box-autorregulacion dd { 
+            margin-left: 0; 
+            padding-left: 15px; 
+            margin-bottom: 0.5rem; 
+            border-left: 2px solid #ccc; 
+            padding-top: 3px; 
+            padding-bottom: 3px; 
+            font-size: 0.95em;
+        }
+        .slide-content-wrapper .conclusion-box-autorregulacion {
+            margin-top: 2rem; 
+            padding: 25px; 
+            background-color: var(--askesis-accent-blue-light); 
+            border-radius: 8px; 
+            text-align: center; 
+            font-size: 1.05em; 
+            border: 1px solid var(--askesis-guide-blue);
+        }
+        .slide-content-wrapper .conclusion-box-autorregulacion strong { color: var(--askesis-guide-blue); }
+
+
+    </style>
+</head>
+
+<body class="bg-askesis-bg-light">
+
+    <header class="askesis-main-header sticky-nav">
+        <div class="container mx-auto">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="brand-title-link">ASKESIS</a>
+            <div class="brand-tagline">Guía Interactiva de Autorregulación del Entrenamiento</div>
+        </div>
+    </header>
+
+    <nav id="main-nav-autorregulacion" class="sticky-nav-secondary"> <ul class="container mx-auto flex flex-wrap justify-center p-1">
+            <li><a href="#slide-autorregulacion-0" class="nav-link-autorregulacion">Intro</a></li>
+            <li><a href="#slide-autorregulacion-1" class="nav-link-autorregulacion">Por Qué</a></li>
+            <li><a href="#slide-autorregulacion-2" class="nav-link-autorregulacion">Herramientas 1</a></li>
+            <li><a href="#slide-autorregulacion-3" class="nav-link-autorregulacion">Herramientas 2</a></li>
+            <li><a href="#slide-autorregulacion-4" class="nav-link-autorregulacion">Estrategias 1</a></li>
+            <li><a href="#slide-autorregulacion-5" class="nav-link-autorregulacion">Estrategias 2</a></li>
+            <li><a href="#slide-autorregulacion-6" class="nav-link-autorregulacion">Implementación</a></li>
+            <li><a href="#slide-autorregulacion-7" class="nav-link-autorregulacion">Errores</a></li>
+            <li><a href="#slide-autorregulacion-8" class="nav-link-autorregulacion">Conclusión</a></li>
+            <li><a href="#slide-autorregulacion-9" class="nav-link-autorregulacion">Glosario</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-autorregulacion"> <div id="progress-bar-container-autorregulacion" class="w-full sticky-nav-secondary" style="z-index: 999;"> <div id="step-indicator-autorregulacion" class="text-center mb-1 text-sm font-semibold text-askesis-guide-blue"></div> <div class="w-11/12 mx-auto bg-gray-300 rounded-full h-2">
+                <div id="progress-bar-autorregulacion" class="h-2 rounded-full transition-all duration-300 ease-out" style="width: 0%"></div> </div>
+        </div>
+
+        <div id="slides-container-autorregulacion"> <section id="slide-autorregulacion-0" class="step-slide" style="background-image: url('https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h1 class="guide-main-title text-center"><i class="fas fa-sliders-h"></i>Guía de Autorregulación del Entrenamiento</h1>
+                    <div class="intro-box-autorregulacion mt-6">
+                        <p>Tu plan de entrenamiento Askesis es tu mapa, pero <strong class="highlight">tú eres el conductor</strong>. La Autorregulación es la habilidad de ajustar la velocidad y la ruta de tu entrenamiento diario basándote en cómo te sientes y cómo responde tu cuerpo <em>ese día</em>. No se trata de ignorar el plan, sino de aplicarlo de forma inteligente y flexible para maximizar tu progreso y minimizar riesgos, especialmente cuando entrenas solo.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-autorregulacion-1" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/4761788/pexels-photo-4761788.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-question-circle"></i>¿Por Qué Autorregular? Más Allá del Plan Fijo</h2>
+                    <p>Un plan escrito no puede predecir cómo dormirás, cuánto estrés tendrás o cómo te recuperarás de la sesión anterior. Seguirlo rígidamente sin escuchar a tu cuerpo puede llevar a:</p>
+                    <ul>
+                        <li>Entrenar demasiado duro en días malos (riesgo de lesión, sobreentrenamiento).</li>
+                        <li>Entrenar demasiado ligero en días buenos (oportunidad de progreso perdida).</li>
+                        <li>Frustración y estancamiento.</li>
+                    </ul>
+                    <div class="info-box green mt-4">
+                        <strong class="box-title"><i class="fas fa-thumbs-up"></i>Beneficios de la Autorregulación Inteligente:</strong>
+                        <ul>
+                            <li><strong>Entrenamiento Óptimo Cada Día:</strong> Aprovechas los días buenos y gestionas los días malos.</li>
+                            <li><strong>Menor Riesgo de Lesiones y Sobreentrenamiento:</strong> Al ajustar la carga a tu capacidad de recuperación real.</li>
+                            <li><strong>Progreso Más Sostenible:</strong> Evita los ciclos de "quemarse" y parar.</li>
+                            <li><strong>Mayor Conciencia Corporal:</strong> Aprendes a interpretar las señales de tu cuerpo.</li>
+                            <li><strong>Empoderamiento:</strong> Te conviertes en un participante activo en tu proceso.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-autorregulacion-2" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/669584/pexels-photo-669584.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-tools"></i>Herramientas Clave para la Autorregulación (Parte 1)</h2>
+                    <p class="mb-4">Para autorregular eficazmente, necesitas herramientas para medir tu estado:</p>
+                    <div class="tool-box">
+                        <h4 class="guide-subsubsection-title"><i class="fas fa-tachometer-alt"></i>RPE (Escala de Esfuerzo Percibido) y RIR (Repeticiones en Reserva)</h4>
+                        <p>Como vimos en la guía "Cómo Leer tu Plan", estas son tus herramientas principales para medir la <strong>intensidad del esfuerzo</strong> en tus series de fuerza. Un RPE 8 significa que te quedaron 2 repeticiones en reserva (2 RIR). Si tu plan pide RPE 8 y sientes que podrías hacer 5 repeticiones más (RPE 5 / 5 RIR), ¡la carga es demasiado ligera para ese día! Si apenas completas las repeticiones (RPE 10 / 0 RIR), la carga es demasiado pesada. <strong>Ser honesto/a aquí es crucial.</strong></p>
+                        <table class="rpe-rir-table mt-3">
+                            <thead>
+                                <tr><th>RPE</th><th>RIR</th><th>Descripción del Esfuerzo</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>10</td><td>0</td><td>Máximo esfuerzo, no quedan más reps</td></tr>
+                                <tr><td>9.5</td><td>0-1</td><td>Casi máximo, quizás 1 rep más muy difícil</td></tr>
+                                <tr><td>9</td><td>1</td><td>1 repetición en reserva</td></tr>
+                                <tr><td>8.5</td><td>1-2</td><td>Entre 1 y 2 reps en reserva</td></tr>
+                                <tr><td>8</td><td>2</td><td>2 repeticiones en reserva</td></tr>
+                                <tr><td>7</td><td>3</td><td>3 repeticiones en reserva, peso se mueve rápido</td></tr>
+                                <tr><td>5-6</td><td>4-6</td><td>Calentamiento, esfuerzo moderado</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-autorregulacion-3" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-clipboard-check"></i>Herramientas Clave para la Autorregulación (Parte 2)</h2>
+                    <div class="subjective-feedback-box">
+                        <h4 class="guide-subsubsection-title"><i class="fas fa-comment-dots"></i>Feedback Subjetivo (Tu "Panel de Control" Interno)</h4>
+                        <p>Antes y después de cada sesión, y en tu reporte semanal, presta atención a:</p>
+                        <ul>
+                            <li><i class="fas fa-bed"></i> <strong>Calidad del Sueño:</strong> ¿Dormiste bien? ¿Te sientes descansado/a? (Escala 1-10).</li>
+                            <li><i class="fas fa-battery-full"></i> <strong>Niveles de Energía:</strong> ¿Cómo está tu "batería" hoy? (Escala 1-10).</li>
+                            <li><i class="fas fa-brain"></i> <strong>Niveles de Estrés:</strong> ¿Alto, medio, bajo? (El estrés externo afecta la recuperación).</li>
+                            <li><i class="fas fa-heartbeat"></i> <strong>Dolor o Molestias:</strong> ¿Sientes algo más allá de las agujetas normales? ¿En articulaciones? (¡Comunícalo!).</li>
+                            <li><i class="fas fa-running"></i> <strong>Disposición para Entrenar:</strong> ¿Te sientes motivado/a y listo/a, o apático/a y pesado/a?</li>
+                        </ul>
+                        <p class="mt-3"><em>Estas sensaciones subjetivas son datos valiosísimos para decidir si hoy es un día para empujar, mantener o reducir la carga.</em></p>
+                    </div>
+                    <div class="tool-box">
+                        <h4 class="guide-subsubsection-title"><i class="fas fa-video"></i>(Opcional Avanzado) Velocidad de la Barra (VBT)</h4>
+                        <p>El Velocity-Based Training utiliza tecnología para medir la velocidad a la que mueves la barra. Como la velocidad disminuye con la fatiga, puede ser una herramienta objetiva para saber cuándo parar una serie o ajustar la carga. Es más avanzado y requiere equipo, pero es bueno conocerlo.</p>
+                    </div>
+                    <div class="info-box green">
+                        <strong class="box-title"><i class="fas fa-history"></i>¡Tu Registro es tu Historial!</strong>
+                        <p>Anotar todas estas métricas (RPE/RIR, sueño, energía, etc.) en tu log de entrenamiento te permite (y me permite a mí) ver patrones a lo largo del tiempo y tomar decisiones de ajuste más informadas. (Ver <a href="#" title="Ir a la Guía de Monitoreo">Guía de Monitoreo</a> - <em>Próximamente</em>).</p>
+                     </div>
+                </div>
+            </section>
+
+            <section id="slide-autorregulacion-4" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-exchange-alt"></i>Estrategias Prácticas de Autorregulación (Parte 1)</h2>
+                    <p class="mb-4">Basándote en las herramientas anteriores y el plan del día, aquí tienes cómo puedes ajustar:</p>
+                    <div class="strategy-box">
+                        <h4 class="guide-subsubsection-title">Ajuste de Carga (Peso)</h4>
+                        <ul>
+                            <li><strong>Si te sientes FUERTE y el RPE/RIR objetivo se siente FÁCIL:</strong> ¡Genial! Completa las repeticiones prescritas. Anota que se sintió fácil (ej. RPE 6 en lugar de 8). Podemos considerar aumentar el peso la próxima semana. <em>(No aumentes el peso drásticamente en el momento sin consultarme, a menos que sea una indicación específica del plan como "subir si RPE < 7").</em></li>
+                            <li><strong>Si te sientes NORMAL y alcanzas el RPE/RIR objetivo:</strong> Perfecto, estás en el camino correcto. Mantén el peso para las siguientes series (a menos que el RPE suba demasiado).</li>
+                            <li><strong>Si te sientes FATIGADO/A y el RPE/RIR objetivo se siente MUY DIFÍCIL o lo superas:</strong> Reduce ligeramente el peso para las siguientes series para poder mantenerte cerca del RPE/RIR objetivo y completar las repeticiones con buena técnica. <strong>¡Anota este ajuste!</strong></li>
+                        </ul>
+                    </div>
+                    <div class="strategy-box">
+                        <h4 class="guide-subsubsection-title">Ajuste de Repeticiones</h4>
+                        <ul>
+                            <li>Si tu plan usa principalmente RPE/RIR como guía (ej. "3 series @ RPE 8"): El número de repeticiones puede variar naturalmente entre series o días. Si un día haces 10 reps a RPE 8 y otro día haces 8 reps con el mismo peso a RPE 8, ¡ambos son correctos! Refleja tu estado de ese día.</li>
+                            <li>Si tienes un rango de reps Y un RPE (ej. "3x6-8 @ RPE 8"): Intenta mantenerte dentro del rango de reps alcanzando el RPE objetivo. Si para llegar a RPE 8 solo haces 5 reps, está bien (anótalo). Si llegas a 8 reps y aún sientes RPE 7, podrías hacer 1-2 reps más HASTA llegar a RPE 8 (pero no pases del rango superior si lo hay).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-autorregulacion-5" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-cogs"></i>Estrategias Prácticas de Autorregulación (Parte 2)</h2>
+                     <div class="strategy-box">
+                        <h4 class="guide-subsubsection-title">Ajuste de Volumen (Series)</h4>
+                        <ul>
+                            <li><strong>Si te sientes EXCEPCIONALMENTE fatigado, con falta de sueño o dolor:</strong> Es preferible reducir el número de series (especialmente en ejercicios accesorios) que forzar y arriesgar una lesión o un sobreentrenamiento. <strong>¡Comunícamelo SIEMPRE!</strong></li>
+                            <li><strong>Si te sientes EXCEPCIONALMENTE bien:</strong> Generalmente, es mejor ceñirse al volumen planificado para evitar acumular fatiga inesperada. Si consistentemente te sientes capaz de más, comunícamelo y ajustaremos el plan general. Añadir series extra por tu cuenta debe ser muy excepcional y consultado.</li>
+                        </ul>
+                    </div>
+                    <div class="strategy-box">
+                        <h4 class="guide-subsubsection-title">Ajuste de Selección de Ejercicios</h4>
+                        <ul>
+                            <li><strong>Si un ejercicio específico te causa DOLOR (no molestia muscular normal) ESE DÍA:</strong> NO lo fuerces. Intenta una variación diferente o cámbialo por otro ejercicio para el mismo grupo muscular que no te duela. <strong>Infórmame inmediatamente de este cambio y del dolor.</strong></li>
+                        </ul>
+                    </div>
+                    <div class="strategy-box">
+                        <h4 class="guide-subsubsection-title">Ajuste de la Sesión Completa</h4>
+                        <ul>
+                            <li><strong>Si tienes un día TERRIBLE</strong> (dormiste 3 horas, estrés máximo, te sientes enfermo/a): Forzar un entrenamiento duro es contraproducente. Opciones (¡Comunícamelo!):
+                                <ul>
+                                    <li>Convertir la sesión en una de <strong>recuperación activa</strong> (cardio muy ligero, movilidad).</li>
+                                    <li>Hacer una versión <strong>mucho más ligera</strong> de la sesión planificada (menos volumen, menos intensidad).</li>
+                                    <li>Tomar un <strong>día de descanso extra</strong>.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-autorregulacion-6" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/3253501/pexels-photo-3253501.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-play-circle"></i>Implementando la Autorregulación: Guía Rápida</h2>
+                    <ol class="list-decimal space-y-3 mt-4">
+                        <li><strong>Evalúa tu Estado Pre-Entreno:</strong> ¿Cómo estás HOY? (Sueño, energía, estrés, molestias). Sé honesto/a.</li>
+                        <li><strong>Calienta Conscientemente:</strong> Usa el calentamiento para "testear" cómo se siente tu cuerpo.</li>
+                        <li><strong>Enfócate en el Esfuerzo (RPE/RIR):</strong> Durante las series de trabajo, concéntrate en alcanzar el nivel de esfuerzo indicado en tu plan.</li>
+                        <li><strong>Ajusta si es Necesario:</strong> Usa las estrategias anteriores (carga, reps, volumen) si tu estado actual no coincide con el plan.</li>
+                        <li><strong>Registra TODO:</strong> Anota el RPE/RIR real, tus sensaciones y cualquier ajuste que hayas hecho. ¡Los detalles importan!</li>
+                        <li><strong>Comunica:</strong> Comparte tus registros y feedback conmigo regularmente. ¡Es esencial para que el plan siga siendo óptimo para ti!</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="slide-autorregulacion-7" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/4058411/pexels-photo-4058411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title !text-askesis-red !border-askesis-red"><i class="fas fa-exclamation-triangle"></i>Errores Comunes al Autorregular (¡Evítalos!)</h2>
+                     <ul class="common-errors-list">
+                        <li><i class="fas fa-times-circle"></i> <strong>Ser Demasiado Conservador Siempre:</strong> No esforzarse lo suficiente consistentemente por miedo o comodidad (RPEs siempre bajos).</li>
+                        <li><i class="fas fa-times-circle"></i> <strong>Ser Demasiado Agresivo Siempre:</strong> Ignorar las señales de fatiga o dolor y empujar al máximo todos los días ("No Pain, No Gain" mal entendido).</li>
+                        <li><i class="fas fa-times-circle"></i> <strong>Falta de Honestidad con RPE/RIR:</strong> Sobreestimar o subestimar el esfuerzo real.</li>
+                        <li><i class="fas fa-times-circle"></i> <strong>Cambiar el Plan Constantemente:</strong> Hacer ajustes drásticos cada día sin seguir una estructura o sin comunicar.</li>
+                        <li><i class="fas fa-times-circle"></i> <strong>Confundir Pereza con Fatiga Real:</strong> A veces hay que aplicar disciplina, otras veces hay que escuchar la necesidad de descanso. Aprender la diferencia es clave.</li>
+                        <li><i class="fas fa-times-circle"></i> <strong>No Comunicar los Ajustes al Coach:</strong> Si haces cambios, necesito saberlo para entender tu progreso y ajustar futuras planificaciones.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-autorregulacion-8" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title !text-askesis-green !border-askesis-green"><i class="fas fa-check-circle"></i>Conclusión: Entrenando con Inteligencia Adaptativa</h2>
+                    <div class="conclusion-box-autorregulacion">
+                        <p>La autorregulación no es una excusa para entrenar menos o hacer lo que quieras; es una <strong>habilidad avanzada</strong> que te permite entrenar de forma más inteligente, segura y sostenible. Se trata de desarrollar una profunda <strong>conciencia corporal</strong> y utilizar herramientas como el RPE/RIR y tu feedback subjetivo para tomar decisiones informadas DENTRO del marco de tu plan Askesis.</p>
+                        <p class="mt-3">Aprender a autorregular requiere práctica, honestidad y una excelente comunicación conmigo, tu coach. Al dominar esta habilidad, te aseguras de que cada sesión de entrenamiento sea lo más productiva posible según tus circunstancias de ese día. <strong>¡Es la máxima expresión de la ciencia aplicada al movimiento individualizado!</strong></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-autorregulacion-9" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/265076/pexels-photo-265076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <div class="glossary-box-autorregulacion">
+                        <h2 class="guide-section-title"><i class="fas fa-book-open"></i>Glosario Rápido: Autorregulación</h2>
+                        <dl>
+                            <dt>Autorregulación</dt>
+                            <dd>Proceso de ajustar las variables del entrenamiento (carga, volumen, etc.) en una sesión basándose en la preparación y respuesta del atleta en ese día específico.</dd>
+
+                            <dt>RPE (Rate of Perceived Exertion)</dt>
+                            <dd>Escala de Esfuerzo Percibido (1-10). Mide qué tan difícil fue una serie para ti, justo al terminarla.</dd>
+
+                            <dt>RIR (Reps In Reserve)</dt>
+                            <dd>Repeticiones en Reserva. Cuántas repeticiones MÁS crees que podrías haber hecho con buena técnica al final de una serie.</dd>
+
+                            <dt>Feedback Subjetivo</dt>
+                            <dd>Información basada en tus sensaciones personales: energía, sueño, estrés, dolor, motivación.</dd>
+
+                            <dt>Fatiga (Aguda/Crónica)</dt>
+                            <dd>Disminución temporal (aguda) o persistente (crónica) de la capacidad de rendimiento debido al estrés del entrenamiento y otros factores.</dd>
+
+                            <dt>Supercompensación</dt>
+                            <dd>Proceso por el cual el cuerpo, después de recuperarse de un estímulo de entrenamiento, se adapta a un nivel superior al anterior.</dd>
+
+                            <dt>VBT (Velocity-Based Training)</dt>
+                            <dd>Método de entrenamiento que utiliza la velocidad de levantamiento de la barra como indicador principal para prescribir y autorregular la carga y la fatiga.</dd>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div id="navigation-buttons-autorregulacion" class="mt-6 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4 px-4"> <button id="prev-button-autorregulacion" class="w-full sm:w-auto bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg shadow-md flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"> <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-autorregulacion" class="w-full sm:w-auto bg-askesis-guide-blue hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md flex items-center justify-center"> Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-autorregulacion" class="hidden my-8 text-center px-4"> <p class="text-xl font-semibold text-askesis-green mb-4">¡Has completado la Guía Interactiva de Autorregulación del Entrenamiento!</p>
+            <p class="mb-6">Utiliza estas herramientas para entrenar de forma más inteligente y adaptada a ti. ¡La comunicación con tu coach es clave!</p>
+            <button id="restart-button-autorregulacion" class="bg-askesis-orange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-md transform hover:scale-105"> <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quisiera%20pedir%20informaci%C3%B3n%20sobre%20sus%20asesor%C3%ADas." target="_blank" class="floating-whatsapp-button" title="Contactar por WhatsApp para Asesorías">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="footer-interactive">
+        <div class="container mx-auto">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="footer-brand-link">ASKESIS</a>
+            <p class="footer-tagline">Ciencia aplicada al movimiento.</p>
+            <div class="mb-4">
+                 <p class="font-semibold text-lg text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="contact-links flex justify-center space-x-4 mb-6">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guia%20Autorregulacion" target="_blank" title="Enviar Email"><i class="fas fa-envelope fa-lg"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Autorregulación." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp fa-lg"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                 <a href="#" target="_blank" title="Ver YouTube"><i class="fab fa-youtube fa-lg"></i></a> </div>
+            <p class="copyright">© <span id="currentYearFooterAutorregulacion"></span> Askesis. Todos los derechos reservados.</p> </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // *** Configuración específica para la guía de AUTORREGULACIÓN ***
+            const guideIdPrefix = 'autorregulacion'; // Prefijo para IDs de esta guía
+            // *****************************************************************
+
+            const guideContainerId = `interactive-presentation-container-${guideIdPrefix}`;
+            const guideContainer = document.getElementById(guideContainerId);
+            if (!guideContainer) {
+                console.error(`Error: Contenedor principal de la guía con ID '${guideContainerId}' no encontrado.`);
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll(`#slides-container-${guideIdPrefix} .step-slide`));
+            const prevButton = guideContainer.querySelector(`#prev-button-${guideIdPrefix}`);
+            const nextButton = guideContainer.querySelector(`#next-button-${guideIdPrefix}`);
+            const stepIndicator = guideContainer.querySelector(`#step-indicator-${guideIdPrefix}`);
+            const progressBar = guideContainer.querySelector(`#progress-bar-${guideIdPrefix}`);
+            const progressBarContainer = guideContainer.querySelector(`#progress-bar-container-${guideIdPrefix}`);
+            const navigationButtonsContainer = guideContainer.querySelector(`#navigation-buttons-${guideIdPrefix}`);
+            const completionContainer = guideContainer.querySelector(`#completion-container-${guideIdPrefix}`);
+            const restartButton = guideContainer.querySelector(`#restart-button-${guideIdPrefix}`);
+            const yearSpan = document.getElementById(`currentYearFooter${guideIdPrefix.charAt(0).toUpperCase() + guideIdPrefix.slice(1)}`); // e.g. currentYearFooterAutorregulacion
+            const navLinks = Array.from(document.querySelectorAll(`#main-nav-${guideIdPrefix} .nav-link-${guideIdPrefix}`));
+            const mainNav = document.getElementById(`main-nav-${guideIdPrefix}`);
+            const header = document.querySelector('.askesis-main-header');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function getStickyHeaderHeight() {
+                let totalHeight = 0;
+                if (header && getComputedStyle(header).position === 'sticky') {
+                    totalHeight += header.offsetHeight;
+                }
+                if (mainNav && getComputedStyle(mainNav).position === 'sticky') {
+                    totalHeight += mainNav.offsetHeight;
+                }
+                if (progressBarContainer && getComputedStyle(progressBarContainer).position === 'sticky') {
+                     totalHeight += progressBarContainer.offsetHeight;
+                }
+                return totalHeight;
+            }
+            
+            function updateProgressBarContainerStickyTop() {
+                let topOffset = 0;
+                if (header && getComputedStyle(header).position === 'sticky') {
+                    topOffset += header.offsetHeight;
+                }
+                if (mainNav && getComputedStyle(mainNav).position === 'sticky') { // Asegurarse que mainNav existe
+                    topOffset += mainNav.offsetHeight;
+                }
+                if (progressBarContainer) {
+                    progressBarContainer.style.top = `${topOffset}px`;
+                }
+
+                if (mainNav && header && getComputedStyle(header).position === 'sticky') {
+                    mainNav.style.top = `${header.offsetHeight}px`;
+                } else if (mainNav) {
+                    mainNav.style.top = '0px';
+                }
+            }
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer || !mainNav || !progressBarContainer) {
+                    // console.error("Error: Uno o más elementos de la guía de autorregulación no se encontraron.");
+                    return;
+                }
+                
+                updateProgressBarContainerStickyTop(); 
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                stepIndicator.textContent = `Paso ${currentSlide + 1} de ${totalSlides}`;
+                const progressPercentage = totalSlides > 0 ? ((currentSlide + 1) / totalSlides) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                nextButton.classList.toggle('hidden', currentSlide === totalSlides - 1);
+                completionContainer.classList.toggle('hidden', currentSlide !== totalSlides - 1);
+                
+                navigationButtonsContainer.classList.remove('sm:justify-start', 'sm:justify-between', 'sm:justify-center', 'sm:justify-end');
+                if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const targetRect = targetSlideElement.getBoundingClientRect();
+                        const scrollPosition = window.pageYOffset + targetRect.top - getStickyHeaderHeight() - 15; // 15px buffer
+
+                        window.scrollTo({
+                            top: scrollPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${slides[currentSlide].id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSlideIndex = slides.findIndex(s => `#${s.id}` === targetId);
+
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(); 
+                    }
+                });
+            });
+            
+            window.addEventListener('load', () => {
+                updateProgressBarContainerStickyTop();
+                 if (totalSlides > 0) {
+                    updateSlideDisplay(false);
+                } else {
+                    console.warn(`Advertencia: No se encontraron slides en la guía '${guideIdPrefix}'.`);
+                }
+            });
+            window.addEventListener('resize', () => {
+                updateProgressBarContainerStickyTop();
+            });
+
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn(`Advertencia: No se encontraron slides en la guía '${guideIdPrefix}'.`);
+            }
+        });
+    </script>
+
+</body>
+</html>
