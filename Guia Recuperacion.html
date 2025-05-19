@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Recuperación Avanzada</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Recuperación Avanzada Post-Entrenamiento: nutrición, sueño, hidratación, manejo del estrés y más.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#dc3545',
+                        'askesis-text-dark': '#343a40',
+                        'askesis-text-body': '#495057',
+                        'askesis-text-light-header': '#d6eaff',
+                        'askesis-bg-light': '#f8f9fa',
+                        'askesis-accent-blue-light': '#e7f3fe',
+                        'askesis-accent-green-light': '#e6f2e9',
+                        'askesis-accent-purple-light': '#f3eefe',
+                        'askesis-accent-orange-light': '#fff3e0',
+                        'askesis-accent-red-light': '#f8d7da',
+                        'askesis-border-light': '#dee2e6',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #dc3545;
+            --askesis-text-dark: #343a40;
+            --askesis-text-body: #495057;
+            --askesis-text-light-header: #FFFFFF; /* Cambiado a blanco para mejor contraste con header azul */
+            --askesis-bg-light: #f8f9fa;
+            --askesis-bg-content-wrapper: rgba(255, 255, 255, 0.92); /* Fondo de slide-content-wrapper */
+            --askesis-accent-blue-light: #e7f3fe;
+            --askesis-accent-green-light: #e6f2e9;
+            --askesis-accent-purple-light: #f3eefe;
+            --askesis-accent-orange-light: #fff3e0;
+            --askesis-accent-red-light: #f8d7da;
+            --askesis-border-light: #dee2e6;
+            --whatsapp-green: #25D366; /* Color para el botón de WhatsApp */
+        }
+
+        html {
+            scroll-padding-top: 150px; /* Ajusta este valor a la altura combinada de tus headers fijos */
+        }
+
+        body {
+            font-family: 'Lato', 'sans-serif';
+            color: var(--askesis-text-body);
+            background-color: var(--askesis-bg-light);
+            line-height: 1.7;
+        }
+
+        .step-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            padding: 3rem 1rem; 
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+            width: 100%; 
+        }
+
+        .step-slide::before { 
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.55); 
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-bg-content-wrapper);
+            padding: 2rem 2.5rem; 
+            border-radius: 0.75rem;
+            max-width: 850px; 
+            width: 95%; 
+            margin: 2rem auto; 
+            color: var(--askesis-text-dark);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2, .slide-content-wrapper h3,
+        .slide-content-wrapper h4, .slide-content-wrapper h5,
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: inherit; 
+            text-align: left; 
+        }
+        .slide-content-wrapper h1.guide-main-title, .slide-content-wrapper h2.guide-section-title {
+            text-align: center; 
+        }
+         .slide-content-wrapper h2.guide-section-title i, .slide-content-wrapper h1.guide-main-title i { margin-right: 0.6rem; }
+
+        .sticky-nav { position: sticky; top: 0; z-index: 1001; }
+        .sticky-nav-secondary { position: sticky; /* top se ajustará con JS */ z-index: 1000; }
+
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-content-wrapper .guide-main-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-blue);
+            font-size: 2em; 
+            font-weight: 900;
+            margin-bottom: 1.5rem; 
+            padding-bottom: 0.75rem; 
+            border-bottom: 2px solid var(--askesis-border-light);
+        }
+        .slide-content-wrapper .guide-section-title {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-blue);
+            font-size: 1.8em; 
+            margin-top: 1rem;
+            margin-bottom: 1.25rem; 
+            padding-bottom: 0.6rem; 
+            border-bottom: 2px solid var(--askesis-border-light);
+        }
+        .slide-content-wrapper .guide-subsection-title {
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-purple);
+             font-size: 1.4em; 
+             margin-top: 1.5rem; 
+             margin-bottom: 0.75rem; 
+             padding-bottom: 0.4rem; 
+        }
+         .slide-content-wrapper .guide-subsubsection-title {
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-green); 
+             font-size: 1.2em; 
+             font-weight: 700;
+             margin-top: 1.25rem; 
+             margin-bottom: 0.6rem;
+        }
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+             background-color: var(--askesis-accent-orange-light); 
+             padding: 1px 4px;
+             border-radius: 3px;
+        }
+        .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper ul {
+            list-style: disc;
+            padding-left: 1.5rem; 
+            margin-bottom: 1rem;
+        }
+        .slide-content-wrapper ul ul {
+            list-style: circle;
+            margin-top: 0.25rem;
+            margin-left: 1rem;
+        }
+        .slide-content-wrapper li {
+            margin-bottom: 0.5rem;
+        }
+
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 4px; padding: 1rem; margin: 1.25rem 0; border-radius: 0 0.25rem 0.25rem 0; font-size: 0.95em;
+        }
+        
+        .slide-content-wrapper .info-box { background-color: var(--askesis-accent-blue-light); border-left-color: var(--askesis-blue); color: var(--askesis-text-dark);}
+        .slide-content-wrapper .warning-box { background-color: var(--askesis-accent-red-light); border-left-color: var(--askesis-red); color: #721c24;}
+        .slide-content-wrapper .tip-box { background-color: var(--askesis-accent-green-light); border-left-color: var(--askesis-green); color: var(--askesis-text-dark); }
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; 
+            font-size: 1.1em; 
+            display: block; 
+            margin-bottom: 0.5rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); }
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-green); }
+
+
+        .askesis-main-header { 
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-light-header);
+            text-align: center;
+            padding: 0.75rem 0; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .askesis-main-header .brand-title-link { /* Clase para el enlace del título */
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8em; 
+            font-weight: 900;
+            letter-spacing: 1.5px; 
+            text-transform: uppercase;
+            color: var(--askesis-text-light-header); /* Asegurar color del enlace */
+            text-decoration: none; /* Quitar subrayado */
+            display: inline-block; /* Para que el hover no ocupe todo el ancho */
+        }
+        .askesis-main-header .brand-title-link:hover {
+            opacity: 0.9; /* Efecto hover sutil */
+        }
+        .askesis-main-header .brand-tagline {
+            font-size: 0.85em; 
+            font-style: italic;
+            color: var(--askesis-text-light-header); 
+            opacity: 0.9;
+        }
+        #main-nav-recuperacion {
+             background-color: var(--askesis-text-dark); 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #main-nav-recuperacion .nav-link-recuperacion {
+            color: #e0e0e0; 
+            padding: 0.6rem 0.5rem; 
+            margin: 0 0.1rem;
+            border-radius: 0.25rem;
+            font-weight: 500; 
+            transition: background-color 0.2s ease, color 0.2s ease;
+            font-size: 0.75rem; 
+            white-space: nowrap;
+        }
+        #main-nav-recuperacion .nav-link-recuperacion:hover,
+        #main-nav-recuperacion .nav-link-recuperacion.active {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-light-header);
+        }
+        #progress-bar-container-recuperacion {
+            padding: 0.5rem 1rem;
+            background-color: #e9ecef; 
+        }
+        #progress-bar-recuperacion {
+            background: linear-gradient(to right, var(--askesis-green), var(--askesis-blue));
+        }
+        #navigation-buttons-recuperacion button {
+            transition: all 0.3s ease;
+        }
+        #navigation-buttons-recuperacion button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .footer-interactive {
+            background-color: var(--askesis-text-dark);
+            color: #adb5bd; 
+            padding: 2.5rem 1rem 1.5rem; 
+            text-align: center;
+        }
+        .footer-interactive .footer-brand-link { /* Clase para el enlace del título en footer */
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8em;
+            font-weight: 900;
+            color: var(--askesis-text-light-header);
+            margin-bottom: 0.25rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+         .footer-interactive .footer-brand-link:hover {
+            opacity: 0.9;
+        }
+        .footer-interactive .footer-tagline {
+            font-size: 0.9em;
+            color: #ced4da; 
+            margin-bottom: 1.5rem;
+        }
+        .footer-interactive .contact-links a {
+            color: #ced4da;
+            transition: color 0.3s ease;
+            margin: 0 0.5rem;
+        }
+        .footer-interactive .contact-links a:hover {
+            color: var(--askesis-blue);
+        }
+        .footer-interactive .contact-links i {
+            margin-right: 0.3rem;
+        }
+        .footer-interactive .copyright {
+            font-size: 0.85em;
+            color: #6c757d; 
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #495057; 
+        }
+
+        /* Estilos para el botón flotante de WhatsApp */
+        .floating-whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem; /* Tamaño del icono */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1005; /* Asegurar que esté por encima de otros elementos */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+        .floating-whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-askesis-bg-light">
+
+    <header class="askesis-main-header sticky-nav">
+        <div class="container mx-auto">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="brand-title-link">ASKESIS</a>
+            <div class="brand-tagline">Guía Interactiva de Recuperación Avanzada</div>
+        </div>
+    </header>
+
+    <nav id="main-nav-recuperacion" class="sticky-nav-secondary">
+        <ul class="container mx-auto flex flex-wrap justify-center p-1">
+            <li><a href="#slide-recuperacion-0" class="nav-link-recuperacion">Intro</a></li>
+            <li><a href="#slide-recuperacion-1" class="nav-link-recuperacion">Pilares</a></li>
+            <li><a href="#slide-recuperacion-2" class="nav-link-recuperacion">Nutrición 1</a></li>
+            <li><a href="#slide-recuperacion-3" class="nav-link-recuperacion">Nutrición 2</a></li>
+            <li><a href="#slide-recuperacion-4" class="nav-link-recuperacion">Sueño 1</a></li>
+            <li><a href="#slide-recuperacion-5" class="nav-link-recuperacion">Sueño 2</a></li>
+            <li><a href="#slide-recuperacion-6" class="nav-link-recuperacion">Hidratación 1</a></li>
+            <li><a href="#slide-recuperacion-7" class="nav-link-recuperacion">Hidratación 2</a></li>
+            <li><a href="#slide-recuperacion-8" class="nav-link-recuperacion">Estrés 1</a></li>
+            <li><a href="#slide-recuperacion-9" class="nav-link-recuperacion">Estrés 2</a></li>
+            <li><a href="#slide-recuperacion-10" class="nav-link-recuperacion">Avanzado</a></li>
+            <li><a href="#slide-recuperacion-11" class="nav-link-recuperacion">Errores</a></li>
+            <li><a href="#slide-recuperacion-12" class="nav-link-recuperacion">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-recuperacion">
+        <div id="progress-bar-container-recuperacion" class="w-full sticky-nav-secondary" style="z-index: 999;">
+            <div id="step-indicator-recuperacion" class="text-center mb-1 text-sm font-semibold text-askesis-blue"></div>
+            <div class="w-11/12 mx-auto bg-gray-300 rounded-full h-2">
+                <div id="progress-bar-recuperacion" class="h-2 rounded-full transition-all duration-300 ease-out" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div id="slides-container-recuperacion">
+            <section id="slide-recuperacion-0" class="step-slide" style="background-image: url('https://images.pexels.com/photos/40751/running-runner-long-distance-fitness-40751.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h1 class="guide-main-title"><i class="fas fa-heart-pulse"></i>Guía de Recuperación Avanzada</h1>
+                    <p class="text-center text-lg mb-6" style="font-size: 1.1em;">
+                        El entrenamiento intenso es solo el comienzo. La verdadera magia, las adaptaciones que te hacen más fuerte, rápido y resistente, ocurren durante la recuperación.
+                    </p>
+                    <h2 class="guide-section-title !text-askesis-orange !border-askesis-orange !text-base sm:!text-lg"><i class="fas fa-exclamation-circle"></i>¿Qué es la Recuperación y Por Qué es Vital?</h2>
+                    <p>La recuperación es el conjunto de procesos fisiológicos y psicológicos que permiten a tu cuerpo no solo reparar el "daño" inducido por el ejercicio (microlesiones musculares, depleción de energía), sino también <strong class="highlight">supercompensar</strong>, es decir, adaptarse para afrontar estímulos futuros con mayor capacidad.</p>
+                    <p><strong>Descuidar la recuperación puede llevar a:</strong></p>
+                    <ul>
+                        <li>Estancamiento o regresión en el rendimiento.</li>
+                        <li>Mayor riesgo de lesiones agudas y por sobreuso.</li>
+                        <li>Fatiga crónica y síndrome de sobreentrenamiento (OTS).</li>
+                        <li>Alteraciones hormonales y debilitamiento del sistema inmunológico.</li>
+                        <li>Impacto negativo en el estado de ánimo y la motivación.</li>
+                    </ul>
+                    <div class="tip-box mt-4">
+                        <strong>¡Invierte en tu recuperación!</strong>
+                        <p>Es la estrategia más inteligente para potenciar tus resultados y asegurar tu longevidad deportiva.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-recuperacion-1" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/3930096/pexels-photo-3930096.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-cogs"></i>Pilares Fundamentales de la Recuperación</h2>
+                    <p class="text-center text-lg my-4">Una recuperación efectiva se construye sobre varios pilares interconectados. Atender cada uno de ellos de forma consistente es la clave para desbloquear tu máximo potencial.</p>
+                    <p>En las siguientes secciones, exploraremos en detalle:</p>
+                    <ul class="list-decimal list-inside text-left mx-auto max-w-md space-y-2 mt-4 text-lg">
+                        <li>Nutrición Estratégica</li>
+                        <li>Descanso y Sueño Reparador</li>
+                        <li>Hidratación y Electrolitos</li>
+                        <li>Manejo del Estrés y Recuperación Activa</li>
+                        <li>Estrategias Avanzadas</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-recuperacion-2" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-utensils"></i>Pilar 1: Nutrición Estratégica (Parte 1)</h2>
+                    <div class="info-box">
+                        <strong><i class="fas fa-bullseye mr-2"></i>Objetivo Principal de la Nutrición Post-Entreno</strong>
+                        <p>Reponer las reservas de glucógeno, proveer aminoácidos para la reparación y síntesis de proteínas musculares (MPS), rehidratar y modular la inflamación.</p>
+                    </div>
+                    <h3 class="guide-subsection-title"><i class="fas fa-puzzle-piece"></i>Macronutrientes Clave: Proteínas</h3>
+                    <ul>
+                        <li><strong>Función:</strong> Fundamentales para reparar el tejido muscular dañado y construir nuevo tejido.</li>
+                        <li><strong>Cantidad:</strong> Se recomienda <span class="highlight">0.3-0.5 g/kg</span> de peso corporal (aprox. 20-40g para la mayoría) en la comida o batido post-entrenamiento. La ingesta diaria total para deportistas suele ser de <span class="highlight">1.6-2.2 g/kg</span>.</li>
+                        <li><strong>Calidad:</strong> Prioriza fuentes completas y ricas en leucina.
+                            <ul>
+                                <li>Animales: Suero de leche (whey protein), caseína, huevo, carnes magras (pollo, pavo, ternera), pescado.</li>
+                                <li>Vegetales: Soja y sus derivados (tofu, tempeh), quinoa, legumbres combinadas con cereales, proteína vegetal en polvo.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Timing (Ventana Anabólica):</strong> Aunque la "ventana" es más flexible de lo que se pensaba (varias horas), consumir proteínas en las <span class="highlight">0-2 horas post-ejercicio</span> sigue siendo una buena práctica, especialmente si tu próximo entrenamiento es en menos de 24h o si entrenas en ayunas.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-recuperacion-3" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-apple-alt"></i>Pilar 1: Nutrición Estratégica (Parte 2)</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-bread-slice"></i>Macronutrientes: Carbohidratos</h3>
+                    <ul>
+                        <li><strong>Función:</strong> Esenciales para reponer el glucógeno muscular y hepático gastado durante el ejercicio.</li>
+                        <li><strong>Cantidad:</strong> <span class="highlight">0.8-1.2 g/kg</span> de peso corporal en las primeras horas post-ejercicio, especialmente tras sesiones largas (>90 min) o de alta intensidad.</li>
+                        <li><strong>Tipo:</strong>
+                            <ul>
+                                <li>Inmediatamente después (0-2h): Carbohidratos de índice glucémico (IG) moderado-alto para una rápida resíntesis (ej: frutas como plátano, mango; arroz blanco, patatas, pan blanco, bebidas deportivas).</li>
+                                <li>Comidas posteriores: Carbohidratos complejos de IG bajo-moderado (ej: avena, pasta integral, arroz integral, legumbres, tubérculos como batata).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Ratio Carbs:Proteína:</strong> Una combinación de carbohidratos y proteínas en un ratio de <span class="highlight">3:1 o 4:1</span> (ej: 60g CHO y 20g PRO) es efectiva para optimizar la resíntesis de glucógeno y la reparación muscular.</li>
+                    </ul>
+                     <h3 class="guide-subsubsection-title mt-4"><i class="fas fa-seedling"></i>Grasas, Micronutrientes y Compuestos Bioactivos</h3>
+                    <ul>
+                        <li><strong>Grasas:</strong> Importantes para la salud hormonal y absorción de vitaminas. Incluir fuentes saludables (aguacate, frutos secos, semillas, aceite de oliva) en comidas alejadas del post-entreno inmediato si se busca rápida absorción de carbs/proteínas.</li>
+                        <li><strong>Antioxidantes y Antiinflamatorios:</strong> Frutas y verduras coloridas (bayas, cerezas, granada, verduras de hoja verde), especias (cúrcuma, jengibre), té verde, pescado azul (Omega-3). Ayudan a modular la inflamación y combatir el estrés oxidativo.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-recuperacion-4" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/3771045/pexels-photo-3771045.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-bed"></i>Pilar 2: Descanso y Sueño Reparador (Parte 1)</h2>
+                    <div class="info-box">
+                        <strong><i class="fas fa-moon mr-2"></i>El Sueño: Tu Herramienta de Recuperación Más Potente</strong>
+                        <p>El sueño no es un lujo, es una necesidad biológica fundamental, especialmente para atletas. Durante el sueño, tu cuerpo trabaja arduamente para repararse y fortalecerse.</p>
+                    </div>
+                    <h3 class="guide-subsection-title"><i class="fas fa-cogs"></i>Procesos Vitales Durante el Sueño:</h3>
+                    <ul>
+                        <li><strong>Liberación de Hormona del Crecimiento (GH):</strong> Máxima secreción durante el sueño profundo (ondas lentas). Esencial para la reparación de tejidos (músculos, huesos, tendones) y el crecimiento muscular.</li>
+                        <li><strong>Síntesis de Proteínas:</strong> Aumenta durante el sueño, facilitando la reparación de las microlesiones musculares inducidas por el ejercicio.</li>
+                        <li><strong>Consolidación de la Memoria y Aprendizaje Motor:</strong> El cerebro procesa y almacena nuevas habilidades y patrones de movimiento aprendidos.</li>
+                        <li><strong>Regulación Hormonal:</strong>
+                            <ul>
+                                <li>Reduce los niveles de cortisol (hormona del estrés catabólica).</li>
+                                <li>Optimiza los niveles de testosterona y otras hormonas anabólicas.</li>
+                                <li>Regula hormonas del apetito (grelina y leptina).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Restauración del Sistema Nervioso Central (SNC):</strong> Reduce la fatiga neural.</li>
+                        <li><strong>Función Inmunológica:</strong> Producción de citoquinas (proteínas que ayudan a combatir la inflamación y las infecciones). La privación de sueño debilita el sistema inmune.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-recuperacion-5" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/935777/pexels-photo-935777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-clock"></i>Pilar 2: Descanso y Sueño Reparador (Parte 2)</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-check-circle"></i>Calidad y Cantidad de Sueño</h3>
+                    <ul>
+                        <li><strong>Duración:</strong> La mayoría de los adultos necesitan <span class="highlight">7-9 horas</span> de sueño por noche. Los atletas, debido a las mayores demandas de recuperación, pueden necesitar <span class="highlight">8-10 horas</span>.</li>
+                        <li><strong>Calidad:</strong> No solo importa cuánto duermes, sino cuán bien duermes. Un sueño fragmentado o superficial es menos reparador.</li>
+                        <li><strong>Higiene del Sueño (Consejos para mejorar la calidad):</strong>
+                            <ul>
+                                <li><strong>Horario Regular:</strong> Acuéstate y levántate a la misma hora todos los días (incluso fines de semana).</li>
+                                <li><strong>Ambiente Óptimo:</strong> Dormitorio oscuro, silencioso, fresco (idealmente 18-20°C) y bien ventilado.</li>
+                                <li><strong>Evita Estimulantes:</strong> Limita cafeína y nicotina, especialmente por la tarde/noche. Evita el alcohol antes de dormir (puede fragmentar el sueño).</li>
+                                <li><strong>Desconexión Digital:</strong> Evita pantallas (móviles, tablets, TV, ordenadores) al menos 1 hora antes de dormir. La luz azul suprime la melatonina.</li>
+                                <li><strong>Rutina Relajante:</strong> Crea un ritual pre-sueño (leer un libro físico, meditar, escuchar música tranquila, un baño tibio).</li>
+                                <li><strong>Ejercicio:</strong> Regular, pero evita entrenamientos muy intensos cerca de la hora de dormir.</li>
+                                <li><strong>Exposición a la Luz Natural:</strong> Durante el día, especialmente por la mañana, ayuda a regular el ritmo circadiano.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Siestas Estratégicas:</strong> Una siesta corta (<span class="highlight">20-30 minutos</span>) puede ser beneficiosa para mejorar el estado de alerta y rendimiento si el sueño nocturno fue insuficiente. Evita siestas largas (>90 min) o tardías que puedan interferir con el sueño nocturno.</li>
+                    </ul>
+                    <h3 class="guide-subsubsection-title mt-4"><i class="fas fa-couch"></i>Descanso Activo vs. Pasivo</h3>
+                     <p>Los días de descanso son cruciales. Pueden ser:</p>
+                    <ul>
+                        <li><strong>Descanso Pasivo:</strong> Reposo total. Necesario en casos de fatiga extrema o lesión.</li>
+                        <li><strong>Descanso Activo:</strong> Actividades de muy baja intensidad y bajo impacto (caminatas ligeras, yoga suave, movilidad, natación recreativa). Ayuda a aumentar el flujo sanguíneo, reducir la rigidez y promover la recuperación sin añadir estrés significativo.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-recuperacion-6" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/276561/pexels-photo-276561.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-tint"></i>Pilar 3: Hidratación y Electrolitos (Parte 1)</h2>
+                    <div class="info-box">
+                        <strong><i class="fas fa-water mr-2"></i>El Agua: Esencial para la Vida y la Recuperación</strong>
+                        <p>El cuerpo humano es aproximadamente un 60% agua. Es vital para casi todas las funciones fisiológicas, y su deficiencia (deshidratación) impacta negativamente el rendimiento y la recuperación.</p>
+                    </div>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tasks"></i>Funciones Clave del Agua en la Recuperación:</h3>
+                    <ul>
+                        <li><strong>Transporte de Nutrientes:</strong> Lleva glucosa, aminoácidos y oxígeno a las células musculares.</li>
+                        <li><strong>Eliminación de Desechos:</strong> Ayuda a eliminar productos metabólicos de desecho (ej: lactato, amoniaco) de los músculos.</li>
+                        <li><strong>Termorregulación:</strong> Mantiene la temperatura corporal, crucial durante y después del ejercicio.</li>
+                        <li><strong>Lubricación Articular:</strong> Mantiene la salud de las articulaciones.</li>
+                        <li><strong>Función Celular y Volumen Sanguíneo:</strong> Mantiene el volumen plasmático, afectando la entrega de oxígeno y la función cardiovascular.</li>
+                    </ul>
+                    <h3 class="guide-subsubsection-title mt-4"><i class="fas fa-balance-scale"></i>Rehidratación Post-Ejercicio</h3>
+                    <ul>
+                        <li><strong>Evalúa tus Pérdidas:</strong> Pésate antes y después de entrenar (sin ropa o con la mínima posible y seca). La diferencia de peso es principalmente pérdida de fluidos.</li>
+                        <li><strong>Repone Adecuadamente:</strong> Por cada <span class="highlight">1 kg de peso perdido</span>, se recomienda reponer entre <span class="highlight">1.25 y 1.5 litros</span> de fluidos en las horas posteriores.</li>
+                        <li><strong>Gradual, no de Golpe:</strong> Bebe de forma gradual para una mejor absorción y evitar molestias gastrointestinales.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-recuperacion-7" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/128865/pexels-photo-128865.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-flask"></i>Pilar 3: Hidratación y Electrolitos (Parte 2)</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tint"></i>Hidratación Diaria Continua</h3>
+                    <ul>
+                        <li><strong>No Solo Alrededor del Entreno:</strong> Mantén una buena hidratación durante todo el día.</li>
+                        <li><strong>Guía General:</strong> Aproximadamente <span class="highlight">30-35 ml de agua por kg</span> de peso corporal al día. Esta cantidad varía según el nivel de actividad, clima (temperatura y humedad), tasa de sudoración individual y dieta.</li>
+                        <li><strong>Escucha a tu Cuerpo (y Observa):</strong>
+                            <ul>
+                                <li><strong>Sed:</strong> Es un indicador, pero a menudo aparece cuando ya hay un ligero grado de deshidratación. Intenta beber antes de tener mucha sed.</li>
+                                <li><strong>Color de la Orina:</strong> Un color amarillo pálido (como limonada clara) suele indicar buena hidratación. Orina oscura y concentrada puede ser señal de deshidratación.</li>
+                                <li><strong>Frecuencia Urinaria:</strong> Orinar regularmente (cada 2-4 horas) es una buena señal.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h3 class="guide-subsubsection-title mt-4"><i class="fas fa-bolt"></i>El Rol Crucial de los Electrolitos</h3>
+                    <p>Los electrolitos son minerales con carga eléctrica que se pierden a través del sudor. Son vitales para:</p>
+                    <ul>
+                        <li>Equilibrio hídrico y presión osmótica.</li>
+                        <li>Función nerviosa (transmisión de impulsos).</li>
+                        <li>Contracciones musculares (incluyendo el corazón).</li>
+                        <li>Equilibrio ácido-base (pH).</li>
+                    </ul>
+                    <p><strong>Principales Electrolitos a Considerar:</strong></p>
+                    <ul>
+                        <li><strong>Sodio (Na+):</strong> El más perdido en el sudor. Ayuda a retener líquidos.</li>
+                        <li><strong>Potasio (K+):</strong> Importante para la función celular y muscular.</li>
+                        <li><strong>Magnesio (Mg++):</strong> Involucrado en cientos de reacciones enzimáticas, producción de energía y función muscular.</li>
+                        <li><strong>Calcio (Ca++):</strong> Esencial para la contracción muscular y salud ósea.</li>
+                        <li><strong>Cloruro (Cl-):</strong> Trabaja con el sodio para mantener el equilibrio de fluidos.</li>
+                    </ul>
+                    <div class="tip-box mt-3">
+                        <strong>¿Cuándo Reponer Electrolitos?</strong>
+                        <p>En entrenamientos <span class="highlight">largos (> 60-90 minutos)</span>, intensos, o en ambientes calurosos/húmedos. Puedes usar bebidas deportivas, tabletas de electrolitos, o alimentos ricos en ellos (ej: plátano y frutos secos para potasio y magnesio, una pizca de sal en la comida para sodio).</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-recuperacion-8" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-spa"></i>Pilar 4: Manejo del Estrés (Parte 1)</h2>
+                    <div class="info-box">
+                        <strong><i class="fas fa-brain mr-2"></i>Estrés: Más Allá del Entrenamiento</strong>
+                        <p>El entrenamiento es un estresor físico (positivo si se gestiona bien). Sin embargo, el estrés total al que estás sometido (trabajo, estudios, relaciones, finanzas, etc.) también impacta tu capacidad de recuperación.</p>
+                    </div>
+                    <h3 class="guide-subsection-title"><i class="fas fa-biohazard"></i>El Impacto del Estrés Crónico en la Recuperación:</h3>
+                    <ul>
+                        <li><strong>Elevación del Cortisol:</strong> El cortisol es una hormona catabólica. Niveles crónicamente altos pueden:
+                            <ul>
+                                <li>Degradar tejido muscular.</li>
+                                <li>Dificultar la pérdida de grasa (especialmente abdominal).</li>
+                                <li>Suprimir el sistema inmunológico.</li>
+                                <li>Alterar el sueño.</li>
+                                <li>Disminuir la producción de hormonas anabólicas (testosterona, GH).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Inflamación Sistémica:</strong> El estrés crónico puede promover un estado proinflamatorio generalizado.</li>
+                        <li><strong>Fatiga del SNC:</strong> Agotamiento mental y emocional que afecta la motivación y el rendimiento.</li>
+                        <li><strong>Peores Decisiones:</strong> El estrés puede llevar a elecciones alimentarias menos saludables o a saltarse entrenamientos/descanso.</li>
+                    </ul>
+                     <h3 class="guide-subsubsection-title mt-4"><i class="fas fa-lightbulb"></i>Técnicas de Reducción del Estrés Psicológico:</h3>
+                     <p>Integrar prácticas para calmar el sistema nervioso es crucial:</p>
+                    <ul>
+                        <li><strong>Mindfulness y Meditación:</strong> Incluso 5-15 minutos diarios pueden reducir la percepción del estrés, mejorar la concentración y la variabilidad de la frecuencia cardíaca (HRV), un indicador de la capacidad de adaptación del sistema nervioso.</li>
+                        <li><strong>Respiración Diafragmática (Profunda):</strong> Activa el sistema nervioso parasimpático ("descansar y digerir").
+                            <ul><li>Ejemplo: Inhala por la nariz durante 4 segundos (expandiendo el abdomen), sostén 4 segundos, exhala lentamente por la boca durante 6-8 segundos. Repite por varios minutos.</li></ul>
+                        </li>
+                        <li><strong>Journaling (Escribir):</strong> Plasmar pensamientos y emociones puede ayudar a procesarlos y reducir la rumiación mental.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-recuperacion-9" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-running"></i>Pilar 4: Recuperación Activa Específica (Parte 2)</h2>
+                     <h3 class="guide-subsection-title"><i class="fas
+fas fa-leaf"></i>Más Técnicas de Manejo del Estrés y Bienestar:</h3>
+                    <ul>
+                        <li><strong>Tiempo en la Naturaleza:</strong> Pasar tiempo al aire libre, especialmente en entornos verdes o azules (bosques, parques, cerca del agua), se ha asociado con reducción de cortisol, mejora del estado de ánimo y función cognitiva.</li>
+                        <li><strong>Hobbies y Actividades Placenteras:</strong> Dedicar tiempo a actividades que disfrutas y te relajan (que no sean competitivas o estresantes) es fundamental para desconectar.</li>
+                        <li><strong>Conexión Social:</strong> Mantener relaciones sociales positivas y de apoyo.</li>
+                        <li><strong>Establecer Límites:</strong> Aprender a decir "no" y proteger tu tiempo y energía.</li>
+                    </ul>
+                    <h3 class="guide-subsubsection-title mt-4"><i class="fas fa-walking"></i>Estrategias de Recuperación Activa Específicas:</h3>
+                    <p>Estas técnicas pueden ayudar a aliviar la tensión muscular, mejorar el flujo sanguíneo y la percepción de recuperación.</p>
+                    <ul>
+                        <li><strong>Foam Rolling (Auto-liberación Miofascial):</strong>
+                            <ul>
+                                <li>Puede reducir el DOMS (dolor muscular de aparición tardía) y mejorar el rango de movimiento a corto plazo.</li>
+                                <li>Aplicar presión moderada sobre los músculos tensos durante 30-90 segundos por área. Evitar articulaciones o zonas con dolor agudo.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Estiramientos:</strong>
+                            <ul>
+                                <li><strong>Estáticos:</strong> Mantener una posición de estiramiento (sintiendo tensión leve a moderada, no dolor) durante 20-30 segundos. Mejor realizarlos post-entreno o en días de descanso, cuando los músculos están calientes.</li>
+                                <li><strong>Dinámicos:</strong> Movimientos controlados a través del rango de movimiento completo. Ideales para el calentamiento, pero también pueden usarse en recuperación activa ligera.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Movilidad Articular Controlada (CARs):</strong> Movimientos suaves y conscientes de las articulaciones en todo su rango de movimiento. Ayuda a mantener la salud articular y la conciencia corporal.</li>
+                        <li><strong>Crioterapia (Baños de Hielo) vs. Termoterapia (Calor):</strong>
+                            <ul>
+                                <li><strong>Crioterapia (Frío):</strong> Inmersiones en agua fría (10-15°C durante 10-15 min). Puede reducir la inflamación y el dolor agudo. Controvertido si el objetivo principal es la hipertrofia máxima, ya que podría atenuar algunas vías de señalización anabólica. Útil para recuperación rápida entre competiciones.</li>
+                                <li><strong>Termoterapia (Calor):</strong> Sauna, baños calientes, compresas calientes. Puede aumentar el flujo sanguíneo, relajar los músculos y promover la liberación de endorfinas. Evitar inmediatamente después de lesiones agudas con inflamación evidente.</li>
+                                <li><strong>Baños de Contraste:</strong> Alternar agua fría (1-2 min) y caliente (2-4 min). Podría ayudar a "bombear" fluidos y reducir la percepción de fatiga.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-recuperacion-10" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/7672343/pexels-photo-7672343.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-rocket"></i>Pilar 5: Estrategias Avanzadas y Suplementación</h2>
+                    <div class="warning-box">
+                        <strong>¡Fundamentos Primero!</strong>
+                        <p>Ninguna estrategia avanzada o suplemento compensará una nutrición, sueño, hidratación o manejo del estrés deficientes. Son complementos, no la base.</p>
+                    </div>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tools"></i>Herramientas Adicionales (Considerar con un Profesional):</h3>
+                    <ul>
+                        <li><strong>Masaje Deportivo/Terapéutico:</strong> Realizado por un profesional cualificado, puede ayudar a reducir la tensión muscular, mejorar la circulación, disminuir adherencias y mejorar la percepción de recuperación.</li>
+                        <li><strong>Prendas de Compresión:</strong> Pueden ayudar a reducir el DOMS y la hinchazón, y mejorar la propiocepción. La evidencia sobre la mejora directa del rendimiento es mixta, pero pueden ser útiles para la percepción de recuperación y durante viajes.</li>
+                        <li><strong>Electroestimulación (EMS/TENS):</strong> Algunas modalidades de baja frecuencia pueden ayudar con el alivio del dolor (TENS) o la recuperación activa de baja intensidad (EMS) promoviendo el flujo sanguíneo.</li>
+                    </ul>
+                    <h3 class="guide-subsubsection-title mt-4"><i class="fas fa-pills"></i>Suplementos con Evidencia para la Recuperación (Individualizar):</h3>
+                     <p>Siempre consulta con un nutricionista deportivo o médico antes de tomar suplementos.</p>
+                    <ul>
+                        <li><strong>Monohidrato de Creatina:</strong> No solo para fuerza y potencia. Ayuda en la resíntesis de ATP, puede mejorar la recuperación entre series, la resíntesis de glucógeno y reducir el daño muscular. Dosis: 3-5g/día.</li>
+                        <li><strong>Proteína en Polvo (Suero, Caseína, Vegetal):</strong> Conveniente para alcanzar los requerimientos proteicos, especialmente post-entreno.</li>
+                        <li><strong>Omega-3 (EPA/DHA):</strong> Ácidos grasos con propiedades antiinflamatorias. Pueden ayudar a reducir el DOMS y la inflamación. Fuentes: pescado azul, suplementos de aceite de pescado/algas.</li>
+                        <li><strong>Vitamina D:</strong> Muchos atletas son deficientes, especialmente en invierno o si entrenan indoor. Crucial para la función inmune, salud ósea, muscular y recuperación. Suplementar si hay deficiencia confirmada por análisis.</li>
+                        <li><strong>Magnesio:</strong> Puede ayudar con la relajación muscular y el sueño. Considerar si la dieta es deficiente o hay calambres.</li>
+                        <li><strong>Tart Cherry Juice (Zumo de Cereza Ácida):</strong> Rico en antocianinas, ha demostrado reducir el DOMS y la inflamación.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-recuperacion-11" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-times-circle"></i>Errores Comunes que Sabotean tu Recuperación</h2>
+                    <div class="warning-box">
+                        <strong><i class="fas fa-exclamation-triangle mr-2"></i>¡Evita Estos Fallos Comunes!</strong>
+                        <p>No dejes que estos errores comunes obstaculicen tu progreso y aumenten tu riesgo de lesión.</p>
+                    </div>
+                    <ul class="space-y-3">
+                        <li><strong class="critical-text"><i class="fas fa-utensils-slash mr-1"></i>Subestimar la nutrición post-entreno:</strong> No reponer energía (carbohidratos) y proteínas rápidamente retrasa la reparación y la resíntesis de glucógeno.</li>
+                        <li><strong class="critical-text"><i class="fas fa-bed-pulse mr-1"></i>Priorizar el entrenamiento sobre el sueño:</strong> El lema "más es mejor" sin el descanso adecuado es una receta para el sobreentrenamiento y el estancamiento. El sueño es donde ocurren las adaptaciones.</li>
+                        <li><strong class="critical-text"><i class="fas fa-tint-slash mr-1"></i>Deshidratación crónica:</strong> No beber suficientes líquidos (especialmente agua) afecta negativamente todos los procesos metabólicos, de transporte y de reparación.</li>
+                        <li><strong class="critical-text"><i class="fas fa-couch mr-1"></i>Ignorar el descanso activo y pasivo:</strong> No darle al cuerpo tiempo suficiente para adaptarse y recuperarse entre sesiones intensas. Los días de descanso son productivos.</li>
+                        <li><strong class="critical-text"><i class="fas fa-running mr-1"></i>Exceso de entrenamiento de alta intensidad sin periodización:</strong> Demasiado estrés sin la debida planificación y variación lleva al sobreentrenamiento, fatiga crónica y burnout.</li>
+                        <li><strong class="critical-text"><i class="fas fa-bullhorn mr-1"></i>No escuchar las señales del cuerpo:</strong> Entrenar con dolor agudo (no confundir con DOMS leve), fatiga extrema persistente o enfermedad. El cuerpo envía señales por una razón.</li>
+                        <li><strong class="critical-text"><i class="fas fa-pills mr-1"></i>Confiar excesivamente en suplementos "milagrosos":</strong> Olvidar que los pilares básicos (nutrición, sueño, hidratación, manejo del estrés) son insustituibles. Los suplementos son, en el mejor de los casos, complementarios.</li>
+                        <li><strong class="critical-text"><i class="fas fa-brain mr-1"></i>Manejo inadecuado del estrés vital (no relacionado con el ejercicio):</strong> El estrés crónico laboral, personal o emocional impacta negativamente la recuperación fisiológica general.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-recuperacion-12" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title !text-askesis-green !border-askesis-green"><i class="fas fa-check-double"></i>Conclusión: La Recuperación es Clave del Éxito</h2>
+                    <p class="text-lg my-4">La recuperación no es un componente opcional o un lujo; es una <strong class="highlight">necesidad imperativa y una parte integral del proceso de entrenamiento</strong> para cualquier persona que busque mejorar su rendimiento, optimizar su salud y alcanzar su composición corporal deseada.</p>
+                    <p>Al igual que planificas meticulosamente tus entrenamientos, debes <strong class="highlight">planificar y priorizar activamente tu recuperación</strong>. Adopta un enfoque holístico, atendiendo de forma consistente la nutrición, el sueño, la hidratación y el manejo del estrés.</p>
+                    <p class="font-semibold my-3">Escucha a tu cuerpo, sé consistente, ten paciencia y aplica los principios de esta guía. Los resultados, tanto en rendimiento como en bienestar, hablarán por sí mismos.</p>
+                    
+                    <div class="info-box mt-6">
+                        <strong><i class="fas fa-info-circle mr-2"></i>Nota Importante:</strong>
+                        <p>Esta guía ofrece principios generales y recomendaciones basadas en la evidencia científica actual. Las necesidades individuales de recuperación pueden variar significativamente según la persona, el tipo e intensidad del entrenamiento, la genética, el estilo de vida y otros factores. Para un asesoramiento personalizado y adaptado a tus circunstancias específicas, es fundamental consultar con profesionales cualificados de la salud y el deporte (médicos deportivos, nutricionistas-dietistas, fisioterapeutas, preparadores físicos).</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div id="navigation-buttons-recuperacion" class="mt-6 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4 px-4">
+            <button id="prev-button-recuperacion" class="w-full sm:w-auto bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg shadow-md flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-recuperacion" class="w-full sm:w-auto bg-askesis-blue hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md flex items-center justify-center">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-recuperacion" class="hidden my-8 text-center px-4">
+            <p class="text-xl font-semibold text-askesis-green mb-4">¡Has completado la Guía Interactiva de Recuperación Askesis!</p>
+            <p class="mb-6">Esperamos que esta información te sea de gran utilidad para optimizar tus estrategias de recuperación y alcanzar tus metas.</p>
+            <button id="restart-button-recuperacion" class="bg-askesis-orange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-md transform hover:scale-105">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quisiera%20pedir%20informaci%C3%B3n%20sobre%20sus%20asesor%C3%ADas." target="_blank" class="floating-whatsapp-button" title="Contactar por WhatsApp para Asesorías">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="footer-interactive">
+        <div class="container mx-auto">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="footer-brand-link">ASKESIS</a>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento y la Recuperación.</p>
+            <div class="mb-4">
+                 <p class="font-semibold text-lg text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="contact-links flex justify-center space-x-4 mb-6">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guia%20Recuperacion" target="_blank" title="Enviar Email"><i class="fas fa-envelope fa-lg"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Recuperación." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp fa-lg"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+            </div>
+            <p class="copyright">© <span id="currentYearFooterRecuperacion"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const guideContainerId = 'interactive-presentation-container-recuperacion';
+            const guideContainer = document.getElementById(guideContainerId);
+            if (!guideContainer) {
+                console.error(`Error: Contenedor principal de la guía con ID '${guideContainerId}' no encontrado.`);
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-recuperacion .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-recuperacion');
+            const nextButton = guideContainer.querySelector('#next-button-recuperacion');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-recuperacion');
+            const progressBar = guideContainer.querySelector('#progress-bar-recuperacion');
+            const progressBarContainer = guideContainer.querySelector('#progress-bar-container-recuperacion');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-recuperacion');
+            const completionContainer = guideContainer.querySelector('#completion-container-recuperacion');
+            const restartButton = guideContainer.querySelector('#restart-button-recuperacion');
+            const yearSpan = document.getElementById('currentYearFooterRecuperacion');
+            const navLinks = Array.from(document.querySelectorAll('#main-nav-recuperacion .nav-link-recuperacion'));
+            const mainNav = document.getElementById('main-nav-recuperacion');
+            const header = document.querySelector('.askesis-main-header');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function getStickyHeaderHeight() {
+                let totalHeight = 0;
+                if (header && getComputedStyle(header).position === 'sticky') {
+                    totalHeight += header.offsetHeight;
+                }
+                if (mainNav && getComputedStyle(mainNav).position === 'sticky') {
+                    totalHeight += mainNav.offsetHeight;
+                }
+                if (progressBarContainer && getComputedStyle(progressBarContainer).position === 'sticky') {
+                     totalHeight += progressBarContainer.offsetHeight;
+                }
+                return totalHeight;
+            }
+            
+            function updateProgressBarContainerStickyTop() {
+                let topOffset = 0;
+                if (header && getComputedStyle(header).position === 'sticky') {
+                    topOffset += header.offsetHeight;
+                }
+                if (mainNav && getComputedStyle(mainNav).position === 'sticky') {
+                    topOffset += mainNav.offsetHeight;
+                }
+                if (progressBarContainer) {
+                    progressBarContainer.style.top = `${topOffset}px`;
+                }
+
+                if (mainNav && header && getComputedStyle(header).position === 'sticky') {
+                    mainNav.style.top = `${header.offsetHeight}px`;
+                } else if (mainNav) {
+                    mainNav.style.top = '0px'; // Fallback if primary header isn't sticky for some reason
+                }
+            }
+
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer || !mainNav || !progressBarContainer) {
+                    console.error("Error: Uno o más elementos de la guía de recuperación no se encontraron.");
+                    return;
+                }
+                
+                updateProgressBarContainerStickyTop(); 
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                stepIndicator.textContent = `Paso ${currentSlide + 1} de ${totalSlides}`;
+                const progressPercentage = totalSlides > 0 ? ((currentSlide + 1) / totalSlides) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                nextButton.classList.toggle('hidden', currentSlide === totalSlides - 1);
+                completionContainer.classList.toggle('hidden', currentSlide !== totalSlides - 1);
+                
+                navigationButtonsContainer.classList.remove('sm:justify-start', 'sm:justify-between', 'sm:justify-center', 'sm:justify-end');
+                if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const targetRect = targetSlideElement.getBoundingClientRect();
+                        // Calculate the scroll position to bring the top of the target slide
+                        // just below the sticky headers.
+                        const scrollPosition = window.pageYOffset + targetRect.top - getStickyHeaderHeight() - 10; // 10px buffer
+
+                        window.scrollTo({
+                            top: scrollPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active', 'bg-askesis-blue', 'text-white');
+                    link.classList.add('text-gray-200'); 
+                    if (link.getAttribute('href') === `#${slides[currentSlide].id}`) {
+                        link.classList.add('active', 'bg-askesis-blue', 'text-white');
+                        link.classList.remove('text-gray-200');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSlideIndex = slides.findIndex(s => `#${s.id}` === targetId);
+
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(); 
+                    }
+                });
+            });
+            
+            window.addEventListener('load', () => {
+                updateProgressBarContainerStickyTop();
+                 if (totalSlides > 0) {
+                    updateSlideDisplay(false);
+                } else {
+                    console.warn("Advertencia: No se encontraron slides en la guía de recuperación.");
+                }
+            });
+            window.addEventListener('resize', () => {
+                updateProgressBarContainerStickyTop();
+            });
+
+
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de recuperación.");
+            }
+        });
+    </script>
+
+</body>
+</html>
