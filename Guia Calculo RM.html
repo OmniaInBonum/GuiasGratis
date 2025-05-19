@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Pruebas RM y Periodización con Calculadora</title>
+    <meta name="description" content="Guía interactiva y detallada sobre la Repetición Máxima (RM), protocolos de prueba seguros, aplicación en periodización y calculadora de 1RM estimado.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C', // Azul principal de Askesis
+                        'askesis-rm-blue': '#007FFF', // Azul específico de la guía original de RM
+                        'askesis-green': '#27ae60', 
+                        'askesis-orange': '#f39c12', 
+                        'askesis-red': '#e74c3c', 
+                        'askesis-text-dark': '#2c3e50', 
+                        'askesis-text-body': '#4a5568', // Un gris más estándar de Tailwind para cuerpo
+                        'askesis-text-light-header': '#FFFFFF',
+                        'askesis-bg-light': '#f9fafb', 
+                        'askesis-bg-content-wrapper': 'rgba(255, 255, 255, 0.94)', // Ligeramente más opaco
+                        'askesis-accent-blue-light': '#e0f2fe', // Un azul más claro para cajas
+                        'askesis-accent-green-light': '#f0fdf4',
+                        'askesis-accent-orange-light': '#fffbeb',
+                        'askesis-accent-red-light': '#fef2f2',
+                        'askesis-border-light': '#e5e7eb', // Gris claro de Tailwind para bordes
+                        'whatsapp-green': '#25D366',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'], // Fuente de la guía original de RM
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-rm-blue: #007FFF;
+            --askesis-green: #27ae60;
+            --askesis-orange: #f39c12;
+            --askesis-red: #e74c3c;
+            --askesis-text-dark: #2c3e50;
+            --askesis-text-body: #4a5568; /* Tailwind gray-700 */
+            --askesis-text-light-header: #FFFFFF;
+            --askesis-bg-light: #f9fafb; /* Tailwind gray-50 */
+            --askesis-bg-content-wrapper: rgba(255, 255, 255, 0.94);
+            --askesis-accent-blue-light: #e0f2fe; /* Tailwind sky-100 */
+            --askesis-accent-green-light: #f0fdf4; /* Tailwind green-50 */
+            --askesis-accent-orange-light: #fffbeb; /* Tailwind amber-50 */
+            --askesis-accent-red-light: #fef2f2; /* Tailwind red-50 */
+            --askesis-border-light: #e5e7eb; /* Tailwind gray-200 */
+            --whatsapp-green: #25D366;
+        }
+
+        html {
+            scroll-padding-top: 170px; /* Ajustado para 3 barras fijas, puede necesitar ajuste fino */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif; /* Fuente principal de la guía RM */
+            color: var(--askesis-text-body);
+            background-color: var(--askesis-bg-light);
+            line-height: 1.75; /* Ligeramente más espaciado */
+        }
+
+        .step-slide {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            padding: 3rem 1rem; 
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+            width: 100%; 
+        }
+
+        .step-slide::before { 
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.65); /* Overlay un poco más oscuro para mejor contraste */
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-bg-content-wrapper);
+            padding: 2rem 2.5rem; 
+            border-radius: 0.75rem; /* Tailwind rounded-xl */
+            max-width: 900px; 
+            width: 95%; 
+            margin: 2rem auto; 
+            color: var(--askesis-text-dark);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1), 0 6px 10px rgba(0,0,0,0.06); /* Sombra más pronunciada */
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2, .slide-content-wrapper h3,
+        .slide-content-wrapper h4, .slide-content-wrapper h5,
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper ol, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-text-body); 
+            text-align: left; 
+        }
+        .slide-content-wrapper h1.guide-main-title, .slide-content-wrapper h2.guide-section-title {
+            text-align: center; 
+            color: var(--askesis-rm-blue); /* Azul de la guía RM */
+        }
+         .slide-content-wrapper h2.guide-section-title i, .slide-content-wrapper h1.guide-main-title i { margin-right: 0.6rem; }
+
+        .sticky-nav { position: sticky; top: 0; z-index: 1001; }
+        .sticky-nav-secondary { position: sticky; z-index: 1000; }
+
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-content-wrapper .guide-main-title {
+            font-family: 'Roboto', sans-serif; /* Mantener Roboto para títulos principales si se prefiere */
+            font-size: 2.2em; /* Ligeramente más grande */
+            font-weight: 700; 
+            margin-bottom: 1.5rem; 
+            padding-bottom: 0.75rem; 
+            border-bottom: 3px solid var(--askesis-rm-blue);
+            display: inline-block; 
+        }
+        .slide-content-wrapper .guide-section-title { /* Para H2 */
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-green); 
+            font-size: 1.9em; /* Ligeramente más grande */
+            margin-top: 1.5rem; 
+            margin-bottom: 1.25rem; 
+            padding-bottom: 0.6rem; 
+            border-bottom: 2px solid var(--askesis-green);
+        }
+        .slide-content-wrapper .guide-subsection-title { /* Para H3 */
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-rm-blue); 
+             font-size: 1.5em; /* Ligeramente más grande */
+             font-weight: 700;
+             margin-top: 1.5rem; 
+             margin-bottom: 0.75rem; 
+             padding-left: 0.75rem; /* Padding del borde izquierdo */
+             border-left: 4px solid var(--askesis-rm-blue);
+        }
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 600; /* Semibold para Inter */
+        }
+        .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper ul, .slide-content-wrapper ol {
+            list-style-position: outside;
+            padding-left: 1.75rem; 
+            margin-bottom: 1rem;
+        }
+        .slide-content-wrapper ul ul, .slide-content-wrapper ol ol {
+            margin-top: 0.25rem;
+            margin-left: 1.25rem;
+        }
+        .slide-content-wrapper li {
+            margin-bottom: 0.6rem;
+        }
+        .slide-content-wrapper strong { color: var(--askesis-text-dark); font-weight: 600;}
+
+        /* Cajas de información específicas de esta guía */
+        .slide-content-wrapper .info-box-rm {
+            border-left-width: 4px; padding: 1rem; margin: 1.25rem 0; border-radius: 0 0.375rem 0.375rem 0; /* Tailwind rounded-r-md */
+            font-size: 0.95em;
+        }
+        .slide-content-wrapper .info-box-rm.blue { background-color: var(--askesis-accent-blue-light); border-left-color: var(--askesis-rm-blue); color: var(--askesis-text-dark);}
+        .slide-content-wrapper .info-box-rm.green { background-color: var(--askesis-accent-green-light); border-left-color: var(--askesis-green); color: var(--askesis-text-dark);}
+        .slide-content-wrapper .info-box-rm.orange { background-color: var(--askesis-accent-orange-light); border-left-color: var(--askesis-orange); color: var(--askesis-text-dark);}
+        .slide-content-wrapper .info-box-rm.red { background-color: var(--askesis-accent-red-light); border-left-color: var(--askesis-red); color: #991b1b;} /* Tailwind red-800 */
+        
+        .slide-content-wrapper .info-box-rm strong.box-title { 
+            font-family: 'Roboto', sans-serif; 
+            font-size: 1.15em; /* Ligeramente más grande */
+            display: block; 
+            margin-bottom: 0.5rem;
+        }
+        .slide-content-wrapper .info-box-rm.blue strong.box-title { color: var(--askesis-rm-blue); }
+        .slide-content-wrapper .info-box-rm.green strong.box-title { color: var(--askesis-green); }
+        .slide-content-wrapper .info-box-rm.orange strong.box-title { color: var(--askesis-orange); }
+        .slide-content-wrapper .info-box-rm.red strong.box-title { color: var(--askesis-red); }
+        
+        /* Tabla RM */
+        .slide-content-wrapper .rm-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9em; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .slide-content-wrapper .rm-table th, .slide-content-wrapper .rm-table td { border: 1px solid var(--askesis-border-light); padding: 0.75rem; text-align: left; }
+        .slide-content-wrapper .rm-table th { background-color: var(--askesis-accent-blue-light); color: var(--askesis-rm-blue); font-weight: 600; }
+        .slide-content-wrapper .rm-table tbody tr:nth-child(even) { background-color: var(--askesis-bg-light); }
+        .slide-content-wrapper .rm-table tbody tr:hover { background-color: #e9ecef; } /* Tailwind gray-200 on hover */
+
+
+        .askesis-main-header { 
+            background-color: var(--askesis-rm-blue); /* Azul de la guía RM */
+            color: var(--askesis-text-light-header);
+            text-align: center;
+            padding: 0.75rem 0; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .askesis-main-header .brand-title-link {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2rem; /* Más grande */
+            font-weight: 700; 
+            letter-spacing: 1px; /* Menos tracking */
+            text-transform: uppercase;
+            color: var(--askesis-text-light-header); 
+            text-decoration: none; 
+            display: inline-block; 
+        }
+        .askesis-main-header .brand-title-link:hover {
+            opacity: 0.9; 
+        }
+        .askesis-main-header .brand-tagline { /* Eliminado para esta guía según el original */
+            display: none;
+        }
+        #main-nav-rmtest { /* ID específico para esta guía */
+             background-color: var(--askesis-text-dark); 
+             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #main-nav-rmtest .nav-link-rmtest { /* Clase específica */
+            color: #e0e0e0; 
+            padding: 0.6rem 0.4rem; /* Ajustado padding */
+            margin: 0 0.1rem;
+            border-radius: 0.25rem;
+            font-weight: 500; 
+            transition: background-color 0.2s ease, color 0.2s ease;
+            font-size: 0.65rem; /* Aún más pequeño para muchos ítems */
+            white-space: nowrap;
+        }
+        #main-nav-rmtest .nav-link-rmtest:hover,
+        #main-nav-rmtest .nav-link-rmtest.active {
+            background-color: var(--askesis-rm-blue); 
+            color: var(--askesis-text-light-header);
+        }
+        #progress-bar-container-rmtest { /* ID específico */
+            padding: 0.5rem 1rem;
+            background-color: #e9ecef; 
+        }
+        #progress-bar-rmtest { /* ID específico */
+            background: linear-gradient(to right, var(--askesis-green), var(--askesis-rm-blue));
+        }
+        #navigation-buttons-rmtest button { /* ID específico */
+            transition: all 0.3s ease;
+        }
+        #navigation-buttons-rmtest button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        /* Calculadora */
+        #rm-calculator-form input[type="number"] {
+            padding: 0.75rem 1rem; /* Más padding */
+            border: 1px solid var(--askesis-border-light);
+            border-radius: 0.375rem; /* Tailwind rounded-md */
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+        }
+         #rm-calculator-form button {
+            padding: 0.75rem 1.5rem;
+         }
+        #rm-result-container {
+            background-color: var(--askesis-accent-green-light);
+            border: 1px solid var(--askesis-green);
+            padding: 1rem;
+            border-radius: 0.375rem;
+        }
+
+
+        .footer-interactive {
+            background-color: var(--askesis-text-dark); /* Usando el azul oscuro del footer original */
+            color: #e0e0e0; /* Texto más claro para contraste */
+            padding: 2.5rem 1rem 1.5rem; 
+            text-align: center;
+        }
+        .footer-interactive .footer-brand-link {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700; 
+            color: var(--askesis-rm-blue); /* Azul RM para el nombre */
+            margin-bottom: 0.25rem;
+            text-decoration: none;
+            display: inline-block;
+        }
+         .footer-interactive .footer-brand-link:hover {
+            opacity: 0.9;
+        }
+        .footer-interactive .footer-tagline {
+            font-size: 1rem; /* Más grande */
+            color: var(--askesis-rm-blue); /* Azul RM */
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        .footer-interactive .coach-info p {
+            margin-bottom: 0.25rem;
+        }
+        .footer-interactive .contact-links a {
+            color: #e0e0e0;
+            transition: color 0.3s ease;
+            margin: 0 0.5rem;
+        }
+        .footer-interactive .contact-links a:hover {
+            color: var(--askesis-rm-blue);
+        }
+        .footer-interactive .contact-links i {
+            margin-right: 0.5rem; /* Más espacio */
+        }
+        .footer-interactive .copyright {
+            font-size: 0.85em;
+            color: #9ca3af; /* Tailwind gray-400 */
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #4b5563; /* Tailwind gray-600 */
+        }
+
+        .floating-whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 1005; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+        .floating-whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+
+    </style>
+</head>
+
+<body class="bg-askesis-bg-light">
+
+    <header class="askesis-main-header sticky-nav">
+        <div class="container mx-auto">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="brand-title-link">ASKESIS</a>
+            </div>
+    </header>
+
+    <nav id="main-nav-rmtest" class="sticky-nav-secondary"> <ul class="container mx-auto flex flex-wrap justify-center p-1">
+            <li><a href="#slide-rmtest-0" class="nav-link-rmtest">Intro</a></li>
+            <li><a href="#slide-rmtest-1" class="nav-link-rmtest">¿Qué es RM?</a></li>
+            <li><a href="#slide-rmtest-2" class="nav-link-rmtest">¿Por qué Medir?</a></li>
+            <li><a href="#slide-rmtest-3" class="nav-link-rmtest">Protocolo 1</a></li>
+            <li><a href="#slide-rmtest-4" class="nav-link-rmtest">Protocolo 2</a></li>
+            <li><a href="#slide-rmtest-5" class="nav-link-rmtest">Estimación</a></li>
+            <li><a href="#slide-rmtest-6" class="nav-link-rmtest">Calculadora</a></li>
+            <li><a href="#slide-rmtest-7" class="nav-link-rmtest">Periodización 1</a></li>
+            <li><a href="#slide-rmtest-8" class="nav-link-rmtest">Periodización 2</a></li>
+            <li><a href="#slide-rmtest-9" class="nav-link-rmtest">Mejorar RM</a></li>
+            <li><a href="#slide-rmtest-10" class="nav-link-rmtest">Casos Estudio</a></li>
+            <li><a href="#slide-rmtest-11" class="nav-link-rmtest">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-rmtest"> <div id="progress-bar-container-rmtest" class="w-full sticky-nav-secondary" style="z-index: 999;"> <div id="step-indicator-rmtest" class="text-center mb-1 text-sm font-semibold text-askesis-rm-blue"></div> <div class="w-11/12 mx-auto bg-gray-300 rounded-full h-2.5">
+                <div id="progress-bar-rmtest" class="h-2.5 rounded-full transition-all duration-300 ease-out" style="width: 0%"></div> </div>
+        </div>
+
+        <div id="slides-container-rmtest"> <section id="slide-rmtest-0" class="step-slide" style="background-image: url('https://images.pexels.com/photos/1996333/pexels-photo-1996333.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h1 class="guide-main-title text-center"><i class="fas fa-chart-line"></i>Guía de Pruebas RM y Periodización</h1>
+                     <p class="text-lg text-center text-askesis-text-dark my-6">Bienvenido/a a esta guía sobre la Repetición Máxima (RM) y su aplicación en el entrenamiento. En <strong class="font-semibold text-askesis-rm-blue">Askesis</strong>, creemos que el progreso medible es fundamental para mantener la motivación y asegurar que tu esfuerzo se traduzca en resultados reales. Medir tu fuerza a través de pruebas de RM es una herramienta poderosa para personalizar tu entrenamiento y llevar tu rendimiento al siguiente nivel.</p>
+                    <p class="mb-4">Esta guía te ayudará a:</p>
+                    <ul class="list-disc list-inside space-y-2 mb-6 pl-4">
+                        <li>Entender qué es el RM y por qué es importante.</li>
+                        <li>Conocer el protocolo seguro para realizar pruebas de RM (siempre bajo supervisión).</li>
+                        <li>Aprender cómo usamos los resultados del RM para planificar tu entrenamiento (periodización).</li>
+                        <li>Descubrir estrategias clave para mejorar tu fuerza y tus RMs.</li>
+                        <li>Utilizar una calculadora para estimar tu 1RM.</li>
+                    </ul>
+                     <div class="info-box-rm green">
+                         <strong class="box-title"><i class="fas fa-lightbulb mr-2"></i>El Enfoque Askesis</strong>
+                         <p>Recuerda, el entrenamiento es una práctica de disciplina y conocimiento (Askesis). ¡Vamos a aplicar la ciencia al movimiento!</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-rmtest-1" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/2204196/pexels-photo-2204196.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-dumbbell"></i>Entendiendo la Repetición Máxima (RM)</h2>
+                    <h3 class="guide-subsection-title">¿Qué es el RM?</h3>
+                    <p class="mb-4">La Repetición Máxima (RM) se refiere al peso máximo que puedes levantar en un ejercicio específico para un número determinado de repeticiones, manteniendo una técnica correcta y segura.</p>
+                    <ul class="list-disc list-inside space-y-2 mb-4 pl-4">
+                        <li><strong>1RM (Una Repetición Máxima):</strong> Es el estándar de oro para medir la fuerza máxima. Representa el mayor peso que puedes levantar exitosamente <strong class="highlight">una sola vez</strong>.</li>
+                        <li><strong>xRM (Ej: 3RM, 5RM, 10RM):</strong> Es el peso máximo que puedes levantar exitosamente para un número específico de repeticiones 'x' (ej., 3, 5 o 10 repeticiones) antes de llegar al fallo muscular o a una degradación técnica significativa.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-rmtest-2" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/703016/pexels-photo-703016.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-balance-scale"></i>Importancia y Tipos de RM</h2>
+                    <h3 class="guide-subsection-title">¿Por Qué Medir el RM?</h3>
+                    <p class="mb-4">Medir tu RM (o estimarlo) nos proporciona información valiosa para:</p>
+                    <ol class="list-decimal list-inside space-y-2 mb-4 pl-4">
+                        <li><strong>Establecer Intensidades de Entrenamiento:</strong> La mayoría de los programas de fuerza se basan en porcentajes de tu 1RM (%1RM).</li>
+                        <li><strong>Medir el Progreso:</strong> Cuantificar objetivamente cuánto has mejorado tu fuerza.</li>
+                        <li><strong>Identificar Desbalances:</strong> Comparar RMs entre ejercicios o lados del cuerpo.</li>
+                        <li><strong>Ajustar la Programación:</strong> Los resultados guían los ajustes necesarios en tu plan.</li>
+                    </ol>
+
+                    <h3 class="guide-subsection-title">1RM Real vs. 1RM Estimado</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-4 pl-4">
+                        <li>
+                            <strong class="font-semibold">1RM Real:</strong> Se obtiene realizando intentos máximos hasta levantar el mayor peso posible para una sola repetición.
+                            <ul class="list-disc list-inside pl-6 mt-1 space-y-1 text-sm">
+                                <li><em class="italic">Ventaja:</em> Medida más precisa.</li>
+                                <li><em class="italic">Desventaja:</em> Demandante, mayor riesgo, para experimentados.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong class="font-semibold">1RM Estimado:</strong> Se calcula usando fórmulas a partir de un test de múltiples repeticiones (xRM, usualmente 3-10).
+                            <ul class="list-disc list-inside pl-6 mt-1 space-y-1 text-sm">
+                                <li><em class="italic">Ventaja:</em> Más seguro, menos estresante, práctico y suficientemente preciso.</li>
+                                <li><em class="italic">Desventaja:</em> Es una estimación.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                     <div class="info-box-rm blue">
+                        <strong class="box-title"><i class="fas fa-shield-alt mr-2"></i>Prioridad Askesis: Seguridad</strong>
+                        <p>En Askesis, priorizamos la seguridad. Para la mayoría, utilizaremos pruebas de xRM (ej. 3-5RM) para estimar el 1RM.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-rmtest-3" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-clipboard-list"></i>Protocolo Seguro para Test RM (Parte 1)</h2>
+                     <div class="info-box-rm red mb-6">
+                        <strong class="box-title"><i class="fas fa-exclamation-triangle mr-2"></i>¡ATENCIÓN! LA SEGURIDAD ES LA PRIORIDAD</strong>
+                        <p>Las pruebas de RM NUNCA deben realizarse sin los siguientes requisitos:</p>
+                    </div>
+                    <ul class="list-disc list-inside space-y-2 mb-6 pl-4">
+                        <li><strong>Supervisión Directa del Entrenador:</strong> Yo (Luis Patricio Ruiz Ruiz) guiaré todo el proceso.</li>
+                        <li><strong>Dominio Técnico:</strong> Solo en ejercicios que dominas técnicamente.</li>
+                        <li><strong>Calentamiento Adecuado:</strong> Imprescindible.</li>
+                        <li><strong>Conciencia Corporal:</strong> Reconocer límites y fatiga.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title">Pasos del Protocolo (General):</h3>
+                    <ol class="list-decimal list-inside space-y-4 mb-4 pl-4">
+                        <li><strong class="font-semibold text-gray-800">Preparación Previa:</strong>
+                            <ul class="list-disc list-inside pl-6 mt-1 space-y-1 text-sm">
+                                <li>Buen descanso la noche anterior.</li>
+                                <li>Hidratación y nutrición adecuadas.</li>
+                                <li>Evitar entrenamientos intensos el día anterior.</li>
+                            </ul>
+                        </li>
+                        <li><strong class="font-semibold text-gray-800">Calentamiento General (5-10 min):</strong>
+                             <ul class="list-disc list-inside pl-6 mt-1 space-y-1 text-sm">
+                                <li>Actividad cardiovascular ligera (bicicleta, trote suave, remo).</li>
+                            </ul>
+                        </li>
+                        <li><strong class="font-semibold text-gray-800">Calentamiento Específico (10-15 min):</strong>
+                            <ul class="list-disc list-inside pl-6 mt-1 space-y-1 text-sm">
+                                <li>Movilidad articular enfocada.</li>
+                                <li><strong>Series de Aproximación (Ejemplo para Sentadilla 1RM estimado ~100kg):</strong>
+                                    <ul class="list-disc list-inside pl-6 mt-1 space-y-1">
+                                        <li>Serie 1: 8 reps con barra sola (20 kg)</li>
+                                        <li>Serie 2: 5 reps con ~40% (40 kg)</li>
+                                        <li>Serie 3: 3 reps con ~60% (60 kg)</li>
+                                        <li>Serie 4: 2 reps con ~75% (75 kg)</li>
+                                        <li>Serie 5: 1 rep con ~85-90% (85-90 kg)</li>
+                                    </ul>
+                                </li>
+                                <li><em class="italic">Nota:</em> Los porcentajes y reps son ejemplos y se ajustan individualmente.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="slide-rmtest-4" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-tasks"></i>Protocolo Seguro para Test RM (Parte 2)</h2>
+                    <ol class="list-decimal list-inside space-y-4 mb-4 pl-4" start="4">
+                        <li><strong class="font-semibold text-gray-800">Selección del Ejercicio:</strong>
+                            <ul class="list-disc list-inside pl-6 mt-1 space-y-1 text-sm">
+                                <li>Nos enfocaremos en ejercicios compuestos fundamentales: Sentadilla, Press Banca, Peso Muerto, Press Militar. Se pueden testear otros según los objetivos.</li>
+                            </ul>
+                        </li>
+                        <li><strong class="font-semibold text-gray-800">Selección del Método (Decisión conjunta Entrenador-Cliente):</strong>
+                            <ul class="list-disc list-inside pl-6 mt-1 space-y-1 text-sm">
+                                <li><strong>Test xRM (3-5 Reps - Recomendado):</strong> Se realizan intentos buscando el peso máximo para el número objetivo de repeticiones. Se incrementa el peso gradualmente.</li>
+                                <li><strong>Test 1RM Directo (Avanzados):</strong> Se realizan intentos de 1 repetición, aumentando el peso progresivamente. Máximo 3-5 intentos pesados.</li>
+                            </ul>
+                        </li>
+                        <li><strong class="font-semibold text-gray-800">Ejecución y Seguridad:</strong>
+                             <ul class="list-disc list-inside pl-6 mt-1 space-y-1 text-sm">
+                                <li><strong>Técnica Estricta:</strong> Cada repetición debe cumplir los estándares.</li>
+                                <li><strong>Máximo Esfuerzo Controlado:</strong> Buscar el límite sin comprometer forma.</li>
+                                <li><strong>Spotters (Asistentes):</strong> Obligatorio para Press Banca y Sentadilla en intentos máximos.</li>
+                            </ul>
+                        </li>
+                         <li><strong class="font-semibold text-gray-800">Descanso:</strong>
+                            <ul class="list-disc list-inside pl-6 mt-1 space-y-1 text-sm">
+                                <li>Descansos completos de 3 a 5 minutos (o más) entre series de aproximación pesadas e intentos de RM.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="slide-rmtest-5" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/3837781/pexels-photo-3837781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-file-signature"></i>Protocolo (Parte 3) y Estimación del 1RM</h2>
+                     <ol class="list-decimal list-inside space-y-4 mb-4 pl-4" start="8">
+                        <li><strong class="font-semibold text-gray-800">Registro Detallado:</strong>
+                            <ul class="list-disc list-inside pl-6 mt-1 space-y-1 text-sm">
+                                <li>Utilizaremos una hoja de registro para anotar: Ejercicio, Fecha, Series de calentamiento, Peso y reps de cada intento, Mejor Intento (Peso x Reps), 1RM Estimado, Notas (técnica, RPE, sensaciones).</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <div class="info-box-rm orange mt-6">
+                         <strong class="box-title"><i class="fas fa-calculator mr-2"></i>Estimación del 1RM a partir de xRM</strong>
+                         <ul class="list-disc list-inside space-y-1 pl-4 mt-2">
+                             <li>Se utiliza el peso levantado y el número de repeticiones completadas en el test xRM.</li>
+                             <li>Se aplican fórmulas validadas (como Epley, Brzycki) para proyectar el 1RM teórico.</li>
+                             <li><strong>Ejemplo:</strong> 80 kg x 5RM en Press Banca estimaría un 1RM de ~90-93 kg.</li>
+                             <li><strong>Utilidad:</strong> Referencia fiable para calcular porcentajes de entrenamiento (%1RM).</li>
+                         </ul>
+                    </div>
+                    <h3 class="guide-subsection-title mt-6 !text-askesis-text-dark !border-l-0 text-center">Tabla de Ejemplo (Valores Aproximados de Estimación):</h3>
+                    <div class="overflow-x-auto shadow-md rounded-lg">
+                        <table class="rm-table w-full text-sm">
+                            <thead>
+                                <tr>
+                                    <th>Peso Levantado</th>
+                                    <th>Reps Logradas</th>
+                                    <th>1RM Estimado (Aprox.)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>100 kg</td><td>3</td><td>~110 kg</td></tr>
+                                <tr><td>100 kg</td><td>5</td><td>~117 kg</td></tr>
+                                <tr><td>80 kg</td><td>8</td><td>~101 kg</td></tr>
+                                <tr><td>60 kg</td><td>10</td><td>~80 kg</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="mt-2 text-xs text-gray-500 italic text-center">Nota: Estos valores son ilustrativos y dependen de la fórmula utilizada.</p>
+                </div>
+            </section>
+
+            <section id="slide-rmtest-6" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/5327653/pexels-photo-5327653.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-calculator"></i>Calculadora de 1RM Estimado</h2>
+                    <div id="rm-calculator-form" class="bg-askesis-accent-blue-light border border-askesis-rm-blue p-6 rounded-lg shadow-md space-y-6 mt-4">
+                        <div>
+                            <label for="weight-lifted-rmtest" class="block text-sm font-medium text-askesis-text-dark mb-1">Peso Levantado (kg):</label>
+                            <input type="number" id="weight-lifted-rmtest" name="weight-lifted-rmtest" placeholder="Ej: 80" class="mt-1 block w-full" required>
+                        </div>
+                        <div>
+                            <label for="repetitions-rmtest" class="block text-sm font-medium text-askesis-text-dark mb-1">Repeticiones Realizadas:</label>
+                            <input type="number" id="repetitions-rmtest" name="repetitions-rmtest" placeholder="Ej: 5" class="mt-1 block w-full" required min="1">
+                        </div>
+                        <button id="calculate-rm-button-rmtest" class="w-full bg-askesis-green hover:bg-green-700 text-white font-bold rounded-lg shadow transition-colors duration-300 flex items-center justify-center">
+                            <i class="fas fa-calculator mr-2"></i>Calcular 1RM Estimado
+                        </button>
+                        <div id="rm-result-container-rmtest" class="mt-4 hidden">
+                            <p class="text-lg font-semibold text-askesis-text-dark">Tu 1RM estimado es:</p>
+                            <p id="rm-result-rmtest" class="text-3xl font-bold text-askesis-rm-blue"></p>
+                            <p class="text-xs text-gray-500 mt-2 italic">Estimación basada en la fórmula de Epley. Recuerda que es un valor aproximado.</p>
+                        </div>
+                        <div id="rm-error-message-rmtest" class="mt-4 text-askesis-red font-medium hidden"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-rmtest-7" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/2261482/pexels-photo-2261482.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-calendar-alt"></i>Aplicación del RM en la Periodización (Parte 1)</h2>
+                    <h3 class="guide-subsection-title">¿Qué es la Periodización?</h3>
+                    <p class="mb-4">Es la planificación estructurada y lógica del entrenamiento a lo largo del tiempo, dividiéndolo en fases o ciclos con objetivos específicos. Busca optimizar las adaptaciones, mejorar el rendimiento y reducir el riesgo de sobreentrenamiento o estancamiento.</p>
+
+                    <h3 class="guide-subsection-title">Uso del %1RM en las Fases:</h3>
+                    <p class="mb-2">El 1RM (real o estimado) es la piedra angular para definir la <strong class="highlight">intensidad</strong> del entrenamiento en cada fase:</p>
+                    <ul class="list-disc list-inside space-y-2 mb-6 pl-4">
+                        <li><strong>Fase de Hipertrofia (Ganancia Muscular):</strong> Intensidad moderada (aprox. 65-80% 1RM), volumen alto (ej. 3-5 series de 6-12 reps).</li>
+                        <li><strong>Fase de Fuerza Máxima:</strong> Intensidad alta (aprox. 85%+ 1RM), volumen moderado/bajo (ej. 3-5 series de 1-5 reps).</li>
+                        <li><strong>Fase de Potencia:</strong> Intensidad variable, énfasis en velocidad.</li>
+                        <li><strong>Fase de Resistencia Muscular:</strong> Intensidad baja (&lt;65% 1RM), volumen muy alto (15+ reps).</li>
+                        <li><strong>Fase de Descarga (Deload):</strong> Intensidad y/o volumen reducidos para recuperación.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-rmtest-8" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/3076516/pexels-photo-3076516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-chart-bar"></i>Aplicación del RM en la Periodización (Parte 2)</h2>
+                    <h3 class="guide-subsection-title">Ejemplo de Periodización Lineal Simple (Microciclo 4 Semanas):</h3>
+                    <p class="mb-4">Modelo básico para ilustrar el concepto. Se asume un re-test de RM al final para ajustar el siguiente ciclo.</p>
+                    <div class="info-box-rm green">
+                        <strong class="box-title"><i class="fas fa-tasks mr-2"></i>Ejemplo de Microciclo de 4 Semanas</strong>
+                        <ul class="space-y-3">
+                            <li>
+                                <strong class="font-medium">Semana 1: Acumulación/Volumen Inicial</strong>
+                                <ul class="list-disc list-inside pl-5 mt-1 text-sm space-y-1">
+                                    <li>Objetivo: Adaptación, volumen base, preparar tejidos.</li>
+                                    <li>Intensidad: ~60-75% 1RM. Volumen: 3-4 series x 8-12 reps.</li>
+                                </ul>
+                            </li>
+                             <li>
+                                <strong class="font-medium">Semana 2: Intensificación</strong>
+                                 <ul class="list-disc list-inside pl-5 mt-1 text-sm space-y-1">
+                                    <li>Objetivo: Aumentar carga progresivamente.</li>
+                                    <li>Intensidad: ~75-85% 1RM. Volumen: 3-5 series x 5-8 reps.</li>
+                                </ul>
+                            </li>
+                             <li>
+                                <strong class="font-medium">Semana 3: Pico/Realización</strong>
+                                 <ul class="list-disc list-inside pl-5 mt-1 text-sm space-y-1">
+                                    <li>Objetivo: Máxima intensidad planificada, expresar fuerza.</li>
+                                    <li>Intensidad: ~85-95% 1RM. Volumen: 2-4 series x 3-5 reps.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong class="font-medium">Semana 4: Descarga y Re-Test RM</strong>
+                                 <ul class="list-disc list-inside pl-5 mt-1 text-sm space-y-1">
+                                    <li>Objetivo: Recuperación activa, evaluar progreso.</li>
+                                    <li>Intensidad/Volumen: Reducidos (~50-60% 1RM).</li>
+                                    <li>Re-Test RM: Medir nuevo RM para planificar el próximo ciclo.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                     <div class="info-box-rm orange mt-4">
+                         <strong class="box-title"><i class="fas fa-info-circle mr-2"></i>Importante: Simplificación y Flexibilidad</strong>
+                         <p>Este es un esquema simplificado. La periodización real se adapta a cada individuo, sus objetivos, respuesta y calendario.</p>
+                     </div>
+                </div>
+            </section>
+
+            <section id="slide-rmtest-9" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/863977/pexels-photo-863977.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-arrow-up"></i>¿Cómo Mejorar tu RM? Estrategias Clave</h2>
+                    <p class="mb-4">Aumentar tu fuerza y tus RMs es un proceso multifactorial. Aquí las claves:</p>
+                    <ol class="list-decimal list-inside space-y-3 mb-4 pl-4">
+                        <li><strong>Sobrecarga Progresiva:</strong> ¡Principio fundamental! Desafiar gradualmente (peso, reps, series, frecuencia, técnica, menos descanso).</li>
+                        <li><strong>Consistencia:</strong> Entrenar regularmente según plan.</li>
+                        <li><strong>Nutrición Adecuada:</strong> Suficientes proteínas, energía (calorías) e hidratación.</li>
+                        <li><strong>Descanso y Recuperación:</strong> Sueño de calidad (7-9h), gestión del estrés, días de descanso, descargas.</li>
+                        <li><strong>Técnica Impecable:</strong> Permite aplicar más fuerza de forma segura y eficiente.</li>
+                        <li><strong>Selección Inteligente de Ejercicios:</strong> Priorizar compuestos, añadir accesorios para puntos débiles.</li>
+                        <li><strong>Periodización:</strong> Seguir un plan estructurado.</li>
+                        <li><strong>Mentalidad (Askesis):</strong> Disciplina, paciencia y enfoque.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <section id="slide-rmtest-10" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/3490348/pexels-photo-3490348.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="guide-section-title"><i class="fas fa-users"></i>Estudios de Caso Simplificados</h2>
+                    <p class="mb-6">Veamos cómo se aplica esto a diferentes perfiles:</p>
+                     <div class="info-box-rm blue mb-4">
+                         <strong class="box-title"><i class="fas fa-female mr-2"></i>Caso 1: Cliente "Ana" (Objetivo: Estética y Masa Muscular)</strong>
+                         <ul class="list-disc list-inside space-y-1 pl-4 mt-2 text-sm">
+                             <li><strong>Perfil:</strong> Principiante-Intermedia.</li>
+                             <li><strong>Enfoque RM:</strong> Test xRM (8-10RM), re-test cada 2-3 meses.</li>
+                             <li><strong>Periodización:</strong> Énfasis en Hipertrofia (65-80%, 8-15 reps).</li>
+                             <li><strong>Mejora:</strong> Sobrecarga vía reps/series, técnica, nutrición.</li>
+                         </ul>
+                     </div>
+                     <div class="info-box-rm green">
+                          <strong class="box-title"><i class="fas fa-male mr-2"></i>Caso 2: Cliente "Carlos" (Objetivo: Fuerza Máxima en Press Banca)</strong>
+                          <ul class="list-disc list-inside space-y-1 pl-4 mt-2 text-sm">
+                             <li><strong>Perfil:</strong> Intermedio-Avanzado.</li>
+                             <li><strong>Enfoque RM:</strong> Test xRM (3-5RM) o 1RM directo (con cuidado), re-test cada 4-8 semanas.</li>
+                             <li><strong>Periodización:</strong> Ciclos claros de fuerza (75-90%) y pico (90%+).</li>
+                             <li><strong>Mejora:</strong> Sobrecarga vía peso, técnica, accesorios específicos, descanso.</li>
+                         </ul>
+                     </div>
+                </div>
+            </section>
+
+            <section id="slide-rmtest-11" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/791763/pexels-photo-791763.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                     <h2 class="guide-section-title !text-askesis-orange !border-askesis-orange"><i class="fas fa-flag-checkered"></i>Conclusión Final</h2>
+                     <p class="mb-4">Las pruebas de RM y la periodización basada en porcentajes son herramientas esenciales en el arsenal de <strong class="font-semibold text-askesis-rm-blue">Askesis</strong> para diseñar entrenamientos efectivos y basados en evidencia. Comprender estos conceptos te permite participar más activamente en tu proceso y valorar el progreso más allá de la estética.</p>
+                     <p class="mb-4">Recuerda que cada plan es individualizado. Esta guía proporciona los principios y un ejemplo, pero tu programa específico se ajustará a tu nivel, objetivos y respuesta al entrenamiento. La clave, como siempre en <strong class="font-semibold text-askesis-rm-blue">Askesis</strong>, es la combinación de <strong class="highlight">ciencia, disciplina y constancia</strong>.</p>
+                     <p class="mb-6 text-center font-semibold text-lg">¡Sigamos aplicando la ciencia al movimiento para alcanzar tu máximo potencial!</p>
+                     <div class="info-box-rm red">
+                        <strong class="box-title"><i class="fas fa-exclamation-circle mr-2"></i>Nota Importante:</strong>
+                        <p>Consulta siempre a un profesional cualificado antes de realizar pruebas de RM o iniciar un nuevo programa de entrenamiento intenso, especialmente si tienes condiciones preexistentes. La seguridad es primordial.</p>
+                     </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div id="navigation-buttons-rmtest" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 px-4"> <button id="prev-button-rmtest" class="w-full sm:w-auto bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg shadow-md flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"> <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-rmtest" class="w-full sm:w-auto bg-askesis-rm-blue hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md flex items-center justify-center"> Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-rmtest" class="hidden my-8 text-center px-4"> <div class="text-xl font-semibold text-askesis-green p-6 bg-askesis-accent-green-light rounded-lg shadow mb-6">
+                ¡Has completado la guía de Test RM! Esperamos que te haya sido útil.
+            </div>
+            <button id="restart-button-rmtest" class="bg-askesis-orange hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-colors duration-300"> <i class="fas fa-redo mr-2"></i>Reiniciar Guía
+            </button>
+        </div>
+    </div>
+
+    <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20quisiera%20pedir%20informaci%C3%B3n%20sobre%20sus%20asesor%C3%ADas." target="_blank" class="floating-whatsapp-button" title="Contactar por WhatsApp para Asesorías">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="footer-interactive">
+        <div class="container mx-auto max-w-4xl px-4">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="footer-brand-link">ASKESIS</a>
+            <p class="footer-tagline">Ciencia aplicada al movimiento</p>
+            <div class="coach-info mb-4">
+                 <p class="text-lg font-semibold text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="contact-links flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4 mb-4">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guia%20Test%20RM" target="_blank" title="Enviar Email" class="flex items-center"><i class="fas fa-envelope mr-2"></i> luistdu111@gmail.com</a>
+                 <span class="hidden sm:inline text-gray-500">|</span>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Test%20RM." target="_blank" title="Contactar por WhatsApp" class="flex items-center"><i class="fab fa-whatsapp mr-2"></i> +56 9 7540 1150</a>
+                 <span class="hidden sm:inline text-gray-500">|</span>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Visitar Instagram" class="flex items-center"><i class="fab fa-instagram mr-2"></i> @askesis111</a>
+            </div>
+            <p class="copyright">© <span id="currentYearFooterRmtest"></span> Askesis. Todos los derechos reservados.</p> </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // *** Configuración específica para la guía de TEST RM ***
+            const guideIdPrefix = 'rmtest'; 
+            // *****************************************************************
+
+            const guideContainerId = `interactive-presentation-container-${guideIdPrefix}`;
+            const guideContainer = document.getElementById(guideContainerId);
+            if (!guideContainer) {
+                console.error(`Error: Contenedor principal de la guía con ID '${guideContainerId}' no encontrado.`);
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll(`#slides-container-${guideIdPrefix} .step-slide`));
+            const prevButton = guideContainer.querySelector(`#prev-button-${guideIdPrefix}`);
+            const nextButton = guideContainer.querySelector(`#next-button-${guideIdPrefix}`);
+            const stepIndicator = guideContainer.querySelector(`#step-indicator-${guideIdPrefix}`);
+            const progressBar = guideContainer.querySelector(`#progress-bar-${guideIdPrefix}`);
+            const progressBarContainer = guideContainer.querySelector(`#progress-bar-container-${guideIdPrefix}`);
+            const navigationButtonsContainer = guideContainer.querySelector(`#navigation-buttons-${guideIdPrefix}`);
+            const completionContainer = guideContainer.querySelector(`#completion-container-${guideIdPrefix}`);
+            const restartButton = guideContainer.querySelector(`#restart-button-${guideIdPrefix}`);
+            const yearSpan = document.getElementById(`currentYearFooter${guideIdPrefix.charAt(0).toUpperCase() + guideIdPrefix.slice(1)}`);
+            const navLinks = Array.from(document.querySelectorAll(`#main-nav-${guideIdPrefix} .nav-link-${guideIdPrefix}`));
+            const mainNav = document.getElementById(`main-nav-${guideIdPrefix}`);
+            const header = document.querySelector('.askesis-main-header');
+
+            // --- Calculadora RM ---
+            const calculateRmButton = document.getElementById(`calculate-rm-button-${guideIdPrefix}`);
+            const weightInput = document.getElementById(`weight-lifted-${guideIdPrefix}`);
+            const repsInput = document.getElementById(`repetitions-${guideIdPrefix}`);
+            const rmResultContainer = document.getElementById(`rm-result-container-${guideIdPrefix}`);
+            const rmResultElement = document.getElementById(`rm-result-${guideIdPrefix}`);
+            const rmErrorMessageElement = document.getElementById(`rm-error-message-${guideIdPrefix}`);
+            // --- Fin Calculadora RM ---
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function getStickyHeaderHeight() {
+                let totalHeight = 0;
+                if (header && getComputedStyle(header).position === 'sticky') {
+                    totalHeight += header.offsetHeight;
+                }
+                if (mainNav && getComputedStyle(mainNav).position === 'sticky') {
+                    totalHeight += mainNav.offsetHeight;
+                }
+                if (progressBarContainer && getComputedStyle(progressBarContainer).position === 'sticky') {
+                     totalHeight += progressBarContainer.offsetHeight;
+                }
+                return totalHeight;
+            }
+            
+            function updateProgressBarContainerStickyTop() {
+                let topOffset = 0;
+                if (header && getComputedStyle(header).position === 'sticky') {
+                    topOffset += header.offsetHeight;
+                }
+                if (mainNav && getComputedStyle(mainNav).position === 'sticky') { 
+                    topOffset += mainNav.offsetHeight;
+                }
+                if (progressBarContainer) {
+                    progressBarContainer.style.top = `${topOffset}px`;
+                }
+
+                if (mainNav && header && getComputedStyle(header).position === 'sticky') {
+                    mainNav.style.top = `${header.offsetHeight}px`;
+                } else if (mainNav) {
+                    mainNav.style.top = '0px';
+                }
+            }
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer || !mainNav || !progressBarContainer) {
+                    return;
+                }
+                
+                updateProgressBarContainerStickyTop(); 
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                stepIndicator.textContent = `Paso ${currentSlide + 1} de ${totalSlides}`;
+                const progressPercentage = totalSlides > 0 ? ((currentSlide + 1) / totalSlides) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                nextButton.classList.toggle('hidden', currentSlide === totalSlides - 1);
+                completionContainer.classList.toggle('hidden', currentSlide !== totalSlides - 1);
+                
+                navigationButtonsContainer.classList.remove('sm:justify-start', 'sm:justify-between', 'sm:justify-center', 'sm:justify-end');
+                if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const targetRect = targetSlideElement.getBoundingClientRect();
+                        const scrollPosition = window.pageYOffset + targetRect.top - getStickyHeaderHeight() - 20; // 20px buffer
+
+                        window.scrollTo({
+                            top: scrollPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${slides[currentSlide].id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    if(rmResultContainer) rmResultContainer.classList.add('hidden'); 
+                    if(rmErrorMessageElement) rmErrorMessageElement.classList.add('hidden'); 
+                    if(weightInput) weightInput.value = ''; 
+                    if(repsInput) repsInput.value = ''; 
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSlideIndex = slides.findIndex(s => `#${s.id}` === targetId);
+
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(); 
+                    }
+                });
+            });
+
+            // --- Calculadora RM Script ---
+            if (calculateRmButton && weightInput && repsInput && rmResultContainer && rmResultElement && rmErrorMessageElement) {
+                calculateRmButton.addEventListener('click', () => {
+                    const weight = parseFloat(weightInput.value);
+                    const reps = parseInt(repsInput.value, 10);
+
+                    rmResultContainer.classList.add('hidden');
+                    rmErrorMessageElement.classList.add('hidden');
+                    rmErrorMessageElement.textContent = '';
+
+                    if (isNaN(weight) || weight <= 0) {
+                        rmErrorMessageElement.textContent = 'Por favor, ingresa un peso válido (número mayor que 0).';
+                        rmErrorMessageElement.classList.remove('hidden');
+                        return;
+                    }
+                    if (isNaN(reps) || reps <= 0) {
+                        rmErrorMessageElement.textContent = 'Por favor, ingresa un número de repeticiones válido (número mayor que 0).';
+                        rmErrorMessageElement.classList.remove('hidden');
+                        return;
+                    }
+                    if (reps > 12) { 
+                         rmErrorMessageElement.textContent = 'La estimación es menos precisa para más de 12 repeticiones. Considera un test con menos reps para mayor exactitud.';
+                         rmErrorMessageElement.classList.remove('hidden'); // Show warning but still calculate
+                    }
+
+                    // Fórmula de Epley: 1RM = peso * (1 + (reps / 30))
+                    const estimatedRM = weight * (1 + (reps / 30));
+                    rmResultElement.textContent = `${estimatedRM.toFixed(2)} kg`;
+                    rmResultContainer.classList.remove('hidden');
+                });
+            }
+            // --- Fin Calculadora RM Script ---
+            
+            window.addEventListener('load', () => {
+                updateProgressBarContainerStickyTop();
+                 if (totalSlides > 0) {
+                    updateSlideDisplay(false);
+                } else {
+                    console.warn(`Advertencia: No se encontraron slides en la guía '${guideIdPrefix}'.`);
+                }
+            });
+            window.addEventListener('resize', () => {
+                updateProgressBarContainerStickyTop();
+            });
+
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn(`Advertencia: No se encontraron slides en la guía '${guideIdPrefix}'.`);
+            }
+        });
+    </script>
+
+</body>
+</html>
