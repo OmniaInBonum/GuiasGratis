@@ -4,377 +4,540 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Askesis: Guía Interactiva - Calentamiento Efectivo</title>
-    <meta name="description" content="Guía Interactiva Askesis: Aprende a realizar un calentamiento efectivo para maximizar tu rendimiento y prevenir lesiones, con el protocolo R.A.M.P. y ejemplos prácticos.">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Askesis: Guía Interactiva - Calentamiento Efectivo y Científico</title>
+    <meta name="description" content="Guía Interactiva Askesis: Domina el arte del calentamiento efectivo con el protocolo R.A.M.P. para maximizar tu rendimiento, prevenir lesiones y preparar tu cuerpo para el éxito.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&family=Roboto:wght@700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--askesis-blue, #007FFF); /* Fallback color */
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--askesis-blue-dark, #0059b3); /* Fallback color */
-        }
-
-        .step-content {
-            animation: fadeIn 0.6s ease-in-out;
-            min-height: 500px; /* Adjusted min-height for background images */
-            padding: 1.5rem; /* p-6 */
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Center content vertically */
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            border-radius: 0.75rem; /* rounded-xl */
-            overflow: hidden; /* To keep pseudo-elements contained */
-            margin-bottom: 1rem; /* Space between steps if they were ever shown simultaneously */
-        }
-        
-        /* Overlay for background images to improve text readability */
-        .step-content::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.4); /* Darker overlay for better contrast */
-            z-index: 1;
-        }
-
-        .content-wrapper { /* Wrapper for text content to sit above the overlay */
-            position: relative;
-            z-index: 2;
-            background-color: rgba(255, 255, 255, 0.9); /* Light, semi-transparent background for text box */
-            padding: 1.5rem; /* p-6 */
-            border-radius: 0.5rem; /* rounded-lg */
-            max-width: 90%;
-            margin: auto; /* Center the content box */
-            color: #333; /* Ensure text is dark enough on light background */
-        }
-         /* Ensure headings inside content-wrapper are also dark */
-        .content-wrapper h1, .content-wrapper h2, .content-wrapper h3, .content-wrapper h4, .content-wrapper p, .content-wrapper ul, .content-wrapper li {
-            color: var(--askesis-text-dark, #34495e);
-        }
-         .content-wrapper .askesis-tip p, .content-wrapper .askesis-tip strong, .content-wrapper .askesis-tip i {
-             color: var(--askesis-green-dark, #27ae60) !important;
-         }
-
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.98);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-        .askesis-card { 
-            background-color: var(--askesis-bg-section-alt, #f8f9fa);
-            padding: 1rem 1.5rem; 
-            border-radius: 0.5rem; 
-            border: 1px solid var(--askesis-border-light, #e0e0e0);
-            margin-bottom: 1rem; 
-        }
-        .askesis-card h4 { 
-            font-family: 'Roboto', sans-serif;
-            color: var(--askesis-blue, #007FFF);
-            font-weight: 700; 
-            font-size: 1.25rem; 
-            margin-bottom: 0.5rem; 
-        }
-        .askesis-tip {
-            background-color: var(--askesis-accent-green-light, rgba(46, 204, 113, 0.1));
-            border-left: 4px solid var(--askesis-green, #2ecc71);
-            padding: 0.75rem 1rem; 
-            border-radius: 0 0.375rem 0.375rem 0; 
-            margin-top: 1rem; 
-        }
-        .askesis-tip strong {
-            font-weight: 700;
-        }
-         .askesis-tip i {
-            margin-right: 0.5rem; 
-        }
-         /* Specific adjustments for text color on dark overlays if not using content-wrapper */
-        .step-content.dark-text-on-overlay .content-wrapper {
-             /* This class can be used if a specific step needs darker text directly on a lighter overlay */
-        }
-
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        askesisBlue: '#007FFF',
-                        askesisBlueDark: '#0059b3',
-                        askesisGreen: '#2ecc71',
-                        askesisGreenDark: '#27ae60',
-                        askesisOrange: '#f39c12',
-                        askesisPurple: '#9b59b6', 
-                        askesisTextDark: '#34495e',
-                        askesisTextBody: '#555555',
-                        askesisTextLight: '#ecf0f1',
-                        askesisBgLight: '#ffffff',
-                        askesisBgSectionAlt: '#f8f9fa',
-                        askesisBorderLight: '#e0e0e0',
-                        askesisAccentBlueLight: '#eaf2f8',
-                        askesisAccentGreenLight: 'rgba(46, 204, 113, 0.1)',
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
                     },
                     fontFamily: {
-                        nunito: ['Nunito', 'sans-serif'],
-                        roboto: ['Roboto', 'sans-serif'],
-                    },
-                    animation: {
-                        'pulse-subtle': 'pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        'pulse-subtle': {
-                            '0%, 100%': { opacity: '1', transform: 'scale(1)' },
-                            '50%': { opacity: '.9', transform: 'scale(1.02)' },
-                        }
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: '#FFFFFF'; /* Ensure this is a string if used in JS, or remove quotes for CSS */
+            --askesis-border: '#333333';
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.88), rgba(18, 18, 18, 0.97)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .main-header {
+            background-color: rgba(30, 30, 30, 0.5);
+            box-shadow: none;
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        .main-header .container {
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+        }
+        .main-header .container a.text-3xl {
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+        }
+
+        .content-wrapper-main { /* Renamed from content-wrapper to avoid conflict if this is embedded */
+            flex: 1;
+            display: flex;
+            justify-content: flex-start; 
+            align-items: center;
+            padding-top: 40px; 
+            padding-bottom: 40px;
+            box-sizing: border-box;
+            max-width: 950px;
+            width: 90%;
+            margin: 2rem auto; 
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .guide-container {
+            width: 100%;
+            background-color: rgba(30, 30, 30, 0.65); 
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--askesis-border);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+        }
+
+        .step-content {
+            animation: fadeIn 0.7s ease-in-out;
+            background-color: var(--askesis-gray);
+            border: 1px solid var(--askesis-border);
+            border-radius: 10px;
+            padding: 2rem 2.5rem; /* More horizontal padding */
+            color: var(--askesis-light-gray);
+            min-height: 450px; /* Ensure consistent height for steps */
+            display: flex; /* For vertical centering of content if needed */
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .step-content h1, .step-content h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.3em;
+            font-weight: 700;
+            color: var(--askesis-orange);
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--askesis-purple);
+            display: flex;
+            align-items: center;
+        }
+        .step-content h1 i, .step-content h2 i {
+            margin-right: 1rem;
+            font-size: 1.1em;
+            color: var(--askesis-green); /* Icon color distinct from title */
+        }
+        .step-content h1.intro-title { /* Specific for intro title */
+            justify-content: center;
+            border-bottom: none;
+            font-size: 2.5em;
+        }
+         .step-content p.intro-subtitle {
+            text-align:center;
+            color: var(--askesis-green);
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom:1.5rem;
+        }
+        
+        .step-content p, .step-content li {
+            font-size: 1.05em;
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+        }
+
+        .step-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+        .step-content ul li {
+            padding-left: 2.2em; /* Increased padding for icon */
+            position: relative;
+            margin-bottom: 0.9rem; /* More space between list items */
+        }
+        .step-content ul li::before {
+            content: "\f058"; /* check-circle */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 6px; /* Adjusted for better alignment */
+            font-size: 1.3em; /* Larger icon */
+        }
+        
+        .askesis-subheading { /* For sub-titles within a step */
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.5em;
+            font-weight: 600;
+            color: var(--askesis-blue);
+            margin-top: 1.8rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        .askesis-subheading i {
+            color: var(--askesis-orange);
+            margin-right: 0.75rem;
+        }
+
+        .askesis-tip {
+            background-color: rgba(0, 128, 55, 0.18); /* Slightly more opaque */
+            border-left: 6px solid var(--askesis-green); /* Thicker border */
+            padding: 1.3rem 1.6rem;
+            border-radius: 8px; /* More rounded */
+            margin-top: 1.8rem;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.15);
+        }
+        .askesis-tip p {
+            color: var(--askesis-text-white);
+            font-size: 1.1em;
+        }
+        .askesis-tip strong {
+            color: var(--askesis-green); /* Keep consistent */
+        }
+        .askesis-tip i {
+            margin-right: 0.6rem;
+        }
+
+        /* RAMP Protocol Cards */
+        .ramp-card {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        }
+        .ramp-card h4 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 1.25em;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .ramp-card h4 i {
+            margin-right: 0.5rem;
+            color: var(--askesis-green);
+        }
+        .ramp-card p {
+            font-size: 0.95em;
+            color: var(--askesis-light-gray);
+        }
+        /* Error list styling */
+        .error-list li {
+            background-color: rgba(245, 130, 32, 0.1); /* Light orange background */
+            border-left: 4px solid var(--askesis-orange);
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0 4px 4px 0;
+            font-size: 0.95em;
+        }
+        .error-list li strong {
+            color: var(--askesis-orange);
+        }
+
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(245, 130, 32, 0.35);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button:hover {
+            background-color: #E07017;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(245, 130, 32, 0.45);
+        }
+        
+        .nav-button {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+        }
+        .nav-button:hover {
+             background-color: #004b80;
+        }
+        .nav-button.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+        
+        @media (max-width: 768px) {
+            .step-content h1, .step-content h2 { font-size: 1.9em; }
+            .step-content { padding: 1.8rem; }
+            .guide-container { padding: 1.5rem; }
+            .cta-button, .nav-button { font-size: 0.95em; padding: 0.8rem 1.5rem;}
+        }
+         @media (max-width: 480px) {
+            .step-content h1, .step-content h2 { font-size: 1.7em; }
+            .step-content { padding: 1.5rem; }
+        }
+
+    </style>
 </head>
 
-<body class="bg-askesisBgLight text-askesisTextBody antialiased">
-    <header class="bg-askesisBlue text-white text-center py-4 shadow-lg sticky top-0 z-50">
-        <div class="font-roboto text-3xl font-bold tracking-wider">ASKESIS</div>
-        <div class="text-sm italic text-askesisTextLight mt-1 tracking-wide font-nunito">Ciencia aplicada al movimiento</div>
+<body>
+    <header class="main-header">
+        <div class="container mx-auto flex items-center p-4">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="text-3xl font-black text-askesis-text-white uppercase tracking-wider font-roboto">
+                <i class="fas fa-arrow-alt-circle-left mr-3 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
     </header>
 
-    <main class="container mx-auto max-w-3xl px-4 sm:px-6 py-8 sm:py-12">
-        <div id="interactive-guide-calentamiento" class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl">
+    <main class="content-wrapper-main">
+        <div id="interactive-guide-calentamiento" class="guide-container">
 
-            <div id="step-indicator-calentamiento" class="text-center mb-4 text-lg font-semibold text-askesisBlue font-nunito"></div>
-            <div class="w-full bg-gray-200 rounded-full h-3 mb-8">
-                <div id="progress-bar-calentamiento" class="bg-gradient-to-r from-askesisGreen to-askesisBlue h-3 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+            <div id="step-indicator-calentamiento" class="text-center mb-4 text-lg font-semibold text-askesis-orange font-roboto tracking-wider"></div>
+            <div class="w-full bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+                <div id="progress-bar-calentamiento" class="bg-gradient-to-r from-askesis-green to-askesis-blue h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
             </div>
 
             <div id="steps-container-calentamiento" class="overflow-hidden">
-                <div id="step-0" class="step-content" style="background-image: url('https://images.pexels.com/photos/4753997/pexels-photo-4753997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
-                    <div class="content-wrapper">
-                        <h1 class="text-3xl sm:text-4xl font-bold text-center text-askesisBlue font-roboto mb-2">Guía Esencial de Calentamiento</h1>
-                        <p class="text-center text-askesisGreen font-semibold text-xl sm:text-2xl mb-6 font-nunito">Maximiza Rendimiento y Previene Lesiones</p>
-                        <p class="text-lg mb-3">¡Hola! Soy Luis Patricio Ruiz Ruiz de <strong class="text-askesisBlue">Askesis</strong>. Seguramente has escuchado mil veces que "hay que calentar antes de entrenar", pero ¿realmente entiendes por qué es tan crucial y cómo hacerlo correctamente?</p>
+                <div id="step-0" class="step-content">
+                    <div class="text-center">
+                        <h1 class="intro-title"><i class="fas fa-fire-alt mr-3"></i>Guía Esencial de Calentamiento</h1>
+                        <p class="intro-subtitle">Maximiza Rendimiento y Previene Lesiones</p>
+                        <p class="text-lg mb-3">¡Hola! Soy Luis Patricio Ruiz Ruiz de <strong class="emphasis">Askesis</strong>. Seguramente has escuchado mil veces que "hay que calentar antes de entrenar", pero ¿realmente entiendes <span class="emphasis">por qué es tan crucial</span> y cómo hacerlo correctamente?</p>
                         <p class="text-lg mb-4">Esta guía esencial te enseñará:</p>
-                        <ul class="list-disc list-inside space-y-1 mb-6 pl-4">
-                            <li>Qué es realmente un calentamiento.</li>
+                        <ul class="mb-6">
+                            <li>Qué es realmente un calentamiento efectivo.</li>
                             <li>Sus beneficios fisiológicos y mentales.</li>
-                            <li>Componentes clave de una rutina efectiva (Protocolo R.A.M.P.).</li>
-                            <li>Errores comunes a evitar.</li>
+                            <li>Componentes clave (Protocolo R.A.M.P. flexible).</li>
+                            <li>Errores comunes que debes evitar.</li>
                             <li>Ejemplos prácticos para calentar como un profesional.</li>
                         </ul>
-                        <p class="text-lg font-semibold">¡Prepárate para transformar tu preparación!</p>
+                        <p class="text-lg font-semibold">¡Prepárate para transformar tu preparación y optimizar cada entrenamiento!</p>
                     </div>
                 </div>
 
-                <div id="step-1" class="step-content hidden" style="background-image: url('https://images.pexels.com/photos/221210/pexels-photo-221210.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
-                    <div class="content-wrapper">
-                        <h2 class="text-2xl sm:text-3xl font-bold text-askesisBlue font-roboto mb-5 pb-3 border-b-2 border-askesisBlue"><i class="fas fa-question-circle mr-3"></i>¿Qué es un Calentamiento?</h2>
-                        <div class="space-y-4 text-lg">
-                            <p>Un calentamiento es un conjunto de ejercicios y actividades de baja a moderada intensidad realizados <strong class="font-semibold">antes</strong> de la parte principal de tu entrenamiento o competición.</p>
-                            <p>Su objetivo principal es preparar gradual y sistemáticamente tu cuerpo (y mente) para el esfuerzo más intenso que vendrá después.</p>
-                            <div class="askesis-tip">
-                                <p><i class="fas fa-stopwatch"></i>Piensa en ello como el preludio de una sinfonía: prepara el escenario para la obra maestra. No es solo "perder el tiempo", es una <strong class="text-askesisGreenDark">inversión</strong> en tu rendimiento y salud a largo plazo.</p>
-                            </div>
+                <div id="step-1" class="step-content hidden">
+                    <h2><i class="fas fa-question-circle"></i>¿Qué es un Calentamiento?</h2>
+                    <div class="space-y-4 text-lg">
+                        <p>Un calentamiento es un conjunto de ejercicios y actividades de baja a moderada intensidad realizados <strong class="emphasis">antes</strong> de la parte principal de tu entrenamiento o competición.</p>
+                        <p>Su objetivo principal es preparar gradual y sistemáticamente tu cuerpo (y mente) para el esfuerzo más intenso que vendrá después, optimizando la función neuromuscular y metabólica.</p>
+                        <div class="askesis-tip">
+                            <p><i class="fas fa-stopwatch"></i>Piensa en ello como el preludio de una sinfonía: prepara el escenario para la obra maestra. No es solo "perder el tiempo", es una <strong class="font-bold">inversión estratégica</strong> en tu rendimiento y salud a largo plazo.</p>
                         </div>
                     </div>
                 </div>
 
-                <div id="step-2" class="step-content hidden" style="background-image: url('https://images.pexels.com/photos/39671/physiotherapy-weight-training-bless-you-lose-weight-39671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
-                    <div class="content-wrapper">
-                        <h2 class="text-2xl sm:text-3xl font-bold text-askesisBlue font-roboto mb-5 pb-3 border-b-2 border-askesisBlue"><i class="fas fa-heartbeat mr-3"></i>Beneficios de un Buen Calentamiento</h2>
-                        <div class="space-y-3 text-askesisTextBody">
-                            <h3 class="text-xl font-semibold text-askesisTextDark mt-2 mb-1"><i class="fas fa-shield-alt mr-2 text-askesisGreen"></i>Prevención de Lesiones:</h3>
-                            <ul class="list-disc list-inside pl-5 text-sm sm:text-base">
-                                <li>Aumenta la temperatura muscular, haciendo músculos y tendones más elásticos.</li>
-                                <li>Mejora la lubricación de las articulaciones para un movimiento fluido.</li>
-                            </ul>
-
-                            <h3 class="text-xl font-semibold text-askesisTextDark mt-3 mb-1"><i class="fas fa-bolt mr-2 text-askesisOrange"></i>Mejora del Rendimiento Físico:</h3>
-                            <ul class="list-disc list-inside pl-5 text-sm sm:text-base">
-                                <li><strong>Aumento del Flujo Sanguíneo:</strong> Más oxígeno y nutrientes a los músculos.</li>
-                                <li><strong>Mayor Temperatura Muscular:</strong> Reacciones metabólicas más eficientes.</li>
-                                <li><strong>Mejora de la Conducción Nerviosa:</strong> Mejor coordinación y tiempo de reacción.</li>
-                                <li><strong>Activación Neuromuscular:</strong> "Despierta" la conexión cerebro-músculo.</li>
-                                <li><strong>Potenciación Post-Activación (PAP):</strong> Puede mejorar la fuerza y potencia.</li>
-                            </ul>
-
-                            <h3 class="text-xl font-semibold text-askesisTextDark mt-3 mb-1"><i class="fas fa-brain mr-2 text-askesisPurple"></i>Preparación Mental:</h3>
-                            <ul class="list-disc list-inside pl-5 text-sm sm:text-base">
-                                <li>Ayuda a enfocarte en la sesión.</li>
-                                <li>Permite repasar mentalmente movimientos/estrategia.</li>
-                                <li>Reduce la ansiedad y aumenta la confianza.</li>
-                            </ul>
-                            <h3 class="text-xl font-semibold text-askesisTextDark mt-3 mb-1"><i class="fas fa-running mr-2 text-askesisBlue"></i>Mejora del Rango de Movimiento (ROM):</h3>
-                            <ul class="list-disc list-inside pl-5 text-sm sm:text-base">
-                                <li>Los movimientos dinámicos preparan tus articulaciones.</li>
-                            </ul>
-                            <div class="askesis-tip">
-                               <p><i class="fas fa-lightbulb"></i><strong class="text-askesisGreenDark">Tip Askesis:</strong> Un buen calentamiento no te dejará fatigado, sino <strong class="text-askesisGreenDark">energizado, enfocado y listo</strong> para la acción.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="step-3" class="step-content hidden" style="background-image: url('https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
-                    <div class="content-wrapper">
-                        <h2 class="text-2xl sm:text-3xl font-bold text-askesisBlue font-roboto mb-5 pb-3 border-b-2 border-askesisBlue"><i class="fas fa-fire mr-3"></i>Protocolo R.A.M.P. (Enfoque Flexible)</h2>
-                        <p class="text-lg mb-4">El protocolo <strong>R.A.M.P.</strong> es un marco excelente, entendiéndolo como una <strong class="font-semibold">progresión lógica y flexible</strong> de lo general a lo específico y de baja a alta intensidad.</p>
-                        
-                        <div class="space-y-3">
-                            <div class="askesis-card text-sm">
-                                <h4><i class="fas fa-walking mr-2"></i>1. Movilización General y Elevación Inicial (Raise & Initial Mobilize)</h4>
-                                <p><strong>Objetivo:</strong> "Despertar" el cuerpo, aumentar temperatura y preparar articulaciones.</p>
-                                <p><strong>Actividades (3-5 min):</strong> Movimientos articulares suaves (círculos), balanceos ligeros, cardio muy ligero y progresivo (caminata, trote suave).</p>
-                            </div>
-                            <div class="askesis-card text-sm">
-                                <h4><i class="fas fa-sync-alt mr-2"></i>2. Movilización Dinámica Específica (Mobilize)</h4>
-                                <p><strong>Objetivo:</strong> Mejorar ROM activo en articulaciones clave.</p>
-                                <p><strong>Actividades (3-5 min):</strong> Estiramientos dinámicos enfocados (sentadillas, zancadas, "world's greatest stretch").</p>
-                            </div>
-                            <div class="askesis-card text-sm">
-                                <h4><i class="fas fa-toggle-on mr-2"></i>3. Activación (Activate)</h4>
-                                <p><strong>Objetivo:</strong> Activar músculos clave y estabilizadores.</p>
-                                <p><strong>Actividades (2-4 min):</strong> Bajo impacto (puentes glúteos, planchas, band walks).</p>
-                            </div>
-                            <div class="askesis-card text-sm">
-                                <h4><i class="fas fa-rocket mr-2"></i>4. Potenciación (Potentiate)</h4>
-                                <p><strong>Objetivo:</strong> Aumentar intensidad y especificidad.</p>
-                                <p><strong>Actividades (2-5 min+):</strong> Series de aproximación, saltos ligeros, sprints progresivos.</p>
-                            </div>
-                        </div>
-                        <p class="text-xs italic mt-3">Recuerda: La clave es una progresión lógica adaptada a ti y a tu sesión.</p>
-                    </div>
-                </div>
-
-                <div id="step-4" class="step-content hidden" style="background-image: url('https://images.pexels.com/photos/4058411/pexels-photo-4058411.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
-                    <div class="content-wrapper">
-                        <h2 class="text-2xl sm:text-3xl font-bold text-askesisBlue font-roboto mb-5 pb-3 border-b-2 border-askesisBlue"><i class="fas fa-exclamation-triangle mr-3 text-askesisOrange"></i>Errores Comunes al Calentar</h2>
-                        <ul class="list-none space-y-2 text-sm">
-                            <li class="p-2 bg-red-50 border-l-4 border-red-400 rounded-r-md"><strong class="text-red-700">Saltárselo por Completo.</strong></li>
-                            <li class="p-2 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-md"><strong class="text-yellow-700">Solo Estiramientos Estáticos.</strong></li>
-                            <li class="p-2 bg-red-50 border-l-4 border-red-400 rounded-r-md"><strong class="text-red-700">Demasiado Corto o Superficial.</strong></li>
-                            <li class="p-2 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-md"><strong class="text-yellow-700">Demasiado Largo o Intenso.</strong></li>
-                            <li class="p-2 bg-red-50 border-l-4 border-red-400 rounded-r-md"><strong class="text-red-700">No Ser Específico.</strong></li>
-                            <li class="p-2 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-md"><strong class="text-yellow-700">Hacer Siempre lo Mismo.</strong></li>
+                <div id="step-2" class="step-content hidden">
+                    <h2><i class="fas fa-heartbeat"></i>Beneficios Clave de un Buen Calentamiento</h2>
+                    <div class="space-y-3">
+                        <h3 class="askesis-subheading"><i class="fas fa-shield-alt"></i>Prevención de Lesiones:</h3>
+                        <ul>
+                            <li>Aumenta la temperatura muscular, haciendo músculos y tendones más <span class="emphasis">elásticos y menos propensos a desgarros</span>.</li>
+                            <li>Mejora la lubricación de las articulaciones (líquido sinovial), permitiendo un <span class="emphasis">movimiento más fluido y seguro</span>.</li>
                         </ul>
-                    </div>
-                </div>
 
-                <div id="step-5" class="step-content hidden" style="background-image: url('https://images.pexels.com/photos/866027/pexels-photo-866027.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
-                     <div class="content-wrapper overflow-y-auto max-h-[450px]"> <h2 class="text-2xl sm:text-3xl font-bold text-askesisBlue font-roboto mb-4 pb-3 border-b-2 border-askesisBlue"><i class="fas fa-clipboard-list mr-3"></i>Ejemplos de Rutinas</h2>
-                        <p class="text-sm mb-3">Duración: 10-20 min. Orden: Mov. General/Raise -> Mov. Específica -> Activación -> Potenciación.</p>
-                        
-                        <div class="askesis-card mb-4 text-xs sm:text-sm">
-                            <h3 class="text-lg font-semibold text-askesisTextDark mb-2">Ejemplo 1: Calentamiento General Full-Body</h3>
-                            <ul class="list-disc list-inside space-y-1">
-                                <li><strong>1. Mov. General/Raise (3-5 min):</strong> Círculos articulares, balanceos, trote ligero.</li>
-                                <li><strong>2. Mov. Específica (2-3 min):</strong> Sentadillas peso corporal, rotaciones torso, inchworms.</li>
-                                <li><strong>3. Activación (2-3 min):</strong> Puente glúteos (2x10-15), plancha (2x20-30s), bird-dog (2x8-10/lado).</li>
-                                <li><strong>4. Potenciación (1-2 min, opc.):</strong> Jumping jacks.</li>
-                            </ul>
-                        </div>
+                        <h3 class="askesis-subheading"><i class="fas fa-bolt"></i>Mejora del Rendimiento Físico:</h3>
+                        <ul>
+                            <li><strong>Aumento del Flujo Sanguíneo:</strong> Más oxígeno y nutrientes llegan a los músculos activos.</li>
+                            <li><strong>Mayor Temperatura Muscular:</strong> Las reacciones metabólicas y la contracción muscular son más eficientes.</li>
+                            <li><strong>Mejora de la Conducción Nerviosa:</strong> Impulsos nerviosos más rápidos, mejorando coordinación y tiempo de reacción.</li>
+                            <li><strong>Activación Neuromuscular:</strong> "Despierta" la conexión cerebro-músculo, preparando las unidades motoras.</li>
+                            <li><strong>Potenciación Post-Activación (PAP):</strong> Ciertas actividades de calentamiento pueden mejorar la fuerza y potencia explosiva subsecuente.</li>
+                        </ul>
 
-                        <div class="askesis-card text-xs sm:text-sm">
-                            <h3 class="text-lg font-semibold text-askesisTextDark mb-2">Ejemplo 2: Calentamiento Día de Piernas</h3>
-                            <ul class="list-disc list-inside space-y-1">
-                                <li><strong>1. Mov. General/Raise (5 min):</strong> Bici/elíptica, círculos tobillo/cadera.</li>
-                                <li><strong>2. Mov. Específica (3-4 min):</strong> Sentadillas profundas, zancadas dinámicas, balanceos pierna.</li>
-                                <li><strong>3. Activación (3-4 min):</strong> Puente glúteos c/banda (2x15), monster walks (2x15/lado), core.</li>
-                                <li><strong>4. Potenciación (2-3 min+):</strong> Sentadillas c/salto (2x5-8), series aproximación ejercicio principal.</li>
-                            </ul>
+                        <h3 class="askesis-subheading"><i class="fas fa-brain"></i>Preparación Mental:</h3>
+                        <ul>
+                            <li>Ayuda a <span class="emphasis">enfocarte</span> en la sesión de entrenamiento que tienes por delante.</li>
+                            <li>Permite repasar mentalmente movimientos técnicos o estrategias.</li>
+                            <li>Reduce la ansiedad pre-ejercicio y <span class="emphasis">aumenta la confianza</span>.</li>
+                        </ul>
+                        <div class="askesis-tip">
+                           <p><i class="fas fa-lightbulb"></i><strong class="font-bold">Conclusión Askesis:</strong> Un calentamiento bien estructurado no te dejará fatigado, sino <strong class="font-bold">energizado, enfocado y fisiológicamente preparado</strong> para la acción.</p>
                         </div>
                     </div>
                 </div>
                 
-                <div id="step-6" class="step-content hidden" style="background-image: url('https://images.pexels.com/photos/1785493/pexels-photo-1785493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
-                    <div class="content-wrapper">
-                        <h2 class="text-2xl sm:text-3xl font-bold text-askesisBlue font-roboto mb-5 pb-3 border-b-2 border-askesisBlue"><i class="fas fa-flag-checkered mr-3"></i>Conclusión: El Calentamiento es Tu Aliado</h2>
-                        <div class="space-y-4 text-lg">
-                            <p>Invertir tiempo en un calentamiento adecuado no es una opción, es una <strong class="font-semibold">necesidad</strong> para tu entrenamiento, salud y progreso.</p>
-                            <p>Prepara tu cuerpo y mente sistemáticamente para reducir lesiones y desbloquear tu potencial.</p>
-                            <div class="askesis-tip">
-                                <p><i class="fas fa-cogs"></i>Utiliza el protocolo <strong class="text-askesisGreenDark">R.A.M.P.</strong> como guía, adáptalo y ¡nunca subestimes el poder de empezar bien!</p>
-                            </div>
-                            <p class="mt-6 font-semibold">¿Listo/a para optimizar tu entrenamiento? En <strong class="text-askesisBlue">Askesis</strong>, te damos las herramientas.</p>
-                            <p class="font-bold text-askesisGreenDark text-xl text-center mt-4">¡Calienta con inteligencia, entrena con propósito!</p>
+                <div id="step-3" class="step-content hidden">
+                    <h2><i class="fas fa-fire"></i>Protocolo R.A.M.P. (Enfoque Flexible)</h2>
+                    <p class="text-lg mb-4">El protocolo <strong>R.A.M.P.</strong> (Raise, Activate, Mobilize, Potentiate) es un marco excelente y flexible para estructurar tu calentamiento. Se entiende como una <strong class="emphasis">progresión lógica</strong> de lo general a lo específico y de baja a alta intensidad.</p>
+                    
+                    <div class="space-y-3">
+                        <div class="ramp-card">
+                            <h4><i class="fas fa-walking"></i>R - Raise (Elevar)</h4>
+                            <p><strong>Objetivo:</strong> Aumentar la temperatura corporal, frecuencia cardíaca, respiratoria y flujo sanguíneo. "Despertar" el cuerpo.</p>
+                            <p><strong>Actividades (3-5 min):</strong> Cardio ligero y progresivo (caminata rápida, trote suave, saltos de cuerda suaves, bici estática ligera).</p>
                         </div>
+                        <div class="ramp-card">
+                            <h4><i class="fas fa-toggle-on"></i>A - Activate (Activar)</h4>
+                            <p><strong>Objetivo:</strong> Activar músculos clave y estabilizadores que se usarán en la sesión. Mejorar la conexión neuromuscular.</p>
+                            <p><strong>Actividades (3-5 min):</strong> Ejercicios de bajo impacto y controlados (puentes de glúteos, planchas y variantes, bird-dog, band walks, face pulls ligeros).</p>
+                        </div>
+                        <div class="ramp-card">
+                            <h4><i class="fas fa-sync-alt"></i>M - Mobilize (Movilizar)</h4>
+                            <p><strong>Objetivo:</strong> Mejorar el rango de movimiento activo a través de las articulaciones principales que se utilizarán. Enfocarse en movimientos dinámicos.</p>
+                            <p><strong>Actividades (3-5 min):</strong> Estiramientos dinámicos (sentadillas al aire profundas, zancadas con rotación, círculos de brazos amplios, "world's greatest stretch", balanceos de piernas controlados).</p>
+                        </div>
+                        <div class="ramp-card">
+                            <h4><i class="fas fa-rocket"></i>P - Potentiate (Potenciar)</h4>
+                            <p><strong>Objetivo:</strong> Aumentar la intensidad y especificidad para preparar el cuerpo para las demandas de la sesión. Es el puente final hacia el entrenamiento principal.</p>
+                            <p><strong>Actividades (2-5 min+):</strong> Series de aproximación del ejercicio principal (aumentando gradualmente el peso), saltos ligeros (box jumps bajos, saltos al cajón), sprints cortos y progresivos, lanzamientos de balón medicinal ligeros (si aplica).</p>
+                        </div>
+                    </div>
+                    <p class="text-sm italic mt-4 text-askesis-light-gray">Recuerda: La clave es una progresión lógica adaptada a ti y a tu sesión específica.</p>
+                </div>
+
+                <div id="step-4" class="step-content hidden">
+                    <h2><i class="fas fa-exclamation-triangle text-askesis-orange"></i>Errores Comunes al Calentar</h2>
+                    <ul class="list-none space-y-3 error-list">
+                        <li><strong>Saltárselo por Completo:</strong> El error más grave. Aumenta drásticamente el riesgo de lesión y limita el rendimiento.</li>
+                        <li><strong>Solo Estiramientos Estáticos Prolongados:</strong> Pueden disminuir la producción de fuerza y potencia si se hacen justo antes de actividades explosivas. Mejor guardarlos para el final o sesiones de flexibilidad.</li>
+                        <li><strong>Demasiado Corto o Superficial:</strong> No permite que el cuerpo alcance la preparación fisiológica necesaria.</li>
+                        <li><strong>Demasiado Largo o Intenso:</strong> Puede causar fatiga antes de empezar la parte principal del entrenamiento.</li>
+                        <li><strong>No Ser Específico:</strong> Calentar de forma genérica sin considerar los movimientos o músculos principales de la sesión.</li>
+                        <li><strong>Hacer Siempre Exactamente lo Mismo:</strong> El calentamiento debe variar según el tipo de entrenamiento del día.</li>
+                    </ul>
+                     <div class="askesis-tip mt-6">
+                        <p><i class="fas fa-lightbulb"></i><strong class="font-bold">Reflexión Askesis:</strong> Tu calentamiento debe ser tan <span class="emphasis">inteligente y planificado</span> como tu entrenamiento principal. No es un trámite, es una parte integral del proceso.</p>
+                    </div>
+                </div>
+                
+                <div id="step-5" class="step-content hidden">
+                     <h2><i class="fas fa-clipboard-list"></i>Ejemplos de Rutinas de Calentamiento</h2>
+                    <p class="text-lg mb-4">A continuación, algunos ejemplos flexibles. Adapta la duración y los ejercicios a tus necesidades y al entrenamiento del día. (Duración total: 10-20 min).</p>
+                    
+                    <div class="ramp-card mb-4">
+                        <h4 class="text-askesis-blue"><i class="fas fa-universal-access"></i>Calentamiento General Full-Body (10-15 min)</h4>
+                        <ul>
+                            <li><strong>Raise (3-5 min):</strong> Trote ligero o saltos de cuerda suaves. Círculos articulares (cuello, hombros, codos, muñecas, caderas, rodillas, tobillos).</li>
+                            <li><strong>Activate (2-3 min):</strong> Puente de glúteos (2x12-15), plancha frontal (2x20-30s), bird-dog (2x8-10 por lado).</li>
+                            <li><strong>Mobilize (3-4 min):</strong> Sentadillas al aire (2x10), zancadas dinámicas (2x8 por pierna), rotaciones de torso (2x10 por lado), inchworms (1x5-8).</li>
+                            <li><strong>Potentiate (1-2 min, opcional):</strong> Jumping jacks (30s) o algunos saltos verticales ligeros.</li>
+                        </ul>
+                    </div>
+
+                    <div class="ramp-card">
+                        <h4 class="text-askesis-blue"><i class="fas fa-dumbbell"></i>Calentamiento Día de Piernas (Énfasis en Sentadilla/Peso Muerto) (15-20 min)</h4>
+                        <ul>
+                            <li><strong>Raise (5 min):</strong> Bici estática o elíptica con aumento gradual de resistencia. Movilidad de tobillo y cadera (círculos, patadas de burro suaves).</li>
+                            <li><strong>Activate (4-5 min):</strong> Activación de glúteos con banda elástica (monster walks, side steps, puentes con abducción) (2x15 reps/pasos), planchas laterales (2x20s por lado), extensiones lumbares suaves (Superman) (2x12).</li>
+                            <li><strong>Mobilize (4-5 min):</strong> Sentadillas goblet con peso ligero (enfatizando profundidad y control) (2x8-10), peso muerto rumano con mancuerna ligera o pica (enfatizando bisagra de cadera) (2x10), "World's greatest stretch" (1x5 por lado).</li>
+                            <li><strong>Potentiate (2-3 min+):</strong> Sentadillas con salto al cajón bajo (2x5-8) o saltos verticales. Series de aproximación del ejercicio principal (ej. sentadilla con barra, aumentando el peso gradualmente).</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div id="step-6" class="step-content hidden">
+                    <h2><i class="fas fa-flag-checkered"></i>Conclusión: El Calentamiento es Tu Aliado Estratégico</h2>
+                    <div class="space-y-4 text-lg">
+                        <p>Invertir tiempo y esfuerzo en un calentamiento adecuado y bien estructurado no es una opción, es una <strong class="emphasis">necesidad fundamental</strong> para optimizar tu entrenamiento, proteger tu salud y asegurar un progreso sostenible a largo plazo.</p>
+                        <p>Prepara tu cuerpo y mente sistemáticamente para cada sesión, reduce significativamente el riesgo de lesiones y desbloquea tu verdadero potencial de rendimiento.</p>
+                        <div class="askesis-tip">
+                            <p><i class="fas fa-cogs"></i>Utiliza el protocolo <strong class="font-bold">R.A.M.P.</strong> como una guía flexible y poderosa, adáptalo a tus necesidades específicas y ¡nunca más subestimes el poder de empezar cada entrenamiento de la forma correcta!</p>
+                        </div>
+                        <p class="mt-6 font-semibold text-center">En <strong class="emphasis">Askesis</strong>, te proporcionamos el conocimiento y las herramientas para que cada aspecto de tu preparación sea de élite.</p>
+                        <p class="font-bold text-askesis-green text-xl text-center mt-4">¡Calienta con inteligencia, entrena con propósito, conquista tus metas!</p>
                     </div>
                 </div>
             </div>
 
             <div id="navigation-buttons-calentamiento" class="mt-10 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-                <button id="prev-button-calentamiento" class="w-full sm:w-auto bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center">
+                <button id="prev-button-calentamiento" class="cta-button nav-button prev-button w-full sm:w-auto">
                     <i class="fas fa-arrow-left mr-2"></i>Anterior
                 </button>
-                <button id="next-button-calentamiento" class="w-full sm:w-auto bg-askesisBlue hover:bg-askesisBlueDark text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center">
+                <button id="next-button-calentamiento" class="cta-button nav-button w-full sm:w-auto">
                     Siguiente<i class="fas fa-arrow-right ml-2"></i>
                 </button>
             </div>
             <div id="completion-container-calentamiento" class="hidden mt-10 text-center">
-                <div class="text-2xl font-semibold text-askesisGreen p-6 bg-green-50 rounded-lg shadow-lg mb-6">
-                    <i class="fas fa-check-circle text-3xl mr-3"></i>¡Has completado la Guía de Calentamiento!
+                 <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-green">
+                    <i class="fas fa-check-circle text-4xl mr-3"></i>¡Has completado la Guía de Calentamiento Efectivo!
                 </div>
-                <p class="text-lg text-askesisTextDark mb-6">Esperamos que esta información te ayude a preparar mejor tus entrenamientos.</p>
-                <button id="restart-button-calentamiento" class="bg-askesisOrange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                <p class="text-lg text-askesis-light-gray mb-6">Ahora posees las claves para una preparación óptima. Aplica estos conocimientos y siente la diferencia en cada entrenamiento.</p>
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button mb-4">
+                    <i class="fas fa-graduation-cap mr-2"></i>Descubre Más Servicios Askesis
+                </a>
+                <button id="restart-button-calentamiento" class="cta-button prev-button w-full sm:w-auto">
                     <i class="fas fa-redo mr-2"></i>Reiniciar Guía
                 </button>
             </div>
         </div>
     </main>
 
-    <footer class="bg-askesisTextDark text-askesisTextLight text-center py-10 mt-12">
-        <div class="container mx-auto max-w-3xl px-4">
-            <div class="mb-4">
-                <div class="font-roboto text-2xl font-bold">ASKESIS</div>
-                <div class="text-sm italic mt-1">Ciencia aplicada al movimiento</div>
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
             </div>
-            <hr class="border-gray-600 w-1/4 mx-auto my-6">
-            <div class="mb-4">
-                <p class="font-semibold">Luis Patricio Ruiz Ruiz</p>
-                <p class="text-xs">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
             </div>
-            <div class="flex justify-center items-center space-x-4 mb-6 text-lg">
-                <a href="mailto:luistdu111@gmail.com" title="Enviar correo electrónico" class="hover:text-askesisBlue transition-colors"><i class="fas fa-envelope"></i></a>
-                <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20estoy%20interesado/a%20en%20la%20Guía%20de%20Calentamiento." target="_blank" title="Contactar por WhatsApp" class="hover:text-askesisGreen transition-colors"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://www.instagram.com/askesis111" target="_blank" title="Visitar Instagram" class="hover:text-askesisPurple transition-colors"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Visita nuestro canal de YouTube: OmniaInBonum111" class="hover:text-red-500 transition-colors"><i class="fab fa-youtube"></i></a>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Calentamiento" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20vi%20la%20guía%20de%20calentamiento%20y%20tengo%20una%20consulta." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
             </div>
-             <p class="text-xs text-gray-400">© <span id="current-year-calentamiento"></span> Askesis. Todos los derechos reservados.</p>
+            <p class="copyright-footer">© <span id="current-year-calentamiento"></span> Askesis. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const guideContainer = document.getElementById('interactive-guide-calentamiento');
-            if (!guideContainer) return; 
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de calentamiento no encontrado.");
+                return;
+            }
 
-            const steps = guideContainer.querySelectorAll('#steps-container-calentamiento .step-content');
+            const steps = Array.from(guideContainer.querySelectorAll('#steps-container-calentamiento > div[id^="step-"]'));
             const prevButton = guideContainer.querySelector('#prev-button-calentamiento');
             const nextButton = guideContainer.querySelector('#next-button-calentamiento');
             const stepIndicator = guideContainer.querySelector('#step-indicator-calentamiento');
@@ -382,7 +545,7 @@
             const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-calentamiento');
             const completionContainer = guideContainer.querySelector('#completion-container-calentamiento');
             const restartButton = guideContainer.querySelector('#restart-button-calentamiento');
-            const yearSpan = guideContainer.querySelector('#current-year-calentamiento');
+            const yearSpan = document.getElementById('current-year-calentamiento'); // Corrected to getElementById
             
             let currentStep = 0;
             const totalSteps = steps.length;
@@ -391,35 +554,50 @@
 
             function updateStepDisplay() {
                 if (!steps.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
-                    console.error("Error: Uno o más elementos de la guía de calentamiento no se encontraron.");
+                    console.error("Error: Uno o más elementos de la guía de calentamiento no se encontraron en updateStepDisplay.");
                     return;
                 }
 
-                steps.forEach((step) => {
-                    step.classList.add('hidden');
+                steps.forEach((step, index) => {
+                    if (index === currentStep) {
+                        step.classList.remove('hidden');
+                    } else {
+                        step.classList.add('hidden');
+                    }
                 });
-
-                if (steps[currentStep]) {
-                    steps[currentStep].classList.remove('hidden');
-                }
                 
-                stepIndicator.textContent = `Paso ${currentStep + 1} de ${totalSteps}`;
-                const progressPercentage = totalSteps > 0 ? ((currentStep + 1) / totalSteps) * 100 : 0;
+                // Custom Step Titles
+                const stepTitles = [
+                    "Introducción al Calentamiento",
+                    "¿Qué es un Calentamiento?",
+                    "Beneficios Clave",
+                    "Protocolo R.A.M.P.",
+                    "Errores Comunes",
+                    "Ejemplos Prácticos",
+                    "Conclusión y Siguientes Pasos"
+                ];
+                stepIndicator.textContent = stepTitles[currentStep] || `Paso ${currentStep + 1}`;
+
+
+                const progressPercentage = totalSteps > 1 ? (currentStep / (totalSteps - 1)) * 100 : 0;
                 progressBar.style.width = `${progressPercentage}%`;
 
                 prevButton.disabled = currentStep === 0;
                 
                 if (currentStep === totalSteps - 1) {
-                    nextButton.innerHTML = 'Finalizar <i class="fas fa-check ml-2"></i>';
-                    navigationButtonsContainer.classList.add('hidden');
+                    nextButton.classList.add('hidden'); 
                     completionContainer.classList.remove('hidden');
+                    navigationButtonsContainer.classList.add('hidden'); 
                 } else {
-                    nextButton.innerHTML = 'Siguiente <i class="fas fa-arrow-right ml-2"></i>';
+                    nextButton.classList.remove('hidden');
                     navigationButtonsContainer.classList.remove('hidden');
                     completionContainer.classList.add('hidden');
                 }
                 
-                guideContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Scroll to the top of the guide container, considering the sticky header
+                const headerHeight = document.querySelector('.main-header') ? document.querySelector('.main-header').offsetHeight : 0;
+                const guideTopOffset = guideContainer.offsetTop - headerHeight - 20; // 20px buffer
+                window.scrollTo({ top: guideTopOffset, behavior: 'smooth' });
             }
 
             if (nextButton) {
@@ -451,6 +629,7 @@
                 updateStepDisplay();
             } else {
                 console.warn("Advertencia: No se encontraron pasos en la guía de calentamiento.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
             }
         });
     </script>
