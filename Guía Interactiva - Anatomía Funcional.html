@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Anatomía Funcional para el Entrenamiento</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Anatomía Funcional: Entiende cómo tu cuerpo se mueve, los sistemas esquelético y muscular, y aplica este conocimiento para optimizar tu entrenamiento y prevenir lesiones.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#B80F0A', /* Primary for this guide */
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                        'askesis-red-light': 'rgba(184, 15, 10, 0.1)',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #B80F0A; /* Deep Red */
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+            --askesis-red-light: rgba(184, 15, 10, 0.1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.97), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-anatomia { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.4rem; 
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.55rem; /* Even smaller for more items */
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-anatomia:hover,
+        .secondary-nav-askesis .nav-link-anatomia.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-red); /* Red for this guide's theme */
+        }
+        .secondary-nav-askesis .nav-link-anatomia.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.95); 
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px;
+            max-width: 980px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-red); 
+            font-size: 2.4em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-orange); 
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-orange); 
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-blue); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-green);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--askesis-green); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f007"; /* fa-user or fa-male for human body */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-red); 
+            position: absolute;
+            left: 0;
+            top: 7px;
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: rgba(0, 90, 156, 0.3); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(220, 53, 69, 0.25); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: var(--askesis-red-light); border-left-color: var(--askesis-red); color: var(--askesis-text-white);} /* Red tip box */
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); }
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-red); } 
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-red); 
+            color: var(--askesis-text-white);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(184, 15, 10, 0.4); 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #8B0000; /* Darker red */
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(184, 15, 10, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-orange); 
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #cf6a10; 
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-anatomia { font-size: 0.5rem; padding: 0.3rem 0.3rem;} /* Adjusted for more items */
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-anatomia { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-anatomia" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-anatomia-0" class="nav-link-anatomia active">Intro</a></li>
+            <li><a href="#slide-anatomia-1" class="nav-link-anatomia">Planos/Ejes</a></li>
+            <li><a href="#slide-anatomia-2" class="nav-link-anatomia">Sist. Esquelético</a></li>
+            <li><a href="#slide-anatomia-3" class="nav-link-anatomia">Articulaciones</a></li>
+            <li><a href="#slide-anatomia-4" class="nav-link-anatomia">Sist. Muscular (I)</a></li>
+            <li><a href="#slide-anatomia-5" class="nav-link-anatomia">Sist. Muscular (II)</a></li>
+            <li><a href="#slide-anatomia-6" class="nav-link-anatomia">Grupos Musc. (I)</a></li>
+            <li><a href="#slide-anatomia-7" class="nav-link-anatomia">Grupos Musc. (II)</a></li>
+            <li><a href="#slide-anatomia-8" class="nav-link-anatomia">Cadenas Musc.</a></li>
+            <li><a href="#slide-anatomia-9" class="nav-link-anatomia">Análisis Mov.</a></li>
+            <li><a href="#slide-anatomia-10" class="nav-link-anatomia">Aplicación</a></li>
+            <li><a href="#slide-anatomia-11" class="nav-link-anatomia">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-anatomia" class="py-8"> <div id="step-indicator-anatomia" class="text-center mb-4 text-lg font-semibold text-askesis-green font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-anatomia" class="bg-gradient-to-r from-askesis-green to-askesis-red h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        </div>
+
+        <div id="slides-container-anatomia"> <section id="slide-anatomia-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-universal-access"></i>Anatomía Funcional para el Entrenamiento</h1>
+                    <p class="mb-3">La <strong class="highlight">anatomía funcional</strong> es el estudio de la estructura del cuerpo humano (anatomía) en relación con su función (cómo se mueve y opera). Para cualquier persona involucrada en el entrenamiento físico, comprender los conceptos básicos de la anatomía funcional es <strong class="highlight">esencial para diseñar programas efectivos, optimizar la técnica y minimizar el riesgo de lesiones</strong>.</p>
+                    <p>Esta guía te proporcionará una visión general de los sistemas esquelético y muscular, cómo interactúan para producir movimiento, y cómo este conocimiento puede ser aplicado directamente a tu entrenamiento.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> Conocer tu cuerpo es el primer paso para <strong class="emphasis">entrenar de manera más inteligente, no solo más duro</strong>. La anatomía funcional te da el "mapa" de tu máquina humana.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-anatomia-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-map-signs"></i>Planos y Ejes del Movimiento</h2>
+                    <p>Para describir el movimiento humano de manera precisa, se utilizan planos y ejes anatómicos de referencia:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-th-large"></i> Planos Anatómicos:</h3>
+                    <ul>
+                        <li><strong>Plano Sagital:</strong> Divide el cuerpo en mitades derecha e izquierda. Los movimientos en este plano son la <strong class="highlight">flexión y extensión</strong> (ej. sentadilla, curl de bíceps).</li>
+                        <li><strong>Plano Frontal (o Coronal):</strong> Divide el cuerpo en mitades anterior (frontal) y posterior (dorsal). Los movimientos son la <strong class="highlight">abducción</strong> (alejar del cuerpo) y <strong class="highlight">aducción</strong> (acercar al cuerpo), e inclinaciones laterales (ej. elevaciones laterales de hombro, jumping jacks).</li>
+                        <li><strong>Plano Transversal (u Horizontal):</strong> Divide el cuerpo en mitades superior e inferior. Los movimientos son las <strong class="highlight">rotaciones</strong> (interna, externa, pronación, supinación) y giros (ej. press Pallof, swings de golf).</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-arrows-alt"></i> Ejes de Movimiento:</h3>
+                    <p>Son líneas imaginarias perpendiculares a los planos, alrededor de las cuales ocurre el movimiento:</p>
+                    <ul>
+                        <li><strong>Eje Sagital (o Anteroposterior):</strong> Perpendicular al plano frontal (movimientos de abducción/aducción).</li>
+                        <li><strong>Eje Frontal (o Transversal/Coronal):</strong> Perpendicular al plano sagital (movimientos de flexión/extensión).</li>
+                        <li><strong>Eje Vertical (o Longitudinal):</strong> Perpendicular al plano transversal (movimientos de rotación).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-anatomia-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-bone"></i>Sistema Esquelético: El Andamiaje del Cuerpo</h2>
+                    <p>El esqueleto proporciona la estructura de soporte, protege órganos vitales y, crucialmente para el movimiento, actúa como un sistema de palancas.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-shapes"></i> Tipos de Huesos:</h3>
+                    <ul>
+                        <li><strong>Huesos Largos:</strong> Actúan como palancas (ej. fémur, húmero).</li>
+                        <li><strong>Huesos Cortos:</strong> Proporcionan estabilidad y absorción de impacto (ej. carpianos en la muñeca, tarsianos en el tobillo).</li>
+                        <li><strong>Huesos Planos:</strong> Ofrecen protección y grandes superficies para la inserción muscular (ej. cráneo, escápula, costillas).</li>
+                        <li><strong>Huesos Irregulares:</strong> Formas complejas con funciones específicas (ej. vértebras, huesos de la pelvis).</li>
+                        <li><strong>Huesos Sesamoideos:</strong> Se desarrollan dentro de tendones, mejoran la ventaja mecánica (ej. rótula).</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-landmark"></i> Puntos de Referencia Óseos:</h3>
+                    <p>Conocer ciertos puntos óseos (protuberancias, cóndilos, tuberosidades) es útil para entender las inserciones musculares y los ejes de movimiento articular.</p>
+                </div>
+            </section>
+
+            <section id="slide-anatomia-3" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-joint"></i>Articulaciones: Los Ejes del Movimiento</h2>
+                    <p>Una articulación es la unión entre dos o más huesos, permitiendo (o limitando) el movimiento entre ellos.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tags"></i> Clasificación Funcional de las Articulaciones:</h3>
+                    <ul>
+                        <li><strong>Sinartrosis (Inmóviles):</strong> Ej. suturas del cráneo.</li>
+                        <li><strong>Anfiartrosis (Ligeramente Móviles):</strong> Ej. discos intervertebrales, sínfisis del pubis.</li>
+                        <li><strong>Diartrosis (Móviles o Sinoviales):</strong> La mayoría de las articulaciones importantes para el movimiento deportivo. Se caracterizan por tener una cápsula articular, membrana sinovial, líquido sinovial y cartílago articular.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-puzzle-piece"></i> Tipos de Articulaciones Sinoviales (Diartrosis):</h3>
+                    <ul>
+                        <li><strong>Enartrosis (Esférica):</strong> Permiten movimiento en todos los planos (ej. hombro, cadera).</li>
+                        <li><strong>Gínglimo (Bisagra):</strong> Permiten flexión y extensión (ej. codo, rodilla - modificada).</li>
+                        <li><strong>Trocoide (Pivote):</strong> Permiten rotación (ej. articulación radiocubital proximal).</li>
+                        <li><strong>Condílea (Elipsoidal):</strong> Movimiento biaxial (ej. muñeca).</li>
+                        <li><strong>Artrodia (Plana):</strong> Pequeños movimientos de deslizamiento (ej. articulaciones intercarpianas).</li>
+                        <li><strong>Sellar (Silla de Montar):</strong> Movimiento biaxial con cierta rotación (ej. articulación carpometacarpiana del pulgar).</li>
+                    </ul>
+                     <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Estabilidad vs. Movilidad:</strong> Algunas articulaciones están diseñadas para la estabilidad (ej. rodilla, lumbar), mientras que otras para la movilidad (ej. tobillo, cadera, hombro, columna torácica). Un desequilibrio puede llevar a disfunción.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-anatomia-4" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-running"></i>Sistema Muscular (Parte I): El Motor</h2>
+                    <p>Los músculos son los tejidos contráctiles que generan la fuerza necesaria para el movimiento y el mantenimiento de la postura.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-layer-group"></i> Tipos de Tejido Muscular:</h3>
+                    <ul>
+                        <li><strong>Músculo Esquelético:</strong> Voluntario, estriado, responsable del movimiento del esqueleto. Es el foco principal en el entrenamiento.</li>
+                        <li><strong>Músculo Liso:</strong> Involuntario, encontrado en órganos internos.</li>
+                        <li><strong>Músculo Cardíaco:</strong> Involuntario, estriado, forma el corazón.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-microscope"></i> Estructura del Músculo Esquelético:</h3>
+                    <p>Desde lo más grande a lo más pequeño: Músculo > Fascículo > Fibra Muscular (célula) > Miofibrilla > Sarcómero (unidad contráctil fundamental, compuesta por filamentos de <strong class="highlight">actina y miosina</strong>).</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-bolt"></i> Contracción Muscular:</h3>
+                    <p>Ocurre cuando los filamentos de actina y miosina se deslizan entre sí (Teoría del Deslizamiento de los Filamentos), acortando el sarcómero y generando tensión. Este proceso es iniciado por un impulso nervioso.</p>
+                </div>
+            </section>
+
+            <section id="slide-anatomia-5" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-users-cog"></i>Sistema Muscular (Parte II): Roles y Tipos de Contracción</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-theater-masks"></i> Roles Musculares en el Movimiento:</h3>
+                    <ul>
+                        <li><strong>Agonista (Motor Primario):</strong> Músculo principal responsable de producir un movimiento específico.</li>
+                        <li><strong>Antagonista:</strong> Músculo que se opone a la acción del agonista. Debe relajarse para permitir el movimiento.</li>
+                        <li><strong>Sinergista:</strong> Músculo que ayuda al agonista a realizar el movimiento o estabiliza la articulación.</li>
+                        <li><strong>Estabilizador (Fijador):</strong> Músculo que contrae isométricamente para mantener una parte del cuerpo firme mientras otra se mueve.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-compress-alt"></i> Tipos de Contracción Muscular:</h3>
+                    <ul>
+                        <li><strong>Isométrica (Estática):</strong> El músculo genera tensión pero no hay cambio en su longitud ni movimiento articular (ej. mantener una plancha).</li>
+                        <li><strong>Isotónica (Dinámica):</strong> El músculo genera tensión y hay cambio en su longitud.
+                            <ul>
+                                <li><strong>Concénctrica:</strong> El músculo se <strong class="highlight">acorta</strong> mientras genera tensión (ej. levantar una mancuerna en un curl de bíceps).</li>
+                                <li><strong>Excéntrica:</strong> El músculo se <strong class="highlight">alarga</strong> mientras genera tensión (ej. bajar controladamente la mancuerna en un curl de bíceps). Es capaz de producir más fuerza.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Isocinética:</strong> El músculo se contrae a una velocidad constante (requiere equipamiento especializado).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-anatomia-6" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-male"></i>Principales Grupos Musculares y sus Funciones (Parte I)</h2>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-hand-rock"></i> Tren Superior:</h4>
+                    <ul>
+                        <li><strong>Pectorales (Mayor y Menor):</strong> Aducción, flexión y rotación interna del hombro (ej. press de banca, flexiones, aperturas).</li>
+                        <li><strong>Dorsal Ancho y Redondo Mayor:</strong> Extensión, aducción y rotación interna del hombro (ej. dominadas, remos).</li>
+                        <li><strong>Trapecio (Superior, Medio, Inferior):</strong> Elevación, retracción, depresión y rotación de la escápula (ej. encogimientos, remos, face pulls).</li>
+                        <li><strong>Deltoides (Anterior, Medio, Posterior):</strong> Abducción, flexión, extensión, rotación interna/externa del hombro (ej. press militar, elevaciones laterales/frontales, pájaros).</li>
+                        <li><strong>Manguito Rotador (Supraespinoso, Infraespinoso, Redondo Menor, Subescapular):</strong> Estabilización y rotación de la articulación del hombro.</li>
+                        <li><strong>Bíceps Braquial y Braquial:</strong> Flexión del codo, supinación del antebrazo (ej. curls).</li>
+                        <li><strong>Tríceps Braquial:</strong> Extensión del codo (ej. press francés, fondos).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-anatomia-7" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-child"></i>Principales Grupos Musculares y sus Funciones (Parte II)</h2>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-fire"></i> Core (Tronco):</h4>
+                    <ul>
+                        <li><strong>Recto Abdominal:</strong> Flexión de la columna vertebral (ej. crunches).</li>
+                        <li><strong>Oblicuos (Interno y Externo):</strong> Flexión lateral, rotación y flexión del tronco (ej. planchas laterales, leñadores).</li>
+                        <li><strong>Transverso del Abdomen:</strong> Compresión abdominal, estabilización de la columna ("corsé natural").</li>
+                        <li><strong>Erectores Espinales:</strong> Extensión de la columna vertebral, mantenimiento de la postura erguida (ej. hiperextensiones, peso muerto).</li>
+                        <li><strong>Cuadrado Lumbar:</strong> Inclinación lateral y extensión de la columna, estabilización de la pelvis.</li>
+                    </ul>
+                    <h4 class="guide-subsubsection-title mt-4"><i class="fas fa-shoe-prints"></i> Tren Inferior:</h4>
+                    <ul>
+                        <li><strong>Glúteos (Mayor, Medio, Menor):</strong> Extensión, abducción y rotación externa/interna de la cadera (ej. sentadillas, peso muerto, hip thrusts, patadas de glúteo).</li>
+                        <li><strong>Cuádriceps Femoris (Recto Femoral, Vasto Lateral, Vasto Medial, Vasto Intermedio):</strong> Extensión de la rodilla, flexión de la cadera (recto femoral) (ej. sentadillas, zancadas, extensiones de pierna).</li>
+                        <li><strong>Isquiotibiales (Bíceps Femoral, Semitendinoso, Semimembranoso):</strong> Extensión de la cadera, flexión de la rodilla (ej. peso muerto rumano, curls femorales).</li>
+                        <li><strong>Aductores:</strong> Aducción de la cadera (ej. sentadilla sumo, máquina de aductores).</li>
+                        <li><strong>Tríceps Sural (Gastrocnemio y Sóleo):</strong> Flexión plantar del tobillo (ej. elevaciones de talones).</li>
+                        <li><strong>Tibial Anterior:</strong> Dorsiflexión e inversión del pie.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-anatomia-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-link"></i>Cadenas Musculares y Miofasciales</h2>
+                    <p>Los músculos raramente trabajan de forma aislada. En la mayoría de los movimientos funcionales y deportivos, actúan en <strong class="highlight">secuencias coordinadas llamadas cadenas musculares o cinéticas</strong>.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-project-diagram"></i> Concepto de Cadenas Musculares:</h3>
+                    <p>Se refiere a grupos de músculos que están interconectados anatómica y funcionalmente, a menudo a través de la <strong class="highlight">fascia</strong> (tejido conectivo que envuelve y conecta músculos, órganos y otras estructuras).</p>
+                    <p>Un movimiento en una parte de la cadena puede influir en otras partes distantes. Ejemplos comunes incluyen:</p>
+                    <ul>
+                        <li><strong>Cadena Posterior:</strong> Implica músculos desde la planta del pie hasta la cabeza (ej. isquiotibiales, glúteos, erectores espinales, trapecios). Crucial en movimientos como el peso muerto.</li>
+                        <li><strong>Cadena Anterior:</strong> Músculos de la parte frontal del cuerpo (ej. cuádriceps, abdominales, pectorales).</li>
+                        <li><strong>Cadenas Laterales y Espirales:</strong> Importantes para la estabilidad y los movimientos rotacionales.</li>
+                    </ul>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Implicaciones para el Entrenamiento:</strong> Entrenar pensando en cadenas musculares, utilizando ejercicios multiarticulares, promueve una <strong class="emphasis">fuerza más funcional y una mejor coordinación intermuscular</strong>, lo que se traduce en un mejor rendimiento y menor riesgo de lesión por descompensaciones.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-anatomia-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-search-location"></i>Análisis Funcional Básico de Movimientos</h2>
+                    <p>Aplicar el conocimiento anatómico para entender qué sucede durante un ejercicio:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-walking"></i> Ejemplo: Zancada (Lunge)</h3>
+                    <ul>
+                        <li><strong>Plano Principal:</strong> Sagital.</li>
+                        <li><strong>Articulaciones Involucradas (Pierna Delantera):</strong> Cadera (flexión/extensión), rodilla (flexión/extensión), tobillo (dorsiflexión/flexión plantar).</li>
+                        <li><strong>Agonistas (Fase Ascendente - Concéntrica):</strong>
+                            <ul>
+                                <li>Extensión de Cadera: Glúteo mayor, isquiotibiales.</li>
+                                <li>Extensión de Rodilla: Cuádriceps.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Estabilizadores:</strong> Core, glúteo medio y menor (estabilidad de cadera), músculos del pie y tobillo.</li>
+                        <li><strong>Consideraciones:</strong> La longitud del paso y la inclinación del torso pueden variar el énfasis muscular. Requiere buena movilidad de cadera y tobillo.</li>
+                    </ul>
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Práctica Askesis:</strong> Intenta descomponer otros ejercicios comunes (ej. remo, press militar) en sus componentes articulares y musculares principales. Esto mejora tu "ojo clínico" para la técnica.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-anatomia-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-tools"></i>Aplicación Práctica para Optimizar el Entrenamiento</h2>
+                    <p>¿Cómo usar este conocimiento anatómico?</p>
+                    <ul>
+                        <li><strong>Selección de Ejercicios Inteligente:</strong> Elegir ejercicios que trabajen los músculos y patrones de movimiento deseados de forma efectiva y segura.</li>
+                        <li><strong>Optimización de la Técnica:</strong> Entender cómo pequeños ajustes en la postura o el rango de movimiento pueden cambiar el estímulo muscular o reducir el estrés articular.</li>
+                        <li><strong>Identificación de Desequilibrios y Debilidades:</strong> Reconocer qué músculos pueden estar débiles o sobreactivados y cómo esto afecta el movimiento.</li>
+                        <li><strong>Programación Equilibrada:</strong> Asegurar que se trabajen todos los grupos musculares importantes y los patrones de movimiento fundamentales para evitar descompensaciones.</li>
+                        <li><strong>Prevención de Lesiones:</strong> Reconocer movimientos o posturas que pueden ser potencialmente lesivos y cómo modificarlos.</li>
+                        <li><strong>Comunicación Efectiva (para entrenadores):</strong> Poder explicar a los atletas qué músculos están trabajando y por qué se realiza un ejercicio de cierta manera.</li>
+                    </ul>
+                     <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Ejemplo:</strong> Si quieres enfatizar los glúteos en una sentadilla, entender que una mayor flexión de cadera (con una inclinación del torso adecuada y manteniendo la columna neutra) y empujar a través de los talones puede ser más efectivo que una sentadilla muy vertical.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="slide-anatomia-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-red !border-askesis-green"><i class="fas fa-brain"></i>Conclusión: Conoce tu Máquina Humana</h2>
+                    <p class="text-lg mb-4">La anatomía funcional es la <strong class="highlight">base sobre la que se construye todo entrenamiento efectivo y seguro</strong>. No es necesario ser un experto anatomista, pero comprender los principios básicos de cómo tu cuerpo está diseñado para moverse te dará una <strong class="highlight">ventaja significativa</strong>.</p>
+                    <p class="text-lg mb-6">En Askesis, aplicamos este conocimiento en cada aspecto de nuestros programas para ayudarte a <strong class="emphasis">alcanzar tus objetivos de forma inteligente, minimizando riesgos y maximizando resultados</strong>.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre los Servicios Askesis
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-anatomia" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4"> <button id="prev-button-anatomia" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-anatomia" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-anatomia" class="hidden my-8 text-center"> <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-red">
+                <i class="fas fa-award text-4xl mr-3 text-askesis-red"></i>¡Guía de Anatomía Funcional Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora tienes una mejor comprensión de tu cuerpo en movimiento. ¡Usa este conocimiento para entrenar con mayor propósito y eficacia!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-anatomia" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Anatomía%20Funcional" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Anatomía%20Funcional." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterAnatomia"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop();
+            window.addEventListener('resize', adjustSecondaryNavTop);
+
+            const guideContainer = document.getElementById('interactive-presentation-container-anatomia');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de anatomía no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-anatomia .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-anatomia');
+            const nextButton = guideContainer.querySelector('#next-button-anatomia');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-anatomia');
+            const progressBar = guideContainer.querySelector('#progress-bar-anatomia');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-anatomia');
+            const completionContainer = guideContainer.querySelector('#completion-container-anatomia');
+            const restartButton = guideContainer.querySelector('#restart-button-anatomia');
+            const yearSpan = document.getElementById('currentYearFooterAnatomia');
+            const navLinks = document.querySelectorAll('#main-nav-anatomia .nav-link-anatomia');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de anatomía no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Intro Anatomía Funcional", "Planos y Ejes", "Sistema Esquelético", "Articulaciones", 
+                    "Sistema Muscular (I)", "Sistema Muscular (II)", "Grupos Musculares (I)", "Grupos Musculares (II)",
+                    "Cadenas Musculares", "Análisis de Movimientos", "Aplicación Práctica", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-anatomia-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de anatomía.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
