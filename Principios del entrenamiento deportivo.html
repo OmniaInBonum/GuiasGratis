@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Principios Fundamentales del Entrenamiento Deportivo</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre los Principios del Entrenamiento Deportivo: Sobrecarga Progresiva, Especificidad, Individualidad y más. La base científica para tu progreso.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#dc3545',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #dc3545;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.92), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this based on main-header-askesis height */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-principios { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.5rem; /* Slightly reduced for more items */
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.7rem; /* Smaller for more items */
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-principios:hover,
+        .secondary-nav-askesis .nav-link-principios.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-blue);
+        }
+        .secondary-nav-askesis .nav-link-principios.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); /* Adjusted for potentially taller double nav */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.82);
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px; /* More rounded */
+            max-width: 920px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.4em;
+            font-weight: 900; /* Bolder */
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-purple); /* Thicker border */
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-green);
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-blue); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-green); /* Dashed border */
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif; /* Different font for sub-sub */
+             color: var(--askesis-green); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em; /* Slightly larger base text */
+            line-height: 1.9; /* More line height */
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f138"; /* arrow-alt-circle-right */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-orange); /* Orange bullets */
+            position: absolute;
+            left: 0;
+            top: 6px;
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: rgba(0, 90, 156, 0.3); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(220, 53, 69, 0.25); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: rgba(0, 128, 55, 0.25); border-left-color: var(--askesis-green); color: var(--askesis-text-white);}
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); }
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-green); }
+
+        .slide-content-wrapper .custom-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 1em; }
+        .slide-content-wrapper .custom-table th, .slide-content-wrapper .custom-table td { border: 1px solid var(--askesis-border); padding: 0.8rem 1rem; text-align: left; }
+        .slide-content-wrapper .custom-table th { background-color: var(--askesis-dark); color: var(--askesis-orange); font-weight: 700; }
+        .slide-content-wrapper .custom-table tbody tr:nth-child(even) { background-color: rgba(45,45,45,0.7); }
+        .slide-content-wrapper .custom-table tbody tr:hover { background-color: var(--askesis-purple); color: var(--askesis-text-white); }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px; /* More rounded */
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(245, 130, 32, 0.4);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #E07017;
+            transform: translateY(-4px); /* More lift */
+            box-shadow: 0 10px 25px rgba(245, 130, 32, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #004b80;
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4; /* More faded when disabled */
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-principios { font-size: 0.65rem; padding: 0.35rem 0.45rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-principios { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-principios" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-principios-0" class="nav-link-principios active">Intro</a></li>
+            <li><a href="#slide-principios-1" class="nav-link-principios">Individualidad</a></li>
+            <li><a href="#slide-principios-2" class="nav-link-principios">Sobrecarga Prog.</a></li>
+            <li><a href="#slide-principios-3" class="nav-link-principios">Adaptación</a></li>
+            <li><a href="#slide-principios-4" class="nav-link-principios">Especificidad</a></li>
+            <li><a href="#slide-principios-5" class="nav-link-principios">Variedad</a></li>
+            <li><a href="#slide-principios-6" class="nav-link-principios">Reversibilidad</a></li>
+            <li><a href="#slide-principios-7" class="nav-link-principios">Periodización</a></li>
+            <li><a href="#slide-principios-8" class="nav-link-principios">Recuperación</a></li>
+            <li><a href="#slide-principios-9" class="nav-link-principios">Integración</a></li>
+            <li><a href="#slide-principios-10" class="nav-link-principios">Errores</a></li>
+            <li><a href="#slide-principios-11" class="nav-link-principios">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-principios" class="py-8"> <div id="step-indicator-principios" class="text-center mb-4 text-lg font-semibold text-askesis-orange font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-principios" class="bg-gradient-to-r from-askesis-green to-askesis-blue h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        </div>
+
+        <div id="slides-container-principios"> <section id="slide-principios-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-cogs"></i>Principios del Entrenamiento Deportivo</h1>
+                    <p class="mb-3">Los <strong class="highlight">Principios del Entrenamiento Deportivo</strong> son las directrices fundamentales y científicamente probadas que guían la planificación, implementación y evaluación de los programas de entrenamiento. Son la <strong class="highlight">base para lograr adaptaciones óptimas</strong> y maximizar el rendimiento de forma segura y eficaz.</p>
+                    <p>Comprender y aplicar estos principios es esencial para cualquier atleta, entrenador o entusiasta del fitness que busque <strong class="highlight">resultados consistentes y a largo plazo</strong>, evitando el estancamiento y las lesiones.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> Estos principios no son reglas rígidas, sino <strong class="emphasis">conceptos interconectados</strong> que deben aplicarse de manera inteligente y adaptada a cada individuo y contexto.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-principios-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-user-cog"></i>Principio de Individualidad</h2>
+                    <p>Este principio establece que <strong class="highlight">cada persona responde y se adapta al entrenamiento de manera diferente</strong>. Las respuestas individuales están influenciadas por una combinación de factores:</p>
+                    <ul>
+                        <li><strong>Genética:</strong> Predisposición a ciertos tipos de fibra muscular, capacidad de recuperación, etc.</li>
+                        <li><strong>Nivel de Condición Física Inicial:</strong> Principiantes y avanzados adaptan a ritmos distintos.</li>
+                        <li><strong>Edad y Madurez:</strong> Las capacidades y respuestas cambian a lo largo de la vida.</li>
+                        <li><strong>Sexo:</strong> Diferencias hormonales y fisiológicas pueden influir.</li>
+                        <li><strong>Historial de Entrenamiento y Lesiones:</strong> Experiencias previas moldean la respuesta actual.</li>
+                        <li><strong>Factores Psicológicos:</strong> Motivación, tolerancia al estrés, personalidad.</li>
+                        <li><strong>Estilo de Vida:</strong> Nutrición, sueño, estrés externo.</li>
+                    </ul>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Implicación Práctica:</strong> No existe un "programa único para todos". Los planes de entrenamiento deben ser <strong class="emphasis">personalizados y ajustados</strong> según las características y respuestas del individuo para ser verdaderamente efectivos.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-principios-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-level-up-alt"></i>Principio de Sobrecarga Progresiva</h2>
+                    <p>Para que ocurran adaptaciones y mejoras en el rendimiento, el cuerpo debe ser sometido a un <strong class="highlight">estímulo de entrenamiento mayor al que está acostumbrado</strong>. Una vez que el cuerpo se adapta a una carga determinada, esta debe incrementarse progresivamente para continuar estimulando mejoras.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tools"></i> Formas de Aplicar la Sobrecarga:</h3>
+                    <ul>
+                        <li><strong>Aumentar la Intensidad:</strong> Levantar más peso, correr más rápido, aumentar la resistencia.</li>
+                        <li><strong>Aumentar el Volumen:</strong> Realizar más series, repeticiones, o mayor duración/distancia.</li>
+                        <li><strong>Aumentar la Frecuencia:</strong> Entrenar un grupo muscular o habilidad más veces por semana (con adecuada recuperación).</li>
+                        <li><strong>Disminuir los Tiempos de Descanso:</strong> Entre series o ejercicios (para ciertos objetivos como hipertrofia o resistencia muscular).</li>
+                        <li><strong>Aumentar la Densidad:</strong> Realizar más trabajo en la misma cantidad de tiempo.</li>
+                        <li><strong>Aumentar la Complejidad:</strong> Introducir ejercicios más difíciles o técnicamente demandantes.</li>
+                    </ul>
+                    <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Cuidado:</strong> La progresión debe ser <strong class="emphasis">gradual y sistemática</strong>. Un aumento demasiado rápido o excesivo de la carga puede llevar al sobreentrenamiento o a lesiones.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-principios-3" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-sync-alt"></i>Principio de Adaptación (Síndrome General de Adaptación)</h2>
+                    <p>El cuerpo humano tiene una increíble capacidad para <strong class="highlight">adaptarse a los estresores</strong>, incluido el ejercicio físico. El entrenamiento impone un estrés que, si es adecuado y seguido de una recuperación apropiada, lleva a adaptaciones fisiológicas que mejoran el rendimiento.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-chart-area"></i> Fases del Síndrome General de Adaptación (SGA) de Selye:</h3>
+                    <ul>
+                        <li><strong>Fase de Alarma:</strong> Respuesta inicial al estrés del entrenamiento (fatiga, dolor muscular).</li>
+                        <li><strong>Fase de Resistencia/Adaptación:</strong> El cuerpo se adapta al estímulo, mejorando su capacidad (supercompensación).</li>
+                        <li><strong>Fase de Agotamiento:</strong> Si el estrés es excesivo o la recuperación insuficiente, se produce una disminución del rendimiento y riesgo de sobreentrenamiento.</li>
+                    </ul>
+                    <p>El objetivo del entrenamiento es aplicar un estímulo óptimo para inducir la fase de adaptación sin llegar al agotamiento.</p>
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Aplicación Askesis:</strong> La <strong class="emphasis">periodización</strong> del entrenamiento (que veremos más adelante) se basa en gestionar estas fases de estrés y recuperación para maximizar las adaptaciones a largo plazo.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-principios-4" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-bullseye"></i>Principio de Especificidad</h2>
+                    <p>Este principio establece que las adaptaciones al entrenamiento son <strong class="highlight">altamente específicas al tipo de estímulo aplicado</strong>. El cuerpo se adapta de manera precisa a las demandas impuestas.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-directions"></i> Dimensiones de la Especificidad:</h3>
+                    <ul>
+                        <li><strong>Metabólica:</strong> Entrenar el sistema energético predominante en el deporte o actividad (aeróbico, anaeróbico láctico, anaeróbico aláctico).</li>
+                        <li><strong>Neuromuscular:</strong> Patrones de movimiento, tipo de contracción muscular (concéntrica, excéntrica, isométrica), velocidad del movimiento, grupos musculares implicados.</li>
+                        <li><strong>Biomecánica:</strong> Ángulos articulares, rangos de movimiento y cadenas cinéticas específicas del gesto deportivo.</li>
+                    </ul>
+                    <p>Por ejemplo, para mejorar en sentadillas pesadas, hay que hacer sentadillas pesadas. Para mejorar la resistencia en carrera, hay que correr.</p>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Transferencia del Entrenamiento:</strong> Si bien la especificidad es clave, también existe el concepto de transferencia, donde ejercicios más generales pueden contribuir al rendimiento en movimientos específicos, especialmente en fases iniciales o para construir una base.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-principios-5" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-random"></i>Principio de Variedad (o Variación)</h2>
+                    <p>Aunque la especificidad es crucial, introducir <strong class="highlight">variación planificada</strong> en el entrenamiento puede ser beneficioso para:</p>
+                    <ul>
+                        <li><strong>Evitar el Estancamiento (Plateau):</strong> Un estímulo constante puede llevar a una meseta en las adaptaciones.</li>
+                        <li><strong>Reducir el Riesgo de Lesiones por Sobrecarga:</strong> Cambiar ejercicios o métodos puede distribuir el estrés de manera diferente.</li>
+                        <li><strong>Mantener la Motivación y el Interés:</strong> La monotonía puede disminuir la adherencia al entrenamiento.</li>
+                        <li><strong>Desarrollar un Rango más Amplio de Habilidades y Capacidades Físicas:</strong> Una base más completa.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-exchange-alt"></i> Formas de Introducir Variedad:</h3>
+                    <p>Cambiar ejercicios, métodos de entrenamiento, rangos de repeticiones, equipamiento, entorno de entrenamiento, etc. La variación debe ser <strong class="highlight">planificada y no aleatoria</strong>, y no debe comprometer el principio de especificidad en fases cercanas a la competición.</p>
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Equilibrio Askesis:</strong> La clave está en encontrar el equilibrio entre la <strong class="emphasis">especificidad necesaria</strong> para el objetivo y la <strong class="emphasis">variedad suficiente</strong> para mantener el progreso y la motivación.
+                    </div>
+                </div>
+            </section>
+
+             <section id="slide-principios-6" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-undo-alt"></i>Principio de Reversibilidad (o Desentrenamiento)</h2>
+                    <p>Este principio establece que las adaptaciones logradas a través del entrenamiento son <strong class="highlight">transitorias y reversibles</strong>. Si el estímulo de entrenamiento se reduce significativamente o se detiene por completo, las ganancias obtenidas comenzarán a perderse gradualmente.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-chart-bar"></i> Velocidad de Pérdida:</h3>
+                    <p>La velocidad a la que se pierden las adaptaciones varía según:</p>
+                    <ul>
+                        <li><strong>Tipo de Capacidad Física:</strong> La resistencia aeróbica tiende a perderse más rápido que la fuerza máxima.</li>
+                        <li><strong>Nivel del Atleta:</strong> Atletas altamente entrenados pueden perder adaptaciones más rápido inicialmente.</li>
+                        <li><strong>Duración del Período de Desentrenamiento.</strong></li>
+                        <li><strong>Magnitud de la Reducción del Estímulo.</strong></li>
+                    </ul>
+                    <p>"Use it or lose it" (Úsalo o piérdelo) es una forma coloquial de resumir este principio.</p>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Implicación Práctica:</strong> Se necesita un <strong class="emphasis">entrenamiento de mantenimiento</strong> (con menor volumen pero intensidad adecuada) para conservar las ganancias durante períodos de menor actividad o fuera de temporada. El tapering es una aplicación controlada de este principio para maximizar el rendimiento.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-principios-7" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-calendar-alt"></i>Principio de Periodización</h2>
+                    <p>La periodización es la <strong class="highlight">organización planificada y sistemática del entrenamiento a largo plazo</strong> en ciclos o fases específicas, con el objetivo de alcanzar el máximo rendimiento en momentos clave (competiciones) y gestionar la fatiga.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-sitemap"></i> Ciclos Comunes de Periodización:</h3>
+                    <ul>
+                        <li><strong>Macrociclo:</strong> El plan de entrenamiento completo, usualmente de un año o una temporada olímpica.</li>
+                        <li><strong>Mesociclo:</strong> Bloques de entrenamiento de varias semanas (ej. 2-6 semanas) con un objetivo específico (ej. hipertrofia, fuerza máxima, potencia).</li>
+                        <li><strong>Microciclo:</strong> La estructura de entrenamiento de una semana, con sesiones específicas.</li>
+                        <li><strong>Sesión de Entrenamiento:</strong> La unidad individual de entrenamiento.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-wave-square"></i> Modelos de Periodización:</h3>
+                    <p>Existen diversos modelos, como la periodización lineal (tradicional), no lineal (ondulante) y por bloques, cada uno con sus propias características en la manipulación de volumen e intensidad.</p>
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Enfoque Askesis:</strong> La periodización permite una <strong class="emphasis">progresión lógica</strong>, evita el estancamiento, gestiona la fatiga y asegura que el atleta llegue en su <strong class="emphasis">pico de forma</strong> cuando más importa.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-principios-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-battery-full"></i>Principio de Recuperación (o Descanso y Adaptación)</h2>
+                    <p>El entrenamiento es el estímulo que rompe la homeostasis, pero las <strong class="highlight">adaptaciones positivas ocurren durante los períodos de recuperación</strong>. Sin una recuperación adecuada, el cuerpo no puede repararse, adaptarse y supercompensar, llevando a la fatiga crónica y al sobreentrenamiento.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-moon"></i> Componentes de la Recuperación:</h3>
+                    <ul>
+                        <li><strong>Sueño:</strong> Fundamental para la reparación tisular, la regulación hormonal y la consolidación de la memoria motora.</li>
+                        <li><strong>Nutrición:</strong> Proporciona los macronutrientes y micronutrientes necesarios para la energía y la reparación.</li>
+                        <li><strong>Hidratación:</strong> Esencial para todas las funciones celulares y la termorregulación.</li>
+                        <li><strong>Descanso Activo y Pasivo:</strong> Días de descanso completo o con actividad de muy baja intensidad.</li>
+                        <li><strong>Manejo del Estrés:</strong> El estrés psicológico también impacta la capacidad de recuperación.</li>
+                        <li><strong>Estrategias Específicas:</strong> Masaje, crioterapia, compresión (su efectividad puede variar).</li>
+                    </ul>
+                    <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Importante:</strong> Más entrenamiento no siempre es mejor. La <strong class="emphasis">calidad de la recuperación</strong> es tan importante como la calidad del entrenamiento.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-principios-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-puzzle-piece"></i>Integración de los Principios del Entrenamiento</h2>
+                    <p>Los principios del entrenamiento no operan de forma aislada, sino que <strong class="highlight">interactúan y se complementan</strong> para crear un programa de entrenamiento efectivo y coherente.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-project-diagram"></i> Ejemplo de Interacción:</h3>
+                    <p>Un entrenador diseña un programa <strong class="highlight">(Periodización)</strong>. Para un atleta específico <strong class="highlight">(Individualidad)</strong>, se planifica un aumento gradual de la carga <strong class="highlight">(Sobrecarga Progresiva)</strong> en ejercicios relevantes para su deporte <strong class="highlight">(Especificidad)</strong>. Se introducen variaciones en los ejercicios auxiliares <strong class="highlight">(Variedad)</strong> para evitar el aburrimiento y trabajar diferentes ángulos. Se programan suficientes días de descanso y semanas de descarga <strong class="highlight">(Recuperación)</strong> para permitir que el cuerpo se <strong class="highlight">(Adapte)</strong>. Si el atleta deja de entrenar, se espera una pérdida de las adaptaciones <strong class="highlight">(Reversibilidad)</strong>.</p>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Visión Holística Askesis:</strong> La maestría en el diseño de programas radica en la habilidad de <strong class="emphasis">entrelazar estos principios</strong> de manera armoniosa, adaptándolos constantemente a la respuesta del atleta y a los objetivos cambiantes.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-principios-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-skull-crossbones text-askesis-red"></i>Errores Comunes al Aplicar los Principios</h2>
+                    <ul>
+                        <li><strong>Ignorar la Individualidad:</strong> Aplicar programas genéricos sin adaptarlos.</li>
+                        <li><strong>Sobrecarga Inadecuada:</strong> Progresar demasiado rápido (riesgo de lesión) o demasiado lento (estancamiento).</li>
+                        <li><strong>Falta de Especificidad:</strong> Entrenar de forma general sin enfocarse en las demandas del objetivo.</li>
+                        <li><strong>Exceso de Variedad No Planificada:</strong> "Program hopping" o cambiar constantemente sin permitir adaptaciones.</li>
+                        <li><strong>Insuficiente Recuperación:</strong> Priorizar el volumen de entrenamiento sobre el descanso y el sueño.</li>
+                        <li><strong>No Entender la Reversibilidad:</strong> Sorprenderse por la pérdida de forma tras parones no planificados.</li>
+                        <li><strong>Falta de Periodización:</strong> Entrenar siempre igual o sin una estructura a largo plazo.</li>
+                        <li><strong>No Escuchar al Cuerpo:</strong> Ignorar señales de fatiga excesiva o dolor.</li>
+                    </ul>
+                     <div class="warning-box mt-4">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Reflexión Askesis:</strong> El conocimiento de estos principios es el primer paso. Su <strong class="emphasis">aplicación correcta y consistente</strong> es lo que marca la diferencia entre el progreso aleatorio y el éxito planificado.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="slide-principios-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-green !border-askesis-orange"><i class="fas fa-graduation-cap"></i>Conclusión: La Brújula de tu Progreso</h2>
+                    <p class="text-lg mb-4">Los Principios del Entrenamiento Deportivo son tu <strong class="highlight">mapa y brújula</strong> en el viaje hacia tus metas físicas. Entenderlos y aplicarlos te empodera para tomar decisiones informadas sobre tu entrenamiento, optimizar tus esfuerzos y alcanzar un rendimiento superior de manera sostenible.</p>
+                    <p class="text-lg mb-6">En Askesis, estos principios son el <strong class="emphasis">corazón de cada programa que diseñamos</strong>. Creemos en un enfoque científico, personalizado y efectivo.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre Cómo Aplicamos Estos Principios
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-principios" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4"> <button id="prev-button-principios" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-principios" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-principios" class="hidden my-8 text-center"> <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-green">
+                <i class="fas fa-trophy text-4xl mr-3"></i>¡Guía de Principios del Entrenamiento Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora comprendes las bases científicas para un entrenamiento exitoso. ¡Es hora de ponerlos en práctica!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-principios" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Principios%20Entrenamiento" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Principios%20del%20Entrenamiento." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterPrincipios"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop(); // Adjust on load
+            window.addEventListener('resize', adjustSecondaryNavTop); // Adjust on resize
+
+
+            const guideContainer = document.getElementById('interactive-presentation-container-principios');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de principios no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-principios .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-principios');
+            const nextButton = guideContainer.querySelector('#next-button-principios');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-principios');
+            const progressBar = guideContainer.querySelector('#progress-bar-principios');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-principios');
+            const completionContainer = guideContainer.querySelector('#completion-container-principios');
+            const restartButton = guideContainer.querySelector('#restart-button-principios');
+            const yearSpan = document.getElementById('currentYearFooterPrincipios');
+            const navLinks = document.querySelectorAll('#main-nav-principios .nav-link-principios');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de principios no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Introducción a los Principios", "P. de Individualidad", "P. de Sobrecarga Progresiva", "P. de Adaptación", 
+                    "P. de Especificidad", "P. de Variedad", "P. de Reversibilidad", "P. de Periodización",
+                    "P. de Recuperación", "Integración de Principios", "Errores Comunes", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20; // 20px buffer
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-principios-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de principios.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
