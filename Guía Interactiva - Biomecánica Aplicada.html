@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Biomecánica Aplicada: Movimiento Eficiente y Seguro</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Biomecánica Aplicada al Entrenamiento: Entiende las fuerzas, palancas y movimientos para optimizar tu técnica, prevenir lesiones y maximizar tu rendimiento.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220', /* Primary for this guide */
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#dc3545',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #dc3545;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.96), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-biomecanica { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.4rem; 
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.6rem; 
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-biomecanica:hover,
+        .secondary-nav-askesis .nav-link-biomecanica.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-orange); /* Orange for this guide's theme */
+        }
+        .secondary-nav-askesis .nav-link-biomecanica.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.94); 
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px;
+            max-width: 980px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange); 
+            font-size: 2.4em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-blue); 
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-blue); 
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-green); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-purple);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--askesis-purple); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f0c1"; 
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-orange); 
+            position: absolute;
+            left: 0;
+            top: 7px;
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: rgba(0, 90, 156, 0.3); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(220, 53, 69, 0.25); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: rgba(245, 130, 32, 0.25); border-left-color: var(--askesis-orange); color: var(--askesis-text-white);}
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); }
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-orange); } 
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-orange); 
+            color: var(--askesis-text-white);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(245, 130, 32, 0.4); 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #cf6a10; 
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(245, 130, 32, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-blue); 
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #004175; 
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-biomecanica { font-size: 0.55rem; padding: 0.3rem 0.35rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-biomecanica { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-biomecanica" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-biomecanica-0" class="nav-link-biomecanica active">Intro</a></li>
+            <li><a href="#slide-biomecanica-1" class="nav-link-biomecanica">Conceptos</a></li>
+            <li><a href="#slide-biomecanica-2" class="nav-link-biomecanica">Fuerzas</a></li>
+            <li><a href="#slide-biomecanica-3" class="nav-link-biomecanica">Palancas/Torques</a></li>
+            <li><a href="#slide-biomecanica-4" class="nav-link-biomecanica">Cadenas Cinéticas</a></li>
+            <li><a href="#slide-biomecanica-5" class="nav-link-biomecanica">Análisis Ej. (I)</a></li>
+            <li><a href="#slide-biomecanica-6" class="nav-link-biomecanica">Análisis Ej. (II)</a></li>
+            <li><a href="#slide-biomecanica-7" class="nav-link-biomecanica">Optimización</a></li>
+            <li><a href="#slide-biomecanica-8" class="nav-link-biomecanica">Prev. Lesiones</a></li>
+            <li><a href="#slide-biomecanica-9" class="nav-link-biomecanica">Individualización</a></li>
+            <li><a href="#slide-biomecanica-10" class="nav-link-biomecanica">Herramientas</a></li>
+            <li><a href="#slide-biomecanica-11" class="nav-link-biomecanica">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-biomecanica" class="py-8"> <div id="step-indicator-biomecanica" class="text-center mb-4 text-lg font-semibold text-askesis-green font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-biomecanica" class="bg-gradient-to-r from-askesis-green to-askesis-orange h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        </div>
+
+        <div id="slides-container-biomecanica">
+            <section id="slide-biomecanica-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-cogs"></i>Biomecánica Aplicada al Entrenamiento</h1>
+                    <p class="mb-3">La <strong class="highlight">biomecánica</strong> es la ciencia que estudia las fuerzas y sus efectos sobre los sistemas biológicos. Aplicada al entrenamiento, nos ayuda a entender <strong class="highlight">cómo se mueve el cuerpo, cómo produce fuerza y cómo interactúa con las cargas externas</strong>.</p>
+                    <p>Esta guía te introducirá a los conceptos fundamentales de la biomecánica y cómo su aplicación puede <strong class="highlight">optimizar tu técnica, maximizar tu rendimiento y, crucialmente, ayudarte a prevenir lesiones</strong>.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> Entender la biomecánica te convierte en un <strong class="emphasis">atleta o entrenador más inteligente</strong>, capaz de tomar decisiones informadas sobre la selección de ejercicios, la ejecución técnica y la programación.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-biomecanica-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-book-open"></i>Conceptos Biomecánicos Fundamentales</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-ruler-combined"></i> Cinemática vs. Cinética</h3>
+                    <ul>
+                        <li><strong>Cinemática:</strong> Describe el movimiento <strong class="highlight">sin considerar las fuerzas</strong> que lo causan (ej. posición, velocidad, aceleración, ángulos articulares, trayectoria). Es el "qué" y "cómo" del movimiento.</li>
+                        <li><strong>Cinética:</strong> Estudia las <strong class="highlight">fuerzas que causan o modifican el movimiento</strong> (ej. fuerza de gravedad, fuerza muscular, torque/momento de fuerza, impulso, trabajo, potencia). Es el "porqué" del movimiento.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-balance-scale"></i> Centro de Gravedad (CDG) y Base de Sustentación (BDS)</h3>
+                    <ul>
+                        <li><strong>CDG:</strong> Punto imaginario donde se considera que se concentra toda la masa de un cuerpo o sistema. Su posición varía con la postura y la distribución de la masa.</li>
+                        <li><strong>BDS:</strong> Área delimitada por los puntos de apoyo del cuerpo con la superficie de contacto.</li>
+                        <li>Para mantener el equilibrio estático, la línea de acción de la gravedad (vertical que pasa por el CDG) debe proyectarse <strong class="highlight">dentro de la base de sustentación</strong>.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-biomecanica-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-wind"></i>Fuerzas: El Motor del Movimiento</h2>
+                    <p>Una fuerza es cualquier interacción que, sin oposición, cambiará el movimiento de un objeto. Tiene magnitud, dirección y punto de aplicación.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-user-astronaut"></i> Fuerzas Internas vs. Externas</h3>
+                    <ul>
+                        <li><strong>Fuerzas Internas:</strong> Generadas dentro del cuerpo (ej. <strong class="highlight">fuerza de contracción muscular</strong>, tensión en tendones y ligamentos).</li>
+                        <li><strong>Fuerzas Externas:</strong> Actúan sobre el cuerpo desde el exterior (ej. <strong class="highlight">gravedad</strong>, resistencia del aire, fuerza de reacción del suelo, peso de una barra).</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-balance-scale-left"></i> Leyes de Newton del Movimiento</h3>
+                    <ul>
+                        <li><strong>1ª Ley (Inercia):</strong> Un cuerpo permanece en reposo o en movimiento rectilíneo uniforme a menos que una fuerza externa neta actúe sobre él.</li>
+                        <li><strong>2ª Ley (Fuerza y Aceleración):</strong> La aceleración de un objeto es directamente proporcional a la fuerza neta que actúa sobre él e inversamente proporcional a su masa ($F = m \cdot a$).</li>
+                        <li><strong>3ª Ley (Acción-Reacción):</strong> Por cada acción, hay una reacción igual y opuesta. (Ej. la fuerza que aplicamos al suelo al saltar, el suelo nos la devuelve).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-biomecanica-3" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-lever"></i>Palancas y Torques (Momentos de Fuerza)</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-cogs"></i> Palancas en el Cuerpo Humano</h3>
+                    <p>El sistema musculoesquelético funciona como un sistema de palancas, donde los huesos actúan como barras rígidas, las articulaciones como fulcros (puntos de apoyo), y los músculos aplican la fuerza para mover resistencias (peso del cuerpo, cargas externas).</p>
+                    <ul>
+                        <li><strong>Clases de Palancas:</strong> Se clasifican en 1ª, 2ª y 3ª clase según la disposición del fulcro, la resistencia y la fuerza. La mayoría en el cuerpo humano son de <strong class="highlight">3ª clase</strong> (ej. flexión de codo), que favorecen la velocidad y el rango de movimiento a expensas de la ventaja mecánica.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-sync-alt"></i> Torque o Momento de Fuerza ($\tau$)</h3>
+                    <p>Es la <strong class="highlight">capacidad de una fuerza para producir rotación</strong> alrededor de un eje (la articulación). Se calcula como $\tau = F \cdot d \cdot \sin(\theta)$, donde $F$ es la fuerza, $d$ es la distancia perpendicular desde el eje de rotación hasta la línea de acción de la fuerza (brazo de momento), y $\theta$ es el ángulo entre la fuerza y el brazo de palanca. Simplificando, $\tau = \text{Fuerza} \times \text{Brazo de Momento}$.</p>
+                    <p>Entender los torques es crucial para analizar cómo varían las demandas sobre los músculos y articulaciones durante un ejercicio.</p>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Brazo de Momento:</strong> Un brazo de momento más largo para la resistencia (ej. la barra en una sentadilla) significa que el músculo debe producir más fuerza para superar esa resistencia, o que la articulación experimenta mayor estrés.
+                    </div>
+                </div>
+            </section>
+
+             <section id="slide-biomecanica-4" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-link"></i>Cadenas Cinéticas: Abiertas vs. Cerradas</h2>
+                    <p>El concepto de cadena cinética se refiere a un sistema de segmentos corporales unidos por articulaciones.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-shoe-prints"></i> Cadena Cinética Cerrada (CKC)</h3>
+                    <p>El <strong class="highlight">extremo distal del segmento está fijo</strong> o encuentra una resistencia considerable, y el movimiento de un segmento afecta a los otros segmentos de la cadena. Suelen involucrar múltiples articulaciones y grupos musculares.</p>
+                    <ul>
+                        <li><strong>Ejemplos:</strong> Sentadilla (pies fijos en el suelo), press de banca (espalda apoyada, barra como resistencia externa), dominadas (manos fijas en la barra).</li>
+                        <li><strong>Características:</strong> Mayor estabilidad articular, mayor compresión articular, reclutamiento de grandes grupos musculares, más funcionales para muchas actividades.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-hand-paper"></i> Cadena Cinética Abierta (OKC)</h3>
+                    <p>El <strong class="highlight">extremo distal del segmento se mueve libremente</strong> en el espacio. El movimiento de un segmento no necesariamente afecta a los otros de la misma manera que en CKC.</p>
+                    <ul>
+                        <li><strong>Ejemplos:</strong> Extensión de rodilla en máquina, curl de bíceps con mancuerna, elevaciones laterales de hombro.</li>
+                        <li><strong>Características:</strong> Mayor aislamiento muscular, pueden generar mayores velocidades en el extremo distal, pueden implicar mayores fuerzas de cizalla en las articulaciones.</li>
+                    </ul>
+                     <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Aplicación Práctica:</strong> Ambos tipos de ejercicios tienen su lugar. Los ejercicios de CKC son a menudo la base para la fuerza funcional, mientras que los OKC pueden ser útiles para el aislamiento, la rehabilitación específica o el desarrollo de velocidad segmentaria.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-biomecanica-5" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-search-plus"></i>Análisis Biomecánico de Ejercicios (Parte I)</h2>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-chair"></i> Sentadilla (Squat)</h4>
+                    <ul>
+                        <li><strong>Tipo de Cadena:</strong> Cinética Cerrada.</li>
+                        <li><strong>Articulaciones Principales:</strong> Cadera, rodilla, tobillo.</li>
+                        <li><strong>Músculos Agonistas:</strong> Cuádriceps, glúteos, isquiotibiales (parcialmente), aductores.</li>
+                        <li><strong>Estabilizadores:</strong> Erectores espinales, core (abdominales, oblicuos), músculos de la espalda alta.</li>
+                        <li><strong>Consideraciones Biomecánicas:</strong>
+                            <ul>
+                                <li>La <strong class="highlight">posición de la barra</strong> (alta, baja, frontal) afecta la inclinación del torso y los torques en cadera y rodilla.</li>
+                                <li>Una <strong class="highlight">mayor inclinación del torso hacia adelante</strong> aumenta el brazo de momento para la cadera (más trabajo de glúteos/isquios).</li>
+                                <li>Una <strong class="highlight">mayor flexión de rodilla y un torso más vertical</strong> aumentan el brazo de momento para la rodilla (más trabajo de cuádriceps).</li>
+                                <li>La <strong class="highlight">movilidad de tobillo</strong> es crucial para alcanzar profundidad sin compensaciones lumbares.</li>
+                                <li>El <strong class="highlight">"butt wink"</strong> (retroversión pélvica al final del descenso) puede aumentar el estrés en la columna lumbar.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h4 class="guide-subsubsection-title mt-4"><i class="fas fa-weight-hanging"></i> Peso Muerto (Deadlift)</h4>
+                     <ul>
+                        <li><strong>Tipo de Cadena:</strong> Cinética Cerrada (inicialmente), luego se asemeja a abierta para la barra.</li>
+                        <li><strong>Articulaciones Principales:</strong> Cadera, rodilla (en menor medida), columna vertebral (estabilización).</li>
+                        <li><strong>Músculos Agonistas:</strong> Isquiotibiales, glúteos, erectores espinales, cuádriceps (en el inicio), dorsales y trapecios (agarre y estabilización escapular).</li>
+                        <li><strong>Consideraciones Biomecánicas:</strong>
+                            <ul>
+                                <li>La <strong class="highlight">posición inicial de la cadera</strong> (más alta vs. más baja) cambia el énfasis muscular.</li>
+                                <li>Mantener la <strong class="highlight">columna neutra</strong> es CRUCIAL para evitar lesiones discales. Implica una fuerte activación del core y retracción escapular.</li>
+                                <li>La <strong class="highlight">barra debe moverse cerca del cuerpo</strong> para minimizar el brazo de momento de la carga respecto a la cadera y la columna.</li>
+                                <li>El "timing" de la extensión de cadera y rodilla es clave para una técnica eficiente.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-biomecanica-6" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-search-plus"></i>Análisis Biomecánico de Ejercicios (Parte II)</h2>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-bed"></i> Press de Banca (Bench Press)</h4>
+                    <ul>
+                        <li><strong>Tipo de Cadena:</strong> Mayormente Cinética Abierta para los brazos, pero con elementos de CKC si se usa leg drive y retracción escapular.</li>
+                        <li><strong>Articulaciones Principales:</strong> Hombro (glenohumeral), codo, cintura escapular.</li>
+                        <li><strong>Músculos Agonistas:</strong> Pectoral mayor, deltoides anterior, tríceps braquial.</li>
+                        <li><strong>Estabilizadores:</strong> Músculos del manguito rotador, dorsales, romboides, core.</li>
+                        <li><strong>Consideraciones Biomecánicas:</strong>
+                            <ul>
+                                <li>La <strong class="highlight">anchura del agarre</strong> afecta el ROM y el énfasis muscular (más ancho = más pectoral, más cerrado = más tríceps/deltoides anterior).</li>
+                                <li>La <strong class="highlight">trayectoria de la barra</strong> no es vertical; suele ser ligeramente diagonal (hacia la cara en el descenso, sobre los hombros en el ascenso).</li>
+                                <li>La <strong class="highlight">retracción y depresión escapular</strong> ("juntar y bajar las escápulas") es vital para la estabilidad del hombro y la producción de fuerza.</li>
+                                <li>El <strong class="highlight">arco lumbar</strong> (controlado) puede acortar el ROM y permitir levantar más peso, pero debe ser estable.</li>
+                                <li>El <strong class="highlight">"leg drive"</strong> (empuje con las piernas) contribuye a la estabilidad y transferencia de fuerza.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                     <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Aplicación Askesis:</strong> Analizar cada ejercicio bajo esta lente te permite <strong class="emphasis">entender qué músculos están trabajando y por qué</strong>, y cómo modificar la técnica para diferentes objetivos o para evitar dolor.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-biomecanica-7" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-chart-line"></i>Optimización del Rendimiento mediante Biomecánica</h2>
+                    <p>Aplicar los principios biomecánicos puede llevar a mejoras significativas en el rendimiento:</p>
+                    <ul>
+                        <li><strong>Mejora de la Eficiencia del Movimiento:</strong> Reducir movimientos innecesarios o compensatorios, permitiendo que la energía se dirija de forma más efectiva hacia la tarea principal.</li>
+                        <li><strong>Maximización de la Producción de Fuerza:</strong> Optimizar las palancas y los ángulos articulares para que los músculos trabajen en sus longitudes y velocidades óptimas. Utilizar el SSC cuando sea apropiado.</li>
+                        <li><strong>Mejora de la Técnica Específica del Deporte:</strong> Analizar y refinar los gestos deportivos para hacerlos más efectivos y eficientes (ej. técnica de carrera, lanzamiento, golpeo).</li>
+                        <li><strong>Selección de Ejercicios más Efectiva:</strong> Elegir ejercicios que tengan la mayor transferencia al movimiento o cualidad que se desea mejorar, basándose en similitudes biomecánicas.</li>
+                        <li><strong>Individualización de la Técnica:</strong> Adaptar la técnica de los ejercicios a las características antropométricas (longitud de los miembros, proporciones corporales) de cada individuo.</li>
+                    </ul>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Ejemplo:</strong> Un saltador puede mejorar su altura de salto optimizando el ángulo de despegue, la coordinación de la extensión de cadera, rodilla y tobillo, y el uso efectivo del ciclo estiramiento-acortamiento.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-biomecanica-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-user-shield"></i>Biomecánica y Prevención de Lesiones</h2>
+                    <p>Una comprensión sólida de la biomecánica es fundamental para minimizar el riesgo de lesiones:</p>
+                    <ul>
+                        <li><strong>Identificación de Patrones de Movimiento Riesgosos:</strong> Detectar movimientos que imponen estrés excesivo en ciertas articulaciones o tejidos (ej. valgo de rodilla en sentadilla, excesiva flexión lumbar en peso muerto).</li>
+                        <li><strong>Corrección Técnica:</strong> Enseñar y reforzar patrones de movimiento más seguros y eficientes.</li>
+                        <li><strong>Distribución Adecuada de Cargas:</strong> Entender cómo las diferentes técnicas y ejercicios distribuyen las fuerzas a través del cuerpo.</li>
+                        <li><strong>Manejo de la Fatiga:</strong> La fatiga puede alterar la biomecánica y aumentar el riesgo de lesión. Adaptar la carga o la técnica cuando sea necesario.</li>
+                        <li><strong>Diseño de Programas de Rehabilitación:</strong> Utilizar principios biomecánicos para progresar de forma segura en la rehabilitación de lesiones.</li>
+                        <li><strong>Selección de Equipamiento Adecuado:</strong> Por ejemplo, calzado apropiado que no altere negativamente la biomecánica de la marcha o carrera.</li>
+                    </ul>
+                     <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> El Dolor como Señal:</strong> El dolor durante un ejercicio es a menudo una indicación de que algo no está bien biomecánicamente. No lo ignores; analiza y corrige.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-biomecanica-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-id-badge"></i>Individualización Biomecánica</h2>
+                    <p>Si bien existen principios biomecánicos generales y técnicas "ideales", es crucial recordar el <strong class="highlight">Principio de Individualidad</strong>.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-ruler"></i> Antropometría y Variaciones Individuales:</h3>
+                    <p>Las características físicas de cada persona influyen en cómo ejecutan los movimientos de manera óptima y segura:</p>
+                    <ul>
+                        <li><strong>Longitud de los Miembros:</strong> Personas con fémures largos en relación al torso pueden necesitar una postura diferente en la sentadilla (ej. torso más inclinado) que personas con fémures más cortos.</li>
+                        <li><strong>Proporciones Corporales:</strong> La relación entre la longitud del torso, brazos y piernas afecta las palancas y los brazos de momento.</li>
+                        <li><strong>Movilidad Articular Inherente:</strong> Algunas personas tienen naturalmente más o menos ROM en ciertas articulaciones.</li>
+                        <li><strong>Historial de Lesiones:</strong> Lesiones previas pueden requerir modificaciones técnicas permanentes o temporales.</li>
+                    </ul>
+                    <p><strong class="highlight">No existe una "talla única" para la técnica perfecta.</strong> El objetivo es encontrar la técnica que sea más <strong class="highlight">eficiente y segura PARA ESE INDIVIDUO</strong>, respetando los principios biomecánicos fundamentales.</p>
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Observación y Adaptación:</strong> Un buen entrenador observa al atleta y adapta las indicaciones técnicas a sus características individuales, en lugar de forzar un modelo único.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-biomecanica-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-video"></i>Herramientas de Análisis Biomecánico</h2>
+                    <p>Existen diversas herramientas para analizar el movimiento, desde las más simples hasta las más sofisticadas:</p>
+                    <ul>
+                        <li><strong>Observación Cualitativa:</strong> El ojo entrenado de un coach o profesional es la herramienta más básica y a menudo muy efectiva para detectar errores técnicos groseros.</li>
+                        <li><strong>Videoanálisis:</strong> Grabar los movimientos (incluso con un smartphone) y revisarlos en cámara lenta permite un análisis más detallado de los ángulos articulares, trayectorias y posibles compensaciones. Se pueden usar apps para dibujar líneas y medir ángulos.</li>
+                        <li><strong>Software de Análisis de Movimiento 2D/3D:</strong> Programas que permiten un análisis cuantitativo más profundo utilizando marcadores y múltiples cámaras (más común en investigación o alto rendimiento).</li>
+                        <li><strong>Plataformas de Fuerza:</strong> Miden las fuerzas de reacción del suelo, permitiendo analizar el impulso, la potencia y la distribución de la carga.</li>
+                        <li><strong>Electromiografía (EMG):</strong> Mide la actividad eléctrica de los músculos, proporcionando información sobre el timing y la magnitud de la activación muscular.</li>
+                        <li><strong>Sensores Inerciales (IMUs) y Acelerómetros:</strong> Dispositivos portátiles que pueden medir aceleraciones, velocidades angulares y orientación de los segmentos corporales.</li>
+                    </ul>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Accesibilidad:</strong> Para la mayoría de los entrenadores y atletas, la <strong class="emphasis">observación cuidadosa y el videoanálisis simple</strong> son herramientas muy poderosas y accesibles para mejorar la técnica.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="slide-biomecanica-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-orange !border-askesis-green"><i class="fas fa-brain"></i>Conclusión: Entrena con Inteligencia Biomecánica</h2>
+                    <p class="text-lg mb-4">La biomecánica no es solo para científicos; es una <strong class="highlight">herramienta práctica y esencial</strong> para cualquiera que quiera entrenar de forma más efectiva, segura y alcanzar su máximo potencial. Comprender cómo funciona tu cuerpo bajo carga te permite tomar el control de tu entrenamiento.</p>
+                    <p class="text-lg mb-6">En Askesis, la aplicación de los principios biomecánicos es <strong class="emphasis">fundamental en el diseño de nuestros programas y en la enseñanza de la técnica</strong>, asegurando que cada movimiento cuente y te acerque a tus metas de forma sostenible.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre los Servicios Askesis
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-biomecanica" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4"> <button id="prev-button-biomecanica" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-biomecanica" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-biomecanica" class="hidden my-8 text-center"> <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-orange">
+                <i class="fas fa-atom text-4xl mr-3 text-askesis-orange"></i>¡Guía de Biomecánica Aplicada Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora tienes una base sólida para entender y aplicar la biomecánica en tus entrenamientos. ¡Mueve con ciencia y propósito!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-biomecanica" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Biomecánica" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Biomecánica." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterBiomecanica"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop();
+            window.addEventListener('resize', adjustSecondaryNavTop);
+
+            const guideContainer = document.getElementById('interactive-presentation-container-biomecanica');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de biomecánica no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-biomecanica .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-biomecanica');
+            const nextButton = guideContainer.querySelector('#next-button-biomecanica');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-biomecanica');
+            const progressBar = guideContainer.querySelector('#progress-bar-biomecanica');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-biomecanica');
+            const completionContainer = guideContainer.querySelector('#completion-container-biomecanica');
+            const restartButton = guideContainer.querySelector('#restart-button-biomecanica');
+            const yearSpan = document.getElementById('currentYearFooterBiomecanica');
+            const navLinks = document.querySelectorAll('#main-nav-biomecanica .nav-link-biomecanica');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de biomecánica no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Intro a Biomecánica", "Conceptos Clave", "Fuerzas y Leyes", "Palancas y Torques", 
+                    "Cadenas Cinéticas", "Análisis Ejercicios (I)", "Análisis Ejercicios (II)", "Optimización del Rendimiento",
+                    "Biomecánica y Prev. Lesiones", "Individualización", "Herramientas de Análisis", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-biomecanica-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de biomecánica.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
