@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Hipertrofia Muscular: La Ciencia del Crecimiento</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Hipertrofia Muscular: Descubre los mecanismos, variables de entrenamiento, nutrición y estrategias para maximizar el crecimiento muscular de forma científica.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#dc3545',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #dc3545;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.93), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-hipertrofia { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.45rem; /* Adjusted for more items */
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.65rem; /* Smaller for more items */
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-hipertrofia:hover,
+        .secondary-nav-askesis .nav-link-hipertrofia.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-green); /* Green for hipertrofia theme */
+        }
+        .secondary-nav-askesis .nav-link-hipertrofia.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.85); /* Slightly darker overlay */
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px;
+            max-width: 940px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-green); /* Green as primary for hipertrofia */
+            font-size: 2.4em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-orange); /* Orange accent */
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-orange); /* Orange icon */
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-blue); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-purple);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--askesis-purple); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f0c8"; /* fa-square-check or similar */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green); 
+            position: absolute;
+            left: 0;
+            top: 6px;
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: rgba(0, 90, 156, 0.3); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(220, 53, 69, 0.25); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: rgba(0, 128, 55, 0.3); border-left-color: var(--askesis-green); color: var(--askesis-text-white);} /* Darker tip box */
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); }
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-green); }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-green); /* Green CTA for hipertrofia */
+            color: var(--askesis-text-white);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(0, 128, 55, 0.4); /* Green shadow */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #00672c; /* Darker green */
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 128, 55, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #004b80;
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-hipertrofia { font-size: 0.6rem; padding: 0.3rem 0.4rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-hipertrofia { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-hipertrofia" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-hipertrofia-0" class="nav-link-hipertrofia active">Intro</a></li>
+            <li><a href="#slide-hipertrofia-1" class="nav-link-hipertrofia">Tipos</a></li>
+            <li><a href="#slide-hipertrofia-2" class="nav-link-hipertrofia">Mecanismos</a></li>
+            <li><a href="#slide-hipertrofia-3" class="nav-link-hipertrofia">Volumen</a></li>
+            <li><a href="#slide-hipertrofia-4" class="nav-link-hipertrofia">Intensidad/Reps</a></li>
+            <li><a href="#slide-hipertrofia-5" class="nav-link-hipertrofia">Frecuencia/Ejerc.</a></li>
+            <li><a href="#slide-hipertrofia-6" class="nav-link-hipertrofia">Nutrición</a></li>
+            <li><a href="#slide-hipertrofia-7" class="nav-link-hipertrofia">Recuperación</a></li>
+            <li><a href="#slide-hipertrofia-8" class="nav-link-hipertrofia">Suplementos</a></li>
+            <li><a href="#slide-hipertrofia-9" class="nav-link-hipertrofia">Errores</a></li>
+            <li><a href="#slide-hipertrofia-10" class="nav-link-hipertrofia">Periodización</a></li>
+            <li><a href="#slide-hipertrofia-11" class="nav-link-hipertrofia">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-hipertrofia" class="py-8"> <div id="step-indicator-hipertrofia" class="text-center mb-4 text-lg font-semibold text-askesis-orange font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-hipertrofia" class="bg-gradient-to-r from-askesis-orange to-askesis-green h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div> </div>
+
+        <div id="slides-container-hipertrofia"> <section id="slide-hipertrofia-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-layer-group"></i>Hipertrofia Muscular: La Ciencia del Crecimiento</h1>
+                    <p class="mb-3">La <strong class="highlight">hipertrofia muscular</strong> se refiere al aumento del tamaño de las fibras musculares y, por ende, del músculo en su conjunto. Es uno de los objetivos más comunes en el entrenamiento de fuerza, tanto por razones estéticas como de rendimiento y salud.</p>
+                    <p>Esta guía explora los <strong class="highlight">mecanismos científicos, las variables de entrenamiento clave, y las estrategias nutricionales y de recuperación</strong> para optimizar el desarrollo muscular de forma efectiva y sostenible.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> La hipertrofia es un proceso complejo que requiere una <strong class="emphasis">combinación inteligente de estímulo (entrenamiento), nutrición adecuada y recuperación óptima</strong>. No hay atajos mágicos, solo ciencia aplicada con consistencia.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-hipertrofia-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-tags"></i>Tipos de Hipertrofia Muscular</h2>
+                    <p>Aunque el resultado final es un músculo más grande, se suelen distinguir dos tipos principales de hipertrofia, que a menudo ocurren simultáneamente:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-compress-arrows-alt"></i> Hipertrofia Sarcomérica (o Miofibrilar)</h3>
+                    <p>Implica un <strong class="highlight">aumento en el número y tamaño de los sarcómeros</strong> (las unidades contráctiles dentro de las fibras musculares) y de las proteínas contráctiles (actina y miosina). Este tipo de hipertrofia está más directamente relacionado con el <strong class="highlight">aumento de la fuerza y la densidad muscular</strong>.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-water"></i> Hipertrofia Sarcoplasmática</h3>
+                    <p>Se refiere al <strong class="highlight">aumento del volumen del sarcoplasma</strong>, el fluido y los componentes no contráctiles dentro de la fibra muscular, como el glucógeno, el agua, las mitocondrias y otras organelas. Este tipo contribuye al <strong class="highlight">aumento del tamaño muscular general ("look bombeado")</strong> y puede mejorar la capacidad de resistencia muscular.</p>
+                    
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Interconexión:</strong> Si bien se distinguen conceptualmente, ambos tipos de hipertrofia suelen producirse en respuesta al entrenamiento de fuerza. Diferentes tipos de entrenamiento pueden enfatizar uno sobre el otro, pero es difícil aislarlos por completo.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-hipertrofia-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-cogs"></i>Mecanismos Fisiológicos Clave de la Hipertrofia</h2>
+                    <p>Se han identificado tres mecanismos principales que, individualmente o en combinación, estimulan la hipertrofia muscular:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-weight-hanging"></i> 1. Tensión Mecánica</h3>
+                    <p>Considerada el <strong class="highlight">factor más importante</strong>. Se refiere a la fuerza experimentada por las fibras musculares durante el ejercicio, especialmente bajo cargas pesadas y/o durante la fase excéntrica. Esta tensión activa vías de señalización celular (como mTOR) que promueven la síntesis de proteínas musculares.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-fire"></i> 2. Estrés Metabólico</h3>
+                    <p>Resulta de la <strong class="highlight">acumulación de metabolitos</strong> (como lactato, iones de hidrógeno, fosfato inorgánico) durante el ejercicio, especialmente con series de repeticiones moderadas a altas y descansos cortos. Este estrés puede inducir hinchazón celular, producción de especies reactivas de oxígeno (ROS) y liberación de factores de crecimiento, contribuyendo a la hipertrofia.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-heart-broken"></i> 3. Daño Muscular (EIMD)</h3>
+                    <p>El ejercicio intenso, particularmente las contracciones excéntricas o movimientos no acostumbrados, puede causar <strong class="highlight">microlesiones en las fibras musculares</strong>. Esto desencadena una respuesta inflamatoria y la activación de células satélite, que son cruciales para la reparación y el crecimiento muscular. Sin embargo, un daño excesivo puede ser contraproducente.</p>
+                    
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Sinergia Askesis:</strong> Un programa de hipertrofia bien diseñado busca optimizar la <strong class="emphasis">tensión mecánica</strong>, complementándola de forma inteligente con <strong class="emphasis">estrés metabólico</strong> y gestionando el <strong class="emphasis">daño muscular</strong> para maximizar las adaptaciones.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-hipertrofia-3" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-calculator"></i>Variables de Entrenamiento: Volumen</h2>
+                    <p>El <strong class="highlight">volumen de entrenamiento</strong> es una de las variables más críticas para la hipertrofia. Generalmente se define como: <strong class="highlight">Series x Repeticiones x Carga</strong>.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-chart-pie"></i> Importancia del Volumen Semanal</h3>
+                    <p>La investigación sugiere una <strong class="highlight">relación dosis-respuesta</strong> entre el volumen semanal por grupo muscular y las ganancias de hipertrofia, hasta cierto punto. Es decir, más volumen (dentro de la capacidad de recuperación) generalmente conduce a más crecimiento.</p>
+                    <ul>
+                        <li><strong>Volumen Bajo:</strong> < 5 series efectivas por grupo muscular/semana. Puede ser suficiente para principiantes o mantenimiento.</li>
+                        <li><strong>Volumen Moderado:</strong> 6-10 series efectivas por grupo muscular/semana. Un buen punto de partida para muchos.</li>
+                        <li><strong>Volumen Alto:</strong> 10-20+ series efectivas por grupo muscular/semana. Puede ser necesario para individuos más avanzados o para maximizar ganancias, pero requiere una excelente recuperación.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-balance-scale-right"></i> Individualización y Progresión</h3>
+                    <p>El volumen óptimo es <strong class="highlight">individual</strong> y depende de factores como la experiencia de entrenamiento, capacidad de recuperación, genética, nutrición y estrés general. Es crucial <strong class="highlight">aumentar el volumen progresivamente</strong> a lo largo del tiempo para seguir estimulando el crecimiento.</p>
+                    <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Cuidado con el Exceso:</strong> Demasiado volumen sin una recuperación adecuada puede llevar al sobreentrenamiento, estancamiento o incluso pérdida de masa muscular.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-hipertrofia-4" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-tachometer-alt"></i>Variables: Intensidad y Rango de Repeticiones</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-percentage"></i> Intensidad de Carga</h3>
+                    <p>Se refiere al peso utilizado, a menudo expresado como un porcentaje del 1RM (Una Repetición Máxima). Para hipertrofia, tradicionalmente se ha recomendado un rango del <strong class="highlight">65-85% del 1RM</strong>.</p>
+                    <p>Sin embargo, la investigación más reciente indica que la hipertrofia puede lograrse con un <strong class="highlight">amplio espectro de cargas</strong> (desde ~30% 1RM hasta >85% 1RM), siempre y cuando las series se lleven <strong class="highlight">cerca del fallo muscular</strong>.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-sort-numeric-up-alt"></i> Rango de Repeticiones</h3>
+                    <p>Derivado de la intensidad:</p>
+                    <ul>
+                        <li><strong>Repeticiones Bajas (1-5):</strong> Más orientadas a fuerza máxima, pero pueden contribuir a la hipertrofia (especialmente sarcomérica) si el volumen es suficiente.</li>
+                        <li><strong>Repeticiones Moderadas (6-15):</strong> Considerado el "rango de hipertrofia" clásico, equilibra bien tensión mecánica y estrés metabólico.</li>
+                        <li><strong>Repeticiones Altas (15-30+):</strong> Pueden inducir un gran estrés metabólico y también estimular la hipertrofia, especialmente si se llevan cerca del fallo.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-fist-raised"></i> Proximidad al Fallo Muscular</h3>
+                    <p>Entrenar cerca del fallo muscular (ej. dejando 0-3 Repeticiones en Reserva, RIR) parece ser <strong class="highlight">más importante que el rango de repeticiones específico</strong> para maximizar el reclutamiento de fibras y, por ende, la hipertrofia.</p>
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Variedad Inteligente Askesis:</strong> Incluir una variedad de rangos de repeticiones y cargas a lo largo de un programa periodizado puede ser beneficioso para un desarrollo muscular completo.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-hipertrofia-5" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-calendar-alt"></i>Variables: Frecuencia y Selección de Ejercicios</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-redo-alt"></i> Frecuencia de Entrenamiento</h3>
+                    <p>Se refiere a cuántas veces se entrena un grupo muscular por semana. Para hipertrofia, entrenar cada grupo muscular <strong class="highlight">2-3 veces por semana</strong> suele ser más efectivo que una vez por semana, ya que permite distribuir el volumen total de manera más óptima y estimular la síntesis proteica más a menudo.</p>
+                    <p>La frecuencia óptima depende del volumen total, la intensidad y la capacidad de recuperación individual.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-check-double"></i> Selección de Ejercicios</h3>
+                    <ul>
+                        <li><strong>Ejercicios Multiarticulares (Compuestos):</strong> Movimientos que involucran múltiples articulaciones y grupos musculares (ej. sentadillas, peso muerto, press de banca, dominadas, remos). Son <strong class="highlight">muy eficientes para construir una base sólida</strong> y permiten mover cargas pesadas.</li>
+                        <li><strong>Ejercicios Monoarticulares (de Aislamiento):</strong> Movimientos que involucran una sola articulación principal (ej. curl de bíceps, extensiones de tríceps, elevaciones laterales). Útiles para <strong class="highlight">enfocarse en músculos específicos</strong>, añadir volumen adicional o trabajar puntos débiles.</li>
+                    </ul>
+                    <p>Un programa equilibrado suele incluir una <strong class="highlight">combinación de ambos tipos de ejercicios</strong>, priorizando los compuestos al inicio de la sesión.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-exchange-alt"></i> Variedad de Ejercicios</h3>
+                    <p>Rotar ejercicios periódicamente (ej. cada mesociclo) puede ser útil para <strong class="highlight">estimular los músculos desde diferentes ángulos</strong>, prevenir el aburrimiento y reducir el riesgo de lesiones por uso repetitivo, sin sacrificar la especificidad del movimiento principal.</p>
+                </div>
+            </section>
+
+            <section id="slide-hipertrofia-6" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-utensils"></i>Nutrición para la Hipertrofia</h2>
+                    <p>La nutrición es un pilar fundamental para el crecimiento muscular. Sin los "ladrillos" adecuados, el cuerpo no puede construir.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-plus-circle"></i> Superávit Calórico</h3>
+                    <p>Para construir nuevo tejido muscular, generalmente se requiere un <strong class="highlight">ligero superávit calórico</strong> (consumir más calorías de las que se gastan). Un superávit pequeño y controlado (ej. 250-500 kcal por encima del mantenimiento) ayuda a minimizar la ganancia de grasa.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-drumstick-bite"></i> Proteínas</h3>
+                    <p>Son los bloques de construcción del músculo. Se recomienda una ingesta de <strong class="highlight">1.6 a 2.2 gramos de proteína por kilogramo de peso corporal al día</strong> para individuos que buscan maximizar la hipertrofia. Distribuir la ingesta a lo largo del día (ej. 4-5 comidas) parece ser beneficioso.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-bread-slice"></i> Carbohidratos</h3>
+                    <p>Son la <strong class="highlight">principal fuente de energía</strong> para el entrenamiento de alta intensidad y ayudan a reponer las reservas de glucógeno muscular. También juegan un papel en la señalización anabólica (insulina).</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-seedling"></i> Grasas Saludables</h3>
+                    <p>Esenciales para la <strong class="highlight">producción hormonal</strong> (incluida la testosterona), la salud celular y la absorción de vitaminas liposolubles. Priorizar grasas insaturadas.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-tint"></i> Hidratación</h3>
+                    <p>La deshidratación puede afectar negativamente el rendimiento y la recuperación. Mantener una <strong class="highlight">adecuada ingesta de líquidos</strong> es crucial.</p>
+                    
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Timing de Nutrientes:</strong> Aunque menos crítico que la ingesta total diaria, consumir proteínas y carbohidratos alrededor del entrenamiento ("ventana anabólica") puede ofrecer algunos beneficios marginales para la recuperación y síntesis proteica.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-hipertrofia-7" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-bed"></i>Descanso y Recuperación para la Hipertrofia</h2>
+                    <p>El crecimiento muscular ocurre <strong class="highlight">durante los períodos de descanso y recuperación</strong>, no durante el entrenamiento en sí. Ignorar la recuperación es un error común que limita el progreso.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-moon"></i> Sueño de Calidad</h3>
+                    <p>Es <strong class="highlight">absolutamente fundamental</strong>. Durante el sueño profundo se liberan hormonas anabólicas clave (como la hormona del crecimiento y la testosterona) y se realizan procesos de reparación tisular. Apuntar a <strong class="highlight">7-9 horas de sueño de calidad</strong> por noche.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-calendar-day"></i> Días de Descanso</h3>
+                    <p>Permitir suficientes días de descanso entre sesiones que trabajen los mismos grupos musculares es crucial para la reparación y adaptación. La frecuencia óptima (ej. 2-3 veces/semana por músculo) ya considera esto.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-notes-medical"></i> Manejo del DOMS (Dolor Muscular de Aparición Tardía)</h3>
+                    <p>Aunque cierto nivel de DOMS es normal, un dolor excesivo y prolongado puede indicar un daño muscular excesivo y una recuperación insuficiente. Estrategias como la recuperación activa, masajes o foam rolling pueden ayudar, pero el descanso es lo principal.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-arrow-alt-circle-down"></i> Semanas de Descarga (Deloads)</h3>
+                    <p>Incorporar <strong class="highlight">semanas de descarga planificadas</strong> (reducción temporal del volumen y/o intensidad) cada ciertas semanas de entrenamiento intenso (ej. cada 4-8 semanas) ayuda a disipar la fatiga acumulada, prevenir el sobreentrenamiento y permitir una supercompensación.</p>
+                    
+                    <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Escucha a tu Cuerpo:</strong> Aprender a reconocer las señales de fatiga excesiva y ajustar el entrenamiento o la recuperación en consecuencia es una habilidad clave.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-hipertrofia-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-pills"></i>Suplementación Basada en Evidencia (Breve)</h2>
+                    <p>Los suplementos <strong class="highlight">no son necesarios</strong> para la hipertrofia, pero algunos pueden ofrecer beneficios marginales cuando se combinan con un entrenamiento y nutrición adecuados. <strong class="highlight">Siempre prioriza la dieta y el entrenamiento</strong>.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-check"></i> Suplementos con Mayor Evidencia:</h3>
+                    <ul>
+                        <li><strong>Monohidrato de Creatina:</strong> Mejora el rendimiento en ejercicios de alta intensidad y puede aumentar la masa muscular a través de varios mecanismos (mayor capacidad de trabajo, voluminización celular). Es uno de los suplementos más estudiados y seguros.</li>
+                        <li><strong>Proteína en Polvo (Whey, Caseína, Vegana):</strong> Una forma conveniente de aumentar la ingesta total de proteínas, especialmente útil si es difícil alcanzar los requerimientos solo con alimentos.</li>
+                        <li><strong>Cafeína:</strong> Puede mejorar el rendimiento (fuerza, resistencia, enfoque) y reducir la percepción de esfuerzo, permitiendo entrenar más duro.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-question"></i> Otros Suplementos (Evidencia Variable o Menor):</h3>
+                    <p>Beta-alanina, citrulina malato, HMB (en poblaciones específicas), etc. La evidencia es menos robusta o los efectos más pequeños.</p>
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Consejo Askesis:</strong> Antes de considerar suplementos, asegúrate de que tu <strong class="emphasis">entrenamiento, nutrición y descanso estén optimizados</strong>. Consulta con un profesional de la salud o nutricionista deportivo.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-hipertrofia-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-skull-crossbones text-askesis-red"></i>Errores Comunes al Buscar Hipertrofia</h2>
+                    <ul>
+                        <li><strong class="critical-text">Falta de Sobrecarga Progresiva:</strong> Entrenar siempre con los mismos pesos, series y repeticiones.</li>
+                        <li><strong class="critical-text">Volumen Inadecuado:</strong> Demasiado poco para estimular el crecimiento, o demasiado que impide la recuperación.</li>
+                        <li><strong class="critical-text">Intensidad Insuficiente:</strong> No entrenar lo suficientemente cerca del fallo muscular.</li>
+                        <li><strong class="critical-text">Mala Técnica de Ejercicio:</strong> Reduce la tensión en el músculo objetivo y aumenta el riesgo de lesión.</li>
+                        <li><strong class="critical-text">Nutrición Deficiente:</strong> Insuficientes calorías (especialmente en superávit) o proteínas.</li>
+                        <li><strong class="critical-text">Recuperación Insuficiente:</strong> Poco sueño, falta de días de descanso, ignorar la fatiga.</li>
+                        <li><strong class="critical-text">Falta de Consistencia y Paciencia:</strong> La hipertrofia es un proceso lento que requiere dedicación a largo plazo. "Program hopping" (saltar de un programa a otro) es contraproducente.</li>
+                        <li><strong class="critical-text">Obsesionarse con Suplementos:</strong> Creer que los suplementos pueden compensar un mal entrenamiento o dieta.</li>
+                        <li><strong class="critical-text">Compararse Constantemente con Otros:</strong> Ignorar el principio de individualidad.</li>
+                    </ul>
+                     <div class="warning-box mt-4">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Evita Estos Errores:</strong> Un enfoque <strong class="emphasis">científico, paciente y consistente</strong> es la clave del éxito en la hipertrofia.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="slide-hipertrofia-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-project-diagram"></i>Periodización para la Hipertrofia</h2>
+                    <p>La <strong class="highlight">periodización</strong> implica la planificación estructurada del entrenamiento a lo largo del tiempo, dividiéndolo en fases (mesociclos) con objetivos específicos para optimizar las adaptaciones y evitar el estancamiento.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-wave-square"></i> Modelos Aplicables:</h3>
+                    <ul>
+                        <li><strong>Periodización Lineal:</strong> Aumentar gradualmente la intensidad y disminuir el volumen a lo largo de los mesociclos.</li>
+                        <li><strong>Periodización Ondulante (No Lineal):</strong> Variar el volumen y la intensidad de forma más frecuente (ej. diaria o semanalmente) dentro de un microciclo. Puede ser DUP (Daily Undulating Periodization) o WUP (Weekly Undulating Periodization).</li>
+                        <li><strong>Periodización por Bloques:</strong> Enfocarse en una capacidad específica (ej. un bloque de acumulación con alto volumen para hipertrofia, seguido de un bloque de intensificación para fuerza).</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tasks"></i> Ejemplo de Mesociclo de Hipertrofia (Simplificado):</h3>
+                    <p><strong>Semanas 1-4 (Acumulación):</strong></p>
+                    <ul>
+                        <li>Volumen: Moderado-alto (ej. 10-15 series/músculo/semana).</li>
+                        <li>Intensidad: Moderada (ej. 8-12 reps, RIR 2-3).</li>
+                        <li>Frecuencia: 2-3 veces/músculo/semana.</li>
+                    </ul>
+                     <p><strong>Semana 5 (Descarga/Deload):</strong></p>
+                    <ul>
+                        <li>Volumen: Reducido (ej. 50% de la semana anterior).</li>
+                        <li>Intensidad: Mantenida o ligeramente reducida.</li>
+                    </ul>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Progresión a Largo Plazo:</strong> La clave es manipular estas variables de forma inteligente a lo largo de múltiples mesociclos para asegurar un progreso continuo.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-hipertrofia-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-green !border-askesis-orange"><i class="fas fa-dumbbell"></i>Conclusión: Construye tu Mejor Versión</h2>
+                    <p class="text-lg mb-4">La hipertrofia muscular es un objetivo alcanzable con un <strong class="highlight">enfoque basado en la ciencia, la dedicación y la paciencia</strong>. Comprender los mecanismos y aplicar correctamente las variables de entrenamiento, nutrición y recuperación es esencial.</p>
+                    <p class="text-lg mb-6">En Askesis, te proporcionamos las <strong class="emphasis">herramientas y el conocimiento</strong> para diseñar programas que maximicen tu potencial de crecimiento muscular de forma segura y efectiva.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre los Servicios Askesis
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-hipertrofia" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4"> <button id="prev-button-hipertrofia" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-hipertrofia" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-hipertrofia" class="hidden my-8 text-center"> <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-green">
+                <i class="fas fa-award text-4xl mr-3"></i>¡Guía de Hipertrofia Muscular Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora tienes un conocimiento profundo sobre cómo construir músculo de manera efectiva. ¡Aplica estos principios y alcanza tus objetivos!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-hipertrofia" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Hipertrofia" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Hipertrofia%20Muscular." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterHipertrofia"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop();
+            window.addEventListener('resize', adjustSecondaryNavTop);
+
+
+            const guideContainer = document.getElementById('interactive-presentation-container-hipertrofia');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de hipertrofia no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-hipertrofia .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-hipertrofia');
+            const nextButton = guideContainer.querySelector('#next-button-hipertrofia');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-hipertrofia');
+            const progressBar = guideContainer.querySelector('#progress-bar-hipertrofia');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-hipertrofia');
+            const completionContainer = guideContainer.querySelector('#completion-container-hipertrofia');
+            const restartButton = guideContainer.querySelector('#restart-button-hipertrofia');
+            const yearSpan = document.getElementById('currentYearFooterHipertrofia');
+            const navLinks = document.querySelectorAll('#main-nav-hipertrofia .nav-link-hipertrofia');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de hipertrofia no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Introducción a la Hipertrofia", "Tipos de Hipertrofia", "Mecanismos Fisiológicos", "Variable: Volumen", 
+                    "Variable: Intensidad y Reps", "Variable: Frecuencia y Ejercicios", "Nutrición para Hipertrofia", "Recuperación para Hipertrofia",
+                    "Suplementación (Breve)", "Errores Comunes", "Periodización para Hipertrofia", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-hipertrofia-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de hipertrofia.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
