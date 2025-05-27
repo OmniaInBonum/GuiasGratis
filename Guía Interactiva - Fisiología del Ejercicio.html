@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Fisiología del Ejercicio: Entendiendo tu Cuerpo</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Fisiología del Ejercicio: Descubre cómo tu cuerpo responde y se adapta al entrenamiento a nivel cardiovascular, respiratorio, muscular y hormonal.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#B80F0A',
+                        'askesis-cyan': '#00BCD4', /* Primary for this guide */
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                        'askesis-cyan-light': 'rgba(0, 188, 212, 0.1)',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #B80F0A;
+            --askesis-cyan: #00BCD4; /* Primary for this guide */
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+            --askesis-cyan-light: rgba(0, 188, 212, 0.1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.97), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-fisiologia { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.35rem; 
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.55rem; 
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-fisiologia:hover,
+        .secondary-nav-askesis .nav-link-fisiologia.active {
+            color: var(--askesis-dark); /* Dark text for cyan background */
+            background-color: var(--askesis-cyan); 
+        }
+        .secondary-nav-askesis .nav-link-fisiologia.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.96); 
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px;
+            max-width: 980px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-cyan); 
+            font-size: 2.4em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-green); 
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-green); 
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-blue); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-orange);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--askesis-orange); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f0c8"; /* fa-square-check or similar for body systems */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-cyan); 
+            position: absolute;
+            left: 0;
+            top: 7px;
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: rgba(0, 90, 156, 0.3); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(184, 15, 10, 0.2); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: var(--askesis-cyan-light); border-left-color: var(--askesis-cyan); color: var(--askesis-text-white);} 
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); } 
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-cyan); } 
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-cyan); 
+            color: var(--askesis-dark); /* Dark text for cyan button */
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(0, 188, 212, 0.4); 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #00a1b3; /* Darker cyan */
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 188, 212, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-orange); 
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #cf6a10; 
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-fisiologia { font-size: 0.5rem; padding: 0.3rem 0.3rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-fisiologia { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-fisiologia" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-fisiologia-0" class="nav-link-fisiologia active">Intro</a></li>
+            <li><a href="#slide-fisiologia-1" class="nav-link-fisiologia">Homeostasis</a></li>
+            <li><a href="#slide-fisiologia-2" class="nav-link-fisiologia">Resp. Agudas</a></li>
+            <li><a href="#slide-fisiologia-3" class="nav-link-fisiologia">Adapt. Crónicas</a></li>
+            <li><a href="#slide-fisiologia-4" class="nav-link-fisiologia">Adapt. Cardio.</a></li>
+            <li><a href="#slide-fisiologia-5" class="nav-link-fisiologia">Adapt. Musc.</a></li>
+            <li><a href="#slide-fisiologia-6" class="nav-link-fisiologia">Adapt. Neurales</a></li>
+            <li><a href="#slide-fisiologia-7" class="nav-link-fisiologia">Adapt. Horm.</a></li>
+            <li><a href="#slide-fisiologia-8" class="nav-link-fisiologia">Factores Infl.</a></li>
+            <li><a href="#slide-fisiologia-9" class="nav-link-fisiologia">Sobreentren.</a></li>
+            <li><a href="#slide-fisiologia-10" class="nav-link-fisiologia">Aplicación</a></li>
+            <li><a href="#slide-fisiologia-11" class="nav-link-fisiologia">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-fisiologia" class="py-8"> <div id="step-indicator-fisiologia" class="text-center mb-4 text-lg font-semibold text-askesis-orange font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-fisiologia" class="bg-gradient-to-r from-askesis-orange to-askesis-cyan h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        </div>
+
+        <div id="slides-container-fisiologia"> <section id="slide-fisiologia-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-heart-pulse"></i>Fisiología del Ejercicio: Entendiendo tu Cuerpo en Movimiento</h1>
+                    <p class="mb-3">La <strong class="highlight">fisiología del ejercicio</strong> es la ciencia que estudia cómo el cuerpo humano responde y se adapta al estrés agudo y crónico del ejercicio físico. Es la <strong class="highlight">base para comprender por qué y cómo</strong> ocurren las mejoras en el rendimiento y la salud a través del entrenamiento.</p>
+                    <p>Esta guía te llevará a través de los <strong class="highlight">conceptos fundamentales de la fisiología del ejercicio</strong>, desde las respuestas inmediatas hasta las adaptaciones a largo plazo, ayudándote a entrenar de manera más informada y efectiva.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> Conocer cómo funciona tu "motor interno" te permite <strong class="emphasis">optimizar el combustible (nutrición), el mantenimiento (recuperación) y el tipo de conducción (entrenamiento)</strong> para alcanzar tus metas.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-fisiologia-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-balance-scale"></i>Homeostasis, Estrés y Adaptación</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-house-user"></i> Homeostasis:</h3>
+                    <p>Es el <strong class="highlight">mantenimiento de un ambiente interno estable y relativamente constante</strong> dentro del cuerpo (ej. temperatura corporal, pH sanguíneo, niveles de glucosa). El cuerpo trabaja continuamente para mantener este equilibrio.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-bolt"></i> Estrés Fisiológico del Ejercicio:</h3>
+                    <p>El ejercicio físico representa un <strong class="highlight">desafío o estrés</strong> para la homeostasis. Altera temporalmente el ambiente interno (ej. aumenta la temperatura, disminuye el pH, agota las reservas de energía).</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-sync-alt"></i> Adaptación (Supercompensación):</h3>
+                    <p>Si el estrés del ejercicio es de una magnitud y duración adecuadas, y se sigue de una <strong class="highlight">recuperación suficiente</strong>, el cuerpo no solo vuelve a su estado basal, sino que se adapta para estar <strong class="highlight">mejor preparado para enfrentar un estrés similar en el futuro</strong>. Este proceso se conoce como supercompensación y es la base de la mejora del rendimiento (Principio de Adaptación o SGA de Selye).</p>
+                    
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> El Ciclo:</strong> Estrés (Entrenamiento) → Perturbación de la Homeostasis → Recuperación → Adaptación (Supercompensación) → Mejora del Rendimiento.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-fisiologia-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-tachometer-alt"></i>Respuestas Agudas al Ejercicio</h2>
+                    <p>Son los <strong class="highlight">cambios inmediatos y temporales</strong> que ocurren en los sistemas del cuerpo durante una sesión de ejercicio.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-heart"></i> Sistema Cardiovascular:</h3>
+                    <ul>
+                        <li>Aumento de la <strong class="highlight">frecuencia cardíaca (FC)</strong>.</li>
+                        <li>Aumento del <strong class="highlight">volumen sistólico (VS)</strong> (cantidad de sangre bombeada por latido).</li>
+                        <li>Aumento del <strong class="highlight">gasto cardíaco (GC = FC x VS)</strong> (cantidad total de sangre bombeada por minuto).</li>
+                        <li>Redistribución del flujo sanguíneo: Aumento hacia los músculos activos, disminución hacia órganos menos activos (ej. sistema digestivo).</li>
+                        <li>Aumento de la presión arterial sistólica.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-lungs"></i> Sistema Respiratorio:</h3>
+                    <ul>
+                        <li>Aumento de la <strong class="highlight">frecuencia respiratoria</strong> (ventilaciones por minuto).</li>
+                        <li>Aumento del <strong class="highlight">volumen corriente</strong> (cantidad de aire movilizado en cada respiración).</li>
+                        <li>Aumento de la <strong class="highlight">ventilación pulmonar total (VE = FR x VC)</strong>.</li>
+                        <li>Mayor extracción de oxígeno del aire inspirado.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-running"></i> Sistema Muscular:</h3>
+                    <ul>
+                        <li>Aumento de la temperatura muscular.</li>
+                        <li>Mayor reclutamiento de unidades motoras.</li>
+                        <li>Aumento del flujo sanguíneo muscular.</li>
+                        <li>Utilización de sustratos energéticos (ATP, PCr, glucógeno, grasas).</li>
+                        <li>Producción y acumulación de metabolitos (lactato, H+).</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-brain"></i> Sistema Hormonal (Endocrino):</h3>
+                    <ul>
+                        <li>Liberación de hormonas como adrenalina, noradrenalina, cortisol, glucagón, hormona del crecimiento.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-fisiologia-3" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-chart-line"></i>Adaptaciones Crónicas al Entrenamiento</h2>
+                    <p>Son los <strong class="highlight">cambios fisiológicos a largo plazo</strong> que ocurren como resultado del entrenamiento regular y consistente durante semanas, meses o años. Estas adaptaciones mejoran la capacidad del cuerpo para realizar ejercicio y resistir la fatiga.</p>
+                    <p>Las adaptaciones son <strong class="highlight">específicas al tipo de entrenamiento realizado</strong> (Principio de Especificidad).</p>
+                    <p>Exploraremos las adaptaciones crónicas en los siguientes sistemas:</p>
+                    <ul>
+                        <li>Cardiovascular</li>
+                        <li>Muscular (incluyendo cambios en fibras, enzimas, etc.)</li>
+                        <li>Neural</li>
+                        <li>Hormonal</li>
+                        <li>Óseo y Tejido Conectivo</li>
+                    </ul>
+                     <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> La Magia de la Consistencia:</strong> Estas adaptaciones son la razón por la cual nos volvemos más fuertes, más rápidos y más resistentes con el tiempo. Requieren <strong class="emphasis">paciencia y entrenamiento continuo</strong>.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-fisiologia-4" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-heart-circle-check"></i>Adaptaciones Cardiovasculares Crónicas</h2>
+                    <p>El entrenamiento regular induce cambios significativos en el corazón y los vasos sanguíneos:</p>
+                    <ul>
+                        <li><strong>Bradicardia en Reposo:</strong> Disminución de la frecuencia cardíaca en reposo debido a un aumento del tono parasimpático y un mayor volumen sistólico.</li>
+                        <li><strong>Hipertrofia Cardíaca (Corazón de Atleta):</strong> Aumento del tamaño de las cavidades ventriculares (especialmente el ventrículo izquierdo) y/o del grosor de sus paredes, lo que lleva a un <strong class="highlight">mayor volumen sistólico máximo</strong>.</li>
+                        <li><strong>Aumento del Gasto Cardíaco Máximo:</strong> Capacidad de bombear más sangre por minuto durante el ejercicio máximo.</li>
+                        <li><strong>Aumento de la Capilarización Muscular:</strong> Mayor número de capilares sanguíneos alrededor de las fibras musculares, mejorando el suministro de oxígeno y nutrientes, y la eliminación de desechos.</li>
+                        <li><strong>Aumento del Volumen Sanguíneo y Plasmático:</strong> Puede mejorar el retorno venoso y la capacidad de transporte de oxígeno.</li>
+                        <li><strong>Mejora de la Función Endotelial:</strong> Los vasos sanguíneos se vuelven más elásticos y capaces de vasodilatarse.</li>
+                        <li><strong>Reducción de la Presión Arterial en Reposo</strong> (en individuos con hipertensión).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-fisiologia-5" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-dumbbell"></i>Adaptaciones Musculares Crónicas</h2>
+                    <p>Los músculos esqueléticos experimentan profundas adaptaciones según el tipo de entrenamiento:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-layer-group"></i> Hipertrofia Muscular:</h3>
+                    <p>Aumento del tamaño de las fibras musculares, principalmente por un aumento de las proteínas contráctiles (actina y miosina). Más común con entrenamiento de fuerza.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-running"></i> Cambios en el Tipo de Fibra Muscular:</h3>
+                    <p>Aunque la genética determina en gran medida la proporción de fibras tipo I (lentas, oxidativas) y tipo II (rápidas, glucolíticas), el entrenamiento puede inducir <strong class="highlight">cambios dentro de los subtipos de fibras</strong> (ej. fibras IIx pueden convertirse en IIa, que son más resistentes a la fatiga pero aún potentes). El entrenamiento de resistencia aumenta las características oxidativas de todas las fibras.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-fire-alt"></i> Aumento de la Densidad Mitocondrial:</h3>
+                    <p>Especialmente con entrenamiento de resistencia. Más mitocondrias significan <strong class="highlight">mayor capacidad para producir ATP aeróbicamente</strong>.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-atom"></i> Aumento de la Actividad Enzimática:</h3>
+                    <ul>
+                        <li><strong>Entrenamiento de Resistencia:</strong> Aumento de enzimas oxidativas (ej. citrato sintasa).</li>
+                        <li><strong>Entrenamiento de Sprint/Fuerza:</strong> Aumento de enzimas glucolíticas (ej. PFK) y del sistema ATP-PCr (ej. creatina quinasa).</li>
+                    </ul>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-gas-pump"></i> Aumento de las Reservas de Sustratos:</h3>
+                    <p>Mayor almacenamiento de <strong class="highlight">glucógeno muscular y triglicéridos intramusculares</strong>.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-shield-alt"></i> Mejora de la Capacidad de Buffer:</h3>
+                    <p>Mayor capacidad para neutralizar la acumulación de iones hidrógeno, retrasando la fatiga.</p>
+                </div>
+            </section>
+
+            <section id="slide-fisiologia-6" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-network-wired"></i>Adaptaciones Neurales Crónicas</h2>
+                    <p>El sistema nervioso también se adapta significativamente al entrenamiento, especialmente en las <strong class="highlight">fases iniciales de los programas de fuerza y potencia</strong>.</p>
+                    <ul>
+                        <li><strong>Aumento del Reclutamiento de Unidades Motoras:</strong> El cerebro aprende a activar más unidades motoras simultáneamente para producir más fuerza.</li>
+                        <li><strong>Mejora de la Frecuencia de Disparo (Rate Coding):</strong> Las unidades motoras activadas disparan impulsos nerviosos a una mayor frecuencia, aumentando la fuerza de contracción.</li>
+                        <li><strong>Mejora de la Sincronización de Unidades Motoras:</strong> Las unidades motoras se activan de manera más coordinada y eficiente.</li>
+                        <li><strong>Reducción de la Co-activación Antagonista:</strong> Disminución de la activación de los músculos que se oponen al movimiento deseado, permitiendo una expresión de fuerza más eficiente.</li>
+                        <li><strong>Disminución de la Inhibición Neural:</strong> Reducción de los mecanismos protectores (como los órganos tendinosos de Golgi) que pueden limitar la producción de fuerza máxima.</li>
+                        <li><strong>Mejora de la Coordinación Intermuscular:</strong> Mejor sinergia entre diferentes grupos musculares para producir movimientos complejos de manera más eficiente.</li>
+                        <li><strong>Plasticidad Cortical:</strong> Cambios en las áreas motoras del cerebro.</li>
+                    </ul>
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Rapidez de las Adaptaciones Neurales:</strong> Estas adaptaciones pueden ocurrir relativamente rápido (en pocas semanas), explicando las ganancias de fuerza iniciales incluso antes de que ocurra una hipertrofia significativa.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-fisiologia-7" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-vials"></i>Adaptaciones Hormonales Crónicas</h2>
+                    <p>El entrenamiento regular puede influir en el perfil hormonal basal y en la respuesta hormonal al ejercicio.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-male"></i> Testosterona:</h3>
+                    <p>Hormona anabólica clave. El entrenamiento de fuerza intenso puede llevar a <strong class="highlight">aumentos agudos post-ejercicio</strong> y, potencialmente, a <strong class="highlight">niveles basales ligeramente más altos</strong> o una mayor sensibilidad de los receptores androgénicos en el músculo.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-child"></i> Hormona del Crecimiento (GH) e IGF-1:</h3>
+                    <p>Importantes para el crecimiento y la reparación tisular. El ejercicio intenso (especialmente con estrés metabólico) estimula su liberación aguda. El entrenamiento crónico puede <strong class="highlight">modular la respuesta de GH</strong>.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-moon"></i> Cortisol:</h3>
+                    <p>Hormona catabólica liberada en respuesta al estrés. El entrenamiento crónico bien gestionado puede llevar a una <strong class="highlight">mejor regulación del cortisol</strong> y una menor respuesta de estrés a una carga de trabajo dada. Un cortisol crónicamente elevado (sobreentrenamiento) es perjudicial.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-tint"></i> Insulina:</h3>
+                    <p>El entrenamiento regular, especialmente el de resistencia y fuerza, <strong class="highlight">mejora la sensibilidad a la insulina</strong>, lo que es beneficioso para el control glucémico y la salud metabólica.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-fire"></i> Catecolaminas (Adrenalina y Noradrenalina):</h3>
+                    <p>La respuesta de estas hormonas del estrés al ejercicio puede atenuarse con el entrenamiento crónico para una misma intensidad absoluta, indicando una adaptación.</p>
+                </div>
+            </section>
+
+            <section id="slide-fisiologia-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-users-cog"></i>Factores que Influyen en las Adaptaciones</h2>
+                    <p>La magnitud y el tipo de adaptaciones al entrenamiento están influenciados por diversos factores:</p>
+                    <ul>
+                        <li><strong>Genética:</strong> La predisposición genética juega un papel importante en la capacidad de adaptación (ej. proporción de tipos de fibra, respuesta hormonal). Hay "respondedores altos" y "respondedores bajos".</li>
+                        <li><strong>Edad:</strong> La capacidad de adaptación puede disminuir con la edad, aunque el entrenamiento sigue siendo beneficioso en todas las etapas de la vida.</li>
+                        <li><strong>Sexo:</strong> Diferencias hormonales (ej. testosterona) pueden influir en la magnitud de ciertas adaptaciones (ej. hipertrofia).</li>
+                        <li><strong>Nivel de Entrenamiento Inicial:</strong> Los principiantes suelen experimentar adaptaciones más rápidas y pronunciadas que los atletas avanzados ("ganancias del novato").</li>
+                        <li><strong>Tipo, Intensidad, Volumen y Frecuencia del Entrenamiento:</strong> Principio de Especificidad y Sobrecarga Progresiva.</li>
+                        <li><strong>Nutrición:</strong> La disponibilidad de energía y macronutrientes (especialmente proteínas) es crucial para la reparación y construcción de tejidos.</li>
+                        <li><strong>Descanso y Recuperación:</strong> Las adaptaciones ocurren durante la recuperación. El sueño adecuado es fundamental.</li>
+                        <li><strong>Salud General y Estilo de Vida:</strong> Niveles de estrés, enfermedades crónicas, hábitos (tabaquismo, alcohol) pueden afectar la adaptación.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-fisiologia-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-battery-quarter text-askesis-red"></i>Sobreentrenamiento y Maladaptación</h2>
+                    <p>Cuando el estrés del entrenamiento excede crónicamente la capacidad de recuperación del cuerpo, pueden ocurrir maladaptaciones y el <strong class="highlight">Síndrome de Sobreentrenamiento (OTS)</strong>.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-exclamation-circle"></i> Signos y Síntomas del Sobreentrenamiento:</h3>
+                    <ul>
+                        <li>Disminución persistente del rendimiento a pesar del entrenamiento continuo o aumentado.</li>
+                        <li>Fatiga crónica y sensación de agotamiento.</li>
+                        <li>Alteraciones del estado de ánimo (irritabilidad, depresión, apatía).</li>
+                        <li>Alteraciones del sueño (insomnio, sueño no reparador).</li>
+                        <li>Aumento de la frecuencia cardíaca en reposo y/o durante el ejercicio submáximo.</li>
+                        <li>Sistema inmunológico deprimido (mayor incidencia de infecciones).</li>
+                        <li>Pérdida de apetito y/o peso inexplicada.</li>
+                        <li>Dolores musculares y articulares persistentes.</li>
+                        <li>Disminución de la motivación y el disfrute del entrenamiento.</li>
+                    </ul>
+                    <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Prevención:</strong> La clave es una <strong class="emphasis">periodización adecuada, una progresión gradual, suficiente recuperación (incluyendo sueño y nutrición) y escuchar las señales del cuerpo</strong>. Las semanas de descarga (deloads) son herramientas importantes.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-fisiologia-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-tools"></i>Aplicaciones Prácticas: Entendiendo para Optimizar</h2>
+                    <p>Conocer la fisiología del ejercicio te permite tomar decisiones más informadas:</p>
+                    <ul>
+                        <li><strong>Diseño de Programas Específicos:</strong> Adaptar las variables de entrenamiento (volumen, intensidad, frecuencia, tipo de ejercicio, descanso) para estimular las adaptaciones deseadas (ej. fuerza, hipertrofia, resistencia).</li>
+                        <li><strong>Optimización de la Recuperación:</strong> Entender la importancia del sueño, la nutrición y el descanso activo/pasivo para facilitar las adaptaciones.</li>
+                        <li><strong>Estrategias Nutricionales:</strong> Ajustar la ingesta de macronutrientes y el timing según las demandas del entrenamiento y los objetivos.</li>
+                        <li><strong>Prevención del Sobreentrenamiento:</strong> Reconocer los signos y síntomas y saber cuándo es necesario reducir la carga o tomar un descanso.</li>
+                        <li><strong>Individualización:</strong> Comprender que no todos responden igual al mismo estímulo y que los programas deben adaptarse.</li>
+                        <li><strong>Educación del Atleta/Cliente:</strong> Explicar el "porqué" detrás de las recomendaciones de entrenamiento y nutrición aumenta la adherencia y el empoderamiento.</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="slide-fisiologia-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-cyan !border-askesis-green"><i class="fas fa-dna"></i>Conclusión: La Ciencia Detrás de tu Progreso</h2>
+                    <p class="text-lg mb-4">La fisiología del ejercicio nos revela la <strong class="highlight">increíble capacidad de adaptación del cuerpo humano</strong>. Cada sesión de entrenamiento desencadena una cascada de respuestas que, con el tiempo y la consistencia, nos hacen más fuertes, más rápidos y más resistentes.</p>
+                    <p class="text-lg mb-6">En Askesis, aplicamos estos <strong class="emphasis">principios fisiológicos fundamentales</strong> para diseñar programas que no solo te desafíen, sino que también respeten los procesos de adaptación de tu cuerpo, guiándote hacia tus metas de forma segura y efectiva.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre los Servicios Askesis
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-fisiologia" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4"> <button id="prev-button-fisiologia" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-fisiologia" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-fisiologia" class="hidden my-8 text-center"> <div class="text-2xl font-semibold text-askesis-orange p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-cyan">
+                <i class="fas fa-award text-4xl mr-3 text-askesis-cyan"></i>¡Guía de Fisiología del Ejercicio Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora comprendes mejor cómo tu cuerpo responde y se transforma con el entrenamiento. ¡Utiliza este conocimiento para optimizar tu viaje!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-fisiologia" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Fisiología%20Ejercicio" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Fisiología%20del%20Ejercicio." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterFisiologia"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop();
+            window.addEventListener('resize', adjustSecondaryNavTop);
+
+            const guideContainer = document.getElementById('interactive-presentation-container-fisiologia');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de fisiología no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-fisiologia .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-fisiologia');
+            const nextButton = guideContainer.querySelector('#next-button-fisiologia');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-fisiologia');
+            const progressBar = guideContainer.querySelector('#progress-bar-fisiologia');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-fisiologia');
+            const completionContainer = guideContainer.querySelector('#completion-container-fisiologia');
+            const restartButton = guideContainer.querySelector('#restart-button-fisiologia');
+            const yearSpan = document.getElementById('currentYearFooterFisiologia');
+            const navLinks = document.querySelectorAll('#main-nav-fisiologia .nav-link-fisiologia');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de fisiología no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Intro Fisiología del Ejercicio", "Homeostasis, Estrés, Adaptación", "Respuestas Agudas", "Adaptaciones Crónicas", 
+                    "Adapt. Cardiovasculares", "Adapt. Musculares", "Adapt. Neurales", "Adapt. Hormonales",
+                    "Factores Influyentes", "Sobreentrenamiento", "Aplicaciones Prácticas", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-fisiologia-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de fisiología.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
