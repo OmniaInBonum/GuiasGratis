@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Potencia Muscular: Desata tu Explosividad</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Potencia Muscular: Descubre la ciencia, métodos y estrategias para desarrollar tu capacidad de generar fuerza rápidamente y maximizar tu rendimiento deportivo.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#dc3545',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1; /* Primary for this guide */
+            --askesis-red: #dc3545;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-potencia { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.4rem; 
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.6rem; 
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-potencia:hover,
+        .secondary-nav-askesis .nav-link-potencia.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-purple); /* Purple for potencia theme */
+        }
+        .secondary-nav-askesis .nav-link-potencia.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.90); /* Darker overlay for potencia */
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px;
+            max-width: 960px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-purple); /* Purple as primary for potencia */
+            font-size: 2.4em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-green); /* Green accent */
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-green); 
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-blue); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-orange);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--askesis-orange); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f1e6"; /* fa-bolt-lightning or fa-rocket */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-purple); /* Purple bullets */
+            position: absolute;
+            left: 0;
+            top: 7px;
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: rgba(0, 90, 156, 0.3); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(220, 53, 69, 0.25); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: rgba(111, 66, 193, 0.25); border-left-color: var(--askesis-purple); color: var(--askesis-text-white);} /* Purple tip box */
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); }
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-purple); } /* Purple strong text in tip */
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-purple); /* Purple CTA */
+            color: var(--askesis-text-white);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(111, 66, 193, 0.4); /* Purple shadow */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #5a349b; /* Darker purple */
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(111, 66, 193, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #004b80;
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-potencia { font-size: 0.55rem; padding: 0.3rem 0.35rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-potencia { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-potencia" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-potencia-0" class="nav-link-potencia active">Intro</a></li>
+            <li><a href="#slide-potencia-1" class="nav-link-potencia">Importancia</a></li>
+            <li><a href="#slide-potencia-2" class="nav-link-potencia">Mecanismos</a></li>
+            <li><a href="#slide-potencia-3" class="nav-link-potencia">Variables (I)</a></li>
+            <li><a href="#slide-potencia-4" class="nav-link-potencia">Variables (II)</a></li>
+            <li><a href="#slide-potencia-5" class="nav-link-potencia">Métodos</a></li>
+            <li><a href="#slide-potencia-6" class="nav-link-potencia">Periodización</a></li>
+            <li><a href="#slide-potencia-7" class="nav-link-potencia">Testeo</a></li>
+            <li><a href="#slide-potencia-8" class="nav-link-potencia">Nutrición/Recup.</a></li>
+            <li><a href="#slide-potencia-9" class="nav-link-potencia">Errores</a></li>
+            <li><a href="#slide-potencia-10" class="nav-link-potencia">Fuerza vs Potencia</a></li>
+            <li><a href="#slide-potencia-11" class="nav-link-potencia">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-potencia" class="py-8"> <div id="step-indicator-potencia" class="text-center mb-4 text-lg font-semibold text-askesis-orange font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-potencia" class="bg-gradient-to-r from-askesis-orange to-askesis-purple h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div> </div>
+
+        <div id="slides-container-potencia"> <section id="slide-potencia-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-bolt"></i>Potencia Muscular: La Clave de la Explosividad</h1>
+                    <p class="mb-3">La <strong class="highlight">potencia muscular</strong> se define como la capacidad del sistema neuromuscular para producir la <strong class="highlight">mayor cantidad de fuerza en el menor tiempo posible</strong> (Potencia = Fuerza x Velocidad). Es un componente esencial del rendimiento en la mayoría de los deportes y actividades que requieren movimientos rápidos y explosivos.</p>
+                    <p>Esta guía profundiza en la <strong class="highlight">ciencia detrás del desarrollo de la potencia</strong>, los métodos de entrenamiento más efectivos, y cómo aplicar estos conocimientos para desatar tu máxima capacidad explosiva.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> La potencia no es solo para atletas de élite; mejorarla puede <strong class="emphasis">transformar tu rendimiento, prevenir lesiones y mejorar tu funcionalidad</strong> en la vida diaria.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-potencia-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-running"></i>¿Por Qué es Importante la Potencia Muscular?</h2>
+                    <p>La capacidad de generar fuerza rápidamente es crucial en una multitud de contextos:</p>
+                    <ul>
+                        <li><strong>Rendimiento Deportivo:</strong> Esencial en sprints, saltos, lanzamientos, golpes, cambios de dirección y la mayoría de las acciones explosivas en deportes como el fútbol, baloncesto, atletismo, artes marciales, halterofilia, etc.</li>
+                        <li><strong>Prevención de Lesiones:</strong> Una mayor capacidad para generar fuerza rápidamente puede ayudar a estabilizar articulaciones y reaccionar ante perturbaciones inesperadas, reduciendo el riesgo de caídas o lesiones agudas.</li>
+                        <li><strong>Funcionalidad en la Vida Diaria:</strong> Levantarse de una silla rápidamente, subir escaleras, reaccionar para evitar una caída, o levantar objetos de forma explosiva.</li>
+                        <li><strong>Mantenimiento de la Función en Adultos Mayores:</strong> La potencia muscular tiende a disminuir más rápidamente con la edad que la fuerza máxima, y es un predictor importante de la capacidad funcional y el riesgo de caídas.</li>
+                        <li><strong>Complemento a la Fuerza Máxima:</strong> Mientras la fuerza máxima es la base, la potencia es la capacidad de aplicar esa fuerza a alta velocidad.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-potencia-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-atom"></i>Mecanismos Fisiológicos de la Potencia</h2>
+                    <p>La producción de potencia muscular depende de una interacción compleja de factores neurales y musculares:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-brain"></i> Factores Neurales:</h3>
+                    <ul>
+                        <li><strong>Tasa de Desarrollo de la Fuerza (RFD - Rate of Force Development):</strong> La capacidad de producir fuerza rápidamente en las fases iniciales de la contracción (primeros 50-200 ms). Altamente dependiente de la activación neural.</li>
+                        <li><strong>Reclutamiento y Frecuencia de Disparo de Unidades Motoras:</strong> Activar rápidamente un gran número de unidades motoras (especialmente las de tipo II, rápidas) y hacerlas disparar a alta frecuencia.</li>
+                        <li><strong>Sincronización de Unidades Motoras:</strong> Coordinación temporal de la activación de las unidades motoras.</li>
+                        <li><strong>Inhibición Antagonista Reducida:</strong> Menor activación de los músculos que se oponen al movimiento.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-running"></i> Factores Musculares y Tendinosos:</h3>
+                    <ul>
+                        <li><strong>Tipo de Fibra Muscular:</strong> Mayor proporción de fibras tipo II (rápidas y potentes).</li>
+                        <li><strong>Arquitectura Muscular:</strong> Área de sección transversal fisiológica (ACSF) y longitud de los fascículos.</li>
+                        <li><strong>Ciclo Estiramiento-Acortamiento (SSC):</strong> Capacidad de utilizar la energía elástica almacenada durante una fase excéntrica para potenciar la fase concéntrica.</li>
+                        <li><strong>Rigidez Musculotendinosa:</strong> Una rigidez óptima permite una transmisión eficiente de la fuerza.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-potencia-3" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-sliders-h"></i>Variables Clave (Parte 1): Intensidad y Velocidad</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-percentage"></i> Intensidad de Carga (%1RM)</h3>
+                    <p>La carga óptima para el desarrollo de la potencia es un tema debatido y depende del ejercicio y el objetivo específico, pero generalmente se encuentra en un <strong class="highlight">espectro que va desde cargas ligeras hasta moderadamente pesadas</strong>.</p>
+                    <ul>
+                        <li><strong>Cargas Ligeras (0-30% 1RM):</strong> Ideales para movimientos de muy alta velocidad y para mejorar la RFD en las fases iniciales. (Ej. saltos sin carga, lanzamientos ligeros).</li>
+                        <li><strong>Cargas Moderadas (30-70% 1RM):</strong> A menudo consideradas el "punto dulce" para la potencia máxima en muchos ejercicios balísticos y levantamientos olímpicos. Permiten un buen equilibrio entre fuerza y velocidad.</li>
+                        <li><strong>Cargas Pesadas (70-90% 1RM):</strong> Útiles para desarrollar la "fuerza-velocidad" (capacidad de mover cargas pesadas rápidamente). La velocidad será menor, pero la fuerza aplicada es alta.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tachometer-alt"></i> Velocidad de Ejecución</h3>
+                    <p>Independientemente de la carga, la <strong class="highlight">intención de mover la carga a la máxima velocidad concéntrica posible</strong> es crucial para el entrenamiento de potencia. Incluso si la carga es pesada y el movimiento es objetivamente lento, la intención de acelerar al máximo recluta las fibras rápidas.</p>
+                    <p>El Entrenamiento Basado en la Velocidad (VBT) utiliza tecnología para medir la velocidad de la barra y guiar la selección de cargas y la fatiga.</p>
+                     <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Curva Fuerza-Velocidad:</strong> La potencia máxima se produce en un punto intermedio de esta curva. Entrenar en diferentes puntos de la curva puede ser beneficioso.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-potencia-4" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-cogs"></i>Variables Clave (Parte 2): Volumen, Ejercicios, Descanso</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-calculator"></i> Volumen de Entrenamiento</h3>
+                    <p>Para el entrenamiento de potencia, el volumen total de repeticiones suele ser <strong class="highlight">menor</strong> que en el entrenamiento de hipertrofia, para mantener la calidad y la velocidad de ejecución.</p>
+                    <ul>
+                        <li><strong>Series:</strong> Típicamente 3-6 series por ejercicio.</li>
+                        <li><strong>Repeticiones:</strong> Generalmente bajas (1-6 repeticiones por serie) para asegurar que cada repetición se realice con máxima velocidad y calidad, evitando la fatiga excesiva dentro de la serie.</li>
+                    </ul>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-check-double"></i> Selección de Ejercicios</h3>
+                    <p>Se priorizan ejercicios que permitan una <strong class="highlight">alta velocidad de ejecución y/o la expresión de fuerza en un corto período</strong>:</p>
+                    <ul>
+                        <li><strong>Levantamientos Olímpicos y sus Derivados:</strong> Arrancadas (snatch), cargadas (clean), envión (jerk), tirones (pulls).</li>
+                        <li><strong>Ejercicios Balísticos:</strong> Saltos (squat jumps, box jumps, drop jumps), lanzamientos de balón medicinal, press de banca con lanzamiento.</li>
+                        <li><strong>Ejercicios Pliométricos:</strong> Utilizan el ciclo estiramiento-acortamiento (SSC) para generar movimientos explosivos.</li>
+                        <li><strong>Ejercicios de Fuerza Tradicionales Realizados con Máxima Intención de Velocidad:</strong> Sentadillas, press de banca, peso muerto con cargas moderadas y foco en la aceleración.</li>
+                    </ul>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-hourglass-half"></i> Descanso entre Series</h3>
+                    <p>Se requieren <strong class="highlight">períodos de descanso completos</strong> para permitir la recuperación del sistema nervioso y las reservas de energía rápida (ATP-PC), asegurando que cada serie se realice con máxima potencia.</p>
+                    <ul>
+                        <li>Típicamente <strong class="highlight">2-5 minutos o más</strong>, dependiendo de la intensidad y complejidad del ejercicio.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-potencia-5" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-fire-alt"></i>Métodos Específicos para Desarrollar Potencia</h2>
+                    <p>Existen varios métodos probados para el desarrollo de la potencia muscular:</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-angle-double-up"></i> Pliometría</h4>
+                    <p>Ejercicios que utilizan el Ciclo Estiramiento-Acortamiento (SSC) para producir movimientos explosivos. Implican una rápida fase excéntrica (estiramiento) seguida inmediatamente por una potente contracción concéntrica. Ejemplos: saltos al cajón, drop jumps, saltos con vallas, rebotes.</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-weight-hanging"></i> Levantamientos Olímpicos (Weightlifting)</h4>
+                    <p>La arrancada (snatch) y el dos tiempos (clean & jerk), junto con sus variantes (power snatch, power clean, tirones), son ejercicios complejos que requieren y desarrollan altos niveles de potencia, fuerza, velocidad y coordinación.</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-basketball-ball"></i> Entrenamiento Balístico</h4>
+                    <p>Ejercicios donde hay una fase de aceleración a lo largo de todo el rango de movimiento y el objeto (o el propio cuerpo) es proyectado o lanzado. Ejemplos: lanzamientos de balón medicinal, press de banca con lanzamiento, sentadilla con salto (con o sin carga).</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-exchange-alt"></i> Entrenamiento de Contraste y Complejo</h4>
+                    <ul>
+                        <li><strong>Contraste:</strong> Alternar series de un ejercicio de fuerza pesada con un ejercicio de potencia biomecánicamente similar y más ligero (ej. sentadilla pesada seguida de saltos al cajón). Busca la Potenciación Post-Activación (PAP).</li>
+                        <li><strong>Complejo:</strong> Realizar el ejercicio de fuerza y el de potencia en la misma sesión, pero no necesariamente alternados inmediatamente.</li>
+                    </ul>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-tachometer-alt"></i> Entrenamiento Basado en la Velocidad (VBT)</h4>
+                    <p>Utilizar dispositivos para medir la velocidad de la barra o del movimiento. Permite ajustar la carga en tiempo real para entrenar en zonas de velocidad específicas que optimizan la potencia, y para monitorizar la fatiga.</p>
+                    
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Progresión y Técnica:</strong> Todos estos métodos requieren una <strong class="emphasis">base de fuerza adecuada y una técnica impecable</strong> para ser seguros y efectivos. La progresión debe ser gradual.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-potencia-6" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-calendar-check"></i>Periodización del Entrenamiento de Potencia</h2>
+                    <p>La potencia se desarrolla de manera óptima sobre una base de fuerza. Por lo tanto, la periodización a menudo sigue una secuencia lógica:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-layer-group"></i> Fases Típicas en un Macrociclo:</h3>
+                    <ul>
+                        <li><strong>Fase de Preparación General (Adaptación Anatómica/Hipertrofia):</strong> Desarrollar una base de masa muscular y acondicionamiento general.</li>
+                        <li><strong>Fase de Fuerza Máxima:</strong> Enfocarse en aumentar la capacidad de generar fuerza (componente F de P=F*V).</li>
+                        <li><strong>Fase de Conversión a Potencia:</strong> Reducir ligeramente la carga y aumentar el énfasis en la velocidad de ejecución. Introducir métodos específicos de potencia.</li>
+                        <li><strong>Fase de Mantenimiento de Potencia/Pico (Competitiva):</strong> Mantener los niveles de potencia alcanzados, con volumen reducido y alta especificidad, a menudo utilizando tapering.</li>
+                    </ul>
+                    <p>Dentro de los mesociclos y microciclos, se pueden utilizar modelos como la periodización por bloques (un bloque enfocado en fuerza, seguido de un bloque de potencia) o la periodización ondulante (variando el énfasis en fuerza y potencia dentro de la semana).</p>
+                     <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Especificidad Deportiva:</strong> La periodización debe alinearse con el calendario competitivo y las demandas específicas del deporte.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-potencia-7" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-chart-bar"></i>Testeo y Monitoreo de la Potencia Muscular</h2>
+                    <p>Evaluar la potencia es crucial para medir el progreso y ajustar el entrenamiento.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-vial"></i> Métodos Comunes de Testeo:</h3>
+                    <ul>
+                        <li><strong>Saltos Verticales y Horizontales:</strong> Altura del salto (CMJ, SJ, drop jump), distancia del salto (broad jump). Se pueden usar plataformas de contacto, acelerómetros o aplicaciones.</li>
+                        <li><strong>Lanzamientos de Balón Medicinal:</strong> Distancia de lanzamiento con un balón de peso estandarizado.</li>
+                        <li><strong>Sprints Cortos:</strong> Tiempos en distancias cortas (ej. 10, 20, 30 metros) usando fotocélulas.</li>
+                        <li><strong>Tests de Potencia con Carga (VBT):</strong> Medir la potencia de salida (en vatios) o la velocidad de la barra en ejercicios como sentadilla con salto cargada o press de banca con una carga específica.</li>
+                        <li><strong>Tests Específicos del Deporte:</strong> Pruebas que simulan acciones clave del deporte (ej. test de agilidad con balón, velocidad de golpeo).</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-clipboard-check"></i> Monitoreo Continuo:</h3>
+                    <p>Además de los tests formales, el monitoreo de la <strong class="highlight">velocidad de ejecución en los entrenamientos (VBT)</strong>, el RPE, y las sensaciones subjetivas del atleta pueden proporcionar información valiosa sobre la fatiga y la adaptación.</p>
+                    <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Protocolos Estandarizados:</strong> Para que los tests sean fiables, es crucial utilizar protocolos estandarizados (mismo calentamiento, mismos procedimientos, mismo equipamiento).
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-potencia-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-utensils"></i>Nutrición y Recuperación para la Potencia</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-drumstick-bite"></i> Nutrición:</h3>
+                    <ul>
+                        <li><strong>Balance Calórico:</strong> Generalmente calorías de mantenimiento o un ligero superávit para soportar el entrenamiento intenso y las adaptaciones.</li>
+                        <li><strong>Carbohidratos:</strong> <strong class="highlight">Cruciales</strong> como principal fuente de energía para actividades de alta intensidad y corta duración. Asegurar una adecuada ingesta para reponer glucógeno.</li>
+                        <li><strong>Proteínas:</strong> Importantes para la reparación y adaptación muscular (1.6-2.2 g/kg).</li>
+                        <li><strong>Creatina:</strong> Suplemento con fuerte evidencia para mejorar el rendimiento en esfuerzos repetidos de alta intensidad y potencia.</li>
+                        <li><strong>Cafeína:</strong> Puede mejorar el estado de alerta, reducir la percepción de esfuerzo y potenciar el rendimiento en tareas de potencia.</li>
+                        <li><strong>Hidratación:</strong> Esencial para el rendimiento neuromuscular.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-moon"></i> Recuperación:</h3>
+                    <ul>
+                        <li><strong>Sueño:</strong> <strong class="highlight">Fundamental</strong> para la recuperación del sistema nervioso central (SNC), que es altamente demandado en el entrenamiento de potencia. 7-9 horas de calidad.</li>
+                        <li><strong>Descanso entre Sesiones de Alta Intensidad:</strong> El entrenamiento de potencia es neuralmente fatigante. Se necesitan suficientes días de recuperación (48-72h) entre sesiones de alta carga neural.</li>
+                        <li><strong>Recuperación Activa:</strong> Actividad ligera para promover el flujo sanguíneo.</li>
+                        <li><strong>Manejo del Estrés:</strong> El estrés crónico puede mermar la capacidad de generar potencia y recuperarse.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-potencia-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-skull-crossbones text-askesis-red"></i>Errores Comunes al Entrenar Potencia</h2>
+                    <ul>
+                        <li><strong class="critical-text">Entrenar Potencia sin una Base de Fuerza Adecuada:</strong> Intentar ser explosivo sin ser suficientemente fuerte es ineficaz y aumenta el riesgo de lesión.</li>
+                        <li><strong class="critical-text">Excesivo Volumen de Entrenamiento:</strong> La potencia se entrena con calidad, no cantidad. Demasiadas repeticiones llevan a la fatiga y a una disminución de la velocidad y calidad del movimiento.</li>
+                        <li><strong class="critical-text">Descansos Insuficientes entre Series:</strong> No permite la recuperación del SNC y la resíntesis de ATP-PC, crucial para esfuerzos explosivos.</li>
+                        <li><strong class="critical-text">Mala Técnica de Ejecución:</strong> Especialmente en levantamientos olímpicos y pliometría, una mala técnica es ineficaz y peligrosa.</li>
+                        <li><strong class="critical-text">No Entrenar con la Intención de Máxima Velocidad:</strong> Mover la carga lentamente, incluso si es ligera, no desarrolla potencia.</li>
+                        <li><strong class="critical-text">Confundir Entrenamiento de Potencia con Cardio de Alta Intensidad:</strong> El objetivo no es la fatiga metabólica extrema, sino la calidad del movimiento explosivo.</li>
+                        <li><strong class="critical-text">Falta de Especificidad:</strong> No elegir ejercicios que se transfieran al rendimiento deportivo deseado.</li>
+                    </ul>
+                     <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Enfoque Askesis:</strong> La potencia se cultiva con <strong class="emphasis">precisión técnica, intención explosiva y una gestión inteligente de la fatiga</strong>.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="slide-potencia-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-balance-scale"></i>Fuerza vs. Potencia vs. Hipertrofia</h2>
+                    <p>Es importante entender las diferencias y sinergias entre estas cualidades:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-fist-raised"></i> Fuerza Máxima:</h3>
+                    <p>Capacidad de generar la máxima fuerza voluntaria, <strong class="highlight">independientemente del tiempo</strong>. Se entrena con cargas altas (≥85% 1RM) y bajas repeticiones.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-bolt"></i> Potencia Muscular:</h3>
+                    <p>Capacidad de generar fuerza <strong class="highlight">rápidamente (Fuerza x Velocidad)</strong>. Se entrena con un espectro de cargas (ligeras a moderadamente pesadas) movidas a la máxima velocidad intencional.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-layer-group"></i> Hipertrofia Muscular:</h3>
+                    <p>Aumento del tamaño muscular. Se entrena con un enfoque en el <strong class="highlight">volumen total, tensión mecánica y estrés metabólico</strong>, a menudo con cargas moderadas y repeticiones moderadas-altas cerca del fallo.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-link"></i> Sinergias:</h3>
+                    <ul>
+                        <li>Una mayor fuerza máxima <strong class="highlight">crea un mayor potencial para la potencia</strong>.</li>
+                        <li>Músculos más grandes (hipertrofia) tienen un <strong class="highlight">mayor potencial para ser más fuertes y potentes</strong>.</li>
+                        <li>El entrenamiento de potencia también puede contribuir a la fuerza y, en menor medida, a la hipertrofia.</li>
+                    </ul>
+                    <p>Una periodización bien diseñada a menudo incluye fases que enfatizan cada una de estas cualidades de forma secuencial o concurrente.</p>
+                </div>
+            </section>
+
+            <section id="slide-potencia-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-purple !border-askesis-green"><i class="fas fa-rocket"></i>Conclusión: Desata tu Potencial Explosivo</h2>
+                    <p class="text-lg mb-4">El desarrollo de la potencia muscular es un componente <strong class="highlight">esencial para alcanzar el máximo rendimiento deportivo</strong> y mejorar la funcionalidad en la vida cotidiana. Requiere un entendimiento de sus mecanismos y una aplicación inteligente de los principios y métodos de entrenamiento.</p>
+                    <p class="text-lg mb-6">En Askesis, te ayudamos a <strong class="emphasis">integrar el entrenamiento de potencia de forma segura y efectiva</strong> en tu programa, basándonos en la ciencia y adaptándonos a tus objetivos individuales para que puedas moverte más rápido, saltar más alto y ser más explosivo.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre los Servicios Askesis
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-potencia" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4"> <button id="prev-button-potencia" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-potencia" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-potencia" class="hidden my-8 text-center"> <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-purple">
+                <i class="fas fa-bolt-lightning text-4xl mr-3 text-askesis-purple"></i>¡Guía de Potencia Muscular Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora tienes las herramientas para entrenar tu explosividad de forma científica. ¡Aplica este conocimiento y libera tu poder!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-potencia" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Potencia%20Muscular" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Potencia%20Muscular." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterPotencia"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop();
+            window.addEventListener('resize', adjustSecondaryNavTop);
+
+            const guideContainer = document.getElementById('interactive-presentation-container-potencia');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de potencia no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-potencia .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-potencia');
+            const nextButton = guideContainer.querySelector('#next-button-potencia');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-potencia');
+            const progressBar = guideContainer.querySelector('#progress-bar-potencia');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-potencia');
+            const completionContainer = guideContainer.querySelector('#completion-container-potencia');
+            const restartButton = guideContainer.querySelector('#restart-button-potencia');
+            const yearSpan = document.getElementById('currentYearFooterPotencia');
+            const navLinks = document.querySelectorAll('#main-nav-potencia .nav-link-potencia');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de potencia no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Introducción a la Potencia", "Importancia de la Potencia", "Mecanismos Fisiológicos", "Variables: Intensidad y Velocidad", 
+                    "Variables: Volumen, Ejercicios, Descanso", "Métodos Específicos", "Periodización para Potencia", "Testeo y Monitoreo",
+                    "Nutrición y Recuperación", "Errores Comunes", "Fuerza vs Potencia vs Hipertrofia", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-potencia-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de potencia.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
