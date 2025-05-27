@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Psicología Deportiva: Forjando una Mentalidad de Campeón</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Psicología Deportiva: Domina la motivación, concentración, manejo de la presión y otras herramientas mentales para optimizar tu rendimiento y bienestar.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1', /* Primary for this guide */
+                        'askesis-red': '#B80F0A',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                        'askesis-purple-light': 'rgba(111, 66, 193, 0.1)',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #B80F0A;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+            --askesis-purple-light: rgba(111, 66, 193, 0.1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.97), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-psicologia { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.35rem; 
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.55rem; 
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-psicologia:hover,
+        .secondary-nav-askesis .nav-link-psicologia.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-purple); 
+        }
+        .secondary-nav-askesis .nav-link-psicologia.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.96); 
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px;
+            max-width: 980px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-purple); 
+            font-size: 2.4em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-green); 
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-green); 
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-blue); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-orange);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--askesis-orange); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f005"; /* fa-star or similar for achievement/mindset */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-purple); 
+            position: absolute;
+            left: 0;
+            top: 7px;
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: rgba(0, 90, 156, 0.3); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(184, 15, 10, 0.2); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: var(--askesis-purple-light); border-left-color: var(--askesis-purple); color: var(--askesis-text-white);} 
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); } 
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-purple); } 
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-purple); 
+            color: var(--askesis-text-white);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(111, 66, 193, 0.4); 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #5a349b; 
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(111, 66, 193, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-orange); 
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #cf6a10; 
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-psicologia { font-size: 0.5rem; padding: 0.3rem 0.3rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-psicologia { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-psicologia" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-psicologia-0" class="nav-link-psicologia active">Intro</a></li>
+            <li><a href="#slide-psicologia-1" class="nav-link-psicologia">Motivación</a></li>
+            <li><a href="#slide-psicologia-2" class="nav-link-psicologia">Metas</a></li>
+            <li><a href="#slide-psicologia-3" class="nav-link-psicologia">Concentración</a></li>
+            <li><a href="#slide-psicologia-4" class="nav-link-psicologia">Manejo Presión</a></li>
+            <li><a href="#slide-psicologia-5" class="nav-link-psicologia">Visualización</a></li>
+            <li><a href="#slide-psicologia-6" class="nav-link-psicologia">Autoconfianza</a></li>
+            <li><a href="#slide-psicologia-7" class="nav-link-psicologia">Resiliencia</a></li>
+            <li><a href="#slide-psicologia-8" class="nav-link-psicologia">Cohesión Equipo</a></li>
+            <li><a href="#slide-psicologia-9" class="nav-link-psicologia">Comunicación</a></li>
+            <li><a href="#slide-psicologia-10" class="nav-link-psicologia">Burnout</a></li>
+            <li><a href="#slide-psicologia-11" class="nav-link-psicologia">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-psicologia" class="py-8"> <div id="step-indicator-psicologia" class="text-center mb-4 text-lg font-semibold text-askesis-orange font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-psicologia" class="bg-gradient-to-r from-askesis-orange to-askesis-purple h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        </div>
+
+        <div id="slides-container-psicologia"> <section id="slide-psicologia-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-brain"></i>Psicología Deportiva: Forjando una Mentalidad de Campeón</h1>
+                    <p class="mb-3">La <strong class="highlight">psicología deportiva</strong> es la rama de la psicología que estudia los factores mentales y emocionales que influyen en el rendimiento deportivo, el ejercicio físico y la actividad física en general. No se trata solo de la élite; es <strong class="highlight">fundamental para cualquier persona</strong> que busque mejorar, superar obstáculos y disfrutar más de su actividad.</p>
+                    <p>Esta guía te introducirá a los <strong class="highlight">conceptos clave y herramientas prácticas</strong> de la psicología deportiva para ayudarte a desarrollar una mentalidad más fuerte, resiliente y enfocada.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> El cuerpo y la mente son inseparables. Entrenar tu mente es tan importante como entrenar tu cuerpo para <strong class="emphasis">alcanzar tu máximo potencial</strong>.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-psicologia-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-fire"></i>Motivación: El Motor del Éxito</h2>
+                    <p>La motivación es la <strong class="highlight">fuerza interna o externa que impulsa, dirige y mantiene la conducta</strong> hacia un objetivo. Es el "porqué" detrás de tus acciones.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tags"></i> Tipos de Motivación:</h3>
+                    <ul>
+                        <li><strong>Motivación Intrínseca:</strong> Proviene del <strong class="highlight">interior del individuo</strong>. Se realiza la actividad por el placer, la satisfacción y el disfrute inherente a ella (ej. amor por el deporte, superación personal, sensación de competencia). Es la más poderosa y sostenible a largo plazo.</li>
+                        <li><strong>Motivación Extrínseca:</strong> Proviene de <strong class="highlight">factores externos</strong>, como recompensas, reconocimiento, evitar castigos o la aprobación social (ej. ganar trofeos, recibir elogios, obtener un contrato). Puede ser útil, pero si es la única fuente, la motivación puede disminuir si los factores externos desaparecen.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-cogs"></i> Estrategias para Fomentar la Motivación:</h3>
+                    <ul>
+                        <li>Encontrar tu "porqué" personal y profundo.</li>
+                        <li>Establecer metas desafiantes pero alcanzables.</li>
+                        <li>Centrarse en el proceso y la mejora personal, no solo en los resultados.</li>
+                        <li>Buscar variedad y diversión en el entrenamiento.</li>
+                        <li>Crear un entorno de apoyo positivo.</li>
+                        <li>Celebrar los pequeños logros.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-psicologia-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-bullseye"></i>Establecimiento de Metas Efectivas (SMART)</h2>
+                    <p>Establecer metas claras y bien definidas es una de las herramientas más poderosas para dirigir la motivación y el esfuerzo.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-check-double"></i> El Acrónimo SMART:</h3>
+                    <ul>
+                        <li><strong>S - Specific (Específicas):</strong> ¿Qué quieres lograr exactamente? Metas claras y bien definidas. (Ej. "Correr 5km en menos de 25 minutos" en lugar de "Correr más rápido").</li>
+                        <li><strong>M - Measurable (Medibles):</strong> ¿Cómo sabrás que has alcanzado tu meta? Deben ser cuantificables. (Ej. "Levantar 100kg en sentadilla" vs. "Ser más fuerte").</li>
+                        <li><strong>A - Achievable (Alcanzables):</strong> Deben ser desafiantes pero realistas, considerando tus capacidades y circunstancias actuales.</li>
+                        <li><strong>R - Relevant (Relevantes):</strong> Deben ser importantes para ti y estar alineadas con tus valores y objetivos a largo plazo.</li>
+                        <li><strong>T - Time-bound (Con Plazo Definido):</strong> Establecer una fecha límite crea un sentido de urgencia y facilita la planificación.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-layer-group"></i> Tipos de Metas:</h3>
+                    <ul>
+                        <li><strong>Metas de Resultado:</strong> Se centran en el resultado final de una competición o evento (ej. ganar, obtener una medalla). Dependen también de factores externos.</li>
+                        <li><strong>Metas de Rendimiento:</strong> Se centran en alcanzar un estándar personal de rendimiento, independientemente de los demás (ej. mejorar tu marca personal, completar un número de repeticiones).</li>
+                        <li><strong>Metas de Proceso:</strong> Se centran en las acciones y comportamientos específicos que necesitas realizar para alcanzar tus metas de rendimiento y resultado (ej. "mantener una técnica correcta en cada repetición", "dormir 8 horas cada noche"). Son las que más control tienes.</li>
+                    </ul>
+                     <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Enfoque Askesis:</strong> Combina los tres tipos de metas, pero <strong class="emphasis">enfócate principalmente en las metas de proceso y rendimiento</strong>, ya que están bajo tu control directo.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-psicologia-3" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-crosshairs"></i>Concentración y Enfoque (Atención)</h2>
+                    <p>La concentración es la capacidad de <strong class="highlight">dirigir y mantener la atención en los estímulos relevantes</strong> de la tarea, ignorando las distracciones internas y externas. Es crucial para el aprendizaje de habilidades y el rendimiento óptimo.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-directions"></i> Dimensiones de la Atención:</h3>
+                    <ul>
+                        <li><strong>Amplitud:</strong> Ancha (percibir muchos estímulos a la vez, ej. un base en baloncesto) vs. Estrecha (enfocarse en uno o pocos estímulos, ej. un golfista en el putt).</li>
+                        <li><strong>Dirección:</strong> Externa (enfocarse en el entorno, ej. la pelota, el oponente) vs. Interna (enfocarse en pensamientos, sensaciones corporales, ej. la técnica de un levantamiento).</li>
+                    </ul>
+                    <p>La capacidad de <strong class="highlight">cambiar flexiblemente entre estos tipos de atención</strong> según las demandas de la situación es clave.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tools"></i> Estrategias para Mejorar la Concentración:</h3>
+                    <ul>
+                        <li><strong>Establecer Rutinas Pre-Rendimiento:</strong> Ayudan a enfocar la atención.</li>
+                        <li><strong>Palabras Clave o Señales de Enfoque:</strong> Frases cortas o acciones para redirigir la atención.</li>
+                        <li><strong>Entrenamiento de Simulación:</strong> Practicar bajo condiciones que simulen la competición, incluyendo distracciones.</li>
+                        <li><strong>Mindfulness y Meditación:</strong> Pueden mejorar la capacidad general de atención y conciencia.</li>
+                        <li><strong>Control del Diálogo Interno:</strong> Reemplazar pensamientos negativos o distractores por pensamientos constructivos.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-psicologia-4" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-user-shield"></i>Manejo de la Presión y la Ansiedad Competitiva</h2>
+                    <p>La <strong class="highlight">presión</strong> es la percepción de que algo importante está en juego. La <strong class="highlight">ansiedad competitiva</strong> es una respuesta emocional negativa a situaciones deportivas percibidas como amenazantes o estresantes.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-heartbeat"></i> Componentes de la Ansiedad:</h3>
+                    <ul>
+                        <li><strong>Cognitiva:</strong> Preocupaciones, dudas, pensamientos negativos sobre el rendimiento.</li>
+                        <li><strong>Somática:</strong> Síntomas físicos como aumento de la frecuencia cardíaca, tensión muscular, sudoración, malestar estomacal.</li>
+                    </ul>
+                    <p>Un cierto nivel de activación (arousal) es necesario para el rendimiento óptimo, pero una ansiedad excesiva es perjudicial (Teoría de la U Invertida).</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-hands-helping"></i> Estrategias de Afrontamiento:</h3>
+                    <ul>
+                        <li><strong>Técnicas de Relajación:</strong> Respiración profunda (diafragmática), relajación muscular progresiva.</li>
+                        <li><strong>Reestructuración Cognitiva:</strong> Identificar y cambiar pensamientos negativos o irracionales por otros más realistas y positivos.</li>
+                        <li><strong>Visualización y Ensayo Mental Positivo.</strong></li>
+                        <li><strong>Enfoque en el Proceso y en lo Controlable:</strong> Centrarse en la ejecución de la tarea en lugar del resultado final.</li>
+                        <li><strong>Establecimiento de Rutinas Sólidas:</strong> Proporcionan una sensación de control y familiaridad.</li>
+                        <li><strong>Exposición Gradual a Situaciones de Presión:</strong> Para desarrollar la capacidad de afrontamiento.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-psicologia-5" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-eye"></i>Visualización y Ensayo Mental</h2>
+                    <p>La visualización (o imaginería) implica <strong class="highlight">crear o recrear experiencias en la mente utilizando todos los sentidos</strong> (vista, oído, tacto, olfato, sensaciones cinestésicas). El ensayo mental es la práctica sistemática de estas imágenes.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-check"></i> Beneficios:</h3>
+                    <ul>
+                        <li>Mejora del aprendizaje y ejecución de habilidades motoras.</li>
+                        <li>Aumento de la autoconfianza.</li>
+                        <li>Manejo de la ansiedad y el estrés.</li>
+                        <li>Preparación para la competición (familiarización con el entorno, estrategias).</li>
+                        <li>Rehabilitación de lesiones (visualizar la curación y el retorno al juego).</li>
+                        <li>Mantenimiento de habilidades durante períodos de inactividad.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-lightbulb"></i> Claves para una Visualización Efectiva:</h3>
+                    <ul>
+                        <li><strong>Vividez:</strong> Crear imágenes claras y detalladas.</li>
+                        <li><strong>Controlabilidad:</strong> Ser capaz de manipular las imágenes a voluntad.</li>
+                        <li><strong>Perspectiva:</strong> Interna (verse a uno mismo desde dentro) o externa (verse como un espectador).</li>
+                        <li><strong>Incorporar Múltiples Sentidos.</strong></li>
+                        <li><strong>Regularidad y Consistencia en la Práctica.</strong></li>
+                        <li><strong>Visualizar el Éxito y el Afrontamiento de Obstáculos.</strong></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-psicologia-6" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-user-graduate"></i>Autoconfianza y Autoeficacia</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-shield-alt"></i> Autoconfianza Deportiva:</h3>
+                    <p>Es la <strong class="highlight">creencia realista que tiene un atleta sobre su capacidad para tener éxito</strong> en su deporte o en una tarea específica. Es un predictor clave del rendimiento.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-cogs"></i> Autoeficacia (Bandura):</h3>
+                    <p>Es la <strong class="highlight">creencia en la propia capacidad para organizar y ejecutar los cursos de acción necesarios para producir determinados logros o resultados</strong>. Es específica de la situación.</p>
+                    <p>Fuentes de Autoeficacia:</p>
+                    <ul>
+                        <li><strong>Logros de Ejecución (Experiencias de Éxito Pasadas):</strong> La fuente más poderosa.</li>
+                        <li><strong>Experiencias Vicarias (Modelado):</strong> Ver a otros similares tener éxito.</li>
+                        <li><strong>Persuasión Verbal:</strong> Ánimo y feedback positivo de otros significativos (entrenadores, compañeros).</li>
+                        <li><strong>Estados Fisiológicos y Emocionales:</strong> Interpretar la activación fisiológica (ej. nerviosismo) de manera positiva.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-arrow-up"></i> Estrategias para Construir Autoconfianza:</h3>
+                    <ul>
+                        <li>Establecer y alcanzar metas progresivas.</li>
+                        <li>Preparación física y mental exhaustiva.</li>
+                        <li>Utilizar la visualización positiva.</li>
+                        <li>Controlar el diálogo interno (autocharla positiva).</li>
+                        <li>Recordar éxitos pasados.</li>
+                        <li>Actuar con confianza (lenguaje corporal).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-psicologia-7" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-mountain"></i>Resiliencia: Superando la Adversidad</h2>
+                    <p>La resiliencia es la <strong class="highlight">capacidad de recuperarse rápidamente de las dificultades, el estrés o la adversidad</strong>, y adaptarse positivamente a situaciones desafiantes. Es esencial para el éxito a largo plazo en el deporte.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-key"></i> Características de los Atletas Resilientes:</h3>
+                    <ul>
+                        <li>Actitud positiva y optimista.</li>
+                        <li>Fuerte autoconfianza y autoeficacia.</li>
+                        <li>Capacidad para regular las emociones.</li>
+                        <li>Enfoque en lo controlable.</li>
+                        <li>Habilidades de afrontamiento efectivas.</li>
+                        <li>Red de apoyo social sólida.</li>
+                        <li>Capacidad para aprender de los errores y fracasos.</li>
+                        <li>Perseverancia y determinación.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-dumbbell"></i> Cómo Desarrollar la Resiliencia:</h3>
+                    <ul>
+                        <li>Establecer metas realistas y centrarse en el proceso.</li>
+                        <li>Desarrollar una mentalidad de crecimiento (creer que las habilidades se pueden desarrollar).</li>
+                        <li>Practicar el autocuidado (sueño, nutrición, descanso).</li>
+                        <li>Construir una red de apoyo fuerte.</li>
+                        <li>Aprender a reinterpretar los contratiempos como oportunidades de aprendizaje.</li>
+                        <li>Practicar técnicas de manejo del estrés y relajación.</li>
+                        <li>Exponerse gradualmente a desafíos para construir la capacidad de superarlos.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-psicologia-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-users"></i>Cohesión de Equipo (Para Deportes Colectivos)</h2>
+                    <p>La cohesión de equipo se refiere al <strong class="highlight">grado en que los miembros de un equipo se mantienen unidos y permanecen comprometidos con los objetivos del grupo</strong>. Es un factor crucial para el éxito en deportes de equipo.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-link"></i> Tipos de Cohesión:</h3>
+                    <ul>
+                        <li><strong>Cohesión de Tarea:</strong> Grado en que los miembros del equipo trabajan juntos para alcanzar objetivos comunes.</li>
+                        <li><strong>Cohesión Social:</strong> Grado en que los miembros del equipo se agradan y disfrutan de la compañía de los demás.</li>
+                    </ul>
+                    <p>Ambos tipos son importantes, aunque la cohesión de tarea suele estar más directamente relacionada con el rendimiento.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-handshake"></i> Factores que Influyen en la Cohesión:</h3>
+                    <ul>
+                        <li>Claridad y aceptación de roles.</li>
+                        <li>Metas de equipo claras y compartidas.</li>
+                        <li>Comunicación efectiva.</li>
+                        <li>Liderazgo del entrenador y de los jugadores.</li>
+                        <li>Éxito del equipo (la cohesión puede llevar al éxito, y el éxito puede aumentar la cohesión).</li>
+                        <li>Estabilidad del equipo.</li>
+                        <li>Normas de grupo positivas.</li>
+                    </ul>
+                     <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Implicación Individual:</strong> Incluso en deportes individuales, tener un "equipo de apoyo" (entrenador, familia, amigos, compañeros de entrenamiento) fuerte puede mejorar la motivación y la resiliencia.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-psicologia-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-comments"></i>Comunicación Efectiva: Atleta-Entrenador</h2>
+                    <p>La relación y la comunicación entre el atleta y el entrenador son <strong class="highlight">fundamentales para el desarrollo y el rendimiento óptimo</strong>.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-check"></i> Características de una Comunicación Efectiva:</h3>
+                    <ul>
+                        <li><strong>Claridad:</strong> Mensajes directos, específicos y fáciles de entender.</li>
+                        <li><strong>Consistencia:</strong> Mensajes coherentes a lo largo del tiempo.</li>
+                        <li><strong>Constructiva:</strong> Feedback enfocado en la mejora, no solo en la crítica.</li>
+                        <li><strong>Honestidad y Respeto Mutuo.</strong></li>
+                        <li><strong>Escucha Activa:</strong> Ambas partes deben escucharse y tratar de entender la perspectiva del otro.</li>
+                        <li><strong>Empatía:</strong> Capacidad de comprender los sentimientos y experiencias del otro.</li>
+                        <li><strong>Canales Abiertos:</strong> Fomentar un ambiente donde el atleta se sienta cómodo para expresar sus pensamientos y preocupaciones.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-user-tie"></i> Rol del Entrenador:</h3>
+                    <p>Proporcionar instrucción técnica, feedback, apoyo emocional, establecer metas, motivar y crear un ambiente de aprendizaje positivo.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-user"></i> Rol del Atleta:</h3>
+                    <p>Ser receptivo al feedback, comunicar sus sensaciones y necesidades, ser proactivo en su desarrollo y confiar en el proceso.</p>
+                </div>
+            </section>
+
+            <section id="slide-psicologia-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-battery-empty text-askesis-red"></i>Burnout y Sobreentrenamiento Psicológico</h2>
+                    <p>El <strong class="highlight">burnout</strong> (o síndrome de estar quemado) es un estado de agotamiento físico, emocional y mental causado por un estrés crónico o insatisfacción prolongada en el deporte. El <strong class="highlight">sobreentrenamiento</strong> también tiene un componente psicológico significativo.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-exclamation-circle"></i> Síntomas Comunes del Burnout:</h3>
+                    <ul>
+                        <li>Agotamiento emocional y físico persistente.</li>
+                        <li>Despersonalización (actitud cínica o distante hacia el deporte).</li>
+                        <li>Reducción del sentido de logro personal.</li>
+                        <li>Disminución del rendimiento.</li>
+                        <li>Pérdida de motivación e interés.</li>
+                        <li>Alteraciones del sueño y del apetito.</li>
+                        <li>Irritabilidad o cambios de humor.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-shield-alt"></i> Estrategias de Prevención y Manejo:</h3>
+                    <ul>
+                        <li>Periodización adecuada del entrenamiento y la competición, incluyendo descanso y recuperación.</li>
+                        <li>Establecer metas realistas y enfocarse en el proceso.</li>
+                        <li>Fomentar la motivación intrínseca.</li>
+                        <li>Desarrollar habilidades de afrontamiento del estrés.</li>
+                        <li>Mantener un equilibrio entre el deporte y otras áreas de la vida.</li>
+                        <li>Buscar apoyo social.</li>
+                        <li>Aprender a desconectar y relajarse.</li>
+                        <li>Si los síntomas son severos, buscar ayuda profesional (psicólogo deportivo).</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="slide-psicologia-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-purple !border-askesis-green"><i class="fas fa-trophy"></i>Conclusión: La Mente, tu Mayor Aliada</h2>
+                    <p class="text-lg mb-4">La psicología deportiva ofrece un <strong class="highlight">arsenal de herramientas y estrategias</strong> para optimizar no solo tu rendimiento, sino también tu bienestar y disfrute en el deporte y el ejercicio. Desarrollar una mentalidad fuerte, resiliente y enfocada es un proceso continuo.</p>
+                    <p class="text-lg mb-6">En Askesis, creemos que el <strong class="emphasis">entrenamiento mental es una parte integral de la preparación de cualquier atleta o persona activa</strong>. Te ayudamos a integrar estos principios para que alcances tus metas con confianza y determinación.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre los Servicios Askesis
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-psicologia" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4"> <button id="prev-button-psicologia" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-psicologia" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-psicologia" class="hidden my-8 text-center"> <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-purple">
+                <i class="fas fa-award text-4xl mr-3 text-askesis-purple"></i>¡Guía de Psicología Deportiva Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora tienes herramientas valiosas para fortalecer tu mente y potenciar tu rendimiento. ¡El poder mental está en tus manos!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-psicologia" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Psicología%20Deportiva" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Psicología%20Deportiva." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterPsicologia"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop();
+            window.addEventListener('resize', adjustSecondaryNavTop);
+
+            const guideContainer = document.getElementById('interactive-presentation-container-psicologia');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de psicología no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-psicologia .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-psicologia');
+            const nextButton = guideContainer.querySelector('#next-button-psicologia');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-psicologia');
+            const progressBar = guideContainer.querySelector('#progress-bar-psicologia');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-psicologia');
+            const completionContainer = guideContainer.querySelector('#completion-container-psicologia');
+            const restartButton = guideContainer.querySelector('#restart-button-psicologia');
+            const yearSpan = document.getElementById('currentYearFooterPsicologia');
+            const navLinks = document.querySelectorAll('#main-nav-psicologia .nav-link-psicologia');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de psicología no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Intro Psicología Deportiva", "Motivación", "Establecimiento de Metas", "Concentración y Enfoque", 
+                    "Manejo de Presión/Ansiedad", "Visualización", "Autoconfianza/Autoeficacia", "Resiliencia",
+                    "Cohesión de Equipo", "Comunicación Efectiva", "Burnout y Sobreentrenamiento", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-psicologia-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de psicología.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
