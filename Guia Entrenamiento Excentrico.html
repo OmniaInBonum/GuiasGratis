@@ -4,378 +4,568 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Askesis: Guía Interactiva - Entrenamiento Excéntrico</title>
-    <meta name="description" content="Guía interactiva de Askesis sobre Entrenamiento Excéntrico: beneficios, mecanismos, métodos y programación basada en ciencia.">
+    <title>Askesis: Guía Interactiva - Entrenamiento Excéntrico Avanzado</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Entrenamiento Excéntrico: domina sus beneficios, mecanismos, métodos y programación basada en ciencia para potenciar tus resultados.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'askesis-blue': '#005A9C', // Color principal para esta guía
+                        'askesis-blue': '#005A9C',
                         'askesis-green': '#008037',
                         'askesis-orange': '#F58220',
                         'askesis-purple': '#6f42c1',
-                        'askesis-red': '#dc3545',
-                        'askesis-text-dark': '#343a40',
-                        'askesis-text-body': '#495057',
-                        'askesis-text-light-header': '#d6eaff', // Texto claro para header azul
-                        'askesis-bg-light': '#f8f9fa',
-                        'askesis-accent-blue-light': '#e7f3fe',
+                        'askesis-red': '#dc3545', // For warnings or critical text
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
                     },
                     fontFamily: {
                         'lato': ['Lato', 'sans-serif'],
                         'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <style>
-        body {
-            font-family: 'Lato', 'sans-serif';
-            color: var(--askesis-text-body);
-            background-color: var(--askesis-bg-light);
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: '#dc3545';
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
         }
 
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.90), rgba(18, 18, 18, 0.98)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis { /* Renamed to avoid conflict with other main-header */
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 60px; /* Adjust based on main header height */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-excentrico {
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.75rem; /* Adjusted padding */
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.8rem; /* Slightly smaller for more items */
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        .secondary-nav-askesis .nav-link-excentrico:hover,
+        .secondary-nav-askesis .nav-link-excentrico.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-blue);
+        }
+        .secondary-nav-askesis .nav-link-excentrico.active {
+            font-weight: 700;
+        }
+
+
         .step-slide {
-            min-height: calc(100vh - 136px); /* Ajusta según altura header + nav */
+            min-height: calc(100vh - 120px); /* Header + Secondary Nav approx height */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 2rem 1rem;
             background-size: cover;
             background-position: center;
             position: relative;
             text-align: center;
             animation: fadeInSlide 0.7s ease-in-out;
         }
-
-        .step-slide::before { /* Overlay para contraste */
+        .step-slide::before { /* Overlay for background images */
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.60); /* Overlay oscuro, ajustable para más visibilidad de imagen */
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.75); /* Darker overlay for Askesis style */
             z-index: 1;
         }
 
         .slide-content-wrapper {
             position: relative;
             z-index: 2;
-            background-color: rgba(255, 255, 255, 0.9); /* Caja de contenido clara y semitransparente */
-            padding: 1.5rem 2rem;
-            border-radius: 0.75rem;
-            max-width: 800px; 
-            width: 90%;
+            background-color: var(--askesis-gray); /* Dark background for content box */
+            padding: 2rem 2.5rem;
+            border-radius: 10px;
+            max-width: 850px; 
+            width: 95%;
             margin: auto;
-            color: var(--askesis-text-dark);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            overflow-y: visible; 
+            color: var(--askesis-light-gray); /* Light text for dark background */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border: 1px solid var(--askesis-border);
         }
         
-        .slide-content-wrapper h1, .slide-content-wrapper h2, .slide-content-wrapper h3,
-        .slide-content-wrapper h4, .slide-content-wrapper h5,
-        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
-            color: inherit; 
-            text-align: left; 
-        }
         .slide-content-wrapper h1, .slide-content-wrapper h2 {
-            text-align: center; 
-        }
-         .slide-content-wrapper h2 i { margin-right: 0.5rem; }
-
-        .sticky-nav { position: sticky; top: 0; z-index: 50; }
-        .sticky-nav-secondary { position: sticky; top: 60px; /* Ajustar a altura del header */ z-index: 49; }
-
-        @keyframes fadeInSlide {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        .slide-content-wrapper .guide-section-title { 
             font-family: 'Roboto', sans-serif;
-            color: var(--askesis-blue); /* Títulos principales en azul para esta guía */
-            font-size: 1.8em; 
-            margin-bottom: 1rem; 
-            padding-bottom: 0.5rem; 
-            border-bottom: 2px solid var(--askesis-border-light, #dee2e6);
+            color: var(--askesis-orange);
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--askesis-purple);
+            text-align: center;
         }
-        .slide-content-wrapper .guide-subsection-title { 
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.75rem;
+            color: var(--askesis-green);
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
              font-family: 'Roboto', sans-serif;
-             color: var(--askesis-purple); /* Subtítulos en morado */
-             font-size: 1.4em; 
-             margin-top: 1.25rem; 
-             margin-bottom: 0.75rem; 
-             padding-bottom: 0.4rem; 
-             border-bottom: 1px dashed var(--askesis-border-light, #dee2e6);
+             color: var(--askesis-blue); 
+             font-size: 1.6em; 
+             margin-top: 1.5rem; 
+             margin-bottom: 1rem; 
+             padding-bottom: 0.5rem; 
+             border-bottom: 1px dashed var(--askesis-green);
+             text-align: left;
         }
-         .slide-content-wrapper .guide-subsubsection-title { /* Para H4 */
+         .slide-content-wrapper h4.guide-subsubsection-title {
              font-family: 'Roboto', sans-serif;
              color: var(--askesis-green); 
-             font-size: 1.2em; 
-             margin-top: 1rem; 
-             margin-bottom: 0.5rem;
+             font-size: 1.3em; 
+             margin-top: 1.2rem; 
+             margin-bottom: 0.6rem;
+             text-align: left;
         }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2em; position: relative; margin-bottom: 0.75rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f058"; /* check-circle */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 5px;
+            font-size: 1.2em;
+         }
+
         .slide-content-wrapper .highlight {
              color: var(--askesis-orange);
              font-weight: 700;
-             background-color: var(--askesis-accent-orange-light, #fff3e0); 
-             padding: 1px 4px;
-             border-radius: 3px;
         }
          .slide-content-wrapper .critical-text {
             color: var(--askesis-red);
             font-weight: 700;
         }
         .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
-            border-left-width: 4px; padding: 1rem; margin: 1.25rem 0; border-radius: 0 0.25rem 0.25rem 0; font-size: 0.95em;
+            border-left-width: 5px; padding: 1.2rem; margin: 1.5rem 0; border-radius: 0 8px 8px 0; font-size: 1em;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        .slide-content-wrapper .info-box { background-color: rgba(0, 90, 156, 0.2); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(220, 53, 69, 0.15); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: rgba(0, 128, 55, 0.15); border-left-color: var(--askesis-green); color: var(--askesis-text-white);}
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.15em; display: block; margin-bottom: 0.6rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); }
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-green); }
+
+
+        .slide-content-wrapper .custom-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; font-size: 0.95em; }
+        .slide-content-wrapper .custom-table th, .slide-content-wrapper .custom-table td { border: 1px solid var(--askesis-border); padding: 0.6rem 0.8rem; text-align: left; }
+        .slide-content-wrapper .custom-table th { background-color: var(--askesis-dark); color: var(--askesis-orange); font-weight: 700; }
+        .slide-content-wrapper .custom-table tbody tr:nth-child(even) { background-color: rgba(40,40,40,0.5); }
+        .slide-content-wrapper .custom-table tbody tr:hover { background-color: var(--askesis-purple); color: var(--askesis-text-white); }
+
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        :root { 
-            --askesis-accent-orange-light: #fff3e0;
-            --askesis-accent-blue-light: #e7f3fe;
-            --askesis-border-light: #dee2e6;
-            --askesis-accent-red-light: #f8d7da; 
-            --askesis-accent-green-light: #e6f2e9;
+        .cta-button-askesis { /* Renamed to avoid conflict */
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            padding: 0.8rem 1.8rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1em;
+            box-shadow: 0 5px 15px rgba(245, 130, 32, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
         }
-        .slide-content-wrapper .info-box { background-color: var(--askesis-accent-blue-light); border-left-color: var(--askesis-blue); color: var(--askesis-text-dark);}
-        .slide-content-wrapper .warning-box { background-color: var(--askesis-accent-red-light); border-left-color: var(--askesis-red); color: #721c24;}
-        .slide-content-wrapper .tip-box { background-color: var(--askesis-accent-green-light); border-left-color: var(--askesis-green); color: #155724;}
-        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { font-family: 'Roboto'; font-size: 1.1em; display: block; margin-bottom: 0.5rem;}
+        .cta-button-askesis:hover {
+            background-color: #E07017;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(245, 130, 32, 0.4);
+        }
+        .nav-button-askesis { /* Renamed */
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #004b80;
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
 
-         /* Custom table styling */
-        .slide-content-wrapper .custom-table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9em; }
-        .slide-content-wrapper .custom-table th, .slide-content-wrapper .custom-table td { border: 1px solid var(--askesis-border-light); padding: 0.5rem 0.75rem; text-align: left; }
-        .slide-content-wrapper .custom-table th { background-color: var(--askesis-accent-blue-light); color: var(--askesis-blue); font-weight: 700; }
-        .slide-content-wrapper .custom-table tbody tr:nth-child(even) { background-color: var(--askesis-bg-light, #f8f9fa); }
+        footer { /* Copied from other Askesis styles */
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-excentrico { font-size: 0.7rem; padding: 0.4rem 0.5rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.9em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.4em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+            .slide-content-wrapper { padding: 1.5rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 0.9em; padding: 0.7rem 1.2rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.7em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.25em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.05em; }
+             .secondary-nav-askesis ul {justify-content: space-around;} /* Better for small screens */
+             .secondary-nav-askesis .nav-link-excentrico { padding: 0.4rem; margin: 0.1rem;}
+        }
 
     </style>
 </head>
 
-<body class="bg-askesis-bg-light">
+<body>
 
-    <header class="bg-askesis-blue text-white text-center py-3 shadow-md sticky-nav">
-        <div class="container mx-auto">
-            <div class="font-roboto text-2xl font-bold tracking-widest">ASKESIS</div>
-            <div class="text-sm italic text-askesis-text-light-header font-lato">Ciencia aplicada al movimiento</div>
-        </div>
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+            </div>
     </header>
 
-    <nav id="main-nav-excentrico" class="bg-askesis-text-dark shadow-md sticky-nav-secondary">
-        <ul class="container mx-auto flex flex-wrap justify-center p-2 text-xs sm:text-sm">
-            <li><a href="#slide-excentrico-0" class="nav-link-excentrico text-gray-200 hover:bg-askesis-blue hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Intro</a></li>
-            <li><a href="#slide-excentrico-1" class="nav-link-excentrico text-gray-200 hover:bg-askesis-blue hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Beneficios</a></li>
-            <li><a href="#slide-excentrico-2" class="nav-link-excentrico text-gray-200 hover:bg-askesis-blue hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Mecanismos</a></li>
-            <li><a href="#slide-excentrico-3" class="nav-link-excentrico text-gray-200 hover:bg-askesis-blue hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Métodos</a></li>
-            <li><a href="#slide-excentrico-4" class="nav-link-excentrico text-gray-200 hover:bg-askesis-blue hover:text-white px-2 py-2 rounded-md font-medium transition-colors">SSC</a></li>
-            <li><a href="#slide-excentrico-5" class="nav-link-excentrico text-gray-200 hover:bg-askesis-blue hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Prevención</a></li>
-            <li><a href="#slide-excentrico-6" class="nav-link-excentrico text-gray-200 hover:bg-askesis-blue hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Programación</a></li>
-            <li><a href="#slide-excentrico-7" class="nav-link-excentrico text-gray-200 hover:bg-askesis-blue hover:text-white px-2 py-2 rounded-md font-medium transition-colors">DOMS</a></li>
-            <li><a href="#slide-excentrico-8" class="nav-link-excentrico text-gray-200 hover:bg-askesis-blue hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Ciclo Vital</a></li>
-            <li><a href="#slide-excentrico-9" class="nav-link-excentrico text-gray-200 hover:bg-askesis-blue hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Resumen</a></li>
-            <li><a href="#slide-excentrico-10" class="nav-link-excentrico text-gray-200 hover:bg-askesis-blue hover:text-white px-2 py-2 rounded-md font-medium transition-colors">Glosario</a></li>
+    <nav id="main-nav-excentrico" class="secondary-nav-askesis">
+        <ul>
+            <li><a href="#slide-excentrico-0" class="nav-link-excentrico active">Intro</a></li>
+            <li><a href="#slide-excentrico-1" class="nav-link-excentrico">Beneficios</a></li>
+            <li><a href="#slide-excentrico-2" class="nav-link-excentrico">Mecanismos</a></li>
+            <li><a href="#slide-excentrico-3" class="nav-link-excentrico">Métodos</a></li>
+            <li><a href="#slide-excentrico-4" class="nav-link-excentrico">SSC</a></li>
+            <li><a href="#slide-excentrico-5" class="nav-link-excentrico">Prevención</a></li>
+            <li><a href="#slide-excentrico-6" class="nav-link-excentrico">Programación</a></li>
+            <li><a href="#slide-excentrico-7" class="nav-link-excentrico">DOMS</a></li>
+            <li><a href="#slide-excentrico-8" class="nav-link-excentrico">Ciclo Vital</a></li>
+            <li><a href="#slide-excentrico-9" class="nav-link-excentrico">Resumen</a></li>
+            <li><a href="#slide-excentrico-10" class="nav-link-excentrico">Glosario</a></li>
         </ul>
     </nav>
     
-    <div id="interactive-presentation-container-excentrico">
-        <div id="step-indicator-excentrico" class="text-center my-4 text-lg font-semibold text-askesis-blue font-nunito"></div>
-        <div class="w-11/12 mx-auto bg-gray-300 rounded-full h-2.5 mb-6">
-            <div id="progress-bar-excentrico" class="bg-gradient-to-r from-askesis-green to-askesis-blue h-2.5 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+    <div id="interactive-presentation-container-excentrico" class="py-8">
+        <div id="step-indicator-excentrico" class="text-center mb-4 text-lg font-semibold text-askesis-orange font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3 mb-8 border border-askesis-border">
+            <div id="progress-bar-excentrico" class="bg-gradient-to-r from-askesis-green to-askesis-blue h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
         </div>
 
         <div id="slides-container-excentrico">
             <section id="slide-excentrico-0" class="step-slide" style="background-image: url('https://images.pexels.com/photos/1552106/pexels-photo-1552106.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
                 <div class="slide-content-wrapper">
-                    <h1 class="guide-section-title text-3xl sm:text-4xl"><i class="fas fa-dumbbell"></i>¿Qué es la Contracción Excéntrica?</h1>
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-dumbbell"></i>¿Qué es la Contracción Excéntrica?</h1>
                     <p class="mb-3">Ocurre cuando un músculo genera tensión mientras se <strong class="highlight">alarga</strong> bajo una carga externa. Es la <strong class="highlight">"fase negativa"</strong> o de frenado del movimiento.</p>
-                    <h3 class="guide-subsection-title text-sm sm:text-base"><i class="fas fa-cogs"></i> Funciones Clave</h3>
-                    <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm">
-                        <li>Actúa como "freno" para desacelerar.</li>
-                        <li>Absorbe impacto.</li>
-                        <li>Almacena energía elástica.</li>
-                        <li>Permite generar <strong class="highlight">20-50% más fuerza</strong> que otras contracciones.</li>
+                    <h3 class="guide-subsection-title"><i class="fas fa-cogs"></i> Funciones Clave</h3>
+                    <ul>
+                        <li>Actúa como "freno" para desacelerar movimientos.</li>
+                        <li>Absorbe impacto y energía mecánica.</li>
+                        <li>Almacena energía elástica para su posterior liberación.</li>
+                        <li>Permite generar <strong class="highlight">20-50% más fuerza</strong> que las contracciones concéntricas o isométricas.</li>
                     </ul>
-                     <h3 class="guide-subsection-title text-sm sm:text-base mt-3"><i class="fas fa-tasks"></i> Ejemplos Comunes</h3>
-                     <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm">
-                        <li>Bajar la barra en press de banca.</li>
-                        <li>Descender en una sentadilla.</li>
-                        <li>Aterrizaje de un salto.</li>
+                     <h3 class="guide-subsection-title mt-3"><i class="fas fa-tasks"></i> Ejemplos Comunes</h3>
+                     <ul>
+                        <li>Bajar la barra de forma controlada en un press de banca.</li>
+                        <li>La fase descendente de una sentadilla.</li>
+                        <li>El aterrizaje después de un salto.</li>
+                        <li>Controlar el descenso en una dominada.</li>
                     </ul>
                 </div>
             </section>
 
             <section id="slide-excentrico-1" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/2261477/pexels-photo-2261477.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
                 <div class="slide-content-wrapper">
-                    <h2 class="guide-section-title"><i class="fas fa-star"></i>Beneficios del Entrenamiento Excéntrico</h2>
-                    <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
-                        <li><strong>Mayor Producción de Fuerza:</strong> Estímulo de tensión mecánica muy elevado.</li>
-                        <li><strong>Potente Estímulo para Hipertrofia:</strong> Por alta tensión y daño muscular inducido.</li>
-                        <li><strong>Prevención y Rehabilitación de Lesiones:</strong> Fortalece tendones y tejido conectivo (especialmente tendinopatías).</li>
-                        <li><strong>Mejora de Flexibilidad y ROM:</strong> Puede aumentar longitud de fascículos.</li>
-                        <li><strong>Adaptaciones Neurales Específicas:</strong> Mejor control neuromuscular en alargamiento.</li>
-                        <li><strong>Eficiencia Metabólica:</strong> Menos ATP para la misma fuerza vs. concéntrico.</li>
+                    <h2><i class="fas fa-star"></i>Beneficios del Entrenamiento Excéntrico</h2>
+                    <ul>
+                        <li><strong>Mayor Producción de Fuerza:</strong> El estímulo de tensión mecánica es significativamente más elevado.</li>
+                        <li><strong>Potente Estímulo para Hipertrofia:</strong> Induce un mayor daño muscular (controlado), lo que puede llevar a mayores ganancias de masa muscular.</li>
+                        <li><strong>Prevención y Rehabilitación de Lesiones:</strong> Fortalece tendones y tejido conectivo, crucial para tendinopatías (Aquiles, rotuliana).</li>
+                        <li><strong>Mejora de Flexibilidad y Rango de Movimiento (ROM):</strong> Puede inducir sarcomerogénesis (creación de nuevos sarcómeros en serie), aumentando la longitud de los fascículos musculares.</li>
+                        <li><strong>Adaptaciones Neurales Específicas:</strong> Mejora el control neuromuscular durante el alargamiento muscular.</li>
+                        <li><strong>Eficiencia Metabólica:</strong> Requiere menos ATP (energía) para producir la misma cantidad de fuerza en comparación con las contracciones concéntricas.</li>
                     </ul>
                 </div>
             </section>
 
             <section id="slide-excentrico-2" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/588561/pexels-photo-588561.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"> <div class="slide-content-wrapper">
-                    <h2 class="guide-section-title"><i class="fas fa-microscope"></i>Mecanismos Fisiológicos</h2>
-                    <ul class="list-disc list-inside space-y-1 text-sm sm:text-base">
-                        <li><strong>Mayor Tensión por Unidad Motora:</strong> Menos unidades motoras activas para una fuerza dada = mayor tensión por fibra.</li>
-                        <li><strong>Contribución de Elementos Pasivos:</strong> Proteínas como la <strong class="highlight">Titina</strong> aportan a la fuerza durante el alargamiento.</li>
-                        <li><strong>Daño Muscular Inducido (EIMD):</strong> Microlesiones que desencadenan reparación y adaptación (hipertrofia).</li>
-                        <li><strong>Adaptaciones Neurales:</strong> Cambios en reclutamiento de unidades motoras, posible disminución de inhibición neural.</li>
-                        <li><strong>Adaptaciones Musculares:</strong> Mayor activación de vías anabólicas (síntesis proteica), aumento longitud de fascículos, remodelación matriz extracelular.</li>
+                    <h2><i class="fas fa-microscope"></i>Mecanismos Fisiológicos Clave</h2>
+                    <ul>
+                        <li><strong>Mayor Tensión por Unidad Motora:</strong> Se activan menos unidades motoras para una fuerza dada en comparación con la contracción concéntrica, lo que resulta en una mayor tensión por fibra muscular activa.</li>
+                        <li><strong>Contribución de Elementos Pasivos:</strong> Proteínas estructurales como la <strong class="highlight">Titina</strong> contribuyen significativamente a la producción de fuerza durante el alargamiento pasivo y activo.</li>
+                        <li><strong>Daño Muscular Inducido por Ejercicio (EIMD):</strong> Las altas tensiones provocan microlesiones en las fibras musculares, lo que desencadena procesos inflamatorios, de reparación y adaptación (hipertrofia).</li>
+                        <li><strong>Adaptaciones Neurales:</strong> Cambios en las estrategias de reclutamiento de unidades motoras, posible disminución de la inhibición neural y una mayor activación selectiva de fibras rápidas.</li>
+                        <li><strong>Adaptaciones Musculares y Tendinosas:</strong> Aumento de la síntesis proteica, aumento de la longitud de los fascículos, remodelación de la matriz extracelular y aumento de la rigidez tendinosa.</li>
                     </ul>
                 </div>
             </section>
 
             <section id="slide-excentrico-3" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/3768913/pexels-photo-3768913.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
-                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
-                    <h2 class="guide-section-title"><i class="fas fa-list-check"></i>Métodos de Entrenamiento Excéntrico</h2>
-                    <p class="text-sm mb-3">Formas de enfatizar o sobrecargar la fase excéntrica:</p>
-                    <div class="space-y-2 text-xs sm:text-sm">
-                        <p><strong class="text-askesis-green">Negativas Lentas (Tempo):</strong> Fase excéntrica lenta (3-6s) con cargas submáximas. Ideal para <strong class="highlight">hipertrofia y control</strong>.</p>
-                        <p><strong class="text-askesis-green">Sobrecarga Excéntrica (Supramaximal):</strong> Carga >1RM concéntrico (105-130%) solo en excéntrica (requiere asistencia). Para <strong class="highlight">fuerza máxima</strong> (avanzado).</p>
-                        <div class="warning-box text-xs !py-2 !px-3 !my-1"><strong>Precaución:</strong> Requiere spotters o equipo especializado.</div>
-                        <p><strong class="text-askesis-green">Método 2-a-1:</strong> Levantar con dos miembros, bajar con uno. <strong class="highlight">Sobrecarga accesible</strong>.</p>
-                        <p><strong class="text-askesis-green">Flywheel (Inercial):</strong> Volante de inercia devuelve energía en excéntrica. Para <strong class="highlight">potencia e hipertrofia</strong>.</p>
-                        <p><strong class="text-askesis-green">Énfasis Excéntrico en Pliometría:</strong> Foco en aterrizaje/absorción en saltos. Para <strong class="highlight">potencia y deportes</strong>.</p>
-                        <p><strong class="text-askesis-green">Ejercicios Específicamente Excéntricos:</strong> Nordic Hamstring Curl, bajada lenta en dominadas. Para <strong class="highlight">prevención y objetivos específicos</strong>.</p>
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]"> <h2><i class="fas fa-list-check"></i>Métodos de Entrenamiento Excéntrico</h2>
+                    <p class="mb-3">Existen diversas formas de enfatizar o sobrecargar la fase excéntrica del movimiento:</p>
+                    <div class="space-y-3">
+                        <p><strong class="text-askesis-green">1. Negativas Lentas (Tempo Controlado):</strong> Realizar la fase excéntrica de forma deliberadamente lenta (ej. 3-6 segundos) con cargas submáximas (60-85% 1RM). Ideal para <strong class="highlight">hipertrofia, control motor y adaptación inicial</strong>.</p>
+                        <p><strong class="text-askesis-green">2. Sobrecarga Excéntrica (Supramaximal):</strong> Utilizar una carga superior al 1RM concéntrico (ej. 105-130% 1RM) únicamente durante la fase excéntrica. Requiere asistencia (spotters) o equipamiento especializado para la fase concéntrica. Enfocado en <strong class="highlight">ganancias de fuerza máxima</strong> (para atletas avanzados).</p>
+                        <div class="warning-box !py-2 !px-3 !my-1"><strong class="text-askesis-red">Precaución:</strong> Alto riesgo si no se realiza con supervisión y técnica adecuadas.</div>
+                        <p><strong class="text-askesis-green">3. Método "2 Arriba - 1 Abajo" (2A1L):</strong> Realizar la fase concéntrica (levantamiento) con dos miembros (ej. dos piernas en una prensa) y la fase excéntrica (descenso) con un solo miembro. Permite una <strong class="highlight">sobrecarga excéntrica accesible y segura</strong>.</p>
+                        <p><strong class="text-askesis-green">4. Entrenamiento Inercial (Flywheel):</strong> Utiliza dispositivos con un volante de inercia que acumula energía durante la fase concéntrica y la devuelve en la fase excéntrica, obligando al músculo a resistir una alta carga. Muy efectivo para <strong class="highlight">potencia, fuerza e hipertrofia</strong>.</p>
+                        <p><strong class="text-askesis-green">5. Énfasis Excéntrico en Pliometría:</strong> Focalizarse en la fase de aterrizaje y absorción del impacto en ejercicios pliométricos (ej. drop jumps). Crucial para <strong class="highlight">potencia, reactividad y prevención de lesiones en deportes</strong>.</p>
+                        <p><strong class="text-askesis-green">6. Ejercicios Específicamente Excéntricos:</strong> Movimientos donde la carga principal se aplica durante la elongación muscular, como el Nordic Hamstring Curl, la bajada lenta en dominadas (negativas de dominada), o el "Reverse Hyperextension". Ideales para <strong class="highlight">fortalecimiento específico y prevención de lesiones</strong>.</p>
                     </div>
                 </div>
             </section>
 
-            <section id="slide-excentrico-4" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/28080/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"> <div class="slide-content-wrapper">
-                    <h2 class="guide-section-title"><i class="fas fa-recycle"></i>Ciclo Estiramiento-Acortamiento (SSC)</h2>
-                    <p class="text-sm mb-2">Mecanismo donde un músculo se estira (excéntrica) y luego se contrae (concéntrica), generando más fuerza. Aprovecha <strong class="highlight">energía elástica</strong> y <strong class="highlight">reflejo de estiramiento</strong>.</p>
-                    <h3 class="guide-subsection-title text-sm"><i class="fas fa-link"></i> Relación con Ent. Excéntrico</h3>
-                    <p class="text-xs sm:text-sm mb-2">Mejora la fase de estiramiento del SSC fortaleciendo tejidos elásticos y optimizando activación neural.</p>
-                    <h3 class="guide-subsection-title text-sm"><i class="fas fa-basketball-ball"></i> Aplicación Práctica</h3>
-                    <p class="text-xs sm:text-sm">Drop jumps, pliometría con cargas, rebotes controlados.</p>
-                    <div class="tip-box mt-2 text-xs !py-2 !px-3"><strong>Idea Clave:</strong> Ent. excéntrico intensifica adaptaciones del SSC, mejorando <strong class="highlight">potencia y eficiencia</strong>.</div>
+            <section id="slide-excentrico-4" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/28080/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-recycle"></i>Ciclo Estiramiento-Acortamiento (SSC)</h2>
+                    <p class="mb-2">El SSC es un mecanismo fundamental en la mayoría de los movimientos deportivos y cotidianos. Implica una <strong class="highlight">rápida elongación (fase excéntrica)</strong> de un músculo, seguida inmediatamente por una <strong class="highlight">contracción concéntrica potente</strong>. Este ciclo permite generar más fuerza y potencia que una contracción concéntrica aislada.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-link"></i> Relación con el Entrenamiento Excéntrico</h3>
+                    <p class="mb-2">El entrenamiento excéntrico mejora la capacidad de la unidad músculo-tendinosa para <strong class="highlight">absorber y almacenar energía elástica</strong> durante la fase de estiramiento del SSC. También optimiza el <strong class="highlight">reflejo de estiramiento (miotático)</strong> y la activación neural, resultando en una fase concéntrica más potente.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-basketball-ball"></i> Aplicación Práctica y Beneficios</h3>
+                    <p>Ejercicios como saltos (drop jumps, countermovement jumps), lanzamientos, y sprints dependen en gran medida de un SSC eficiente. Fortalecer la fase excéntrica mejora el rendimiento en estas actividades, aumentando la <strong class="highlight">altura del salto, la velocidad de carrera y la potencia de lanzamiento</strong>, además de mejorar la eficiencia del movimiento.</p>
+                    <div class="tip-box mt-3 !py-2 !px-3"><strong>Idea Clave Askesis:</strong> Un entrenamiento excéntrico bien planificado es crucial para potenciar el SSC, llevando a mejoras significativas en la <strong class="highlight">potencia, la reactividad y la eficiencia deportiva</strong>.</div>
                 </div>
             </section>
 
-            <section id="slide-excentrico-5" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/703014/pexels-photo-703014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"> <div class="slide-content-wrapper">
-                    <h2 class="guide-section-title"><i class="fas fa-shield-alt"></i>Ent. Excéntrico en Prevención de Lesiones</h2>
-                    <h3 class="guide-subsection-title text-sm"><i class="fas fa-user-shield"></i> Mecanismos Protectores</h3>
-                    <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm mb-2">
-                        <li>Fortalecimiento del tejido conectivo (síntesis de colágeno).</li>
-                        <li>Aumento de longitud de fascículos (mayor tolerancia a elongación).</li>
-                        <li>Mejora de capacidad de desaceleración.</li>
+            <section id="slide-excentrico-5" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/703014/pexels-photo-703014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-shield-alt"></i>Ent. Excéntrico en Prevención de Lesiones</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-user-shield"></i> Mecanismos Protectores</h3>
+                    <ul class="mb-2">
+                        <li><strong>Fortalecimiento del Tejido Conectivo:</strong> Estimula la síntesis de colágeno, aumentando la resistencia de tendones y ligamentos.</li>
+                        <li><strong>Aumento de la Longitud de los Fascículos Musculares:</strong> Permite que el músculo se estire más antes de alcanzar un punto crítico, mejorando la tolerancia a la elongación.</li>
+                        <li><strong>Mejora de la Capacidad de Desaceleración:</strong> Esencial para frenar movimientos rápidos y controlar el cuerpo, reduciendo el estrés en las articulaciones.</li>
+                        <li><strong>Adaptaciones Neurales:</strong> Mejora la propiocepción y el control neuromuscular, permitiendo respuestas más rápidas y adecuadas ante perturbaciones.</li>
                     </ul>
-                    <h3 class="guide-subsection-title text-sm"><i class="fas fa-notes-medical"></i> Lesiones Prevenibles</h3>
-                    <p class="text-xs sm:text-sm">Isquiotibiales, tendinopatías (Aquiles, rotuliana), LCA.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-notes-medical"></i> Lesiones Comúnmente Prevenibles/Rehabilitables</h3>
+                    <p>Es particularmente efectivo en la prevención y rehabilitación de <strong class="highlight">lesiones musculares (especialmente isquiotibiales), tendinopatías (Aquiles, rotuliana, manguito rotador)</strong>, y puede jugar un rol en la preparación y recuperación post-quirúrgica (ej. reconstrucción del LCA).</p>
                 </div>
             </section>
 
-            <section id="slide-excentrico-6" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"> <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
-                    <h2 class="guide-section-title"><i class="fas fa-calendar-alt"></i>Programación y Consideraciones</h2>
-                    <p class="text-sm mb-2">Introducción gradual debido al DOMS. Menor volumen/frecuencia que ent. tradicional.</p>
-                    <div class="table-wrapper text-xs">
+            <section id="slide-excentrico-6" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-calendar-alt"></i>Programación y Consideraciones Clave</h2>
+                    <p class="mb-3">La programación del entrenamiento excéntrico debe ser <strong class="emphasis">cuidadosa y progresiva</strong> debido a su potencial para inducir DOMS y fatiga. No es un reemplazo total del entrenamiento tradicional, sino una herramienta estratégica.</p>
+                    <div class="table-wrapper">
                          <table class="custom-table">
-                            <thead><tr><th>Nivel</th><th>Métodos</th><th>Int./Vol.</th><th>Consideraciones</th></tr></thead>
+                            <thead><tr><th>Nivel Atleta</th><th>Métodos Primarios</th><th>Intensidad / Volumen Típico</th><th>Consideraciones Esenciales</th></tr></thead>
                             <tbody>
-                                <tr><td>Principiante</td><td>Negativas lentas, 2-a-1 (ligero)</td><td>60-70% 1RM, 2-3x8-12</td><td>Técnica, control, recuperación amplia</td></tr>
-                                <tr><td>Intermedio</td><td>Negativas lentas, 2-a-1, Flywheel (bajo-medio)</td><td>70-85% 1RM, 3-4x6-10</td><td>Progresión, alternar énfasis</td></tr>
-                                <tr><td>Avanzado</td><td>Sobrecarga supramaximal, Flywheel (alto), Pliometría exc.</td><td>85-130% 1RM, 2-5x3-6</td><td>Spotters, periodización, monitoreo fatiga</td></tr>
+                                <tr><td>Principiante</td><td>Negativas lentas (tempo), 2 Arriba - 1 Abajo (con carga ligera/moderada)</td><td>60-75% 1RM concéntrico, 2-3 series de 6-10 reps</td><td>Foco en técnica impecable, control motor, amplio tiempo de recuperación entre sesiones (48-72h+).</td></tr>
+                                <tr><td>Intermedio</td><td>Negativas lentas (mayor carga), 2A1L, Flywheel (baja-media inercia), Ejercicios excéntricos específicos (Nordic Curls)</td><td>75-90% 1RM concéntrico (o carga moderada en Flywheel), 3-4 series de 5-8 reps</td><td>Progresión gradual en carga y/o velocidad. Alternar con fases de entrenamiento concéntrico/isométrico.</td></tr>
+                                <tr><td>Avanzado</td><td>Sobrecarga Excéntrica Supramaximal (con asistencia), Flywheel (alta inercia), Pliometría con énfasis excéntrico (drop jumps)</td><td>90-130% 1RM concéntrico (para supramaximal), 2-5 series de 2-6 reps</td><td>Requiere spotters o equipo especializado para supramaximal. Periodización cuidadosa, monitoreo constante de fatiga y recuperación.</td></tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="tip-box mt-2 text-xs !py-2 !px-3"><strong>Consejo:</strong> Herramienta estratégica, no reemplazo total. Progresión y recuperación son clave.</div>
+                    <div class="tip-box mt-4 !py-2 !px-3"><strong>Consejo Askesis:</strong> Introducir el entrenamiento excéntrico <strong class="emphasis">gradualmente</strong>. Menor volumen y frecuencia inicial pueden ser necesarios. La calidad del movimiento siempre prevalece sobre la cantidad. Escucha a tu cuerpo.</div>
                 </div>
             </section>
 
-            <section id="slide-excentrico-7" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"> <div class="slide-content-wrapper">
-                    <h2 class="guide-section-title"><i class="fas fa-band-aid"></i>DOMS y Estrategias de Recuperación</h2>
-                    <p class="text-sm mb-2">DOMS es común. Pico 48-72h post. Estrategias:</p>
-                    <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm mb-2">
-                        <li>Recuperación activa, crioterapia selectiva, masaje/foam rolling, sueño, compresión, hidratación, nutrición óptima (proteína, carbs, Omega-3).</li>
+            <section id="slide-excentrico-7" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-band-aid"></i>DOMS y Estrategias de Recuperación</h2>
+                    <p class="mb-2">El Dolor Muscular de Aparición Tardía (DOMS) es una respuesta común al entrenamiento excéntrico, especialmente al inicio. Generalmente alcanza su pico entre las <strong class="highlight">24-72 horas post-ejercicio</strong>.</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-running"></i> Estrategias para Mitigar y Recuperar:</h4>
+                    <ul>
+                        <li><strong>Recuperación Activa:</strong> Ejercicio ligero de baja intensidad (caminata, ciclismo suave) para aumentar el flujo sanguíneo.</li>
+                        <li><strong>Crioterapia Selectiva:</strong> Aplicación de frío (hielo) en áreas específicas puede ayudar a reducir la inflamación aguda (uso con precaución y no sistemático).</li>
+                        <li><strong>Masaje y Foam Rolling:</strong> Pueden aliviar la tensión muscular y mejorar la circulación.</li>
+                        <li><strong>Sueño de Calidad:</strong> Fundamental para la reparación y los procesos hormonales anabólicos.</li>
+                        <li><strong>Compresión:</strong> Prendas de compresión pueden ayudar a reducir la hinchazón y el DOMS.</li>
+                        <li><strong>Nutrición e Hidratación Óptimas:</strong> Suficiente proteína para reparación, carbohidratos para reponer glucógeno, grasas saludables y adecuada hidratación. Suplementos como Omega-3 pueden tener efectos antiinflamatorios.</li>
                     </ul>
-                    <div class="info-box text-xs !py-2 !px-3"><strong>Efecto de Serie Repetida:</strong> Sesiones posteriores similares producen menos daño y dolor.</div>
+                    <div class="info-box mt-3 !py-2 !px-3"><strong>Efecto de Serie Repetida (Repeated Bout Effect):</strong> Tras una sesión de ejercicio excéntrico, las sesiones posteriores con características similares inducen significativamente menos daño muscular y DOMS. Es una adaptación protectora del músculo.</div>
                 </div>
             </section>
 
-            <section id="slide-excentrico-8" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"> <div class="slide-content-wrapper">
-                    <h2 class="guide-section-title"><i class="fas fa-users"></i>Excéntrico a lo Largo de la Vida</h2>
-                    <p class="text-xs sm:text-sm mb-1"><strong>Juventud:</strong> Desarrollo neuromuscular, prevención. Priorizar técnica.</p>
-                    <p class="text-xs sm:text-sm mb-1"><strong>Adultos (18-50):</strong> Máxima hipertrofia/fuerza, rendimiento. Gestionar DOMS.</p>
-                    <p class="text-xs sm:text-sm"><strong>Adultos Mayores (>50):</strong> Preservar masa muscular (vs. sarcopenia), estabilidad, reduce riesgo caídas. Adaptar cargas.</p>
-                    <div class="info-box mt-2 text-xs !py-2 !px-3"><strong>Adaptación Clave:</strong> Beneficios en todas las etapas, pero <strong class="critical-text">debe adaptarse</strong> a cada grupo etario.</div>
+            <section id="slide-excentrico-8" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-users"></i>Entrenamiento Excéntrico a lo Largo del Ciclo Vital</h2>
+                    <p class="mb-1">El entrenamiento excéntrico ofrece beneficios en todas las etapas de la vida, siempre que se adapte adecuadamente:</p>
+                    <p class="mb-1"><strong class="text-askesis-green">Juventud y Adolescencia:</strong> Puede ser útil para el desarrollo neuromuscular, la mejora de la fuerza y la prevención de lesiones en jóvenes atletas. Priorizar la <strong class="highlight">técnica impecable y cargas moderadas</strong>.</p>
+                    <p class="mb-1"><strong class="text-askesis-green">Adultos (18-50 años):</strong> Es una herramienta muy eficaz para alcanzar la máxima hipertrofia, fuerza y potencia, así como para el rendimiento deportivo. Se pueden utilizar métodos más intensos, gestionando adecuadamente el DOMS y la recuperación.</p>
+                    <p class="mb-1"><strong class="text-askesis-green">Adultos Mayores (>50 años):</strong> Crucial para preservar la masa y función muscular (combatir la sarcopenia), mejorar la estabilidad, la capacidad de realizar actividades de la vida diaria y <strong class="highlight">reducir el riesgo de caídas</strong>. Se deben adaptar las cargas y la intensidad a la capacidad individual, enfocándose en la seguridad y el control.</p>
+                    <div class="info-box mt-3 !py-2 !px-3"><strong>Adaptación Individualizada es Clave:</strong> Si bien los beneficios son universales, la aplicación del entrenamiento excéntrico <strong class="critical-text">debe ser cuidadosamente adaptada</strong> a la edad, nivel de condición física, historial de lesiones y objetivos de cada individuo.</div>
                 </div>
             </section>
 
-            <section id="slide-excentrico-9" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/3912944/pexels-photo-3912944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"> <div class="slide-content-wrapper">
-                    <h2 class="guide-section-title !text-askesis-orange !border-askesis-orange"><i class="fas fa-check-double"></i>En Resumen: El Poder Excéntrico</h2>
-                    <p class="text-sm sm:text-base">Herramienta poderosa para mejorar fuerza, hipertrofia y prevención/rehabilitación. Permite generar <strong class="highlight">mayor tensión muscular</strong>. Requiere <strong class="highlight">introducción gradual</strong>, programación cuidadosa y atención a la <strong class="highlight">recuperación</strong>. Sus beneficios se extienden a lo largo de la vida si se adapta correctamente.</p>
+            <section id="slide-excentrico-9" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/3912944/pexels-photo-3912944.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper">
+                    <h2 class="!text-askesis-orange !border-askesis-green"><i class="fas fa-check-double"></i>En Resumen: El Poder Excéntrico</h2>
+                    <p>El entrenamiento excéntrico es una modalidad <strong class="highlight">extremadamente poderosa y versátil</strong> para mejorar la fuerza, la hipertrofia muscular, el rendimiento deportivo y la prevención/rehabilitación de lesiones. Su capacidad única para generar <strong class="highlight">altos niveles de tensión muscular</strong> lo convierte en un estímulo adaptativo superior en muchos contextos.</p>
+                    <p>Sin embargo, su implementación requiere una <strong class="highlight">introducción gradual, una programación cuidadosa y una atención meticulosa a la recuperación</strong> para manejar el DOMS y evitar el sobreentrenamiento. Los beneficios del entrenamiento excéntrico se extienden a lo largo de todo el ciclo vital, siempre que se adapte correctamente a las necesidades y capacidades individuales.</p>
+                    <div class="tip-box mt-3"><strong>Conclusión Askesis:</strong> Domina el arte de la fase negativa y desbloquearás un nuevo nivel de potencial físico.</div>
                 </div>
             </section>
 
-            <section id="slide-excentrico-10" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/265076/pexels-photo-265076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"> <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
-                    <h2 class="guide-section-title !text-askesis-purple !border-askesis-purple"><i class="fas fa-book"></i>Glosario de Términos</h2>
-                    <dl class="text-xs text-left">
-                        <dt class="font-bold text-askesis-blue mt-1.5">1RM:</dt><dd class="ml-4">Máx. peso una rep.</dd>
-                        <dt class="font-bold text-askesis-blue mt-1.5">Cont. Concénctrica:</dt><dd class="ml-4">Músculo se acorta.</dd>
-                        <dt class="font-bold text-askesis-blue mt-1.5">Cont. Excéntrica:</dt><dd class="ml-4">Músculo se alarga bajo tensión.</dd>
-                        <dt class="font-bold text-askesis-blue mt-1.5">DOMS:</dt><dd class="ml-4">Dolor Muscular de Aparición Tardía.</dd>
-                        <dt class="font-bold text-askesis-blue mt-1.5">EIMD:</dt><dd class="ml-4">Daño Muscular Inducido por Ejercicio.</dd>
-                        <dt class="font-bold text-askesis-blue mt-1.5">Flywheel:</dt><dd class="ml-4">Entrenamiento inercial.</dd>
-                        <dt class="font-bold text-askesis-blue mt-1.5">Hipertrofia:</dt><dd class="ml-4">Aumento tamaño fibras musculares.</dd>
-                        <dt class="font-bold text-askesis-blue mt-1.5">Pliometría:</dt><dd class="ml-4">Estiramiento rápido seguido de contracción rápida.</dd>
-                        <dt class="font-bold text-askesis-blue mt-1.5">SSC:</dt><dd class="ml-4">Ciclo de Estiramiento-Acortamiento.</dd>
-                        <dt class="font-bold text-askesis-blue mt-1.5">Titina:</dt><dd class="ml-4">Proteína muscular que contribuye a elasticidad pasiva.</dd>
-                        </dl>
+            <section id="slide-excentrico-10" class="step-slide hidden" style="background-image: url('https://images.pexels.com/photos/265076/pexels-photo-265076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2 class="!text-askesis-purple !border-askesis-blue"><i class="fas fa-book"></i>Glosario de Términos Clave</h2>
+                    <dl class="text-left">
+                        <dt class="font-bold text-askesis-blue mt-2">1RM (Una Repetición Máxima):</dt><dd class="ml-4 text-sm">El peso máximo que una persona puede levantar en una sola repetición de un ejercicio con la técnica correcta.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Contracción Concénctrica:</dt><dd class="ml-4 text-sm">Tipo de contracción muscular en la que el músculo se acorta mientras genera tensión (ej. levantar una pesa).</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Contracción Excéntrica:</dt><dd class="ml-4 text-sm">Tipo de contracción muscular en la que el músculo se alarga mientras genera tensión bajo una carga (ej. bajar una pesa de forma controlada).</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">DOMS (Delayed Onset Muscle Soreness):</dt><dd class="ml-4 text-sm">Dolor Muscular de Aparición Tardía, que generalmente se siente 24-72 horas después de un ejercicio intenso o no acostumbrado.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">EIMD (Exercise-Induced Muscle Damage):</dt><dd class="ml-4 text-sm">Daño Muscular Inducido por el Ejercicio; microtraumatismos en las fibras musculares que ocurren durante el ejercicio intenso, especialmente excéntrico.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Flywheel (Entrenamiento Inercial):</dt><dd class="ml-4 text-sm">Método de entrenamiento que utiliza un volante de inercia para generar resistencia tanto en la fase concéntrica como excéntrica.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Hipertrofia Muscular:</dt><dd class="ml-4 text-sm">Aumento del tamaño de las fibras musculares, lo que resulta en un aumento del tamaño del músculo.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Pliometría:</dt><dd class="ml-4 text-sm">Ejercicios que implican un rápido estiramiento del músculo (fase excéntrica) seguido inmediatamente por una rápida contracción (fase concéntrica), utilizando el ciclo de estiramiento-acortamiento.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Sarcomerogénesis:</dt><dd class="ml-4 text-sm">Proceso de creación de nuevos sarcómeros (las unidades contráctiles básicas del músculo) en serie, lo que puede llevar a un aumento de la longitud del fascículo muscular.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">SSC (Stretch-Shortening Cycle):</dt><dd class="ml-4 text-sm">Ciclo de Estiramiento-Acortamiento; mecanismo fisiológico que involucra una fase excéntrica seguida de una fase concéntrica para producir movimientos potentes.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Titina:</dt><dd class="ml-4 text-sm">Una proteína gigante dentro del sarcómero muscular que contribuye a la elasticidad pasiva del músculo y juega un papel en la producción de fuerza durante el estiramiento.</dd>
+                    </dl>
                 </div>
             </section>
         </div>
 
         <div id="navigation-buttons-excentrico" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4">
-            <button id="prev-button-excentrico" class="w-full sm:w-auto bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center">
+            <button id="prev-button-excentrico" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
                 <i class="fas fa-arrow-left mr-2"></i>Anterior
             </button>
-            <button id="next-button-excentrico" class="w-full sm:w-auto bg-askesis-blue hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center">
+            <button id="next-button-excentrico" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
                 Siguiente<i class="fas fa-arrow-right ml-2"></i>
             </button>
         </div>
         <div id="completion-container-excentrico" class="hidden my-8 text-center">
-            <button id="restart-button-excentrico" class="bg-askesis-orange hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                <i class="fas fa-redo mr-2"></i>Ver Guía de Ent. Excéntrico de Nuevo
+            <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-green">
+                <i class="fas fa-check-circle text-4xl mr-3"></i>¡Guía de Entrenamiento Excéntrico Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Has explorado los fundamentos y aplicaciones avanzadas del entrenamiento excéntrico. ¡Úsalo con sabiduría para potenciar tus resultados!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-graduation-cap mr-2"></i>Descubre Más Servicios Askesis
+            </a>
+            <button id="restart-button-excentrico" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
             </button>
         </div>
     </div>
 
-    <footer class="bg-askesis-text-dark text-gray-300 py-10 px-4 text-center">
-        <div class="container mx-auto">
-            <div class="font-roboto text-2xl font-bold text-white mb-2">ASKESIS</div>
-            <div class="mb-3">
-                 <p class="font-semibold text-lg">Luis Patricio Ruiz Ruiz</p>
-                 <p class="text-sm text-gray-400">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+    <footer class="mt-12"> <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
             </div>
-            <div class="flex justify-center space-x-4 mb-4">
-                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guia%20Entrenamiento%20Excentrico" target="_blank" class="text-gray-400 hover:text-askesis-blue transition-colors"><i class="fas fa-envelope fa-lg"></i></a>
-                 <a href="https://wa.me/56975401150?text=Hola%20Askesis%2C%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Entrenamiento%20Excéntrico." target="_blank" class="text-gray-400 hover:text-askesis-green transition-colors"><i class="fab fa-whatsapp fa-lg"></i></a>
-                 <a href="https://www.instagram.com/askesis111" target="_blank" class="text-gray-400 hover:text-purple-400 transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
-                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" class="text-gray-400 hover:text-red-600 transition-colors">
-                    <i class="fab fa-youtube fa-lg"></i>
-                 </a>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
             </div>
-            <p class="text-sm text-gray-500">© <span id="currentYearFooterExcentrico"></span> Askesis. Todos los derechos reservados.</p>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Entrenamiento%20Excéntrico" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Entrenamiento%20Excéntrico." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterExcentrico"></span> Askesis. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const guideContainer = document.getElementById('interactive-presentation-container-excentrico');
-            if (!guideContainer) return; 
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de entrenamiento excéntrico no encontrado.");
+                return;
+            }
 
-            const slides = guideContainer.querySelectorAll('#slides-container-excentrico .step-slide');
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-excentrico .step-slide'));
             const prevButton = guideContainer.querySelector('#prev-button-excentrico');
             const nextButton = guideContainer.querySelector('#next-button-excentrico');
             const stepIndicator = guideContainer.querySelector('#step-indicator-excentrico');
@@ -393,7 +583,7 @@
 
             function updateSlideDisplay(scrollToSlide = true) {
                 if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
-                    console.error("Error: Uno o más elementos de la guía de entrenamiento excéntrico no se encontraron.");
+                    console.error("Error: Uno o más elementos de la guía de entrenamiento excéntrico no se encontraron en updateSlideDisplay.");
                     return;
                 }
 
@@ -405,51 +595,57 @@
                     }
                 });
                 
-                stepIndicator.textContent = `Paso ${currentSlide + 1} de ${totalSlides}`;
-                const progressPercentage = totalSlides > 0 ? ((currentSlide + 1) / totalSlides) * 100 : 0;
+                const slideTitles = [ // Titles for each slide for the indicator
+                    "Introducción al Excéntrico", "Beneficios Clave", "Mecanismos Fisiológicos", "Métodos de Entrenamiento",
+                    "Ciclo Estiramiento-Acortamiento (SSC)", "Excéntrico y Prevención de Lesiones", "Programación y Consideraciones",
+                    "DOMS y Recuperación", "Excéntrico en el Ciclo Vital", "Resumen del Poder Excéntrico", "Glosario de Términos"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
                 progressBar.style.width = `${progressPercentage}%`;
 
                 prevButton.disabled = currentSlide === 0;
                 
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.remove('sm:justify-between');
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else {
+                    navigationButtonsContainer.classList.remove('sm:justify-end');
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
                 if (currentSlide === totalSlides - 1) {
                     nextButton.classList.add('hidden'); 
                     completionContainer.classList.remove('hidden'); 
-                    navigationButtonsContainer.classList.add('sm:justify-start'); 
-                    navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-center');
+                    navigationButtonsContainer.classList.add('sm:justify-start'); // Only prev button visible
+                     navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end');
                 } else {
                     nextButton.classList.remove('hidden');
                     completionContainer.classList.add('hidden');
-                    navigationButtonsContainer.classList.remove('sm:justify-start');
-                    navigationButtonsContainer.classList.add('sm:justify-between');
-                     if(currentSlide === 0) { 
-                        navigationButtonsContainer.classList.remove('sm:justify-between');
-                        navigationButtonsContainer.classList.add('sm:justify-end'); 
-                    } else {
-                        navigationButtonsContainer.classList.remove('sm:justify-end');
-                        navigationButtonsContainer.classList.add('sm:justify-between');
-                    }
                 }
                 
                 if (scrollToSlide) {
-                    const targetSlideElement = document.getElementById(`slide-excentrico-${currentSlide}`);
+                    const targetSlideElement = slides[currentSlide];
                     if (targetSlideElement) {
-                        const mainNav = document.getElementById('main-nav-excentrico');
-                        if (mainNav) {
-                            mainNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            setTimeout(() => {
-                                targetSlideElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            }, 150); 
-                        } else {
-                             targetSlideElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
+                        const stickyNavHeight = document.querySelector('.secondary-nav-askesis')?.offsetHeight || 0;
+                        const headerHeight = document.querySelector('.main-header-askesis')?.offsetHeight || 0;
+                        const totalStickyHeight = stickyNavHeight + headerHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20; // 20px buffer
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
                     }
                 }
+
                 navLinks.forEach(link => {
-                    link.classList.remove('bg-askesis-blue', 'text-white'); 
-                    link.classList.add('text-gray-200');
+                    link.classList.remove('active');
                     if (link.getAttribute('href') === `#slide-excentrico-${currentSlide}`) {
-                        link.classList.add('bg-askesis-blue', 'text-white');
-                        link.classList.remove('text-gray-200');
+                        link.classList.add('active');
                     }
                 });
             }
@@ -483,30 +679,33 @@
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     const targetId = link.getAttribute('href').substring(1); 
-                    const targetSlideIndex = Array.from(slides).findIndex(s => s.id === targetId);
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
                     if (targetSlideIndex !== -1) {
                         currentSlide = targetSlideIndex;
-                        updateSlideDisplay(false); 
-                         const targetElement = document.getElementById(targetId);
+                        updateSlideDisplay(false); // Don't scroll based on nav click if section is already visible
+                        
+                        const targetElement = document.getElementById(targetId);
                         if(targetElement) {
-                            const mainNav = document.getElementById('main-nav-excentrico');
-                            if (mainNav) {
-                                mainNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                setTimeout(() => {
-                                     targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                }, 150);
-                            } else {
-                                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                            }
+                             const stickyNavHeight = document.querySelector('.secondary-nav-askesis')?.offsetHeight || 0;
+                             const headerHeight = document.querySelector('.main-header-askesis')?.offsetHeight || 0;
+                             const totalStickyHeight = stickyNavHeight + headerHeight;
+                             const elementPosition = targetElement.getBoundingClientRect().top;
+                             const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20; // 20px buffer
+                            
+                             window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
                         }
                     }
                 });
             });
             
             if (totalSlides > 0) {
-                updateSlideDisplay(false); 
+                updateSlideDisplay(false); // Initial display without scroll
             } else {
                 console.warn("Advertencia: No se encontraron slides en la guía de entrenamiento excéntrico.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
             }
         });
     </script>
