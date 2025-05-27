@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Fuerza en Niños y Adolescentes: Mitos y Realidades</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Entrenamiento de Fuerza en Niños y Adolescentes: Descubre los beneficios, recomendaciones basadas en ciencia, y desmitifica los conceptos erróneos.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C', /* Primary for this guide */
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#B80F0A',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                        'askesis-blue-light': 'rgba(0, 90, 156, 0.15)',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #B80F0A;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+            --askesis-blue-light: rgba(0, 90, 156, 0.15);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.97), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-fuerzajoven { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.35rem; 
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.55rem; 
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-fuerzajoven:hover,
+        .secondary-nav-askesis .nav-link-fuerzajoven.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-blue); 
+        }
+        .secondary-nav-askesis .nav-link-fuerzajoven.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.96); 
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px;
+            max-width: 980px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-blue); 
+            font-size: 2.4em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-green); 
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-green); 
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-orange); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-purple);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--askesis-purple); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f1ae"; /* fa-child or fa-child-reaching */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-blue); 
+            position: absolute;
+            left: 0;
+            top: 7px;
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: var(--askesis-blue-light); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(184, 15, 10, 0.2); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: rgba(0, 128, 55, 0.2); border-left-color: var(--askesis-green); color: var(--askesis-text-white);} 
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); } 
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-green); } 
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-blue); 
+            color: var(--askesis-text-white);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(0, 90, 156, 0.4); 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #004175; 
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 90, 156, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-orange); 
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #cf6a10; 
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-fuerzajoven { font-size: 0.5rem; padding: 0.3rem 0.3rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-fuerzajoven { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-fuerzajoven" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-fuerzajoven-0" class="nav-link-fuerzajoven active">Intro</a></li>
+            <li><a href="#slide-fuerzajoven-1" class="nav-link-fuerzajoven">Definición</a></li>
+            <li><a href="#slide-fuerzajoven-2" class="nav-link-fuerzajoven">Mitos</a></li>
+            <li><a href="#slide-fuerzajoven-3" class="nav-link-fuerzajoven">Beneficios</a></li>
+            <li><a href="#slide-fuerzajoven-4" class="nav-link-fuerzajoven">Riesgos/Seg.</a></li>
+            <li><a href="#slide-fuerzajoven-5" class="nav-link-fuerzajoven">Maduración</a></li>
+            <li><a href="#slide-fuerzajoven-6" class="nav-link-fuerzajoven">Directrices (I)</a></li>
+            <li><a href="#slide-fuerzajoven-7" class="nav-link-fuerzajoven">Directrices (II)</a></li>
+            <li><a href="#slide-fuerzajoven-8" class="nav-link-fuerzajoven">Tipos Ejerc.</a></li>
+            <li><a href="#slide-fuerzajoven-9" class="nav-link-fuerzajoven">Progresión</a></li>
+            <li><a href="#slide-fuerzajoven-10" class="nav-link-fuerzajoven">Rol Adultos</a></li>
+            <li><a href="#slide-fuerzajoven-11" class="nav-link-fuerzajoven">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-fuerzajoven" class="py-8"> <div id="step-indicator-fuerzajoven" class="text-center mb-4 text-lg font-semibold text-askesis-orange font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-fuerzajoven" class="bg-gradient-to-r from-askesis-green to-askesis-blue h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        </div>
+
+        <div id="slides-container-fuerzajoven"> <section id="slide-fuerzajoven-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-child-reaching"></i>Entrenamiento de Fuerza en Niños y Adolescentes</h1>
+                    <p class="mb-3">El entrenamiento de fuerza en poblaciones jóvenes ha sido históricamente un tema de debate, rodeado de mitos y preocupaciones. Sin embargo, la <strong class="highlight">evidencia científica actual respalda firmemente</strong> que, cuando se diseña e implementa adecuadamente, es <strong class="highlight">seguro y ofrece numerosos beneficios</strong> para la salud y el rendimiento de niños y adolescentes.</p>
+                    <p>Esta guía explorará las <strong class="highlight">realidades, recomendaciones y consideraciones clave</strong> para un entrenamiento de fuerza efectivo y seguro en jóvenes.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> El objetivo no es crear "mini-adultos levantadores de pesas", sino <strong class="emphasis">fomentar el desarrollo físico integral, la competencia motriz y hábitos de vida saludables</strong> a través de programas adaptados a su edad y madurez.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-fuerzajoven-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-dumbbell"></i>¿Qué Entendemos por Entrenamiento de Fuerza en Jóvenes?</h2>
+                    <p>El entrenamiento de fuerza en niños y adolescentes se refiere a un <strong class="highlight">programa de ejercicio sistemático y progresivo diseñado para mejorar la capacidad del sistema neuromuscular para ejercer o resistir fuerza</strong>.</p>
+                    <p>Es importante distinguirlo de:</p>
+                    <ul>
+                        <li><strong>Halterofilia (Weightlifting):</strong> Deporte olímpico que implica levantamientos máximos en arrancada y dos tiempos.</li>
+                        <li><strong>Powerlifting:</strong> Deporte que implica levantamientos máximos en sentadilla, press de banca y peso muerto.</li>
+                        <li><strong>Culturismo (Bodybuilding):</strong> Enfocado principalmente en la estética muscular.</li>
+                    </ul>
+                    <p>Si bien los jóvenes pueden participar en estos deportes bajo supervisión experta, el <strong class="highlight">entrenamiento de fuerza general para la salud y el desarrollo</strong> tiene un enfoque más amplio y menos especializado, priorizando la técnica, la progresión gradual y la diversión.</p>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Enfoque Principal:</strong> Desarrollo de la fuerza funcional, mejora de la composición corporal, prevención de lesiones y promoción de la actividad física a largo plazo.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-fuerzajoven-2" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-comment-slash"></i>Mitos Comunes sobre Fuerza en Jóvenes</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-times-circle text-askesis-red"></i> Mito 1: "El entrenamiento de fuerza detiene el crecimiento."</h3>
+                    <p><strong>Realidad:</strong> <strong class="highlight">FALSO</strong>. No hay evidencia científica que respalde esta afirmación. Un programa bien diseñado y supervisado no daña los cartílagos de crecimiento (placas epifisarias). De hecho, la actividad física con carga puede ser beneficiosa para la densidad ósea.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-times-circle text-askesis-red"></i> Mito 2: "Es peligroso y causa muchas lesiones."</h3>
+                    <p><strong>Realidad:</strong> <strong class="highlight">FALSO</strong> cuando se realiza correctamente. El riesgo de lesión en el entrenamiento de fuerza supervisado es significativamente menor que en muchos deportes populares (fútbol, baloncesto). La clave es la supervisión adecuada, la técnica correcta y la progresión gradual.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-times-circle text-askesis-red"></i> Mito 3: "Los niños no pueden ganar fuerza porque no tienen suficiente testosterona."</h3>
+                    <p><strong>Realidad:</strong> <strong class="highlight">FALSO</strong>. Si bien los aumentos de masa muscular significativos (hipertrofia) son más limitados antes de la pubertad debido a niveles hormonales más bajos, los niños <strong class="highlight">pueden y logran ganancias de fuerza significativas</strong> principalmente a través de adaptaciones neurales (mejor reclutamiento y coordinación de unidades motoras).</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-times-circle text-askesis-red"></i> Mito 4: "Solo deben usar el peso corporal."</h3>
+                    <p><strong>Realidad:</strong> <strong class="highlight">INCOMPLETO</strong>. El peso corporal es un excelente punto de partida, pero a medida que los jóvenes se fortalecen, se pueden introducir resistencias externas (bandas, mancuernas ligeras, máquinas adaptadas) de forma segura y progresiva para continuar estimulando adaptaciones.</p>
+                </div>
+            </section>
+
+            <section id="slide-fuerzajoven-3" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-heartbeat"></i>Beneficios del Entrenamiento de Fuerza en Jóvenes</h2>
+                    <p>Cuando se implementa correctamente, ofrece numerosos beneficios físicos y psicológicos:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-running"></i> Beneficios Físicos:</h3>
+                    <ul>
+                        <li><strong>Aumento de la Fuerza Muscular y la Resistencia Muscular.</strong></li>
+                        <li><strong>Mejora de la Densidad Mineral Ósea:</strong> Ayuda a construir huesos más fuertes y prevenir la osteoporosis en el futuro.</li>
+                        <li><strong>Mejora de la Composición Corporal:</strong> Aumento de la masa magra y reducción de la masa grasa.</li>
+                        <li><strong>Reducción del Riesgo de Lesiones Deportivas:</strong> Fortalece músculos, tendones y ligamentos.</li>
+                        <li><strong>Mejora del Rendimiento Deportivo:</strong> En velocidad, salto, agilidad y habilidades específicas del deporte.</li>
+                        <li><strong>Mejora de la Salud Cardiovascular:</strong> Puede influir positivamente en factores de riesgo como la presión arterial y el perfil lipídico.</li>
+                        <li><strong>Promoción de un Peso Corporal Saludable.</strong></li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-brain"></i> Beneficios Psicológicos y Sociales:</h3>
+                    <ul>
+                        <li><strong>Mejora de la Autoestima y la Confianza en sí mismos.</strong></li>
+                        <li><strong>Mejora de la Imagen Corporal.</strong></li>
+                        <li><strong>Reducción del Estrés y la Ansiedad.</strong></li>
+                        <li><strong>Fomento de la Disciplina y la Constancia.</strong></li>
+                        <li><strong>Promoción de Hábitos de Vida Activos y Saludables a Largo Plazo.</strong></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-fuerzajoven-4" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-user-shield"></i>Consideraciones de Seguridad y Riesgos Potenciales</h2>
+                    <p>Aunque el entrenamiento de fuerza es seguro para jóvenes si se hace bien, existen consideraciones importantes:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-exclamation-triangle text-askesis-red"></i> Riesgos (Generalmente Bajos con Supervisión):</h3>
+                    <ul>
+                        <li><strong>Lesiones Musculoesqueléticas Agudas:</strong> Distensiones, esguinces, si la técnica es mala o la carga excesiva.</li>
+                        <li><strong>Lesiones por Sobrecarga:</strong> Tendinopatías, dolor articular, si la progresión es demasiado rápida o el volumen muy alto sin recuperación.</li>
+                        <li><strong>Daño a las Placas de Crecimiento (Epifisarias):</strong> <strong class="highlight">Extremadamente raro</strong> con programas bien diseñados y supervisados. Más asociado a levantamientos máximos mal ejecutados o accidentes.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-shield-alt"></i> Claves para la Seguridad:</h3>
+                    <ul>
+                        <li><strong>Supervisión Cualificada:</strong> Por entrenadores con conocimiento y experiencia en el entrenamiento de jóvenes.</li>
+                        <li><strong>Énfasis en la Técnica Correcta:</strong> Es la prioridad número uno, por encima de la cantidad de peso levantado.</li>
+                        <li><strong>Progresión Gradual y Adecuada a la Edad y Madurez.</strong></li>
+                        <li><strong>Calentamiento y Enfriamiento Adecuados.</strong></li>
+                        <li><strong>Entorno de Entrenamiento Seguro y Equipamiento Apropiado.</strong></li>
+                        <li><strong>Comunicación Abierta:</strong> Animar a los jóvenes a comunicar cualquier dolor o molestia.</li>
+                        <li><strong>Individualización del Programa.</strong></li>
+                        <li><strong>No Forzar:</strong> El entrenamiento debe ser desafiante pero no llevar al agotamiento extremo o al dolor.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-fuerzajoven-5" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-child"></i>Maduración Biológica y Etapas del Desarrollo</h2>
+                    <p>Es crucial considerar la etapa de desarrollo y maduración biológica al diseñar programas, no solo la edad cronológica.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-venus-mars"></i> Pubertad y Pico de Crecimiento (Peak Height Velocity - PHV):</h3>
+                    <p>La pubertad trae consigo cambios hormonales significativos (aumento de testosterona en niños, estrógeno en niñas) que influyen en la capacidad de ganar fuerza y masa muscular. El PHV es el período de crecimiento más rápido en altura.</p>
+                    <ul>
+                        <li><strong>Pre-Púberes (Niñez):</strong> Las ganancias de fuerza son principalmente <strong class="highlight">neurales</strong>. El foco debe estar en el aprendizaje motor, la técnica, la diversión y el desarrollo de habilidades fundamentales.</li>
+                        <li><strong>Durante la Pubertad y PHV:</strong> Aumento de la capacidad para hipertrofia. Sin embargo, el rápido crecimiento puede hacer que los jóvenes sean temporalmente más descoordinados o vulnerables a ciertas lesiones por sobrecarga si no se maneja bien la carga.</li>
+                        <li><strong>Post-Púberes (Adolescencia Tardía):</strong> Mayor potencial para ganancias de fuerza e hipertrofia similares a los adultos jóvenes, aunque el esqueleto aún puede estar madurando.</li>
+                    </ul>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Variabilidad Individual:</strong> Existe una gran variabilidad en el inicio y la progresión de la pubertad. Los programas deben ser flexibles.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-fuerzajoven-6" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-clipboard-list"></i>Directrices Generales para el Diseño de Programas (Parte I)</h2>
+                    <p>Basado en recomendaciones de organizaciones como la NSCA, AAP, ACSM:</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-calendar-check"></i> Evaluación Previa:</h4>
+                    <p>Antes de comenzar, es recomendable una evaluación médica si hay preocupaciones de salud. Evaluar el nivel de madurez, experiencia y habilidades motoras básicas.</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-users-cog"></i> Supervisión y Enseñanza:</h4>
+                    <p>Las sesiones deben ser <strong class="highlight">supervisadas por profesionales cualificados</strong> que puedan enseñar la técnica correcta y asegurar un ambiente seguro.</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-shoe-prints"></i> Calentamiento y Enfriamiento:</h4>
+                    <ul>
+                        <li><strong>Calentamiento (5-10 min):</strong> Actividad aeróbica ligera seguida de estiramientos dinámicos y movimientos específicos de la sesión.</li>
+                        <li><strong>Enfriamiento (5-10 min):</strong> Actividad ligera y estiramientos estáticos suaves.</li>
+                    </ul>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-dumbbell"></i> Selección de Ejercicios:</h4>
+                    <ul>
+                        <li>Priorizar <strong class="highlight">ejercicios multiarticulares</strong> que trabajen grandes grupos musculares y patrones de movimiento fundamentales (ej. sentadillas, peso muerto ligero/con pica, press, remos, ejercicios con peso corporal).</li>
+                        <li>Incluir ejercicios para el <strong class="highlight">core</strong>.</li>
+                        <li>Asegurar un <strong class="highlight">entrenamiento equilibrado</strong> entre grupos musculares agonistas y antagonistas, y entre diferentes planos de movimiento.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-fuerzajoven-7" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-tasks"></i>Directrices Generales para el Diseño de Programas (Parte II)</h2>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-sort-amount-up"></i> Volumen e Intensidad (Carga):</h4>
+                    <ul>
+                        <li><strong>Principiantes/Pre-Púberes:</strong>
+                            <ul>
+                                <li>Énfasis en aprender la <strong class="highlight">técnica con cargas muy ligeras o solo peso corporal</strong>.</li>
+                                <li>1-3 series de 6-15 repeticiones.</li>
+                                <li>La "carga" puede ser simplemente la complejidad del movimiento.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Intermedios/Púberes y Post-Púberes:</strong>
+                            <ul>
+                                <li>Una vez dominada la técnica, se puede progresar gradualmente la carga.</li>
+                                <li>1-4 series de 6-15 repeticiones. Cargas que permitan completar las repeticiones con buena forma, sin llegar al fallo muscular concéntrico en la mayoría de los casos.</li>
+                                <li>El entrenamiento hasta el fallo no es necesario y puede aumentar el riesgo si la técnica se deteriora.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-redo-alt"></i> Frecuencia:</h4>
+                    <p><strong class="highlight">2-3 sesiones por semana en días no consecutivos</strong> suele ser adecuado para permitir la recuperación.</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-hourglass-half"></i> Descanso entre Series:</h4>
+                    <p>1-2 minutos, o lo necesario para mantener la calidad técnica.</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-chart-line"></i> Progresión:</h4>
+                    <p>Aumentar gradualmente la carga (5-10% cuando se pueden realizar cómodamente el número de repeticiones objetivo), las repeticiones, las series, o la complejidad de los ejercicios. <strong class="highlight">La progresión debe ser lenta y constante</strong>.</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-grin-beam"></i> Diversión y Variedad:</h4>
+                    <p>Mantener el entrenamiento <strong class="highlight">interesante y divertido</strong> es clave para la adherencia a largo plazo en jóvenes.</p>
+                </div>
+            </section>
+
+            <section id="slide-fuerzajoven-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-child"></i>Tipos de Ejercicios Apropiados</h2>
+                    <p>La selección debe ser variada y adaptada a la edad y habilidad:</p>
+                    <ul>
+                        <li><strong>Peso Corporal:</strong> Sentadillas, zancadas, flexiones (de rodillas o completas), planchas, dominadas asistidas o con bandas, saltos básicos. <strong class="highlight">Fundamental como base</strong>.</li>
+                        <li><strong>Bandas de Resistencia:</strong> Excelente opción para añadir resistencia de forma segura y versátil.</li>
+                        <li><strong>Balones Medicinales:</strong> Para lanzamientos, trabajo de core y potencia (con pesos ligeros).</li>
+                        <li><strong>Mancuernas y Barras Ligeras:</strong> Una vez dominada la técnica con peso corporal, para ejercicios como press, remos, sentadillas goblet, peso muerto rumano.</li>
+                        <li><strong>Máquinas de Resistencia (con precaución):</strong> Algunas máquinas pueden no ajustarse bien a la antropometría de los niños. Preferir aquellas que permitan un movimiento más libre y natural si se usan.</li>
+                        <li><strong>Ejercicios Pliométricos de Bajo Impacto:</strong> Saltos al cajón bajo, pequeños rebotes, skipping. Progresar con cautela.</li>
+                    </ul>
+                    <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Evitar Inicialmente:</strong> Levantamientos máximos (1RM) hasta que el joven tenga suficiente experiencia, madurez y una base técnica sólida. Los levantamientos olímpicos complejos requieren una enseñanza experta y progresiva.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-fuerzajoven-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-arrow-trend-up"></i>Progresión y Periodización a Largo Plazo</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-signal"></i> Progresión:</h3>
+                    <p>El entrenamiento debe ser progresivo para seguir estimulando adaptaciones. La progresión se basa en:</p>
+                    <ul>
+                        <li>Primero, <strong class="highlight">dominar la técnica</strong> del ejercicio.</li>
+                        <li>Luego, aumentar gradualmente el <strong class="highlight">número de repeticiones</strong> con una carga dada.</li>
+                        <li>Después, aumentar el <strong class="highlight">número de series</strong>.</li>
+                        <li>Finalmente, aumentar la <strong class="highlight">carga (resistencia)</strong> en pequeños incrementos (ej. 5-10%).</li>
+                        <li>También se puede progresar introduciendo <strong class="highlight">ejercicios más complejos</strong> o reduciendo los tiempos de descanso (para resistencia muscular).</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-calendar-alt"></i> Periodización:</h3>
+                    <p>Aunque la periodización compleja de tipo adulto no siempre es necesaria para niños pre-púberes, sí es útil introducir <strong class="highlight">variación planificada</strong> en el entrenamiento a lo largo del tiempo para evitar el aburrimiento y el estancamiento, y para desarrollar diferentes aspectos de la fuerza.</p>
+                    <p>En adolescentes, se pueden aplicar modelos de periodización más estructurados, adaptados a su calendario deportivo y escolar, con fases de preparación, competición (si aplica) y transición.</p>
+                </div>
+            </section>
+
+            <section id="slide-fuerzajoven-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-users"></i>El Rol Crucial de Padres y Entrenadores</h2>
+                    <p>El éxito y la seguridad del entrenamiento de fuerza en jóvenes dependen en gran medida del entorno y la guía que reciben.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-chalkboard-teacher"></i> Entrenadores Cualificados:</h3>
+                    <ul>
+                        <li>Deben tener <strong class="highlight">conocimiento específico</strong> sobre el desarrollo infantil y adolescente, y las adaptaciones al entrenamiento en estas etapas.</li>
+                        <li>Capacidad para <strong class="highlight">enseñar la técnica correcta</strong> de forma clara y paciente.</li>
+                        <li>Habilidad para <strong class="highlight">crear un ambiente positivo, motivador y seguro</strong>.</li>
+                        <li>Saber <strong class="highlight">individualizar y progresar</strong> los programas adecuadamente.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-hands-helping"></i> Padres y Cuidadores:</h3>
+                    <ul>
+                        <li><strong class="highlight">Fomentar la participación</strong> en actividad física variada desde temprana edad.</li>
+                        <li><strong class="highlight">Apoyar los esfuerzos</strong> del niño/adolescente sin ejercer presión excesiva sobre el rendimiento o los resultados.</li>
+                        <li>Asegurar una <strong class="highlight">nutrición adecuada y suficientes horas de sueño</strong>.</li>
+                        <li>Estar atentos a señales de fatiga excesiva, dolor o burnout.</li>
+                        <li><strong class="highlight">Elegir programas y entrenadores cualificados</strong> y con buena reputación.</li>
+                    </ul>
+                     <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Comunicación Abierta:</strong> Un diálogo fluido entre el joven, los padres y el entrenador es fundamental para una experiencia positiva y segura.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="slide-fuerzajoven-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-blue !border-askesis-green"><i class="fas fa-award"></i>Conclusión: Construyendo Cimientos para el Futuro</h2>
+                    <p class="text-lg mb-4">El entrenamiento de fuerza, cuando se prescribe y supervisa adecuadamente, es una <strong class="highlight">herramienta poderosa y segura</strong> para mejorar la salud física y mental, el rendimiento deportivo y fomentar hábitos de vida activos en niños y adolescentes.</p>
+                    <p class="text-lg mb-6">En Askesis, abogamos por un <strong class="emphasis">enfoque basado en la evidencia, centrado en el desarrollo integral del joven</strong>, priorizando la técnica, la progresión gradual y, sobre todo, el disfrute de la actividad física. Construir una base sólida de fuerza en las etapas formativas es una inversión para toda la vida.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre los Servicios Askesis
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-fuerzajoven" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4"> <button id="prev-button-fuerzajoven" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-fuerzajoven" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-fuerzajoven" class="hidden my-8 text-center"> <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-blue">
+                <i class="fas fa-shield-alt text-4xl mr-3 text-askesis-blue"></i>¡Guía de Fuerza en Jóvenes Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora tienes una base sólida para entender y promover el entrenamiento de fuerza seguro y efectivo en niños y adolescentes.</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-fuerzajoven" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Fuerza%20en%20Jóvenes" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Fuerza%20en%20Jóvenes." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterFuerzaJoven"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop();
+            window.addEventListener('resize', adjustSecondaryNavTop);
+
+            const guideContainer = document.getElementById('interactive-presentation-container-fuerzajoven');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de fuerza en jóvenes no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-fuerzajoven .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-fuerzajoven');
+            const nextButton = guideContainer.querySelector('#next-button-fuerzajoven');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-fuerzajoven');
+            const progressBar = guideContainer.querySelector('#progress-bar-fuerzajoven');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-fuerzajoven');
+            const completionContainer = guideContainer.querySelector('#completion-container-fuerzajoven');
+            const restartButton = guideContainer.querySelector('#restart-button-fuerzajoven');
+            const yearSpan = document.getElementById('currentYearFooterFuerzaJoven');
+            const navLinks = document.querySelectorAll('#main-nav-fuerzajoven .nav-link-fuerzajoven');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de fuerza en jóvenes no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Intro Fuerza en Jóvenes", "Definición y Enfoque", "Mitos Comunes", "Beneficios Clave", 
+                    "Riesgos y Seguridad", "Maduración Biológica", "Directrices de Diseño (I)", "Directrices de Diseño (II)",
+                    "Tipos de Ejercicios", "Progresión y Periodización", "Rol de Adultos", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-fuerzajoven-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de fuerza en jóvenes.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
