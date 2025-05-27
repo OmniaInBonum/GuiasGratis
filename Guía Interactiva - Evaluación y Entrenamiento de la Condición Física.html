@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Evaluación y Entrenamiento de la Condición Física</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Evaluación de la Condición Física: Aprende a medir tu fuerza, resistencia, flexibilidad y más, y descubre cómo entrenar cada componente para alcanzar tus metas.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037', /* Primary for this guide */
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#B80F0A',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                        'askesis-green-light': 'rgba(0, 128, 55, 0.1)',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #B80F0A;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+            --askesis-green-light: rgba(0, 128, 55, 0.1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.97), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-evaluacion { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.3rem; 
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.5rem; 
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-evaluacion:hover,
+        .secondary-nav-askesis .nav-link-evaluacion.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-green); 
+        }
+        .secondary-nav-askesis .nav-link-evaluacion.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.96); 
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px;
+            max-width: 980px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-green); 
+            font-size: 2.4em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-orange); 
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-orange); 
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-blue); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-purple);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--askesis-purple); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f0ae"; 
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green); 
+            position: absolute;
+            left: 0;
+            top: 7px;
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: rgba(0, 90, 156, 0.3); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(184, 15, 10, 0.2); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: var(--askesis-green-light); border-left-color: var(--askesis-green); color: var(--askesis-text-white);} 
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); } 
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-green); } 
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-green); 
+            color: var(--askesis-text-white);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(0, 128, 55, 0.4); 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #00672c; 
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 128, 55, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-orange); 
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #cf6a10; 
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-evaluacion { font-size: 0.5rem; padding: 0.3rem 0.3rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-evaluacion { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-evaluacion" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-evaluacion-0" class="nav-link-evaluacion active">Intro</a></li>
+            <li><a href="#slide-evaluacion-1" class="nav-link-evaluacion">Componentes</a></li>
+            <li><a href="#slide-evaluacion-2" class="nav-link-evaluacion">Principios Test</a></li>
+            <li><a href="#slide-evaluacion-3" class="nav-link-evaluacion">Eval. y Ent. Fuerza</a></li>
+            <li><a href="#slide-evaluacion-4" class="nav-link-evaluacion">Eval. y Ent. Potencia</a></li>
+            <li><a href="#slide-evaluacion-5" class="nav-link-evaluacion">Eval. y Ent. Res. Cardio</a></li>
+            <li><a href="#slide-evaluacion-6" class="nav-link-evaluacion">Eval. y Ent. Res. Musc.</a></li>
+            <li><a href="#slide-evaluacion-7" class="nav-link-evaluacion">Eval. y Ent. Flex/Mov.</a></li>
+            <li><a href="#slide-evaluacion-8" class="nav-link-evaluacion">Eval. e Infl. Comp. Corp.</a></li>
+            <li><a href="#slide-evaluacion-9" class="nav-link-evaluacion">Interpretación</a></li>
+            <li><a href="#slide-evaluacion-10" class="nav-link-evaluacion">Frecuencia Eval.</a></li>
+            <li><a href="#slide-evaluacion-11" class="nav-link-evaluacion">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-evaluacion" class="py-8"> <div id="step-indicator-evaluacion" class="text-center mb-4 text-lg font-semibold text-askesis-orange font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-evaluacion" class="bg-gradient-to-r from-askesis-orange to-askesis-green h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        </div>
+
+        <div id="slides-container-evaluacion"> <section id="slide-evaluacion-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-clipboard-check"></i>Evaluación de la Condición Física: Conoce tu Punto de Partida y Cómo Mejorar</h1>
+                    <p class="mb-3">La <strong class="highlight">evaluación de la condición física</strong> es un proceso sistemático para medir los diferentes componentes de la aptitud física. Es una <strong class="highlight">herramienta fundamental</strong> para establecer metas realistas, diseñar programas de entrenamiento efectivos y monitorear tu progreso.</p>
+                    <p>Esta guía te introducirá a la importancia de la evaluación, los principales componentes a medir, algunos tests comunes y, crucialmente, <strong class="highlight">cómo entrenar cada uno de estos componentes</strong>.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> "Lo que no se mide, no se puede mejorar". La evaluación te proporciona <strong class="emphasis">datos objetivos</strong> para guiar tu viaje de transformación física de manera inteligente.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-evaluacion-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-puzzle-piece"></i>Componentes Clave de la Condición Física</h2>
+                    <p>La condición física es multifacética. Los componentes principales que se suelen evaluar se relacionan con la salud y el rendimiento:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-heartbeat"></i> Relacionados con la Salud:</h3>
+                    <ul>
+                        <li><strong>Resistencia Cardiovascular (o Aeróbica):</strong> Capacidad del sistema circulatorio y respiratorio para suministrar oxígeno durante la actividad física sostenida.</li>
+                        <li><strong>Fuerza Muscular:</strong> Capacidad de un músculo o grupo muscular para ejercer la máxima fuerza contra una resistencia.</li>
+                        <li><strong>Resistencia Muscular:</strong> Capacidad de un músculo o grupo muscular para realizar contracciones repetidas o mantener una contracción durante un período.</li>
+                        <li><strong>Flexibilidad:</strong> Rango de movimiento (ROM) pasivo de una articulación.</li>
+                        <li><strong>Composición Corporal:</strong> Proporción relativa de masa grasa y masa magra (músculo, hueso, agua) en el cuerpo.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-medal"></i> Relacionados con el Rendimiento (Habilidades Motoras):</h3>
+                    <ul>
+                        <li><strong>Agilidad, Equilibrio, Coordinación, Potencia Muscular, Velocidad, Tiempo de Reacción.</strong> (Estos se mencionan pero no se detallarán métodos de entrenamiento específicos en esta guía para mantener el enfoque).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-evaluacion-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-balance-scale-right"></i>Principios de una Buena Evaluación</h2>
+                    <p>Para que una evaluación sea útil, debe cumplir con ciertos criterios:</p>
+                    <ul>
+                        <li><strong>Validez:</strong> El test debe medir lo que se supone que debe medir.</li>
+                        <li><strong>Fiabilidad (Confiabilidad):</strong> El test debe producir resultados consistentes y reproducibles.</li>
+                        <li><strong>Objetividad:</strong> Los resultados del test deben estar libres de sesgos del evaluador.</li>
+                        <li><strong>Especificidad:</strong> El test debe ser relevante para la cualidad física que se desea evaluar.</li>
+                        <li><strong>Seguridad:</strong> El test no debe suponer un riesgo indebido.</li>
+                        <li><strong>Practicidad y Viabilidad:</strong> Factible en términos de tiempo, equipamiento, etc.</li>
+                    </ul>
+                     <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Protocolo Estandarizado:</strong> Seguir un protocolo estricto es crucial para la fiabilidad y comparabilidad de los resultados.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-evaluacion-3" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-dumbbell"></i>Fuerza Máxima: Evaluación y Entrenamiento</h2>
+                    <p>Mide la mayor cantidad de fuerza que se puede generar en una contracción voluntaria.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-weight-hanging"></i> Evaluación de la Fuerza Máxima:</h3>
+                    <ul>
+                        <li><strong>Test de 1RM Directo:</strong> Peso máximo levantado una vez (ej. sentadilla, press banca). Requiere experiencia y seguridad.</li>
+                        <li><strong>Test de nRM Indirecto:</strong> Máximas repeticiones con carga submáxima (ej. 3RM, 5RM) y uso de ecuaciones para estimar 1RM. Más seguro para principiantes.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-cogs"></i> Cómo Entrenar la Fuerza Máxima:</h3>
+                    <ul>
+                        <li><strong>Intensidad Alta:</strong> Principalmente cargas ≥85% del 1RM.</li>
+                        <li><strong>Volumen Moderado:</strong> 3-6 series de 1-5 repeticiones por ejercicio principal.</li>
+                        <li><strong>Ejercicios Compuestos:</strong> Sentadillas, peso muerto, press de banca, press militar, dominadas lastradas.</li>
+                        <li><strong>Descansos Largos:</strong> 3-5 minutos o más entre series para recuperación neural y energética.</li>
+                        <li><strong>Frecuencia:</strong> 2-3 veces por semana por grupo muscular o movimiento principal.</li>
+                        <li><strong>Técnica Impecable:</strong> Priorizar la calidad del movimiento sobre la cantidad de peso.</li>
+                        <li><strong>Progresión:</strong> Aumentar gradualmente la carga, el volumen o la complejidad.</li>
+                        <li><strong>Métodos Avanzados (opcional):</strong> Cluster sets, pausas de descanso, entrenamiento excéntrico.</li>
+                    </ul>
+                     <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Seguridad Primero:</strong> Siempre calentar adecuadamente y considerar la necesidad de un spotter al trabajar con cargas pesadas.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-evaluacion-4" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-bolt"></i>Potencia Muscular: Evaluación y Entrenamiento</h2>
+                    <p>Mide la capacidad de generar fuerza rápidamente (Fuerza x Velocidad).</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-angle-double-up"></i> Evaluación de la Potencia:</h3>
+                    <ul>
+                        <li><strong>Tests de Salto:</strong> Salto Vertical (CMJ, SJ), Salto Horizontal (Broad Jump), Drop Jump.</li>
+                        <li><strong>Tests de Lanzamiento:</strong> Lanzamiento de Balón Medicinal.</li>
+                        <li><strong>VBT (Entrenamiento Basado en Velocidad):</strong> Medir velocidad de la barra o potencia de salida con encoders/acelerómetros.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-cogs"></i> Cómo Entrenar la Potencia Muscular:</h3>
+                    <ul>
+                        <li><strong>Intención de Máxima Velocidad:</strong> Mover la carga (o el cuerpo) lo más rápido posible en la fase concéntrica, independientemente del peso.</li>
+                        <li><strong>Cargas Variadas:</strong>
+                            <ul>
+                                <li>Ligeras (0-30% 1RM) para velocidad máxima (ej. saltos sin carga, lanzamientos muy ligeros).</li>
+                                <li>Moderadas (30-70% 1RM) para el pico de potencia (ej. levantamientos olímpicos, sentadilla con salto cargada).</li>
+                                <li>Pesadas (70-90% 1RM) para fuerza-velocidad (ej. sentadillas o press de banca rápidos con carga).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Volumen Bajo a Moderado:</strong> 3-6 series de 1-6 repeticiones para mantener alta calidad y velocidad.</li>
+                        <li><strong>Ejercicios Específicos:</strong> Levantamientos Olímpicos (arrancada, cargada, envión), pliometría (saltos, rebotes), ejercicios balísticos (lanzamientos).</li>
+                        <li><strong>Descansos Completos:</strong> 2-5 minutos o más para recuperación neural.</li>
+                        <li><strong>Base de Fuerza:</strong> Es fundamental tener un buen nivel de fuerza máxima para desarrollar la potencia.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-evaluacion-5" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-lungs-virus"></i>Resistencia Cardiovascular: Evaluación y Entrenamiento</h2>
+                    <p>Mide la capacidad del cuerpo para realizar ejercicio prolongado utilizando el sistema aeróbico.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-stopwatch-20"></i> Evaluación de la Resistencia Cardiovascular:</h3>
+                    <ul>
+                        <li><strong>Tests de Campo:</strong> Test de Cooper (12 min), Test de Course-Navette (Beep Test), Test de Rockport (Milla Caminando).</li>
+                        <li><strong>Tests de Laboratorio:</strong> Medición del VO2máx directo, determinación de umbrales (láctico, ventilatorio).</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-cogs"></i> Cómo Entrenar la Resistencia Cardiovascular:</h3>
+                    <ul>
+                        <li><strong>Entrenamiento Continuo de Larga Duración (LSD):</strong> Correr, nadar, remar, ciclismo a intensidad baja-moderada (ej. 60-75% FCmáx o RPE 3-5) durante 30 minutos o más. Mejora la capacidad oxidativa y la eficiencia.</li>
+                        <li><strong>Entrenamiento Interválico Aeróbico:</strong>
+                            <ul>
+                                <li><em>Intervalos Largos:</em> Ej. 3-5 series de 4-8 minutos a una intensidad moderada-alta (ej. 80-90% FCmáx o RPE 6-7), con recuperaciones activas de 2-4 minutos. Mejora el VO2máx y el umbral de lactato.</li>
+                                <li><em>Intervalos Cortos (HIIT adaptado):</em> Ej. 8-12 series de 1-2 minutos a alta intensidad (ej. >90% FCmáx o RPE 8-9), con recuperaciones activas o pasivas de duración similar o ligeramente mayor. Mejora el VO2máx y la capacidad anaeróbica.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Entrenamiento de Umbral (Tempo Runs):</strong> Correr o realizar actividad a una intensidad cercana al umbral de lactato (incómodo pero sostenible, RPE 7-8) durante 20-40 minutos.</li>
+                        <li><strong>Fartlek ("Juego de Velocidades"):</strong> Alternar períodos de mayor y menor intensidad de forma no estructurada durante una sesión continua.</li>
+                        <li><strong>Frecuencia:</strong> 3-6 sesiones por semana, variando la intensidad y duración.</li>
+                    </ul>
+                </div>
+            </section>
+
+             <section id="slide-evaluacion-6" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-redo-alt"></i>Resistencia Muscular: Evaluación y Entrenamiento</h2>
+                    <p>Mide la capacidad de un músculo para realizar contracciones repetidas o mantener una contracción.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tasks"></i> Evaluación de la Resistencia Muscular:</h3>
+                    <ul>
+                        <li><strong>Tests de Máximas Repeticiones:</strong> Con peso corporal (flexiones, dominadas, sentadillas al aire) o con carga externa (ej. % del 1RM o peso corporal en press banca/sentadilla).</li>
+                        <li><strong>Tests Isométricos:</strong> Máximo tiempo manteniendo una posición (plancha, sentadilla isométrica en pared, suspensión en barra).</li>
+                    </ul>
+                     <h3 class="guide-subsection-title"><i class="fas fa-cogs"></i> Cómo Entrenar la Resistencia Muscular:</h3>
+                    <ul>
+                        <li><strong>Series de Altas Repeticiones:</strong> 15-25+ repeticiones por serie.</li>
+                        <li><strong>Cargas Ligeras a Moderadas:</strong> Típicamente 30-60% del 1RM, o usando el propio peso corporal.</li>
+                        <li><strong>Descansos Cortos entre Series:</strong> 30-90 segundos para inducir fatiga metabólica y mejorar la capacidad de aclaramiento de lactato.</li>
+                        <li><strong>Entrenamiento en Circuito:</strong> Realizar una secuencia de varios ejercicios con mínimo descanso entre ellos, repitiendo el circuito varias veces.</li>
+                        <li><strong>Isométricos Prolongados:</strong> Mantener contracciones estáticas por tiempos progresivamente más largos.</li>
+                        <li><strong>Ejemplos:</strong>
+                            <ul>
+                                <li>Circuito: 40s de sentadillas con salto, 20s descanso; 40s flexiones, 20s descanso; 40s plancha, 20s descanso. Repetir 3-5 rondas.</li>
+                                <li>Series: 3-4 series de 20-25 repeticiones de press de banca con el 50% 1RM, 60s descanso.</li>
+                                <li>Peso Corporal: AMRAP (As Many Reps As Possible) de dominadas, seguido de AMRAP de fondos, etc.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                     <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Progresión:</strong> Aumentar el número de repeticiones, el tiempo bajo tensión, el número de series, o disminuir los descansos.
+                    </div>
+                </div>
+            </section>
+
+             <section id="slide-evaluacion-7" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-spa"></i>Flexibilidad y Movilidad: Evaluación y Entrenamiento</h2>
+                    <p>Flexibilidad (ROM pasivo) y Movilidad (ROM activo y controlado).</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-ruler-horizontal"></i> Evaluación de Flexibilidad y Movilidad:</h3>
+                    <ul>
+                        <li><strong>Tests de Flexibilidad:</strong> Sit-and-Reach, Test de Thomas, Elevación de Pierna Recta (SLR), Test de Rotación de Hombro (Apley).</li>
+                        <li><strong>Tests de Movilidad:</strong> Overhead Squat Assessment, Functional Movement Screen (FMS), Y-Balance Test, evaluación de CARs.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-cogs"></i> Cómo Entrenar la Flexibilidad y Movilidad:</h3>
+                    <ul>
+                        <li><strong>Para Flexibilidad:</strong>
+                            <ul>
+                                <li><em>Estiramientos Estáticos:</em> Mantener una posición de elongación durante 15-60 segundos, 2-4 repeticiones por grupo muscular. Realizar preferentemente después del entrenamiento o en sesiones dedicadas.</li>
+                                <li><em>Técnicas de FNP (Facilitación Neuromuscular Propioceptiva):</em> Ej. "contraer-relajar". Efectivas pero pueden requerir asistencia.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Para Movilidad:</strong>
+                            <ul>
+                                <li><em>Estiramientos Dinámicos:</em> Movimientos controlados a través del rango de movimiento completo. Ideales para el calentamiento (ej. balanceos de piernas, círculos de brazos, zancadas con rotación). 10-15 repeticiones por movimiento.</li>
+                                <li><em>Ejercicios de Movilidad Articular (CARs - Controlled Articular Rotations):</em> Movimientos lentos y conscientes de cada articulación principal a través de su máximo rango de movimiento activo. Realizar diariamente.</li>
+                                <li><em>Entrenamiento de Fuerza con ROM Completo:</em> Realizar ejercicios de fuerza (sentadillas, press, etc.) a través de todo el rango de movimiento seguro y controlado.</li>
+                                <li><em>Yoga, Pilates, Tai Chi:</em> Disciplinas que integran movilidad, flexibilidad, fuerza y control.</li>
+                                <li><em>Liberación Miofascial (Foam Rolling, Pelotas de Masaje):</em> Puede ayudar a reducir la tensión muscular y mejorar temporalmente el ROM antes de ejercicios de movilidad.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Frecuencia:</strong> El trabajo de movilidad puede (y a menudo debe) realizarse diariamente. Los estiramientos estáticos intensos, 2-3 veces por semana o según necesidad.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-evaluacion-8" class="step-slide hidden">
+                 <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-balance-scale"></i>Composición Corporal: Evaluación e Influencia del Entrenamiento</h2>
+                    <p>Proporción relativa de masa grasa y masa magra.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tape"></i> Evaluación de la Composición Corporal:</h3>
+                    <ul>
+                        <li><strong>Métodos Antropométricos:</strong> IMC (limitado), perímetros corporales, pliegues cutáneos.</li>
+                        <li><strong>Métodos de Laboratorio:</strong> DEXA/DXA (gold standard), bioimpedancia eléctrica (BIA), pesaje hidrostático, Bod Pod.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-cogs"></i> Cómo Influir en la Composición Corporal a Través del Entrenamiento y Nutrición:</h3>
+                    <ul>
+                        <li><strong>Para Aumentar Masa Muscular (Masa Magra):</strong>
+                            <ul>
+                                <li><em>Entrenamiento:</em> Principalmente entrenamiento de fuerza con sobrecarga progresiva, enfocado en la hipertrofia (volumen adecuado, intensidad moderada-alta, cerca del fallo).</li>
+                                <li><em>Nutrición:</em> Ligero superávit calórico (consumir más calorías de las que se gastan, ej. +250-500 kcal/día). Ingesta adecuada de proteínas (1.6-2.2 g/kg/día). Suficientes carbohidratos para energía.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Para Reducir Masa Grasa:</strong>
+                            <ul>
+                                <li><em>Nutrición:</em> Déficit calórico controlado y sostenible (consumir menos calorías de las que se gastan, ej. -300-700 kcal/día). Priorizar alimentos nutritivos y saciantes. Mantener una ingesta proteica alta (1.8-2.7 g/kg/día) para preservar músculo.</li>
+                                <li><em>Entrenamiento:</em>
+                                    <ul>
+                                        <li><strong>Entrenamiento de Fuerza:</strong> Crucial para preservar la masa muscular durante el déficit calórico.</li>
+                                        <li><strong>Entrenamiento Cardiovascular:</strong> Ayuda a aumentar el gasto calórico total. Combinar sesiones de intensidad moderada y continua (LISS) con sesiones de alta intensidad por intervalos (HIIT).</li>
+                                        <li><strong>Aumentar el NEAT (Non-Exercise Activity Thermogenesis):</strong> Actividad física no programada (caminar más, usar escaleras, etc.).</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><strong>Para Recomposición Corporal (Ganar Músculo y Perder Grasa Simultáneamente):</strong>
+                            <ul>
+                                <li>Más factible en principiantes, personas con sobrepeso que empiezan a entrenar, o individuos que regresan al entrenamiento después de un parón.</li>
+                                <li>Requiere un entrenamiento de fuerza intenso y bien estructurado, una ingesta proteica alta, y un balance calórico cercano al mantenimiento o un déficit muy pequeño. Es un proceso más lento.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                     <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Consistencia y Paciencia:</strong> Los cambios en la composición corporal llevan tiempo y requieren un enfoque consistente tanto en el entrenamiento como en la nutrición.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-evaluacion-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-chart-pie"></i>Interpretación de Resultados y Establecimiento de Metas</h2>
+                    <p>Una vez realizadas las evaluaciones, el siguiente paso es interpretar los datos y utilizarlos de forma práctica:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-file-signature"></i> Interpretación:</h3>
+                    <ul>
+                        <li>Comparación con Datos Normativos (si existen).</li>
+                        <li>Identificación de Fortalezas y Debilidades.</li>
+                        <li>Análisis de Asimetrías.</li>
+                        <li>Relación con los Objetivos del Individuo.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-bullseye"></i> Establecimiento de Metas (SMART):</h3>
+                    <p>Los resultados son la base para metas Específicas, Medibles, Alcanzables, Relevantes y con Plazo Definido.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-cogs"></i> Diseño del Programa de Entrenamiento:</h3>
+                    <p>La información guía la selección de ejercicios, intensidad, volumen y frecuencia para abordar debilidades y potenciar fortalezas.</p>
+                </div>
+            </section>
+
+            <section id="slide-evaluacion-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-calendar-alt"></i>Frecuencia de Evaluación y Re-evaluación</h2>
+                    <p>La evaluación no es un evento único, sino un proceso continuo.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-history"></i> Evaluación Inicial (Baseline):</h3>
+                    <p>Al comienzo de un programa para establecer el punto de partida.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-sync-alt"></i> Re-evaluaciones Periódicas:</h3>
+                    <p>Para monitorear progreso, ajustar el programa y mantener la motivación. La frecuencia depende de la cualidad y el individuo (ej. fuerza cada 4-12 sem, composición corporal cada 4-8 sem).</p>
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Individualizar la Frecuencia:</strong> Debe ser lo suficientemente frecuente para guiar decisiones, pero no tanto como para ser impráctico.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="slide-evaluacion-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-green !border-askesis-orange"><i class="fas fa-route"></i>Conclusión: La Evaluación como Guía para tu Viaje</h2>
+                    <p class="text-lg mb-4">La evaluación de la condición física es una <strong class="highlight">herramienta invaluable</strong> que transforma el entrenamiento en un <strong class="highlight">proceso científico y dirigido</strong>. Te permite conocerte mejor, establecer un rumbo claro y medir objetivamente tus logros.</p>
+                    <p class="text-lg mb-6">En Askesis, utilizamos la evaluación como <strong class="emphasis">punto de partida y como brújula constante</strong> para diseñar programas que te lleven de donde estás a donde quieres estar, de la manera más eficiente y segura posible.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre los Servicios Askesis
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-evaluacion" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4">
+            <button id="prev-button-evaluacion" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-evaluacion" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-evaluacion" class="hidden my-8 text-center">
+            <div class="text-2xl font-semibold text-askesis-orange p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-green">
+                <i class="fas fa-award text-4xl mr-3 text-askesis-green"></i>¡Guía de Evaluación Física Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora tienes las herramientas para entender mejor tu condición física y planificar tu progreso. ¡Mide, ajusta y conquista tus metas!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-evaluacion" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Evaluación%20Física" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Evaluación%20Física." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterEvaluacion"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop();
+            window.addEventListener('resize', adjustSecondaryNavTop);
+
+            const guideContainer = document.getElementById('interactive-presentation-container-evaluacion');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de evaluación no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-evaluacion .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-evaluacion');
+            const nextButton = guideContainer.querySelector('#next-button-evaluacion');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-evaluacion');
+            const progressBar = guideContainer.querySelector('#progress-bar-evaluacion');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-evaluacion');
+            const completionContainer = guideContainer.querySelector('#completion-container-evaluacion');
+            const restartButton = guideContainer.querySelector('#restart-button-evaluacion');
+            const yearSpan = document.getElementById('currentYearFooterEvaluacion');
+            const navLinks = document.querySelectorAll('#main-nav-evaluacion .nav-link-evaluacion');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de evaluación no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Intro Evaluación Física", "Componentes a Evaluar", "Principios de un Buen Test", "Eval. y Ent. Fuerza Máx.", 
+                    "Eval. y Ent. Potencia", "Eval. y Ent. Res. Cardiovascular", "Eval. y Ent. Res. Muscular", "Eval. y Ent. Flex/Mov.",
+                    "Eval. e Infl. Comp. Corporal", "Interpretación y Metas", "Frecuencia de Evaluación", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-evaluacion-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de evaluación.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
