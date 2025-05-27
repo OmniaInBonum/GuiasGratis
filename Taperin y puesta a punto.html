@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Tapering: Claves para tu Máximo Rendimiento</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Tapering: domina la ciencia y el arte de la puesta a punto para alcanzar tu pico de forma en competiciones y objetivos clave.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#dc3545',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #dc3545; /* Corrected: remove quotes for hex value */
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.90), rgba(18, 18, 18, 0.98)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            /* Adjusted top to account for main header height, assuming main header is around 60-70px */
+            top: calc(0.8rem * 2 + 2rem); /* Fallback, JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-tapering { /* Unique class for this guide's nav links */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.6rem; /* Adjusted for potentially more items */
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.75rem; /* Slightly smaller for more items */
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-tapering:hover,
+        .secondary-nav-askesis .nav-link-tapering.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-blue);
+        }
+        .secondary-nav-askesis .nav-link-tapering.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 150px); /* Adjusted for potentially taller double nav */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.80); /* Slightly darker overlay */
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2rem 2.5rem;
+            border-radius: 10px;
+            max-width: 900px; /* Wider for more content */
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange);
+            font-size: 2.3em;
+            font-weight: 700;
+            margin-bottom: 1.8rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--askesis-purple);
+            text-align: center;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.8rem;
+            color: var(--askesis-green);
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-blue); 
+             font-size: 1.7em; 
+             margin-top: 1.8rem; 
+             margin-bottom: 1.2rem; 
+             padding-bottom: 0.6rem; 
+             border-bottom: 1px dashed var(--askesis-green);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-green); 
+             font-size: 1.4em; 
+             margin-top: 1.5rem; 
+             margin-bottom: 0.8rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.05em;
+            line-height: 1.8;
+            margin-bottom: 1rem; /* Added default margin for p */
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.2em; position: relative; margin-bottom: 0.8rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f058";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-green);
+            position: absolute;
+            left: 0;
+            top: 5px;
+            font-size: 1.2em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 5px; padding: 1.3rem; margin: 1.8rem 0; border-radius: 0 8px 8px 0; font-size: 1em;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+        .slide-content-wrapper .info-box { background-color: rgba(0, 90, 156, 0.25); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(220, 53, 69, 0.2); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: rgba(0, 128, 55, 0.2); border-left-color: var(--askesis-green); color: var(--askesis-text-white);}
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.2em; display: block; margin-bottom: 0.7rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); }
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-green); }
+
+        .slide-content-wrapper .custom-table { width: 100%; border-collapse: collapse; margin-top: 1.8rem; font-size: 0.95em; }
+        .slide-content-wrapper .custom-table th, .slide-content-wrapper .custom-table td { border: 1px solid var(--askesis-border); padding: 0.7rem 0.9rem; text-align: left; }
+        .slide-content-wrapper .custom-table th { background-color: var(--askesis-dark); color: var(--askesis-orange); font-weight: 700; }
+        .slide-content-wrapper .custom-table tbody tr:nth-child(even) { background-color: rgba(40,40,40,0.6); }
+        .slide-content-wrapper .custom-table tbody tr:hover { background-color: var(--askesis-purple); color: var(--askesis-text-white); }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-orange);
+            color: var(--askesis-text-white);
+            padding: 0.9rem 2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 8px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(245, 130, 32, 0.35);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #E07017;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(245, 130, 32, 0.45);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #004b80;
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-tapering { font-size: 0.7rem; padding: 0.4rem 0.5rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.2em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 0.95em; padding: 0.8rem 1.5rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.3em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.1em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-tapering { padding: 0.4rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-tapering" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-tapering-0" class="nav-link-tapering active">Intro</a></li>
+            <li><a href="#slide-tapering-1" class="nav-link-tapering">Conceptos</a></li>
+            <li><a href="#slide-tapering-2" class="nav-link-tapering">Beneficios</a></li>
+            <li><a href="#slide-tapering-3" class="nav-link-tapering">Tipos</a></li>
+            <li><a href="#slide-tapering-4" class="nav-link-tapering">Variables</a></li>
+            <li><a href="#slide-tapering-5" class="nav-link-tapering">Implementación</a></li>
+            <li><a href="#slide-tapering-6" class="nav-link-tapering">Ejemplos</a></li>
+            <li><a href="#slide-tapering-7" class="nav-link-tapering">Errores</a></li>
+            <li><a href="#slide-tapering-8" class="nav-link-tapering">Relacionados</a></li>
+            <li><a href="#slide-tapering-9" class="nav-link-tapering">Resumen</a></li>
+            <li><a href="#slide-tapering-10" class="nav-link-tapering">Glosario</a></li>
+            <li><a href="#slide-tapering-11" class="nav-link-tapering">Final</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-tapering" class="py-8"> <div id="step-indicator-tapering" class="text-center mb-4 text-lg font-semibold text-askesis-orange font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3 mb-8 border border-askesis-border">
+            <div id="progress-bar-tapering" class="bg-gradient-to-r from-askesis-green to-askesis-blue h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        </div>
+
+        <div id="slides-container-tapering"> <section id="slide-tapering-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-chart-line"></i>Tapering: La Ciencia de la Puesta a Punto</h1>
+                    <p class="mb-3">El <strong class="highlight">Tapering</strong> (o afinamiento/puesta a punto) es una estrategia de entrenamiento crucial que implica la <strong class="highlight">reducción progresiva y no lineal de la carga de entrenamiento</strong> durante un período variable antes de una competición o un objetivo importante.</p>
+                    <p>Su objetivo principal es <strong class="highlight">minimizar la fatiga fisiológica y psicológica acumulada</strong> por el entrenamiento intenso, manteniendo o incluso mejorando las adaptaciones de fitness, para permitir que el atleta alcance su <strong class="highlight">máximo rendimiento (pico de forma)</strong> en el momento clave.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> El tapering no es descanso total, sino una <strong class="emphasis">reducción inteligente y calculada</strong> de la carga para optimizar la supercompensación.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-tapering-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-book-reader"></i>Conceptos Fundamentales</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-dumbbell"></i> Carga de Entrenamiento</h3>
+                    <p>Se define por la interacción de Volumen (cantidad total de trabajo), Intensidad (calidad o esfuerzo del trabajo) y Frecuencia (número de sesiones).</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-battery-three-quarters"></i> Fatiga</h3>
+                    <p>Disminución reversible de la capacidad de rendimiento. Puede ser aguda (corto plazo) o crónica/acumulada (largo plazo). El <strong class="highlight">sobreentrenamiento</strong> es un estado de fatiga crónica severa.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-level-up-alt"></i> Supercompensación</h3>
+                    <p>Proceso por el cual el cuerpo, tras un estímulo de entrenamiento y un adecuado período de recuperación, se adapta y mejora su capacidad por encima del nivel previo.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-balance-scale"></i> Modelo Fitness-Fatiga</h3>
+                    <p>El rendimiento es el resultado de la interacción entre la condición física (fitness) y la fatiga. Un entrenamiento aumenta ambos; el tapering busca <strong class="highlight">disminuir la fatiga más rápido de lo que se pierde el fitness</strong>.</p>
+                </div>
+            </section>
+
+            <section id="slide-tapering-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-award"></i>Beneficios del Tapering</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-heartbeat"></i> Fisiológicos</h3>
+                    <ul>
+                        <li><strong class="highlight">Reducción de la Fatiga Acumulada:</strong> Disminución de marcadores de daño muscular y estrés.</li>
+                        <li><strong class="highlight">Restauración de Reservas Energéticas:</strong> Aumento de los niveles de glucógeno muscular y hepático.</li>
+                        <li><strong class="highlight">Reparación de Tejidos:</strong> Permite la regeneración de microlesiones musculares.</li>
+                        <li><strong class="highlight">Adaptaciones Hormonales Positivas:</strong> Mejora el ratio testosterona/cortisol, indicativo de un estado anabólico y menor estrés.</li>
+                        <li><strong class="highlight">Mejoras Hematológicas:</strong> Puede aumentar el volumen sanguíneo y la masa de glóbulos rojos en atletas de resistencia.</li>
+                        <li><strong class="highlight">Aumento de Fuerza, Potencia y Resistencia:</strong> Mejoras reportadas del 0.5% al 6% (o más en algunos casos).</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-brain"></i> Psicológicos</h3>
+                    <ul>
+                        <li><strong class="highlight">Aumento del Vigor y Energía.</strong></li>
+                        <li><strong class="highlight">Reducción de la Percepción de Esfuerzo.</strong></li>
+                        <li><strong class="highlight">Mejora del Estado de Ánimo y Reducción de la Irritabilidad.</strong></li>
+                        <li><strong class="highlight">Mayor Motivación y Confianza</strong> pre-competición.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-tapering-3" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-project-diagram"></i>Tipos de Tapering</h2>
+                    <p>La forma en que se reduce la carga de entrenamiento puede variar. Los principales tipos son:</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-chart-line"></i> Taper Lineal:</h4>
+                    <p>La carga de entrenamiento se reduce de forma gradual y constante a lo largo del período de tapering. Por ejemplo, una reducción del 10-15% del volumen cada pocos días.</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-sort-amount-down-alt"></i> Taper Exponencial (Descenso Rápido o Lento):</h4>
+                    <ul>
+                        <li><strong>Descenso Rápido:</strong> Una gran reducción de la carga al inicio del tapering, seguida de reducciones menores.</li>
+                        <li><strong>Descenso Lento:</strong> Pequeñas reducciones al inicio, con una disminución más marcada hacia el final.</li>
+                    </ul>
+                    <p>La investigación sugiere que los tapers exponenciales, especialmente los de <strong class="highlight">descenso rápido</strong>, suelen ser los más efectivos para maximizar el rendimiento.</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-layer-group"></i> Taper Escalonado (Step Taper):</h4>
+                    <p>Implica una reducción abrupta y significativa de la carga de entrenamiento al inicio del tapering, la cual se mantiene constante durante el resto del período. Generalmente se considera <strong class="highlight">menos efectivo</strong> que los tapers progresivos (lineal o exponencial).</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-clock"></i> Duración del Tapering</h3>
+                    <p>La duración óptima varía, pero generalmente se sitúa entre <strong class="highlight">4 y 28 días</strong>. Factores que influyen:</p>
+                    <ul>
+                        <li><strong class="highlight">Deporte y Disciplina:</strong> Deportes de resistencia pueden requerir tapers más largos que los de fuerza/potencia.</li>
+                        <li><strong class="highlight">Carga de Entrenamiento Previa:</strong> Períodos de entrenamiento muy intensos pueden necesitar tapers más largos.</li>
+                        <li><strong class="highlight">Nivel del Atleta:</strong> Atletas más experimentados pueden responder de manera diferente.</li>
+                        <li><strong class="highlight">Experiencia Individual:</strong> Lo que funciona para un atleta puede no ser óptimo para otro.</li>
+                    </ul>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Importante:</strong> No existe un "taper único para todos". La individualización es clave.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-tapering-4" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-sliders-h"></i>Variables Clave en la Programación</h2>
+                    <p>Durante el tapering, se manipulan las tres variables principales de la carga de entrenamiento:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-running"></i> Volumen de Entrenamiento</h3>
+                    <p>Es la <strong class="highlight">principal variable a reducir</strong>. La investigación sugiere que una reducción del <strong class="highlight">41-60%</strong> del volumen de entrenamiento previo es óptima para la mayoría de los atletas. Reducciones mayores pueden llevar a desentrenamiento, y menores pueden no ser suficientes para disipar la fatiga.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-dumbbell"></i> Intensidad del Entrenamiento</h3>
+                    <p>La intensidad (esfuerzo o calidad del trabajo, ej. %1RM, ritmo de carrera) debe <strong class="highlight">mantenerse o incluso aumentarse ligeramente</strong>. Reducir la intensidad es uno de los errores más comunes y puede llevar al desentrenamiento. Realizar ejercicios a ritmo de competición o con cargas elevadas (pero con menos volumen) ayuda a mantener las adaptaciones neuromusculares.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-calendar-day"></i> Frecuencia del Entrenamiento</h3>
+                    <p>La frecuencia de las sesiones de entrenamiento puede <strong class="highlight">reducirse moderadamente (ej. en un 20-30%) o mantenerse</strong>. Una reducción drástica (ej. >50%) puede ser perjudicial. Mantener una frecuencia relativamente alta (ej. ≥80% de la frecuencia normal) ayuda a mantener la sensación del movimiento y las adaptaciones técnicas.</p>
+                    
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Regla General Askesis:</strong> <strong class="emphasis">Reduce el VOLUMEN significativamente, mantén la INTENSIDAD alta, y reduce la FRECUENCIA moderadamente o mantenla.</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-tapering-5" class="step-slide hidden">
+                 <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-drafting-compass"></i>Proceso de Implementación Efectiva</h2>
+                    <p>Diseñar un tapering exitoso es tanto un arte como una ciencia, y requiere una planificación cuidadosa:</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-user-md"></i> 1. Evaluación del Atleta y Carga Previa:</h4>
+                    <p>Analizar el volumen, intensidad y frecuencia del mesociclo previo. Considerar el nivel de fatiga acumulada, experiencia del atleta y la importancia de la competición.</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-stopwatch"></i> 2. Definición de la Duración:</h4>
+                    <p>Decidir cuántos días o semanas durará el tapering (generalmente 7-14 días es común, pero puede variar de 4 a 28 días).</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-stream"></i> 3. Selección del Tipo de Tapering:</h4>
+                    <p>Elegir entre lineal, exponencial (descenso rápido o lento) o escalonado. Los tapers exponenciales con descenso rápido suelen ser los más recomendados.</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-wrench"></i> 4. Ajuste de Variables (Volumen, Intensidad, Frecuencia):</h4>
+                    <ul>
+                        <li><strong>Volumen:</strong> Planificar la reducción progresiva (ej. 40-60% del volumen pico).</li>
+                        <li><strong>Intensidad:</strong> Mantener o incluso realizar sesiones cortas de alta intensidad (calidad).</li>
+                        <li><strong>Frecuencia:</strong> Decidir si se mantiene o se reduce ligeramente (ej. de 6 a 4-5 sesiones).</li>
+                    </ul>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-utensils"></i> 5. Consideraciones Nutricionales e Hidratación:</h4>
+                    <p>Asegurar una ingesta adecuada de carbohidratos para rellenar las reservas de glucógeno. Mantener una hidratación óptima. Evitar cambios drásticos en la dieta.</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-heart-pulse"></i> 6. Monitoreo y Ajustes Flexibles:</h4>
+                    <p>Monitorizar la respuesta del atleta (sensaciones, rendimiento en entrenamientos clave, marcadores de recuperación si es posible). Estar dispuesto a hacer pequeños ajustes si es necesario.</p>
+                    <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Importante:</strong> No introducir ejercicios nuevos o desconocidos durante el tapering. El foco es la recuperación y la afinación.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-tapering-6" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-running"></i>Ejemplos de Tapering (Generalizados)</h2>
+                    <p class="mb-3">Estos son ejemplos generales y deben adaptarse individualmente.</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-road"></i> Deportes de Resistencia (Ej: Maratón - Taper de 2-3 semanas)</h4>
+                    <ul>
+                        <li><strong>Volumen:</strong> Reducción progresiva del kilometraje semanal en un 20-25% cada semana del taper (ej. Semana 1: -25%, Semana 2: -50% del pico). El último entrenamiento largo se hace al inicio del taper.</li>
+                        <li><strong>Intensidad:</strong> Mantener algunos entrenamientos a ritmo de maratón o ligeramente más rápidos, pero con menor duración. Intervalos cortos y de calidad.</li>
+                        <li><strong>Frecuencia:</strong> Puede reducirse ligeramente (ej. de 6 a 4-5 días), manteniendo los días clave.</li>
+                    </ul>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-weight-hanging"></i> Deportes de Fuerza/Potencia (Ej: Powerlifting - Taper de 7-10 días)</h4>
+                    <ul>
+                        <li><strong>Volumen:</strong> Reducción significativa del número total de series y repeticiones (ej. 50-70% menos).</li>
+                        <li><strong>Intensidad:</strong> Mantener o incluso tocar cargas pesadas (85-95% 1RM) pero con muy pocas repeticiones (singles o dobles) al inicio/mitad del taper. Reducir la carga en los últimos días.</li>
+                        <li><strong>Frecuencia:</strong> Puede mantenerse o reducirse en 1-2 sesiones.</li>
+                    </ul>
+                     <h4 class="guide-subsubsection-title"><i class="fas fa-users"></i> Deportes de Equipo (Ej: Partido Importante - Taper de 3-7 días)</h4>
+                    <ul>
+                        <li><strong>Volumen:</strong> Reducción de la duración de las sesiones y del número de ejercicios/repeticiones de alta carga.</li>
+                        <li><strong>Intensidad:</strong> Mantener ejercicios de alta velocidad y calidad técnica, simulaciones de juego cortas e intensas.</li>
+                        <li><strong>Frecuencia:</strong> Puede mantenerse, pero con sesiones más cortas y enfocadas.</li>
+                    </ul>
+                    <div class="info-box mt-3">
+                       <strong><i class="fas fa-info-circle"></i> Individualización:</strong> La respuesta al tapering es individual. Lo que funciona para un atleta puede no ser óptimo para otro, incluso en el mismo deporte.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-tapering-7" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-skull-crossbones text-askesis-red"></i>Errores Comunes al Implementar un Tapering</h2>
+                    <ul>
+                        <li><strong class="critical-text">Reducir Demasiado la Intensidad:</strong> El error más frecuente. Lleva a una pérdida de las adaptaciones de "fitness" y a sentirse "plano" o lento.</li>
+                        <li><strong class="critical-text">No Reducir Suficientemente el Volumen:</strong> El atleta llega a la competición aún fatigado.</li>
+                        <li><strong class="critical-text">Tapering Demasiado Largo:</strong> Puede llevar al desentrenamiento si la intensidad no se maneja bien.</li>
+                        <li><strong class="critical-text">Tapering Demasiado Corto:</strong> Insuficiente para disipar la fatiga acumulada.</li>
+                        <li><strong class="critical-text">Introducir Ejercicios Nuevos o de Alto Riesgo:</strong> Aumenta el riesgo de lesiones o DOMS inesperado.</li>
+                        <li><strong class="critical-text">Descuidar la Nutrición y la Hidratación:</strong> Es crucial mantener una buena ingesta para la recuperación y recarga de glucógeno.</li>
+                        <li><strong class="critical-text">"Entrar en Pánico" y Entrenar Más:</strong> Algunos atletas se sienten "raros" o "sin forma" durante el taper y tienden a entrenar más, lo cual es contraproducente.</li>
+                        <li><strong class="critical-text">No Individualizar:</strong> Aplicar un protocolo genérico sin considerar las necesidades del atleta.</li>
+                    </ul>
+                     <div class="warning-box mt-4">
+                        <strong><i class="fas fa-exclamation-triangle"></i> ¡Atención Askesis!:</strong> Confía en el proceso. El tapering puede generar sensaciones inusuales, pero es parte de la optimización del rendimiento.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-tapering-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-link"></i>Conceptos Relacionados y Diferencias</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-mountain"></i> Peaking (Puesta a Punto)</h3>
+                    <p>Es el estado fisiológico y psicológico de <strong class="highlight">máximo rendimiento</strong> que se busca alcanzar a través del tapering. Implica la maximización del fitness y la minimización de la fatiga.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-arrow-alt-circle-down"></i> Descarga (Deload)</h3>
+                    <p>Es una <strong class="highlight">reducción planificada y temporal de la carga</strong> de entrenamiento (generalmente volumen y/o intensidad) dentro de un mesociclo o microciclo. Su objetivo principal es facilitar la recuperación, disipar la fatiga acumulada y prevenir el sobreentrenamiento, permitiendo una posterior supercompensación. <strong class="highlight">No está necesariamente ligada a una competición inminente</strong>, a diferencia del tapering.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-walking"></i> Recuperación Activa</h3>
+                    <p>Consiste en realizar <strong class="highlight">ejercicio de muy baja intensidad y bajo impacto</strong> (ej. caminata ligera, ciclismo suave, natación suave) durante los días de descanso, durante el tapering o después de una competición. Ayuda a promover el flujo sanguíneo, reducir la rigidez muscular y facilitar la eliminación de productos de desecho metabólico.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-bed"></i> Sobreentrenamiento (Overtraining Syndrome - OTS)</h3>
+                    <p>Un estado de <strong class="highlight">fatiga crónica y maladaptación</strong> causado por un desequilibrio prolongado entre el estrés del entrenamiento y la recuperación. El tapering es una estrategia clave para evitar llegar a este punto antes de una competición.</p>
+                </div>
+            </section>
+            
+            <section id="slide-tapering-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2 class="!text-askesis-orange !border-askesis-green"><i class="fas fa-check-double"></i>Resumen y Conclusiones Clave</h2>
+                    <p>El tapering es una fase <strong class="highlight">crítica y científicamente fundamentada</strong> de la preparación deportiva, diseñada para transformar el trabajo duro de los ciclos de entrenamiento en un rendimiento óptimo el día D.</p>
+                    <ul>
+                        <li>Su objetivo es <strong class="highlight">minimizar la fatiga residual mientras se conservan o potencian las adaptaciones de fitness</strong>.</li>
+                        <li>La <strong class="highlight">reducción del volumen</strong> es la variable más importante, mientras que la <strong class="highlight">intensidad debe mantenerse</strong>.</li>
+                        <li>La duración y el tipo de tapering deben <strong class="highlight">individualizarse</strong> según el atleta, el deporte y la carga de entrenamiento previa.</li>
+                        <li>Un tapering bien ejecutado puede llevar a <strong class="highlight">mejoras significativas en el rendimiento</strong> (típicamente 0.5-6%).</li>
+                        <li>Evitar errores comunes y confiar en el proceso son esenciales para su éxito.</li>
+                    </ul>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Reflexión Final Askesis:</strong> El tapering no es "no hacer nada", es <strong class="emphasis">entrenar de forma más inteligente</strong> para llegar a tu objetivo en las mejores condiciones posibles. Es la culminación de tu preparación.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-tapering-10" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2 class="!text-askesis-purple !border-askesis-blue"><i class="fas fa-book"></i>Glosario de Términos sobre Tapering</h2>
+                    <dl class="text-left">
+                        <dt class="font-bold text-askesis-blue mt-2">Carga de Entrenamiento:</dt><dd class="ml-4 text-sm">Estímulo total aplicado al cuerpo, combinación de volumen, intensidad y frecuencia.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Descarga (Deload):</dt><dd class="ml-4 text-sm">Reducción planificada de la carga para facilitar la recuperación, no necesariamente pre-competitiva.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Fatiga Aguda:</dt><dd class="ml-4 text-sm">Cansancio a corto plazo post-ejercicio, recuperable en horas/días.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Fatiga Crónica/Acumulada:</dt><dd class="ml-4 text-sm">Cansancio persistente por desequilibrio entre entrenamiento y recuperación.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Fitness-Fatigue Model:</dt><dd class="ml-4 text-sm">Modelo que explica el rendimiento como la diferencia entre la condición física y la fatiga.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Frecuencia:</dt><dd class="ml-4 text-sm">Número de sesiones de entrenamiento en un período determinado (ej. por semana).</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Glucógeno Muscular:</dt><dd class="ml-4 text-sm">Principal forma de almacenamiento de carbohidratos en el músculo, fuente de energía clave.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Intensidad:</dt><dd class="ml-4 text-sm">Componente cualitativo de la carga; el esfuerzo o la tasa de trabajo (ej. %1RM, velocidad, RPE).</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Mesociclo:</dt><dd class="ml-4 text-sm">Bloque de entrenamiento de varias semanas (generalmente 2-6) con un objetivo específico.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Peaking (Puesta a Punto):</dt><dd class="ml-4 text-sm">Alcanzar el estado de máximo rendimiento físico y psicológico.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Periodización:</dt><dd class="ml-4 text-sm">Organización planificada del entrenamiento en fases o ciclos para optimizar las adaptaciones y el rendimiento.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Sobreentrenamiento (OTS):</dt><dd class="ml-4 text-sm">Estado severo de fatiga crónica con disminución del rendimiento y otros síntomas negativos.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Supercompensación:</dt><dd class="ml-4 text-sm">Adaptación del cuerpo por encima del nivel inicial tras un estímulo y recuperación adecuados.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Tapering (Afinamiento):</dt><dd class="ml-4 text-sm">Reducción progresiva de la carga de entrenamiento pre-competición.</dd>
+                        <dt class="font-bold text-askesis-blue mt-2">Volumen:</dt><dd class="ml-4 text-sm">Componente cuantitativo de la carga; cantidad total de trabajo realizado (ej. series x reps x peso, km recorridos).</dd>
+                    </dl>
+                </div>
+            </section>
+
+            <section id="slide-tapering-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-green !border-askesis-orange"><i class="fas fa-rocket"></i>¡Optimiza tu Rendimiento con Askesis!</h2>
+                    <p class="text-lg mb-4">Dominar el tapering es una habilidad esencial para cualquier atleta o persona que busque alcanzar su máximo potencial en un momento específico.</p>
+                    <p class="text-lg mb-6">Si deseas una <strong class="emphasis">planificación experta y personalizada</strong> que incluya estrategias de tapering efectivas para tus objetivos, en Askesis te ofrecemos el conocimiento y las herramientas para llevarte al siguiente nivel.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-calendar-check mr-2"></i>Descubre Nuestros Servicios
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-tapering" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4">
+            <button id="prev-button-tapering" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-tapering" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-tapering" class="hidden my-8 text-center">
+            <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-green">
+                <i class="fas fa-trophy text-4xl mr-3"></i>¡Guía de Tapering Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora tienes una comprensión profunda de cómo utilizar el tapering para alcanzar tu pico de forma. ¡Aplica este conocimiento y conquista tus metas!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-graduation-cap mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-tapering" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Tapering" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Tapering." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterTapering"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            if (mainHeader && secondaryNav) {
+                const mainHeaderHeight = mainHeader.offsetHeight;
+                secondaryNav.style.top = `${mainHeaderHeight}px`;
+            }
+
+            const guideContainer = document.getElementById('interactive-presentation-container-tapering');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de tapering no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-tapering .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-tapering');
+            const nextButton = guideContainer.querySelector('#next-button-tapering');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-tapering');
+            const progressBar = guideContainer.querySelector('#progress-bar-tapering');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-tapering');
+            const completionContainer = guideContainer.querySelector('#completion-container-tapering');
+            const restartButton = guideContainer.querySelector('#restart-button-tapering');
+            const yearSpan = document.getElementById('currentYearFooterTapering');
+            const navLinks = document.querySelectorAll('#main-nav-tapering .nav-link-tapering');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de tapering no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Introducción al Tapering", "Conceptos Fundamentales", "Beneficios del Tapering", "Tipos de Tapering", 
+                    "Variables Clave en Programación", "Implementación Efectiva", "Ejemplos de Tapering", "Errores Comunes",
+                    "Conceptos Relacionados", "Resumen y Conclusiones", "Glosario de Términos", "Optimiza con Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20; // 20px buffer
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-tapering-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); // Scroll to slide when nav link is clicked
+                    }
+                });
+            });
+            
+            // Set initial state for secondary nav top position after main header is rendered
+            if (mainHeader && secondaryNav) {
+                secondaryNav.style.top = `${mainHeader.offsetHeight}px`;
+            }
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); // Initial display without scroll
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de tapering.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
