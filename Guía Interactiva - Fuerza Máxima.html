@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Fuerza Máxima: Desbloquea tu Potencial</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Fuerza Máxima: Descubre la ciencia, métodos y estrategias para desarrollar tu máxima capacidad de generar fuerza y transformar tu rendimiento.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#dc3545',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #dc3545;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.94), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-fuerza { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.4rem; /* Adjusted for more items */
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.6rem; /* Even smaller for more items */
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-fuerza:hover,
+        .secondary-nav-askesis .nav-link-fuerza.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-red); /* Red for fuerza theme */
+        }
+        .secondary-nav-askesis .nav-link-fuerza.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.88); /* Slightly darker overlay for fuerza */
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px;
+            max-width: 950px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-red); /* Red as primary for fuerza */
+            font-size: 2.4em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-orange); /* Orange accent */
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-orange); 
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-blue); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-green);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--askesis-green); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f054"; /* fa-caret-right or similar */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-red); /* Red bullets */
+            position: absolute;
+            left: 0;
+            top: 7px; /* Adjusted alignment */
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: rgba(0, 90, 156, 0.3); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(220, 53, 69, 0.25); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: rgba(0, 128, 55, 0.3); border-left-color: var(--askesis-green); color: var(--askesis-text-white);}
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); }
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-green); }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-red); /* Red CTA for fuerza */
+            color: var(--askesis-text-white);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(220, 53, 69, 0.4); /* Red shadow */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #b02a37; /* Darker red */
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(220, 53, 69, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-blue);
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #004b80;
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-fuerza { font-size: 0.55rem; padding: 0.3rem 0.35rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-fuerza { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-fuerza" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-fuerza-0" class="nav-link-fuerza active">Intro</a></li>
+            <li><a href="#slide-fuerza-1" class="nav-link-fuerza">Beneficios</a></li>
+            <li><a href="#slide-fuerza-2" class="nav-link-fuerza">Mecanismos</a></li>
+            <li><a href="#slide-fuerza-3" class="nav-link-fuerza">Variables (I)</a></li>
+            <li><a href="#slide-fuerza-4" class="nav-link-fuerza">Variables (II)</a></li>
+            <li><a href="#slide-fuerza-5" class="nav-link-fuerza">Métodos</a></li>
+            <li><a href="#slide-fuerza-6" class="nav-link-fuerza">Periodización</a></li>
+            <li><a href="#slide-fuerza-7" class="nav-link-fuerza">Nutrición/Recup.</a></li>
+            <li><a href="#slide-fuerza-8" class="nav-link-fuerza">Testeo</a></li>
+            <li><a href="#slide-fuerza-9" class="nav-link-fuerza">Errores</a></li>
+            <li><a href="#slide-fuerza-10" class="nav-link-fuerza">Fza. y Otros</a></li>
+            <li><a href="#slide-fuerza-11" class="nav-link-fuerza">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-fuerza" class="py-8"> <div id="step-indicator-fuerza" class="text-center mb-4 text-lg font-semibold text-askesis-orange font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-fuerza" class="bg-gradient-to-r from-askesis-orange to-askesis-red h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div> </div>
+
+        <div id="slides-container-fuerza"> <section id="slide-fuerza-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-fist-raised"></i>Fuerza Máxima: La Base del Poder</h1>
+                    <p class="mb-3">La <strong class="highlight">fuerza máxima</strong> se define como la mayor cantidad de fuerza que el sistema neuromuscular puede generar durante una contracción muscular voluntaria máxima, independientemente del tiempo. Es la <strong class="highlight">piedra angular</strong> sobre la cual se construyen otras cualidades físicas como la potencia y la resistencia muscular.</p>
+                    <p>Esta guía explora la <strong class="highlight">ciencia detrás del desarrollo de la fuerza máxima</strong>, los métodos de entrenamiento más efectivos, y cómo integrar estos conocimientos para desbloquear tu verdadero potencial físico.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> Desarrollar la fuerza máxima no es solo para levantadores de pesas; es <strong class="emphasis">fundamental para el rendimiento deportivo, la salud general y la calidad de vida</strong>.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-fuerza-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-award"></i>Beneficios de Entrenar la Fuerza Máxima</h2>
+                    <p>Más allá de levantar objetos pesados, el entrenamiento de fuerza máxima ofrece una amplia gama de beneficios:</p>
+                    <ul>
+                        <li><strong>Mejora del Rendimiento Deportivo:</strong> Aumenta la capacidad de generar fuerza rápidamente (potencia), la velocidad de sprint, la altura del salto y la eficiencia en movimientos deportivos.</li>
+                        <li><strong>Aumento de la Masa Muscular (Hipertrofia):</strong> El entrenamiento con cargas pesadas es un potente estímulo para el crecimiento muscular, especialmente de las fibras tipo II.</li>
+                        <li><strong>Fortalecimiento de Huesos y Tejido Conectivo:</strong> Aumenta la densidad mineral ósea y fortalece tendones y ligamentos, reduciendo el riesgo de osteoporosis y lesiones.</li>
+                        <li><strong>Mejora de la Composición Corporal:</strong> Aumenta la masa magra y puede elevar la tasa metabólica basal, ayudando en el control del peso.</li>
+                        <li><strong>Mejora de la Salud Metabólica:</strong> Puede mejorar la sensibilidad a la insulina y el control glucémico.</li>
+                        <li><strong>Aumento de la Funcionalidad y Calidad de Vida:</strong> Facilita las actividades de la vida diaria, especialmente en adultos mayores, mejorando la independencia.</li>
+                        <li><strong>Beneficios Psicológicos:</strong> Aumento de la confianza, autoestima y resiliencia mental.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-fuerza-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-brain"></i>Mecanismos Fisiológicos de la Fuerza Máxima</h2>
+                    <p>Las ganancias de fuerza máxima son el resultado de complejas adaptaciones tanto neurales como musculares:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-network-wired"></i> Adaptaciones Neurales (Primarias en Fases Iniciales)</h3>
+                    <ul>
+                        <li><strong>Aumento del Reclutamiento de Unidades Motoras:</strong> Capacidad de activar un mayor número de unidades motoras (nervio + fibras musculares que inerva).</li>
+                        <li><strong>Mejora de la Frecuencia de Disparo (Rate Coding):</strong> Las unidades motoras disparan impulsos nerviosos a una mayor frecuencia.</li>
+                        <li><strong>Mejora de la Sincronización de Unidades Motoras:</strong> Las unidades motoras se activan de forma más coordinada.</li>
+                        <li><strong>Reducción de la Co-activación Antagonista:</strong> Disminución de la activación de los músculos que se oponen al movimiento principal.</li>
+                        <li><strong>Disminución de la Inhibición Neural:</strong> Reducción de los mecanismos protectores que limitan la producción de fuerza (ej. inhibición por órganos tendinosos de Golgi).</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-running"></i> Adaptaciones Musculares (Más Relevantes a Largo Plazo)</h3>
+                    <ul>
+                        <li><strong>Hipertrofia Muscular:</strong> Aumento del tamaño de las fibras musculares, especialmente las de tipo II (rápidas y fuertes).</li>
+                        <li><strong>Cambios en la Arquitectura Muscular:</strong> Aumento del ángulo de penación de las fibras.</li>
+                        <li><strong>Aumento de la Rigidez Tendinosa:</strong> Permite una transmisión de fuerza más eficiente del músculo al hueso.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-fuerza-3" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-sliders-h"></i>Variables Clave (Parte 1): Intensidad y Volumen</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-percentage"></i> Intensidad de Carga</h3>
+                    <p>Para la fuerza máxima, la intensidad es <strong class="highlight">la variable más crítica</strong>. Se refiere al peso levantado en relación con la capacidad máxima del individuo (1RM).</p>
+                    <ul>
+                        <li><strong>Rango Óptimo:</strong> Generalmente <strong class="highlight">≥85% del 1RM</strong> (correspondiente a aproximadamente 1-6 repeticiones por serie).</li>
+                        <li>Cargas más ligeras pueden desarrollar fuerza, especialmente en principiantes, pero las cargas pesadas son superiores para maximizar las adaptaciones neurales y la fuerza en atletas entrenados.</li>
+                    </ul>
+                    <p>El RPE (Ratio de Esfuerzo Percibido) también es una herramienta útil, apuntando a un <strong class="highlight">RPE de 8-10</strong> en las series de trabajo.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-calculator"></i> Volumen de Entrenamiento</h3>
+                    <p>Se refiere a la cantidad total de trabajo realizado (Series x Repeticiones x Carga). Para fuerza máxima, el volumen total de repeticiones con cargas pesadas suele ser <strong class="highlight">menor</strong> que en el entrenamiento orientado a la hipertrofia.</p>
+                    <ul>
+                        <li><strong>Series:</strong> Típicamente 3-6 series por ejercicio principal.</li>
+                        <li><strong>Repeticiones:</strong> 1-6 repeticiones por serie cuando se trabaja con ≥85% 1RM.</li>
+                        <li>Un volumen excesivo con cargas muy altas puede llevar rápidamente al sobreentrenamiento.</li>
+                    </ul>
+                     <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Calidad sobre Cantidad:</strong> En el entrenamiento de fuerza máxima, la <strong class="emphasis">calidad de cada repetición</strong> (técnica perfecta, máxima intención de velocidad en la fase concéntrica) es primordial.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-fuerza-4" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-cogs"></i>Variables Clave (Parte 2): Frecuencia, Ejercicios, Descanso</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-calendar-alt"></i> Frecuencia de Entrenamiento</h3>
+                    <p>Cuántas veces se entrena un grupo muscular o un movimiento específico por semana.</p>
+                    <ul>
+                        <li>Para fuerza máxima, entrenar un movimiento principal <strong class="highlight">2-3 veces por semana</strong> suele ser efectivo para la mayoría, permitiendo suficiente recuperación y adaptación neural.</li>
+                        <li>Principiantes pueden progresar con menos frecuencia, mientras que atletas muy avanzados pueden necesitar manipulaciones más complejas.</li>
+                    </ul>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-check-double"></i> Selección de Ejercicios</h3>
+                    <ul>
+                        <li>Priorizar <strong class="highlight">ejercicios multiarticulares (compuestos)</strong> que permitan el uso de cargas pesadas y recluten grandes cantidades de masa muscular (ej. sentadillas, peso muerto, press de banca, press militar, dominadas lastradas, remos pesados).</li>
+                        <li>Ejercicios de asistencia pueden usarse para fortalecer puntos débiles o músculos estabilizadores, pero no son el foco principal.</li>
+                    </ul>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-hourglass-half"></i> Descanso entre Series</h3>
+                    <p>Para permitir una recuperación adecuada del sistema nervioso y las reservas de ATP-PC, se recomiendan <strong class="highlight">períodos de descanso más largos</strong> entre series de alta intensidad.</p>
+                    <ul>
+                        <li>Típicamente <strong class="highlight">3-5 minutos o más</strong> entre series pesadas (ej. >85% 1RM).</li>
+                        <li>Un descanso insuficiente comprometerá la capacidad de mantener la intensidad en series subsecuentes.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-fuerza-5" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-tools"></i>Métodos Específicos para Fuerza Máxima</h2>
+                    <p>Además del entrenamiento tradicional con cargas pesadas, existen métodos específicos para potenciar las ganancias de fuerza:</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-weight"></i> Entrenamiento con Cargas Pesadas (Método de Repeticiones Máximas)</h4>
+                    <p>El método más directo. Consiste en realizar series de 1-6 repeticiones con cargas ≥85% 1RM.</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-layer-group"></i> Cluster Sets (Series por Conglomerados)</h4>
+                    <p>Dividir una serie tradicional en varios "mini-sets" o conglomerados, con breves descansos intra-serie (ej. 15-45 segundos). Permite mantener una mayor calidad de repetición y velocidad con cargas pesadas, y acumular más volumen a alta intensidad. Ejemplo: 3x(2+2+2) reps con 20s de descanso entre los dobletes.</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-hand-rock"></i> Entrenamiento Isométrico Supramáximo</h4>
+                    <p>Aplicar fuerza máxima contra un objeto inamovible o intentar mover una carga que excede el 1RM concéntrico, durante 3-6 segundos. Puede mejorar la activación neural y la fuerza en ángulos específicos.</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-bolt"></i> Método de Esfuerzo Dinámico (Dynamic Effort)</h4>
+                    <p>Popularizado por Westside Barbell. Consiste en mover cargas submáximas (ej. 50-70% 1RM) a la <strong class="highlight">máxima velocidad concéntrica posible</strong>. Se enfoca en mejorar la tasa de desarrollo de la fuerza (RFD) y la potencia. A menudo se usa en combinación con el método de esfuerzo máximo.</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-angle-double-down"></i> Entrenamiento Excéntrico Supramáximo</h4>
+                    <p>Utilizar cargas >100% 1RM concéntrico solo en la fase excéntrica (requiere asistencia). Potente estímulo para fuerza y adaptaciones neurales, pero muy demandante.</p>
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Combinación Inteligente:</strong> La periodización a menudo implica la combinación estratégica de estos métodos a lo largo del tiempo.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-fuerza-6" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-calendar-check"></i>Periodización para Fuerza Máxima</h2>
+                    <p>La periodización es esencial para maximizar las ganancias de fuerza a largo plazo y evitar el estancamiento.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-wave-square"></i> Modelos Comunes:</h3>
+                    <ul>
+                        <li><strong>Periodización Lineal (Tradicional):</strong> Se progresa de un alto volumen y baja intensidad hacia un bajo volumen y alta intensidad a lo largo de varios mesociclos. Fase de hipertrofia -> Fase de fuerza base -> Fase de fuerza máxima/pico.</li>
+                        <li><strong>Periodización Ondulante (No Lineal):</strong> Se varían el volumen y la intensidad de forma más frecuente (diaria - DUP, o semanal - WUP). Por ejemplo, un día de la semana enfocado en hipertrofia (moderada intensidad, alto volumen) y otro en fuerza máxima (alta intensidad, bajo volumen).</li>
+                        <li><strong>Periodización por Bloques:</strong> Se enfoca en desarrollar una cualidad específica de forma concentrada durante un bloque (ej. Bloque de Acumulación - hipertrofia/resistencia a la fuerza), seguido de un Bloque de Transmutación (convertir esas ganancias en fuerza específica) y un Bloque de Realización (pico de fuerza, tapering).</li>
+                    </ul>
+                    <p>La elección del modelo depende del nivel del atleta, el tiempo disponible, y los objetivos específicos.</p>
+                     <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Tapering para Fuerza:</strong> Antes de un test de 1RM o una competición de fuerza, se implementa un tapering para disipar la fatiga y maximizar la expresión de la fuerza (similar al tapering general, pero con foco en mantener la activación neural con cargas pesadas y muy bajo volumen).
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-fuerza-7" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-apple-alt"></i>Nutrición y Recuperación para Fuerza</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-utensils"></i> Nutrición:</h3>
+                    <ul>
+                        <li><strong>Balance Calórico:</strong> Un ligero superávit calórico puede ser beneficioso para soportar las ganancias de fuerza y la recuperación, especialmente si se busca hipertrofia concomitante. En fases de mantenimiento o definición, se puede ganar fuerza con calorías de mantenimiento o incluso un ligero déficit, pero el progreso puede ser más lento.</li>
+                        <li><strong>Proteínas:</strong> Esencial para la reparación y adaptación muscular. Ingesta de <strong class="highlight">1.6-2.2 g/kg de peso corporal/día</strong>.</li>
+                        <li><strong>Carbohidratos:</strong> Principal fuente de energía para el entrenamiento de alta intensidad. Adecuada ingesta para reponer glucógeno.</li>
+                        <li><strong>Grasas Saludables:</strong> Importantes para la producción hormonal y salud general.</li>
+                        <li><strong>Creatina:</strong> Suplemento con fuerte evidencia para mejorar la fuerza y potencia.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-moon"></i> Recuperación:</h3>
+                    <ul>
+                        <li><strong>Sueño:</strong> <strong class="highlight">7-9 horas de sueño de calidad</strong> son cruciales para la recuperación neural y hormonal.</li>
+                        <li><strong>Descanso entre Sesiones:</strong> Permitir al menos 48-72 horas de recuperación para los mismos grupos musculares o movimientos principales entrenados a alta intensidad.</li>
+                        <li><strong>Manejo del Estrés General:</strong> El estrés fuera del gimnasio afecta la capacidad de recuperación.</li>
+                        <li><strong>Descargas (Deloads):</strong> Semanas planificadas de reducción de carga para disipar fatiga acumulada.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-fuerza-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-chart-bar"></i>Testeo y Monitoreo de la Fuerza Máxima</h2>
+                    <p>Evaluar la fuerza máxima es importante para medir el progreso, ajustar la programación y establecer nuevas metas.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-vial"></i> Métodos de Testeo:</h3>
+                    <ul>
+                        <li><strong>Test de 1RM Directo:</strong> Encontrar el peso máximo que se puede levantar para una sola repetición con buena técnica. Requiere experiencia, un buen calentamiento y, a menudo, spotters. Es el método más específico.</li>
+                        <li><strong>Test de nRM (Repeticiones Máximas Indirecto):</strong> Realizar un número máximo de repeticiones con una carga submáxima (ej. 3RM, 5RM) y luego usar ecuaciones de predicción (ej. Epley, Brzycki) para estimar el 1RM. Menos arriesgado que el test directo, pero puede ser menos preciso.</li>
+                        <li><strong>Test con RPE:</strong> Realizar una serie con una carga dada y registrar el RPE. Con tablas de RPE/RIR se puede estimar el 1RM.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-clipboard-check"></i> Monitoreo del Progreso:</h3>
+                    <ul>
+                        <li><strong>Registro de Entrenamiento:</strong> Anotar series, repeticiones, carga y RPE de cada sesión.</li>
+                        <li><strong>Velocidad de la Barra (VBT):</strong> Si se dispone de tecnología, monitorizar la velocidad de la fase concéntrica puede ser un indicador objetivo de la fatiga y la adaptación.</li>
+                        <li><strong>Sensaciones Subjetivas:</strong> Prestar atención a cómo se sienten las cargas, niveles de energía, calidad del sueño.</li>
+                    </ul>
+                    <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Seguridad Primero:</strong> Al testear 1RM, la técnica nunca debe sacrificarse. Realizar un calentamiento exhaustivo y tener spotters si es necesario.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-fuerza-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-skull-crossbones text-askesis-red"></i>Errores Comunes al Entrenar Fuerza Máxima</h2>
+                    <ul>
+                        <li><strong class="critical-text">Mala Técnica (Ego Lifting):</strong> Sacrificar la forma por levantar más peso. Aumenta el riesgo de lesión y reduce la efectividad.</li>
+                        <li><strong class="critical-text">Progresión Demasiado Rápida:</strong> Intentar aumentar la carga demasiado pronto sin permitir adaptaciones.</li>
+                        <li><strong class="critical-text">Volumen Excesivo a Alta Intensidad:</strong> Puede llevar rápidamente al sobreentrenamiento neural y articular.</li>
+                        <li><strong class="critical-text">Descuidar la Recuperación:</strong> Insuficiente sueño, nutrición inadecuada, falta de días de descanso o deloads.</li>
+                        <li><strong class="critical-text">Falta de Especificidad:</strong> No enfocarse en los movimientos o rangos de repeticiones que desarrollan fuerza máxima.</li>
+                        <li><strong class="critical-text">No Calentar Adecuadamente:</strong> Especialmente importante antes de levantar cargas pesadas.</li>
+                        <li><strong class="critical-text">Miedo a las Cargas Pesadas:</strong> Evitar la intensidad necesaria para estimular las adaptaciones de fuerza.</li>
+                        <li><strong class="critical-text">Falta de Paciencia y Consistencia:</strong> Las ganancias de fuerza máxima requieren tiempo y esfuerzo continuo.</li>
+                    </ul>
+                     <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Enfoque Askesis:</strong> La fuerza se construye con <strong class="emphasis">inteligencia, paciencia y una ejecución impecable</strong>.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="slide-fuerza-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-link"></i>Fuerza Máxima y su Relación con Otras Cualidades</h2>
+                    <p>La fuerza máxima es una cualidad fundamental que influye en muchas otras capacidades físicas:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-bolt"></i> Fuerza Máxima y Potencia</h3>
+                    <p>La potencia es Fuerza x Velocidad. Un mayor nivel de fuerza máxima permite expresar más potencia a una velocidad dada, o la misma potencia con una carga mayor. La fuerza máxima es un <strong class="highlight">prerrequisito para la potencia óptima</strong>.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-layer-group"></i> Fuerza Máxima e Hipertrofia</h3>
+                    <p>Aunque los métodos difieren, existe una <strong class="highlight">fuerte correlación</strong>. Músculos más grandes tienen un mayor potencial para ser más fuertes. El entrenamiento de fuerza máxima también puede inducir hipertrofia, especialmente de fibras tipo II.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-running"></i> Fuerza Máxima y Resistencia Muscular</h3>
+                    <p>Una mayor fuerza máxima significa que las cargas submáximas representan un <strong class="highlight">porcentaje menor de esa capacidad máxima</strong>. Esto puede mejorar la capacidad de realizar más repeticiones con una carga dada o mantener un esfuerzo durante más tiempo.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-tachometer-alt"></i> Fuerza Máxima y Velocidad/Agilidad</h3>
+                    <p>Una mayor capacidad para aplicar fuerza contra el suelo puede traducirse en una <strong class="highlight">mayor velocidad de sprint y capacidad de cambio de dirección</strong>.</p>
+                </div>
+            </section>
+
+            <section id="slide-fuerza-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-red !border-askesis-orange"><i class="fas fa-crown"></i>Conclusión: Forja tu Fuerza Fundamental</h2>
+                    <p class="text-lg mb-4">El desarrollo de la fuerza máxima es un viaje <strong class="highlight">desafiante pero inmensamente gratificante</strong>. Requiere un enfoque científico, disciplina en la ejecución, y una comprensión profunda de cómo tu cuerpo responde y se adapta.</p>
+                    <p class="text-lg mb-6">En Askesis, estamos comprometidos a guiarte a través de este proceso, proporcionando <strong class="emphasis">programas de entrenamiento basados en la evidencia y personalizados</strong> para ayudarte a alcanzar nuevos niveles de fuerza y desbloquear tu máximo potencial físico.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre los Servicios Askesis
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-fuerza" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4"> <button id="prev-button-fuerza" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-fuerza" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-fuerza" class="hidden my-8 text-center"> <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-red">
+                <i class="fas fa-trophy text-4xl mr-3 text-askesis-red"></i>¡Guía de Fuerza Máxima Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora tienes el conocimiento para construir una fuerza formidable. ¡Es hora de aplicar estos principios y superar tus límites!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-fuerza" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Fuerza%20Máxima" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Fuerza%20Máxima." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterFuerza"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop();
+            window.addEventListener('resize', adjustSecondaryNavTop);
+
+            const guideContainer = document.getElementById('interactive-presentation-container-fuerza');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de fuerza máxima no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-fuerza .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-fuerza');
+            const nextButton = guideContainer.querySelector('#next-button-fuerza');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-fuerza');
+            const progressBar = guideContainer.querySelector('#progress-bar-fuerza');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-fuerza');
+            const completionContainer = guideContainer.querySelector('#completion-container-fuerza');
+            const restartButton = guideContainer.querySelector('#restart-button-fuerza');
+            const yearSpan = document.getElementById('currentYearFooterFuerza');
+            const navLinks = document.querySelectorAll('#main-nav-fuerza .nav-link-fuerza');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de fuerza no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Introducción a la Fuerza Máxima", "Beneficios Clave", "Mecanismos Fisiológicos", "Variables: Intensidad y Volumen", 
+                    "Variables: Frecuencia, Ejercicios, Descanso", "Métodos Específicos", "Periodización para Fuerza", "Nutrición y Recuperación",
+                    "Testeo y Monitoreo", "Errores Comunes", "Fuerza y Otras Cualidades", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-fuerza-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de fuerza máxima.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
