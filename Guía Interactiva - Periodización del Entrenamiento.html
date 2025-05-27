@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Periodización del Entrenamiento: Planifica tu Éxito</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Periodización del Entrenamiento: Aprende a estructurar tu entrenamiento a largo plazo con macrociclos, mesociclos y microciclos para maximizar el rendimiento y alcanzar tus metas.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C', /* Primary for this guide */
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#B80F0A',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                        'askesis-blue-light': 'rgba(0, 90, 156, 0.1)',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #B80F0A;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+            --askesis-blue-light: rgba(0, 90, 156, 0.1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.97), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-periodizacion { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.35rem; 
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.55rem; 
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-periodizacion:hover,
+        .secondary-nav-askesis .nav-link-periodizacion.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-blue); 
+        }
+        .secondary-nav-askesis .nav-link-periodizacion.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.96); 
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px;
+            max-width: 980px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-blue); 
+            font-size: 2.4em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-green); 
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-green); 
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-orange); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-purple);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--askesis-purple); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f073"; /* fa-calendar-alt or similar for planning */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-blue); 
+            position: absolute;
+            left: 0;
+            top: 7px;
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: var(--askesis-blue-light); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(184, 15, 10, 0.2); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: rgba(0, 128, 55, 0.2); border-left-color: var(--askesis-green); color: var(--askesis-text-white);} 
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); } 
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-green); } 
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-blue); 
+            color: var(--askesis-text-white);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(0, 90, 156, 0.4); 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #004175; 
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 90, 156, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-orange); 
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #cf6a10; 
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-periodizacion { font-size: 0.5rem; padding: 0.3rem 0.3rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-periodizacion { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-periodizacion" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-periodizacion-0" class="nav-link-periodizacion active">Intro</a></li>
+            <li><a href="#slide-periodizacion-1" class="nav-link-periodizacion">¿Por Qué?</a></li>
+            <li><a href="#slide-periodizacion-2" class="nav-link-periodizacion">Ciclos</a></li>
+            <li><a href="#slide-periodizacion-3" class="nav-link-periodizacion">Modelos (I)</a></li>
+            <li><a href="#slide-periodizacion-4" class="nav-link-periodizacion">Modelos (II)</a></li>
+            <li><a href="#slide-periodizacion-5" class="nav-link-periodizacion">Variables</a></li>
+            <li><a href="#slide-periodizacion-6" class="nav-link-periodizacion">Fases</a></li>
+            <li><a href="#slide-periodizacion-7" class="nav-link-periodizacion">Aplicación</a></li>
+            <li><a href="#slide-periodizacion-8" class="nav-link-periodizacion">Monitoreo</a></li>
+            <li><a href="#slide-periodizacion-9" class="nav-link-periodizacion">Tapering</a></li>
+            <li><a href="#slide-periodizacion-10" class="nav-link-periodizacion">Errores</a></li>
+            <li><a href="#slide-periodizacion-11" class="nav-link-periodizacion">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-periodizacion" class="py-8"> <div id="step-indicator-periodizacion" class="text-center mb-4 text-lg font-semibold text-askesis-orange font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-periodizacion" class="bg-gradient-to-r from-askesis-green to-askesis-blue h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        </div>
+
+        <div id="slides-container-periodizacion"> <section id="slide-periodizacion-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-calendar-alt"></i>Periodización del Entrenamiento: Planifica tu Éxito</h1>
+                    <p class="mb-3">La <strong class="highlight">periodización</strong> es la <strong class="highlight">organización estructurada y planificada del entrenamiento a largo plazo</strong>. Implica la división del plan anual o de temporada en fases o ciclos más pequeños, cada uno con objetivos específicos, para optimizar las adaptaciones, gestionar la fatiga y alcanzar el máximo rendimiento en los momentos clave.</p>
+                    <p>Esta guía te introducirá a los <strong class="highlight">conceptos fundamentales, modelos y aplicaciones prácticas</strong> de la periodización, una herramienta esencial para cualquier atleta o entrenador serio.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> La periodización transforma el entrenamiento de una serie de sesiones aleatorias en un <strong class="emphasis">proceso científico y sistemático</strong>, guiándote hacia tus metas de forma inteligente y sostenible.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-periodizacion-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-question-circle"></i>¿Por Qué Periodizar el Entrenamiento?</h2>
+                    <p>Entrenar siempre de la misma manera o sin un plan a largo plazo puede llevar al estancamiento, sobreentrenamiento o lesiones. La periodización ofrece múltiples beneficios:</p>
+                    <ul>
+                        <li><strong>Optimización del Rendimiento:</strong> Permite alcanzar el pico de forma (peaking) en el momento deseado (ej. competición principal).</li>
+                        <li><strong>Prevención del Sobreentrenamiento y Lesiones:</strong> Gestiona la carga de entrenamiento y la fatiga, alternando períodos de mayor y menor estrés.</li>
+                        <li><strong>Manejo de la Fatiga:</strong> Incorpora fases de recuperación y descarga para permitir la adaptación y evitar el agotamiento crónico.</li>
+                        <li><strong>Evitar el Estancamiento (Plateaus):</strong> La variación planificada de los estímulos de entrenamiento ayuda a seguir progresando.</li>
+                        <li><strong>Desarrollo Sistemático de Múltiples Cualidades Físicas:</strong> Permite enfocar diferentes capacidades (fuerza, potencia, resistencia, hipertrofia) en distintas fases.</li>
+                        <li><strong>Mejora de la Adherencia y Motivación:</strong> Un plan estructurado con objetivos claros puede ser más motivador.</li>
+                        <li><strong>Base para la Planificación a Largo Plazo:</strong> Facilita la consecución de objetivos ambiciosos a lo largo de varias temporadas o años.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-periodizacion-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-sitemap"></i>Ciclos de la Periodización: Estructura Temporal</h2>
+                    <p>La periodización organiza el entrenamiento en diferentes ciclos temporales:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-calendar-week"></i> Macrociclo:</h3>
+                    <p>Es el <strong class="highlight">plan de entrenamiento más largo</strong>, generalmente abarcando una temporada completa, un año, o incluso un ciclo olímpico (4 años). Contiene todas las fases necesarias para alcanzar un objetivo principal.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-calendar-day"></i> Mesociclo:</h3>
+                    <p>Un bloque de entrenamiento de <strong class="highlight">varias semanas (típicamente 2-6 semanas)</strong> dentro de un macrociclo, con un <strong class="highlight">objetivo específico</strong> (ej. desarrollo de la fuerza máxima, hipertrofia, potencia, resistencia base). Cada mesociclo suele terminar con una semana de descarga o evaluación.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-hourglass-half"></i> Microciclo:</h3>
+                    <p>Es la <strong class="highlight">estructura de entrenamiento de una semana</strong> (aunque puede variar de 3 a 10 días). Detalla las sesiones de entrenamiento diarias, incluyendo el tipo de trabajo, volumen, intensidad y días de descanso.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-dumbbell"></i> Sesión de Entrenamiento:</h3>
+                    <p>La <strong class="highlight">unidad individual de entrenamiento</strong>, con sus propios objetivos, ejercicios, series, repeticiones y descansos. Es el componente más pequeño del plan.</p>
+                </div>
+            </section>
+
+            <section id="slide-periodizacion-3" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-project-diagram"></i>Modelos de Periodización (Parte I)</h2>
+                    <p>Existen varios modelos teóricos para estructurar la periodización. Los más conocidos son:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-chart-line"></i> 1. Periodización Lineal (o Tradicional / Clásica):</h3>
+                    <p>Propuesta por Matveyev. Se caracteriza por una <strong class="highlight">progresión gradual y secuencial</strong> de las variables de entrenamiento a lo largo de los mesociclos. Típicamente, el <strong class="highlight">volumen disminuye mientras la intensidad aumenta</strong> a medida que se acerca la competición.</p>
+                    <ul>
+                        <li><strong>Fases:</strong> Preparatoria (alto volumen, baja/moderada intensidad) → Competitiva (bajo volumen, alta/muy alta intensidad) → Transición.</li>
+                        <li><strong>Ventajas:</strong> Simple de planificar, buena para desarrollar una base sólida, históricamente efectiva para muchos deportes.</li>
+                        <li><strong>Desventajas:</strong> Puede ser difícil mantener múltiples cualidades físicas a la vez, el pico de forma puede ser breve, menos adaptable a calendarios competitivos largos o múltiples picos.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-wave-square"></i> 2. Periodización No Lineal (u Ondulante):</h3>
+                    <p>Implica <strong class="highlight">variaciones más frecuentes en el volumen y la intensidad</strong> dentro del microciclo (DUP - Daily Undulating Periodization) o entre microciclos (WUP - Weekly Undulating Periodization). Por ejemplo, un día se enfoca en hipertrofia (volumen alto, intensidad moderada), otro en fuerza (volumen moderado, intensidad alta) y otro en potencia (volumen bajo, intensidad baja-moderada a alta velocidad).</p>
+                    <ul>
+                        <li><strong>Ventajas:</strong> Permite entrenar múltiples cualidades simultáneamente, puede reducir la monotonía, puede ser más adaptable a las fluctuaciones diarias del atleta, buena para mantener un nivel de preparación más constante.</li>
+                        <li><strong>Desventajas:</strong> Puede ser más compleja de planificar y monitorizar, riesgo de fatiga si no se gestiona bien la carga total.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-periodizacion-4" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-layer-group"></i>Modelos de Periodización (Parte II)</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-cubes"></i> 3. Periodización por Bloques (o Conjugada Secuencial):</h3>
+                    <p>Propuesta por Issurin y Verkhoshansky. Consiste en <strong class="highlight">concentrar el entrenamiento en un número limitado de cualidades físicas</strong> (bloques) durante un período de tiempo, para luego pasar a otro bloque con diferentes objetivos. Los bloques suelen ser de acumulación, transmutación y realización.</p>
+                    <ul>
+                        <li><strong>Bloque de Acumulación:</strong> Desarrollo de capacidades básicas (ej. resistencia aeróbica, hipertrofia, fuerza general). Alto volumen, intensidad moderada.</li>
+                        <li><strong>Bloque de Transmutación:</strong> Transformación de las capacidades básicas en cualidades más específicas del deporte (ej. fuerza específica, potencia, resistencia específica). Volumen moderado, intensidad alta.</li>
+                        <li><strong>Bloque de Realización:</strong> Maximización del rendimiento competitivo, afinamiento y tapering. Volumen bajo, intensidad muy alta (específica de competición).</li>
+                    </ul>
+                    <ul>
+                        <li><strong>Ventajas:</strong> Permite un estímulo concentrado y potente para cada cualidad, puede ser muy efectivo para atletas avanzados, buena gestión de la fatiga si se planifican bien las transiciones.</li>
+                        <li><strong>Desventajas:</strong> Riesgo de desentrenamiento de las cualidades no trabajadas si los bloques son muy largos, requiere una planificación cuidadosa de las cargas residuales del entrenamiento.</li>
+                    </ul>
+                     <h3 class="guide-subsection-title"><i class="fas fa-random"></i> 4. Periodización Inversa:</h3>
+                    <p>Principalmente utilizada en deportes de resistencia de muy larga duración. Comienza con <strong class="highlight">menor volumen y mayor intensidad</strong>, y progresivamente <strong class="highlight">aumenta el volumen mientras la intensidad disminuye</strong> o se mantiene en rangos más específicos de la competición.</p>
+                     <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> ¿Cuál es el Mejor Modelo?:</strong> No hay un modelo universalmente superior. La elección depende del <strong class="emphasis">deporte, el nivel del atleta, el calendario competitivo, los objetivos y la filosofía del entrenador</strong>. A menudo se utilizan combinaciones o adaptaciones de estos modelos.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-periodizacion-5" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-sliders-h"></i>Variables Clave a Manipular en la Periodización</h2>
+                    <p>La periodización se basa en la manipulación sistemática de las variables del entrenamiento:</p>
+                    <ul>
+                        <li><strong>Volumen:</strong> Cantidad total de trabajo realizado (ej. series x reps x peso; km recorridos; tiempo total de entrenamiento). Es una de las variables más importantes a modificar para gestionar la fatiga y estimular la adaptación.</li>
+                        <li><strong>Intensidad:</strong> Componente cualitativo de la carga; el esfuerzo o la tasa de trabajo (ej. %1RM; velocidad de carrera; RPE; frecuencia cardíaca).</li>
+                        <li><strong>Frecuencia:</strong> Número de sesiones de entrenamiento por microciclo (semana) para un grupo muscular, movimiento o cualidad específica.</li>
+                        <li><strong>Densidad:</strong> Relación entre el trabajo y el descanso dentro de una sesión o microciclo. Aumentar la densidad (más trabajo en el mismo tiempo, o menos descanso para el mismo trabajo) puede ser una forma de progresión.</li>
+                        <li><strong>Complejidad/Especificidad de los Ejercicios:</strong> Progresar de ejercicios más generales y simples a ejercicios más específicos y complejos a medida que se acerca la competición.</li>
+                        <li><strong>Tipo de Ejercicio:</strong> Variar los ejercicios para estimular diferentes unidades motoras, ángulos o patrones de movimiento.</li>
+                    </ul>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Interdependencia:</strong> Estas variables están interconectadas. Un cambio en una (ej. aumento de la intensidad) a menudo requiere un ajuste en otra (ej. disminución del volumen) para mantener la carga de entrenamiento adecuada y permitir la recuperación.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-periodizacion-6" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-road"></i>Fases Típicas de un Macrociclo Periodizado</h2>
+                    <p>Un macrociclo tradicional suele dividirse en las siguientes fases:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tools"></i> 1. Fase Preparatoria (o de Pretemporada):</h3>
+                    <p>Objetivo: Construir una base sólida de condición física general y específica.</p>
+                    <ul>
+                        <li><strong>Preparación General (PPG):</strong> Desarrollo de capacidades físicas básicas (resistencia aeróbica, fuerza general, movilidad). Alto volumen, baja-moderada intensidad.</li>
+                        <li><strong>Preparación Específica (PPE):</strong> Aumento gradual de la intensidad y especificidad de los ejercicios, enfocándose en las demandas del deporte. El volumen puede disminuir ligeramente.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-trophy"></i> 2. Fase Competitiva (o de Temporada):</h3>
+                    <p>Objetivo: Alcanzar y mantener el pico de forma para las competiciones principales.</p>
+                    <ul>
+                        <li><strong>Pre-Competitiva:</strong> Afinamiento final, simulaciones de competición, reducción del volumen y mantenimiento/aumento de la intensidad (tapering).</li>
+                        <li><strong>Competitiva Principal:</strong> Mantenimiento del rendimiento, recuperación entre competiciones. El volumen es bajo, la intensidad alta y muy específica.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-umbrella-beach"></i> 3. Fase de Transición (o Post-Temporada):</h3>
+                    <p>Objetivo: Recuperación física y psicológica después de la temporada competitiva. Evitar el desentrenamiento completo.</p>
+                    <ul>
+                        <li>Actividad física de baja intensidad y variada (descanso activo).</li>
+                        <li>Enfoque en la recreación y la recuperación mental.</li>
+                        <li>Duración: Generalmente 2-4 semanas.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-periodizacion-7" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-running"></i>Aplicación a Diferentes Objetivos</h2>
+                    <p>La periodización se adapta según el objetivo principal:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-layer-group"></i> Periodización para Hipertrofia:</h3>
+                    <ul>
+                        <li>Énfasis en el <strong class="highlight">volumen de entrenamiento y el estrés metabólico</strong>.</li>
+                        <li>Mesociclos pueden alternar fases de mayor volumen con fases de mayor intensidad (para fuerza) para evitar estancamiento y promover diferentes tipos de hipertrofia.</li>
+                        <li>Variedad de ejercicios y rangos de repeticiones (6-20+).</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-fist-raised"></i> Periodización para Fuerza Máxima:</h3>
+                    <ul>
+                        <li>Énfasis en la <strong class="highlight">alta intensidad (≥85% 1RM)</strong> y la calidad técnica.</li>
+                        <li>Progresión de fases de hipertrofia/fuerza base hacia fases de fuerza máxima y pico.</li>
+                        <li>Uso de métodos como series por conglomerados, esfuerzo dinámico, etc.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-bolt"></i> Periodización para Potencia:</h3>
+                    <ul>
+                        <li>Requiere una <strong class="highlight">base de fuerza sólida</strong>.</li>
+                        <li>Fases de conversión de fuerza a potencia, utilizando ejercicios balísticos, pliometría, levantamientos olímpicos.</li>
+                        <li>Énfasis en la <strong class="highlight">velocidad de ejecución y la calidad del movimiento</strong>.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-lungs-virus"></i> Periodización para Resistencia:</h3>
+                    <ul>
+                        <li>Progresión de un <strong class="highlight">alto volumen de base aeróbica</strong> hacia trabajos más intensos y específicos (umbrales, VO2máx, ritmo de competición).</li>
+                        <li>Manipulación de la duración, intensidad y tipo de intervalos.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-periodizacion-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-clipboard-check"></i>Monitoreo y Ajustes en la Periodización</h2>
+                    <p>La periodización no es un plan rígido e inmutable. Es crucial <strong class="highlight">monitorizar la respuesta del atleta</strong> y realizar ajustes según sea necesario.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tachometer-alt"></i> ¿Qué Monitorear?</h3>
+                    <ul>
+                        <li><strong>Rendimiento en el Entrenamiento:</strong> Cargas levantadas, tiempos, RPE, velocidad de la barra (si se usa VBT).</li>
+                        <li><strong>Sensaciones Subjetivas del Atleta:</strong> Niveles de energía, calidad del sueño, estado de ánimo, dolor muscular, motivación.</li>
+                        <li><strong>Marcadores Fisiológicos (si es posible):</strong> Variabilidad de la frecuencia cardíaca (HRV), frecuencia cardíaca en reposo, marcadores bioquímicos (en contextos de alto rendimiento).</li>
+                        <li><strong>Resultados en Tests y Evaluaciones Periódicas.</strong></li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-edit"></i> Realizar Ajustes:</h3>
+                    <p>Basándose en el monitoreo, se pueden realizar ajustes en:</p>
+                    <ul>
+                        <li>Volumen, intensidad o frecuencia de las sesiones.</li>
+                        <li>Duración de los mesociclos o microciclos.</li>
+                        <li>Selección de ejercicios.</li>
+                        <li>Necesidad de una descarga (deload) no planificada.</li>
+                    </ul>
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Flexibilidad Planificada:</strong> Un buen plan periodizado tiene una estructura clara, pero también permite <strong class="emphasis">flexibilidad para adaptarse</strong> a imprevistos o a la respuesta individual del atleta. Es un proceso dinámico.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-periodizacion-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-chart-area"></i>Tapering: La Fase Final de la Periodización Competitiva</h2>
+                    <p>El <strong class="highlight">tapering</strong> (o afinamiento/puesta a punto) es una fase especializada de la periodización que ocurre justo antes de una competición importante. Su objetivo es <strong class="highlight">reducir la fatiga acumulada mientras se mantienen o incluso se mejoran las adaptaciones de fitness</strong>, para que el atleta llegue en su pico de forma.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-sliders-h"></i> Principios Clave del Tapering:</h3>
+                    <ul>
+                        <li><strong>Reducción Significativa del Volumen de Entrenamiento:</strong> Típicamente entre un 40-70% del volumen pico, dependiendo de la duración del taper y el deporte.</li>
+                        <li><strong>Mantenimiento (o Ligero Aumento) de la Intensidad:</strong> Realizar ejercicios a intensidad de competición o incluso ligeramente superior, pero con muy bajo volumen, es crucial para mantener las adaptaciones neuromusculares y la "sensación" del esfuerzo.</li>
+                        <li><strong>Reducción Moderada o Mantenimiento de la Frecuencia:</strong> La frecuencia de las sesiones puede reducirse ligeramente (ej. 20-30%) o mantenerse, pero las sesiones son más cortas.</li>
+                        <li><strong>Duración:</strong> Generalmente de 4 a 28 días, siendo 7-14 días lo más común.</li>
+                        <li><strong>Tipo de Taper:</strong> Los tapers exponenciales (especialmente de descenso rápido en volumen) suelen ser los más efectivos.</li>
+                    </ul>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Objetivo:</strong> Llegar al día de la competición <strong class="emphasis">descansado, recuperado, pero fisiológica y psicológicamente preparado</strong> para rendir al máximo.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-periodizacion-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-skull-crossbones text-askesis-red"></i>Errores Comunes en la Periodización</h2>
+                    <ul>
+                        <li><strong class="critical-text">Falta de Planificación a Largo Plazo:</strong> Entrenar "al día" sin una visión clara de los objetivos y las fases.</li>
+                        <li><strong class="critical-text">Progresión Demasiado Rápida o Lenta:</strong> No aplicar correctamente el principio de sobrecarga progresiva.</li>
+                        <li><strong class="critical-text">Monotonía Excesiva:</strong> No introducir suficiente variedad, llevando al estancamiento.</li>
+                        <li><strong class="critical-text">Excesiva Variedad No Estructurada:</strong> Cambiar constantemente de ejercicios o métodos sin permitir adaptaciones ("program hopping").</li>
+                        <li><strong class="critical-text">Ignorar la Fatiga y la Necesidad de Recuperación:</strong> No incluir suficientes días de descanso o semanas de descarga.</li>
+                        <li><strong class="critical-text">Tapering Inadecuado:</strong> Reducir la intensidad en lugar del volumen, o un taper demasiado corto/largo.</li>
+                        <li><strong class="critical-text">No Individualizar el Plan:</strong> Aplicar un modelo genérico sin considerar las necesidades y respuestas del atleta.</li>
+                        <li><strong class="critical-text">Falta de Monitoreo y Ajustes:</strong> Seguir un plan rígidamente sin adaptarlo a la respuesta del atleta.</li>
+                    </ul>
+                     <div class="warning-box mt-4">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Evita Estos Errores:</strong> Una periodización efectiva requiere <strong class="emphasis">conocimiento, planificación cuidadosa y la capacidad de adaptar el plan</strong> según sea necesario.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="slide-periodizacion-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-blue !border-askesis-green"><i class="fas fa-route"></i>Conclusión: El Camino Hacia el Rendimiento Sostenible</h2>
+                    <p class="text-lg mb-4">La periodización del entrenamiento es una <strong class="highlight">herramienta indispensable</strong> para cualquier atleta o entrenador que busque maximizar el rendimiento, minimizar el riesgo de lesiones y asegurar un progreso a largo plazo. Es el arte y la ciencia de <strong class="highlight">estructurar el viaje hacia tus metas</strong>.</p>
+                    <p class="text-lg mb-6">En Askesis, la periodización es un <strong class="emphasis">componente central de nuestra filosofía de entrenamiento</strong>. Diseñamos planes inteligentes y adaptados que te guían a través de las diferentes fases, asegurando que llegues a tus objetivos en las mejores condiciones posibles.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre los Servicios Askesis
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-periodizacion" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4"> <button id="prev-button-periodizacion" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-periodizacion" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-periodizacion" class="hidden my-8 text-center"> <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-blue">
+                <i class="fas fa-award text-4xl mr-3 text-askesis-blue"></i>¡Guía de Periodización del Entrenamiento Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora tienes una comprensión sólida de cómo planificar tu entrenamiento para el éxito a largo plazo. ¡Aplica estos principios y alcanza nuevas cimas!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-periodizacion" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Periodización" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Periodización." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterPeriodizacion"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop();
+            window.addEventListener('resize', adjustSecondaryNavTop);
+
+            const guideContainer = document.getElementById('interactive-presentation-container-periodizacion');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de periodización no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-periodizacion .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-periodizacion');
+            const nextButton = guideContainer.querySelector('#next-button-periodizacion');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-periodizacion');
+            const progressBar = guideContainer.querySelector('#progress-bar-periodizacion');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-periodizacion');
+            const completionContainer = guideContainer.querySelector('#completion-container-periodizacion');
+            const restartButton = guideContainer.querySelector('#restart-button-periodizacion');
+            const yearSpan = document.getElementById('currentYearFooterPeriodizacion');
+            const navLinks = document.querySelectorAll('#main-nav-periodizacion .nav-link-periodizacion');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de periodización no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Intro a Periodización", "¿Por Qué Periodizar?", "Ciclos de Entrenamiento", "Modelos (Parte I)", 
+                    "Modelos (Parte II)", "Variables a Manipular", "Fases del Macrociclo", "Aplicación por Objetivos",
+                    "Monitoreo y Ajustes", "Tapering", "Errores Comunes", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-periodizacion-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de periodización.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
