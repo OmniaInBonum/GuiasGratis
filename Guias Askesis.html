@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Enlaces - Askesis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .link-card-askesis {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+            border: 1px solid var(--askesis-border); 
+        }
+        .link-card-askesis:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border-color: var(--askesis-orange); 
+        }
+        .btn-askesis {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-askesis:hover {
+            transform: scale(1.03);
+        }
+        :root {
+            --askesis-orange: #F58220;
+            --askesis-border: #333333;
+            --askesis-dark: #121212;
+        }
+    </style>
+</head>
+<body class="bg-askesis-dark text-askesis-light-gray min-h-screen flex flex-col items-center justify-center p-4 sm:p-6">
+
+    <div class="container mx-auto max-w-3xl w-full">
+        <header class="mb-10 md:mb-12 text-center">
+            <h1 class="text-4xl sm:text-5xl font-bold font-roboto text-askesis-text-white">
+                Mis <span class="text-askesis-orange">Guías</span>
+            </h1>
+            <p class="text-askesis-light-gray mt-3 text-lg">
+                Explora guías de entrenamiento y calistenia de <span class="font-semibold text-askesis-text-white">Askesis</span>.
+            </p>
+        </header>
+
+        <ul class="space-y-6 sm:space-y-8">
+            <li class="link-card-askesis bg-askesis-gray p-6 rounded-lg shadow-xl">
+                <h2 class="text-2xl font-roboto font-bold text-askesis-text-white mb-3">Guías de Calistenia y Entrenamiento</h2>
+                <p class="text-askesis-light-gray mb-5 text-sm sm:text-base">
+                    Explora guías detalladas para habilidades de calistenia, fundamentos del entrenamiento y desarrollo de capacidades físicas.
+                </p>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold font-roboto text-askesis-orange mb-3">Habilidades de Calistenia</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a href="https://omniainbonum.github.io/askesis-links/Guia%20Back%20lever.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-undo-alt mr-2"></i>Guía Back Lever</a>
+                        <a href="https://omniainbonum.github.io/askesis-links/Guia%20Bandera.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-flag mr-2"></i>Guía Bandera Humana</a>
+                        <a href="https://omniainbonum.github.io/askesis-links/Guia%20Front.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-balance-scale-left mr-2"></i>Guía Front Lever</a>
+                        <a href="https://omniainbonum.github.io/askesis-links/Guia%20Handstand.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-hands mr-2"></i>Guía Handstand</a>
+                        <a href="https://omniainbonum.github.io/askesis-links/Hpu.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-weight-hanging mr-2"></i>Guía HSPU</a>
+                        <a href="https://omniainbonum.github.io/askesis-links/Guia%20L%20Sit.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-chair mr-2"></i>Guía L-Sit</a>
+                        <a href="https://omniainbonum.github.io/askesis-links/Guia%20MU%20y%20Mesociclo%20ejemplo.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-angle-double-up mr-2"></i>Guía Muscle Up</a>
+                        <a href="https://omniainbonum.github.io/askesis-links/Pistol%20Squat.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-shoe-prints mr-2"></i>Guía Pistol Squat</a>
+                        <a href="https://omniainbonum.github.io/askesis-links/presstohandstand.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-level-up-alt mr-2"></i>Guía Press to Handstand</a>
+                        <a href="https://omniainbonum.github.io/askesis-links/Guia%20planche.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-grip-lines mr-2"></i>Guía Planche</a>
+                        <a href="https://omniainbonum.github.io/askesis-links/Shoulder%20Flag.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-user-ninja mr-2"></i>Guía Shoulder Flag</a>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold font-roboto text-askesis-orange mb-3">Principios y Fundamentos Científicos</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Principios%20del%20entrenamiento%20deportivo.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-lightbulb mr-2"></i>Principios del Entrenamiento</a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Fisiolog%C3%ADa%20del%20Ejercicio.HTML" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-heart-pulse mr-2"></i>Fisiología del Ejercicio</a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Biomec%C3%A1nica%20Aplicada.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-balance-scale mr-2"></i>Biomecánica Aplicada</a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Anatom%C3%ADa%20Funcional.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-bone mr-2"></i>Anatomía Funcional</a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Evaluaci%C3%B3n%20y%20Entrenamiento%20de%20la%20Condici%C3%B3n%20F%C3%ADsica.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-chart-simple mr-2"></i>Evaluación Física</a>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold font-roboto text-askesis-orange mb-3">Desarrollo de Capacidades Físicas</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Hipertrofia%20Muscular.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-weight-lifter mr-2"></i>Hipertrofia Muscular</a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Fuerza%20M%C3%A1xima.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-hand-fist mr-2"></i>Fuerza Máxima</a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Potencia%20Muscular.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-meteor mr-2"></i>Potencia Muscular</a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Resistencia%20Muscular.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-running mr-2"></i>Resistencia Muscular</a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Flexibilidad%20y%20Movilidad.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-child-reaching mr-2"></i>Flexibilidad y Movilidad</a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Entrenamiento%20de%20Velocidad%20y%20Agilidad.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-forward-step mr-2"></i>Velocidad y Agilidad</a>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold font-roboto text-askesis-orange mb-3">Programación y Metodología</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Taperin%20y%20puesta%20a%20punto.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-arrows-up-to-line mr-2"></i>Tapering y Puesta a Punto</a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Periodizaci%C3%B3n%20del%20Entrenamiento.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-calendar-days mr-2"></i>Periodización del Entrenamiento</a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Entrenamiento%20en%20Circuito.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-arrows-spin mr-2"></i>Entrenamiento en Circuito</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold font-roboto text-askesis-orange mb-3">Salud y Aspectos Especiales</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Lesiones%20Deportivas%20Prevenci%C3%B3n%20y%20Primeros%20Pasos.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-first-aid mr-2"></i>Prevención de Lesiones</a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Psicolog%C3%ADa%20Deportiva.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-head-side-brain mr-2"></i>Psicología Deportiva</a>
+                        <a href="https://omniainbonum.github.io/GuiasGratis/Gu%C3%ADa%20Interactiva%20-%20Fuerza%20en%20Ni%C3%B1os%20y%20Adolescentes.html" target="_blank" rel="noopener noreferrer" class="btn-askesis block bg-askesis-orange hover:bg-orange-600 text-askesis-dark font-semibold py-2.5 px-4 rounded-md text-center text-sm"><i class="fas fa-children mr-2"></i>Fuerza en Niños y Adolescentes</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <footer class="mt-12 md:mt-16 text-center">
+            <p class="text-askesis-light-gray text-sm">
+                &copy; <span id="currentYear"></span> OmniaInBonum - Askesis. Todos los derechos reservados.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
