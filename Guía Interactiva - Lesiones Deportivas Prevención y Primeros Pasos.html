@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Lesiones Deportivas: Prevención y Primeros Pasos</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Lesiones Deportivas: Aprende a prevenir las lesiones más comunes, identifica factores de riesgo y conoce los primeros pasos a seguir. Entrena de forma inteligente y segura.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C', /* Primary for this guide */
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#B80F0A', /* For warnings/critical */
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                        'askesis-blue-light': 'rgba(0, 90, 156, 0.1)',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #B80F0A;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+            --askesis-blue-light: rgba(0, 90, 156, 0.1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.97), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-lesiones { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.35rem; 
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.55rem; 
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-lesiones:hover,
+        .secondary-nav-askesis .nav-link-lesiones.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-blue); 
+        }
+        .secondary-nav-askesis .nav-link-lesiones.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.96); 
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px;
+            max-width: 980px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-blue); 
+            font-size: 2.4em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-red); /* Red accent for lesions */
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-red); 
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-green); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-orange);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--askesis-orange); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f058"; /* fa-check-circle or similar for prevention/health */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-blue); 
+            position: absolute;
+            left: 0;
+            top: 7px;
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: var(--askesis-blue-light); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(184, 15, 10, 0.2); border-left-color: var(--askesis-red); color: var(--askesis-text-white);} /* Red warning box */
+        .slide-content-wrapper .tip-box { background-color: rgba(0, 128, 55, 0.2); border-left-color: var(--askesis-green); color: var(--askesis-text-white);}
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); } 
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-green); } 
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-blue); 
+            color: var(--askesis-text-white);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(0, 90, 156, 0.4); 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #004175; 
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 90, 156, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-orange); 
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #cf6a10; 
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-lesiones { font-size: 0.5rem; padding: 0.3rem 0.3rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-lesiones { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-lesiones" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-lesiones-0" class="nav-link-lesiones active">Intro</a></li>
+            <li><a href="#slide-lesiones-1" class="nav-link-lesiones">Definición</a></li>
+            <li><a href="#slide-lesiones-2" class="nav-link-lesiones">Factores Riesgo</a></li>
+            <li><a href="#slide-lesiones-3" class="nav-link-lesiones">Comunes (I)</a></li>
+            <li><a href="#slide-lesiones-4" class="nav-link-lesiones">Comunes (II)</a></li>
+            <li><a href="#slide-lesiones-5" class="nav-link-lesiones">Prevención Gral.</a></li>
+            <li><a href="#slide-lesiones-6" class="nav-link-lesiones">Calent./Enfriam.</a></li>
+            <li><a href="#slide-lesiones-7" class="nav-link-lesiones">Técnica/Progres.</a></li>
+            <li><a href="#slide-lesiones-8" class="nav-link-lesiones">Escucha Cuerpo</a></li>
+            <li><a href="#slide-lesiones-9" class="nav-link-lesiones">Primeros Pasos</a></li>
+            <li><a href="#slide-lesiones-10" class="nav-link-lesiones">Ayuda Prof.</a></li>
+            <li><a href="#slide-lesiones-11" class="nav-link-lesiones">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-lesiones" class="py-8"> <div id="step-indicator-lesiones" class="text-center mb-4 text-lg font-semibold text-askesis-green font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-lesiones" class="bg-gradient-to-r from-askesis-green to-askesis-blue h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        </div>
+
+        <div id="slides-container-lesiones"> <section id="slide-lesiones-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-user-shield"></i>Lesiones Deportivas: Prevención y Primeros Pasos</h1>
+                    <p class="mb-3">Las <strong class="highlight">lesiones deportivas</strong> son una preocupación común para cualquier persona activa, desde el atleta de élite hasta el entusiasta del fitness. Si bien algunas son inevitables, muchas pueden <strong class="highlight">prevenirse con conocimiento y estrategias adecuadas</strong>.</p>
+                    <p>Esta guía te proporcionará una comprensión fundamental sobre las lesiones deportivas, los factores que aumentan su riesgo, cómo prevenirlas de manera inteligente, y los <strong class="highlight">primeros pasos cruciales</strong> a seguir si, a pesar de todo, ocurre una lesión.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> Entrenar duro es importante, pero <strong class="emphasis">entrenar de forma inteligente y escuchar a tu cuerpo</strong> es la clave para una progresión sostenible y libre de lesiones a largo plazo.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-lesiones-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-notes-medical"></i>¿Qué es una Lesión Deportiva? Definición y Clasificación</h2>
+                    <p>Una <strong class="highlight">lesión deportiva</strong> es cualquier daño físico o alteración funcional que ocurre en los tejidos del cuerpo como resultado de la participación en actividades deportivas o ejercicio físico.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tags"></i> Clasificación General:</h3>
+                    <ul>
+                        <li><strong>Lesiones Agudas:</strong> Ocurren <strong class="highlight">repentinamente</strong> debido a un traumatismo o evento específico (ej. esguince de tobillo, desgarro muscular, fractura). Suelen tener síntomas claros e inmediatos.</li>
+                        <li><strong>Lesiones Crónicas (o por Sobrecarga/Uso Excesivo):</strong> Se desarrollan <strong class="highlight">gradualmente</strong> con el tiempo debido a estrés repetitivo en los tejidos sin una recuperación adecuada (ej. tendinopatías, fascitis plantar, fracturas por estrés). Los síntomas pueden ser más insidiosos al principio.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-layer-group"></i> Tipos de Tejidos Afectados:</h3>
+                    <ul>
+                        <li><strong>Musculares:</strong> Distensiones (desgarros), contracturas, contusiones.</li>
+                        <li><strong>Tendinosas:</strong> Tendinitis (inflamación), tendinosis (degeneración), roturas tendinosas.</li>
+                        <li><strong>Ligamentosas:</strong> Esguinces (distensión o rotura de ligamentos).</li>
+                        <li><strong>Óseas:</strong> Fracturas (completas, incompletas, por estrés), periostitis.</li>
+                        <li><strong>Articulares:</strong> Luxaciones, subluxaciones, bursitis, daño cartilaginoso.</li>
+                        <li><strong>Nerviosas:</strong> Atrapamientos nerviosos, neuropatías por compresión.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-lesiones-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-exclamation-triangle"></i>Factores de Riesgo de Lesiones Deportivas</h2>
+                    <p>Múltiples factores pueden predisponer a un individuo a sufrir una lesión. Se dividen en intrínsecos y extrínsecos:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-user"></i> Factores Intrínsecos (Relacionados con el Individuo):</h3>
+                    <ul>
+                        <li><strong>Edad y Sexo:</strong> Ciertas lesiones son más comunes en diferentes etapas de la vida o entre sexos.</li>
+                        <li><strong>Historial de Lesiones Previas:</strong> Una lesión anterior es un fuerte predictor de una futura lesión en la misma zona.</li>
+                        <li><strong>Condición Física General:</strong> Falta de fuerza, resistencia, flexibilidad o movilidad adecuadas.</li>
+                        <li><strong>Desequilibrios Musculares y Asimetrías:</strong> Diferencias de fuerza o flexibilidad entre lados del cuerpo o entre grupos musculares agonistas/antagonistas.</li>
+                        <li><strong>Mala Técnica de Ejecución:</strong> Movimientos incorrectos o ineficientes.</li>
+                        <li><strong>Anomalías Anatómicas o Biomecánicas:</strong> Ej. pie plano, dismetría de miembros.</li>
+                        <li><strong>Factores Psicológicos:</strong> Estrés, fatiga mental, falta de concentración.</li>
+                        <li><strong>Composición Corporal:</strong> Ej. sobrepeso u obesidad pueden aumentar el estrés articular.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-running"></i> Factores Extrínsecos (Relacionados con el Entorno o Actividad):</h3>
+                    <ul>
+                        <li><strong>Tipo de Deporte o Actividad:</strong> Algunos deportes tienen mayor riesgo inherente.</li>
+                        <li><strong>Carga de Entrenamiento:</strong> Volumen, intensidad y frecuencia inadecuados (demasiado, muy rápido).</li>
+                        <li><strong>Equipamiento Inadecuado o Defectuoso:</strong> Ej. calzado desgastado, material de protección deficiente.</li>
+                        <li><strong>Superficie de Entrenamiento:</strong> Terrenos irregulares, duros o resbaladizos.</li>
+                        <li><strong>Condiciones Ambientales:</strong> Calor o frío extremos, altitud.</li>
+                        <li><strong>Reglas del Juego y Contacto:</strong> En deportes de equipo.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-lesiones-3" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-diagnoses"></i>Lesiones Deportivas Comunes (Parte I)</h2>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-joint"></i> Hombro:</h4>
+                    <ul>
+                        <li><strong>Tendinopatía del Manguito Rotador:</strong> Inflamación o degeneración de los tendones del manguito rotador, a menudo por sobrecarga o mala mecánica en movimientos por encima de la cabeza.</li>
+                        <li><strong>Síndrome de Pinzamiento Subacromial (Impingement):</strong> Compresión de los tendones del manguito rotador y la bursa bajo el acromion.</li>
+                        <li><strong>Luxación/Subluxación Glenohumeral:</strong> Desplazamiento de la cabeza del húmero fuera de la cavidad glenoidea.</li>
+                        <li><strong>Lesiones SLAP (Superior Labrum Anterior to Posterior):</strong> Desgarro del labrum glenoideo superior.</li>
+                    </ul>
+                    <h4 class="guide-subsubsection-title mt-4"><i class="fas fa-bone"></i> Codo:</h4>
+                    <ul>
+                        <li><strong>Epicondilitis Lateral ("Codo de Tenista"):</strong> Dolor en la parte externa del codo, por sobrecarga de los extensores de la muñeca.</li>
+                        <li><strong>Epicondilitis Medial ("Codo de Golfista"):</strong> Dolor en la parte interna del codo, por sobrecarga de los flexores de la muñeca.</li>
+                    </ul>
+                     <h4 class="guide-subsubsection-title mt-4"><i class="fas fa-hand-paper"></i> Muñeca y Mano:</h4>
+                    <ul>
+                        <li><strong>Esguinces de Muñeca:</strong> Lesión de los ligamentos de la muñeca, a menudo por caídas.</li>
+                        <li><strong>Síndrome del Túnel Carpiano:</strong> Compresión del nervio mediano en la muñeca (puede agravarse con ciertas actividades).</li>
+                        <li><strong>Fracturas (ej. escafoides).</strong></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-lesiones-4" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-diagnoses"></i>Lesiones Deportivas Comunes (Parte II)</h2>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-users"></i> Espalda (Columna Lumbar):</h4>
+                    <ul>
+                        <li><strong>Lumbalgia Mecánica/Distensión Muscular:</strong> Dolor por sobrecarga o mala postura, afectando músculos y ligamentos.</li>
+                        <li><strong>Hernia Discal:</strong> Protrusión del núcleo pulposo de un disco intervertebral, pudiendo comprimir raíces nerviosas.</li>
+                        <li><strong>Espondilolisis/Espondilolistesis:</strong> Fractura por estrés o deslizamiento de una vértebra.</li>
+                    </ul>
+                    <h4 class="guide-subsubsection-title mt-4"><i class="fas fa-shoe-prints"></i> Cadera e Ingle:</h4>
+                    <ul>
+                        <li><strong>Distensiones Musculares:</strong> Aductores, flexores de cadera, isquiotibiales proximales.</li>
+                        <li><strong>Pubalgia (Osteopatía de Pubis):</strong> Dolor en la zona del pubis por sobrecarga crónica.</li>
+                        <li><strong>Síndrome de Pinzamiento Femoroacetabular (FAI):</strong> Choque anormal entre el fémur y el acetábulo.</li>
+                    </ul>
+                     <h4 class="guide-subsubsection-title mt-4"><i class="fas fa-walking"></i> Rodilla:</h4>
+                    <ul>
+                        <li><strong>Síndrome de Dolor Patelofemoral:</strong> Dolor alrededor o detrás de la rótula.</li>
+                        <li><strong>Tendinopatía Rotuliana ("Rodilla del Saltador").</strong></li>
+                        <li><strong>Lesiones de Ligamentos:</strong> Esguince o rotura del Ligamento Cruzado Anterior (LCA), Ligamento Cruzado Posterior (LCP), Ligamentos Colaterales (LCM, LCL).</li>
+                        <li><strong>Lesiones Meniscales:</strong> Desgarros de los meniscos.</li>
+                    </ul>
+                    <h4 class="guide-subsubsection-title mt-4"><i class="fas fa-socks"></i> Tobillo y Pie:</h4>
+                    <ul>
+                        <li><strong>Esguince de Tobillo:</strong> Lesión de los ligamentos del tobillo, más comúnmente los laterales.</li>
+                        <li><strong>Tendinopatía Aquílea.</strong></li>
+                        <li><strong>Fascitis Plantar:</strong> Inflamación de la fascia plantar en la planta del pie.</li>
+                        <li><strong>Fracturas por Estrés (ej. metatarsianos).</strong></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-lesiones-5" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-shield-virus"></i>Principios Generales de Prevención de Lesiones</h2>
+                    <p>La prevención es la mejor estrategia. Implica un enfoque multifactorial:</p>
+                    <ul>
+                        <li><strong>Calentamiento Adecuado:</strong> Preparar el cuerpo para la actividad específica.</li>
+                        <li><strong>Enfriamiento y Vuelta a la Calma:</strong> Ayudar a la recuperación gradual.</li>
+                        <li><strong>Técnica Correcta de Ejercicio:</strong> Aprender y practicar la biomecánica eficiente y segura.</li>
+                        <li><strong>Progresión Gradual de la Carga:</strong> Evitar aumentos bruscos en volumen, intensidad o frecuencia (regla del 10% como guía general, aunque no universal).</li>
+                        <li><strong>Entrenamiento Equilibrado:</strong> Fortalecer todos los grupos musculares, incluyendo estabilizadores y antagonistas. Evitar desequilibrios.</li>
+                        <li><strong>Desarrollo de Flexibilidad y Movilidad:</strong> Mantener un ROM adecuado en las articulaciones clave.</li>
+                        <li><strong>Descanso y Recuperación Suficientes:</strong> Permitir que el cuerpo se adapte y repare. El sueño es crucial.</li>
+                        <li><strong>Nutrición e Hidratación Adecuadas:</strong> Proporcionar los nutrientes necesarios para la reparación y la energía.</li>
+                        <li><strong>Equipamiento Apropiado:</strong> Usar calzado y material de protección adecuados y en buen estado.</li>
+                        <li><strong>Escuchar al Cuerpo:</strong> No ignorar el dolor persistente o las señales de alarma.</li>
+                        <li><strong>Individualización:</strong> Adaptar el entrenamiento a las capacidades y necesidades de cada persona.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-lesiones-6" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-fire"></i>Calentamiento y Enfriamiento para la Prevención</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-temperature-high"></i> Calentamiento Efectivo:</h3>
+                    <p>Un buen calentamiento (10-20 minutos) debe:</p>
+                    <ul>
+                        <li><strong>Elevar la Temperatura Corporal y Muscular:</strong> Aumenta la elasticidad de los tejidos.</li>
+                        <li><strong>Aumentar el Flujo Sanguíneo:</strong> Más oxígeno y nutrientes a los músculos.</li>
+                        <li><strong>Activar el Sistema Neuromuscular:</strong> Mejorar la coordinación y el tiempo de reacción.</li>
+                        <li><strong>Incluir Movilidad Dinámica:</strong> Preparar las articulaciones a través de su rango de movimiento activo.</li>
+                        <li><strong>Ser Específico:</strong> Incluir movimientos similares a los de la actividad principal.</li>
+                        <li>Utilizar el protocolo <strong class="highlight">R.A.M.P.</strong> (Raise, Activate, Mobilize, Potentiate) como guía.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-snowflake"></i> Enfriamiento (Vuelta a la Calma):</h3>
+                    <p>Aunque su papel en la prevención directa de lesiones es más debatido que el calentamiento, un enfriamiento (5-10 minutos) puede:</p>
+                    <ul>
+                        <li><strong>Facilitar la Transición Gradual</strong> del ejercicio al reposo.</li>
+                        <li>Ayudar a <strong class="highlight">reducir el mareo o el malestar</strong> post-ejercicio.</li>
+                        <li>Ser un buen momento para <strong class="highlight">estiramientos estáticos suaves</strong>, que pueden ayudar a mantener la flexibilidad y promover la relajación muscular.</li>
+                        <li>Permitir una <strong class="highlight">reflexión sobre la sesión</strong> y la planificación de la recuperación.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-lesiones-7" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-balance-scale-right"></i>Importancia de la Técnica y la Progresión</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-user-check"></i> Técnica Correcta de Ejercicio:</h3>
+                    <p>Ejecutar los movimientos con una <strong class="highlight">biomecánica adecuada</strong> es fundamental para:</p>
+                    <ul>
+                        <li><strong class="highlight">Distribuir las cargas de manera óptima</strong> a través de las articulaciones y tejidos correctos.</li>
+                        <li><strong class="highlight">Minimizar el estrés innecesario</strong> en estructuras vulnerables.</li>
+                        <li><strong class="highlight">Maximizar la eficiencia del movimiento</strong> y la activación de los músculos objetivo.</li>
+                    </ul>
+                    <p>Invertir tiempo en aprender y perfeccionar la técnica, incluso con cargas más ligeras al principio, es una de las mejores estrategias de prevención a largo plazo.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-chart-line"></i> Progresión Adecuada de la Carga:</h3>
+                    <p>El principio de sobrecarga progresiva es necesario para mejorar, pero debe aplicarse con inteligencia:</p>
+                    <ul>
+                        <li>Evitar aumentos <strong class="highlight">demasiado grandes o demasiado rápidos</strong> en volumen, intensidad o frecuencia.</li>
+                        <li>Permitir que los tejidos (músculos, tendones, huesos) tengan <strong class="highlight">tiempo para adaptarse</strong> a las nuevas demandas. El tejido conectivo se adapta más lentamente que el muscular.</li>
+                        <li>La "regla del 10%" (no aumentar la carga más del 10% por semana) puede ser una guía general, pero debe individualizarse.</li>
+                        <li>Prestar atención a cómo se siente el cuerpo y ajustar la progresión si hay señales de fatiga excesiva o dolor.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-lesiones-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-assistive-listening-systems"></i>Escucha Activa del Cuerpo y Señales de Alarma</h2>
+                    <p>Tu cuerpo a menudo te envía señales antes de que una molestia se convierta en una lesión seria. Aprender a <strong class="highlight">interpretar y respetar estas señales</strong> es crucial.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-bullhorn"></i> Señales de Alarma Comunes:</h3>
+                    <ul>
+                        <li><strong>Dolor Agudo y Punzante:</strong> Especialmente si ocurre de repente durante un movimiento.</li>
+                        <li><strong>Dolor que Empeora con la Actividad:</strong> Y no mejora con el calentamiento.</li>
+                        <li><strong>Dolor Persistente:</strong> Que dura varios días o semanas, incluso en reposo.</li>
+                        <li><strong>Dolor Nocturno:</strong> Que te despierta o dificulta el sueño.</li>
+                        <li><strong>Hinchazón, Enrojecimiento o Calor</strong> en una articulación o área específica.</li>
+                        <li><strong>Pérdida de Rango de Movimiento o Fuerza.</strong></li>
+                        <li><strong>Sensación de Inestabilidad o "Fallo"</strong> en una articulación.</li>
+                        <li><strong>Crujidos o Chasquidos Dolorosos.</strong></li>
+                    </ul>
+                    <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> No Ignores el Dolor:</strong> El lema "no pain, no gain" (sin dolor no hay ganancia) es peligroso y a menudo malinterpretado. Diferencia la incomodidad del esfuerzo muscular del dolor que indica un problema. <strong class="emphasis">Entrenar con dolor significativo es una receta para una lesión más grave.</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-lesiones-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-first-aid"></i>Primeros Pasos Ante una Lesión Aguda (Protocolo PEACE & LOVE)</h2>
+                    <p>Si sufres una lesión aguda (ej. un esguince, un tirón muscular), los primeros pasos son importantes. El protocolo tradicional RICE (Reposo, Hielo, Compresión, Elevación) ha evolucionado. Actualmente, se promueve un enfoque más activo y educativo como <strong class="highlight">PEACE & LOVE</strong>:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-hand-holding-heart"></i> PEACE (Primeras 24-72 horas):</h3>
+                    <ul>
+                        <li><strong>P - Protection (Protección):</strong> Evitar actividades y movimientos que provoquen dolor en la zona lesionada. Descargar o limitar la carga durante 1-3 días.</li>
+                        <li><strong>E - Elevation (Elevación):</strong> Elevar la extremidad lesionada por encima del nivel del corazón tanto como sea posible para ayudar a reducir la hinchazón.</li>
+                        <li><strong>A - Avoid Anti-inflammatories (Evitar Antiinflamatorios):</strong> Evitar el uso de AINEs (como ibuprofeno) y hielo en las primeras fases, ya que la inflamación es un proceso natural y necesario para la curación. (Este punto es más reciente y puede ser debatido, consulta profesional).</li>
+                        <li><strong>C - Compression (Compresión):</strong> Aplicar un vendaje elástico o compresión para limitar la hinchazón excesiva.</li>
+                        <li><strong>E - Education (Educación):</strong> Entender tu condición y los principios de carga óptima. El cuerpo sabe curarse; evita el reposo excesivo.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-heart"></i> LOVE (Después de los primeros días):</h3>
+                     <ul>
+                        <li><strong>L - Load (Carga):</strong> Reintroducir gradualmente el movimiento y la carga tan pronto como los síntomas lo permitan. La carga óptima estimula la reparación.</li>
+                        <li><strong>O - Optimism (Optimismo):</strong> Mantener una actitud positiva. Factores psicológicos influyen en la recuperación.</li>
+                        <li><strong>V - Vascularisation (Vascularización):</strong> Realizar actividad cardiovascular sin dolor para aumentar el flujo sanguíneo a los tejidos lesionados.</li>
+                        <li><strong>E - Exercise (Ejercicio):</strong> Adoptar un enfoque activo para la recuperación, incluyendo ejercicios de movilidad, fuerza y propiocepción.</li>
+                    </ul>
+                     <div class="critical-text mt-4"><strong>Importante:</strong> Estos son primeros auxilios generales. Siempre busca una evaluación profesional para un diagnóstico y plan de tratamiento adecuados.</div>
+                </div>
+            </section>
+
+            <section id="slide-lesiones-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-user-md"></i>Cuándo Buscar Ayuda Profesional</h2>
+                    <p>No todas las molestias requieren atención médica inmediata, pero hay situaciones en las que es <strong class="highlight">crucial consultar a un profesional de la salud</strong> (médico deportivo, fisioterapeuta, traumatólogo):</p>
+                    <ul>
+                        <li><strong>Dolor Severo e Incapacitante:</strong> Si no puedes soportar peso sobre la extremidad lesionada o el dolor es muy intenso.</li>
+                        <li><strong>Deformidad Visible o Hinchazón Significativa y Rápida.</strong></li>
+                        <li><strong>Incapacidad para Mover una Articulación</strong> a través de su rango normal.</li>
+                        <li><strong>Sensación de "Chasquido" o "Desgarro"</strong> en el momento de la lesión, seguida de dolor e inflamación.</li>
+                        <li><strong>Dolor que No Mejora o Empeora</strong> después de unos días de autocuidado (reposo relativo, etc.).</li>
+                        <li><strong>Síntomas Neurológicos:</strong> Hormigueo, entumecimiento, debilidad o pérdida de sensibilidad en la extremidad.</li>
+                        <li><strong>Lesiones Recurrentes</strong> en la misma zona.</li>
+                        <li><strong>Dudas sobre la Gravedad de la Lesión</strong> o cómo manejarla.</li>
+                        <li><strong>Fiebre, Enrojecimiento Extenso o Supuración</strong> (signos de posible infección).</li>
+                    </ul>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Diagnóstico Preciso:</strong> Un profesional puede realizar un diagnóstico preciso, descartar lesiones graves y establecer un plan de rehabilitación adecuado para asegurar una recuperación completa y segura, y prevenir futuras recurrencias.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="slide-lesiones-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-blue !border-askesis-red"><i class="fas fa-shield-alt"></i>Conclusión: Hacia un Entrenamiento Inteligente y sin Lesiones</h2>
+                    <p class="text-lg mb-4">La prevención de lesiones es un <strong class="highlight">proceso continuo y proactivo</strong> que implica conocimiento, autoconciencia y una aplicación inteligente de los principios del entrenamiento. Si bien no todas las lesiones se pueden evitar, muchas sí.</p>
+                    <p class="text-lg mb-6">En Askesis, promovemos un enfoque de entrenamiento que <strong class="emphasis">prioriza la salud y la longevidad atlética</strong>. Entender tu cuerpo, respetar sus límites y progresar de manera inteligente son las claves para disfrutar de los beneficios del ejercicio durante toda la vida.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre los Servicios Askesis
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-lesiones" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4"> <button id="prev-button-lesiones" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-lesiones" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-lesiones" class="hidden my-8 text-center"> <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-blue">
+                <i class="fas fa-heart-pulse text-4xl mr-3 text-askesis-blue"></i>¡Guía de Prevención de Lesiones Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora estás mejor equipado/a para entrenar de forma más segura e inteligente. ¡Prioriza tu salud y disfruta del proceso!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-lesiones" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Lesiones%20Deportivas" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Lesiones%20Deportivas." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterLesiones"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop();
+            window.addEventListener('resize', adjustSecondaryNavTop);
+
+            const guideContainer = document.getElementById('interactive-presentation-container-lesiones');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de lesiones no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-lesiones .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-lesiones');
+            const nextButton = guideContainer.querySelector('#next-button-lesiones');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-lesiones');
+            const progressBar = guideContainer.querySelector('#progress-bar-lesiones');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-lesiones');
+            const completionContainer = guideContainer.querySelector('#completion-container-lesiones');
+            const restartButton = guideContainer.querySelector('#restart-button-lesiones');
+            const yearSpan = document.getElementById('currentYearFooterLesiones');
+            const navLinks = document.querySelectorAll('#main-nav-lesiones .nav-link-lesiones');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de lesiones no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Intro a Lesiones Deportivas", "Definición y Clasificación", "Factores de Riesgo", "Lesiones Comunes (I)", 
+                    "Lesiones Comunes (II)", "Principios de Prevención", "Calentamiento y Enfriamiento", "Técnica y Progresión",
+                    "Escucha Activa del Cuerpo", "Primeros Pasos (PEACE & LOVE)", "Cuándo Buscar Ayuda Profesional", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-lesiones-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de lesiones.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
