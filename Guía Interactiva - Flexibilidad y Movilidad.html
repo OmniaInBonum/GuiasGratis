@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Flexibilidad y Movilidad: Movimiento sin Límites</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Flexibilidad y Movilidad: Entiende la diferencia, beneficios, métodos y estrategias para mejorar tu rango de movimiento, prevenir lesiones y optimizar tu rendimiento.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1', /* Primary for this guide */
+                        'askesis-red': '#dc3545',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #dc3545;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.96), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-flexibilidad { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.4rem; 
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.6rem; 
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-flexibilidad:hover,
+        .secondary-nav-askesis .nav-link-flexibilidad.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-purple); /* Purple for this guide's theme */
+        }
+        .secondary-nav-askesis .nav-link-flexibilidad.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.93); 
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px;
+            max-width: 960px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-purple); /* Purple as primary */
+            font-size: 2.4em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-green); /* Green accent */
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-green); 
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-blue); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-orange);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--askesis-orange); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f35a"; /* fa-map-signs or similar for guidance/flexibility */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-purple); /* Purple bullets */
+            position: absolute;
+            left: 0;
+            top: 7px;
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: rgba(0, 90, 156, 0.3); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(220, 53, 69, 0.25); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: rgba(111, 66, 193, 0.3); border-left-color: var(--askesis-purple); color: var(--askesis-text-white);} /* Purple tip box */
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); }
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-purple); } 
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-purple); 
+            color: var(--askesis-text-white);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(111, 66, 193, 0.4); 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #5a349b; 
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(111, 66, 193, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-orange); 
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #E07017; 
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-flexibilidad { font-size: 0.55rem; padding: 0.3rem 0.35rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-flexibilidad { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-flexibilidad" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-flexibilidad-0" class="nav-link-flexibilidad active">Intro</a></li>
+            <li><a href="#slide-flexibilidad-1" class="nav-link-flexibilidad">Definiciones</a></li>
+            <li><a href="#slide-flexibilidad-2" class="nav-link-flexibilidad">Importancia</a></li>
+            <li><a href="#slide-flexibilidad-3" class="nav-link-flexibilidad">Factores</a></li>
+            <li><a href="#slide-flexibilidad-4" class="nav-link-flexibilidad">Tipos Estir. (I)</a></li>
+            <li><a href="#slide-flexibilidad-5" class="nav-link-flexibilidad">Tipos Estir. (II)</a></li>
+            <li><a href="#slide-flexibilidad-6" class="nav-link-flexibilidad">Movilidad Art.</a></li>
+            <li><a href="#slide-flexibilidad-7" class="nav-link-flexibilidad">Integración</a></li>
+            <li><a href="#slide-flexibilidad-8" class="nav-link-flexibilidad">Testeo</a></li>
+            <li><a href="#slide-flexibilidad-9" class="nav-link-flexibilidad">Errores</a></li>
+            <li><a href="#slide-flexibilidad-10" class="nav-link-flexibilidad">Mitos</a></li>
+            <li><a href="#slide-flexibilidad-11" class="nav-link-flexibilidad">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-flexibilidad" class="py-8"> <div id="step-indicator-flexibilidad" class="text-center mb-4 text-lg font-semibold text-askesis-orange font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-flexibilidad" class="bg-gradient-to-r from-askesis-orange to-askesis-purple h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        </div>
+
+        <div id="slides-container-flexibilidad"> <section id="slide-flexibilidad-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-spa"></i>Flexibilidad y Movilidad: Movimiento sin Límites</h1>
+                    <p class="mb-3">La <strong class="highlight">flexibilidad</strong> y la <strong class="highlight">movilidad</strong> son dos componentes cruciales de la condición física que a menudo se confunden, pero que son distintos y complementarios. Ambas son esenciales para un movimiento eficiente, la prevención de lesiones y un rendimiento óptimo.</p>
+                    <p>Esta guía explora en profundidad estos conceptos, sus beneficios, los factores que los influencian, y las estrategias más efectivas para mejorarlos, permitiéndote <strong class="highlight">moverte mejor, sentirte mejor y rendir al máximo</strong>.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> Entender y trabajar la flexibilidad y la movilidad no es solo para gimnastas o yoguis; es una <strong class="emphasis">inversión fundamental en tu salud y capacidad atlética a largo plazo</strong>.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-flexibilidad-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-ruler-combined"></i>Definiciones: Flexibilidad vs. Movilidad</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-external-link-alt"></i> Flexibilidad</h3>
+                    <p>Se refiere a la <strong class="highlight">capacidad de un músculo o grupo muscular para alargarse pasivamente</strong> a través de un rango de movimiento (ROM) disponible en una articulación. Es la amplitud de movimiento pasiva de una articulación.</p>
+                    <p>Ejemplo: Poder tocarse los dedos de los pies con las piernas rectas (flexibilidad de los isquiotibiales y la cadena posterior).</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-running"></i> Movilidad Articular</h3>
+                    <p>Se define como la <strong class="highlight">capacidad de una articulación para moverse activamente a través de su rango de movimiento completo y sin restricciones</strong>. Implica no solo la extensibilidad de los tejidos blandos (músculos, tendones, ligamentos, fascias), sino también el control neuromuscular, la fuerza en los rangos finales y la salud de la propia articulación.</p>
+                    <p>Ejemplo: Realizar una sentadilla profunda manteniendo una buena postura y control (requiere movilidad de tobillo, cadera y columna torácica).</p>
+                    
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Relación Clave:</strong> Puedes ser flexible pero no tener buena movilidad (ej. mucha flexibilidad pasiva pero poco control activo en ese rango). La <strong class="emphasis">movilidad requiere flexibilidad, pero también fuerza y control motor</strong>. El objetivo ideal es una buena movilidad funcional.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-flexibilidad-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-heartbeat"></i>Importancia y Beneficios</h2>
+                    <p>Mejorar la flexibilidad y, especialmente, la movilidad ofrece múltiples ventajas:</p>
+                    <ul>
+                        <li><strong>Prevención de Lesiones:</strong> Un adecuado ROM y control pueden reducir el estrés en las articulaciones y tejidos blandos, disminuyendo el riesgo de desgarros, esguinces y tendinopatías.</li>
+                        <li><strong>Mejora del Rendimiento Deportivo:</strong> Permite ejecutar movimientos técnicos con mayor eficiencia, amplitud y potencia (ej. una sentadilla más profunda, una brazada más larga en natación).</li>
+                        <li><strong>Mejora de la Postura:</strong> Ayuda a corregir desequilibrios musculares y mantener una alineación corporal adecuada.</li>
+                        <li><strong>Reducción del Dolor Muscular y Articular:</strong> Aliviar la tensión muscular y mejorar la función articular puede disminuir el dolor crónico (ej. dolor lumbar).</li>
+                        <li><strong>Aumento de la Eficiencia del Movimiento:</strong> Movimientos más fluidos y coordinados, con menor gasto energético.</li>
+                        <li><strong>Mejora de la Circulación Sanguínea:</strong> El estiramiento puede promover el flujo sanguíneo a los músculos.</li>
+                        <li><strong>Mayor Conciencia Corporal (Propiocepción):</strong> El trabajo de movilidad mejora la conexión mente-cuerpo.</li>
+                        <li><strong>Mejora de la Calidad de Vida:</strong> Facilita las actividades de la vida diaria y promueve la independencia, especialmente con la edad.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-flexibilidad-3" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-user-friends"></i>Factores que Afectan la Flexibilidad y Movilidad</h2>
+                    <p>Diversos factores, tanto internos como externos, influyen en nuestro rango de movimiento:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-dna"></i> Factores Internos:</h3>
+                    <ul>
+                        <li><strong>Estructura Articular:</strong> El tipo de articulación (ej. bisagra, esférica) y la forma de los huesos determinan el ROM potencial.</li>
+                        <li><strong>Tejidos Blandos:</strong> La elasticidad y plasticidad de músculos, tendones, ligamentos y fascias. El tejido conectivo (colágeno, elastina) juega un papel crucial.</li>
+                        <li><strong>Sistema Nervioso:</strong> El tono muscular (controlado por el SNC), los reflejos (miotático, de inhibición autógena) y la propiocepción.</li>
+                        <li><strong>Edad:</strong> Generalmente, la flexibilidad tiende a disminuir con la edad debido a cambios en el tejido conectivo y menor actividad.</li>
+                        <li><strong>Sexo:</strong> Las mujeres tienden a ser más flexibles que los hombres, en parte debido a diferencias hormonales y estructurales.</li>
+                        <li><strong>Temperatura Corporal y Tisular:</strong> Los tejidos calientes son más extensibles.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-sun"></i> Factores Externos:</h3>
+                    <ul>
+                        <li><strong>Nivel de Actividad Física:</strong> La inactividad conduce a la rigidez, mientras que el movimiento regular y específico la mejora.</li>
+                        <li><strong>Tipo de Entrenamiento:</strong> El entrenamiento de fuerza con ROM completo puede mejorar la movilidad; el entrenamiento mal ejecutado o desequilibrado puede limitarla.</li>
+                        <li><strong>Lesiones Previas:</strong> El tejido cicatricial puede restringir el movimiento.</li>
+                        <li><strong>Temperatura Ambiente.</strong></li>
+                        <li><strong>Hora del Día:</strong> La flexibilidad suele ser menor por la mañana.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-flexibilidad-4" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-expand-arrows-alt"></i>Tipos de Estiramientos (Parte 1)</h2>
+                    <p>Existen diferentes técnicas de estiramiento, cada una con sus características y aplicaciones:</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-stop"></i> 1. Estiramiento Estático (Pasivo)</h4>
+                    <p>Consiste en <strong class="highlight">mantener una posición de elongación muscular durante un período de tiempo</strong> (generalmente 15-60 segundos), llevando el músculo a un punto de tensión leve o moderada y sosteniéndolo. La fuerza puede ser aplicada por el propio individuo, un compañero o la gravedad.</p>
+                    <ul>
+                        <li><strong>Beneficios:</strong> Puede aumentar el ROM pasivo, relajar los músculos, reducir el tono muscular post-ejercicio.</li>
+                        <li><strong>Cuándo Usar:</strong> Principalmente <strong class="highlight">después del entrenamiento</strong> (en la fase de enfriamiento) o en sesiones dedicadas a la flexibilidad. Evitar estiramientos estáticos prolongados justo antes de actividades que requieran máxima potencia o fuerza explosiva, ya que pueden disminuir el rendimiento agudo.</li>
+                    </ul>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-walking"></i> 2. Estiramiento Dinámico</h4>
+                    <p>Implica <strong class="highlight">movimientos controlados y fluidos a través del rango de movimiento completo</strong> de una articulación, sin mantener posiciones finales. Prepara los músculos y articulaciones para la actividad.</p>
+                    <ul>
+                        <li><strong>Beneficios:</strong> Aumenta la temperatura corporal y muscular, mejora el ROM activo, activa el sistema neuromuscular, mejora la coordinación y la propiocepción.</li>
+                        <li><strong>Cuándo Usar:</strong> Ideal como <strong class="highlight">parte del calentamiento</strong> antes del entrenamiento o competición. Los movimientos deben ser progresivos en amplitud y velocidad, y específicos para la actividad a realizar.</li>
+                        <li><strong>Ejemplos:</strong> Balanceos de piernas, círculos de brazos, zancadas con rotación, sentadillas al aire.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-flexibilidad-5" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-people-arrows"></i>Tipos de Estiramientos (Parte 2)</h2>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-handshake"></i> 3. Facilitación Neuromuscular Propioceptiva (FNP o PNF)</h4>
+                    <p>Técnicas que combinan <strong class="highlight">contracciones musculares isométricas y/o concéntricas con estiramientos pasivos</strong> para inhibir los reflejos protectores del músculo y lograr un mayor ROM. Comúnmente se utiliza la técnica "contraer-relajar" o "contraer-relajar-contraer antagonista".</p>
+                    <ul>
+                        <li><strong>Beneficios:</strong> Puede producir ganancias significativas en el ROM pasivo y activo.</li>
+                        <li><strong>Cuándo Usar:</strong> En sesiones de flexibilidad, a menudo con la ayuda de un compañero entrenado o utilizando bandas de resistencia. Requiere conocimiento de la técnica.</li>
+                    </ul>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-project-diagram"></i> 4. Estiramiento Balístico</h4>
+                    <p>Implica el uso de <strong class="highlight">movimientos rápidos, de rebote o impulso</strong> para llevar una parte del cuerpo más allá de su ROM normal. <strong class="critical-text">Generalmente no se recomienda para la población general o sin supervisión experta</strong> debido a un mayor riesgo de lesión, ya que puede activar el reflejo miotático de forma brusca.</p>
+                    <ul>
+                        <li><strong>Consideraciones:</strong> Puede tener cabida en ciertos deportes que requieren movimientos explosivos y rangos extremos, pero debe ser implementado con mucha cautela y por atletas experimentados.</li>
+                    </ul>
+                     <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Precaución Askesis:</strong> Prioriza siempre la <strong class="emphasis">seguridad y el control</strong>. Los estiramientos dinámicos y estáticos (en el momento adecuado) suelen ser más seguros y efectivos para la mayoría de las personas que los balísticos.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-flexibilidad-6" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-cogs"></i>Entrenamiento de la Movilidad Articular</h2>
+                    <p>Mejorar la movilidad va más allá del simple estiramiento. Implica un <strong class="highlight">enfoque activo y controlado</strong> para mejorar cómo se mueven tus articulaciones.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-universal-access"></i> Componentes del Entrenamiento de Movilidad:</h3>
+                    <ul>
+                        <li><strong>Ejercicios de Rango de Movimiento Articular (CARs - Controlled Articular Rotations):</strong> Movimientos lentos y controlados de una articulación a través de su máximo rango de movimiento activo, sin compensaciones. Ayudan a mantener la salud articular y mejorar el control motor.</li>
+                        <li><strong>Activación de Músculos Estabilizadores:</strong> Fortalecer los músculos que soportan y controlan la articulación.</li>
+                        <li><strong>Fuerza en Rangos Finales:</strong> Desarrollar la capacidad de generar fuerza en los límites del ROM.</li>
+                        <li><strong>Liberación Miofascial (Foam Rolling, Masaje):</strong> Puede ayudar a reducir la tensión y mejorar la calidad del tejido, facilitando un mejor movimiento (aunque sus efectos sobre el ROM a largo plazo son debatidos y a menudo temporales).</li>
+                        <li><strong>Ejercicios Correctivos:</strong> Dirigidos a abordar desequilibrios musculares o patrones de movimiento disfuncionales específicos.</li>
+                    </ul>
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Enfoque Activo:</strong> La movilidad se gana y se mantiene a través del <strong class="emphasis">movimiento activo y consciente</strong>. No es solo "ser flexible", es "poder usar esa flexibilidad".
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-flexibilidad-7" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-calendar-alt"></i>Integración en el Plan de Entrenamiento</h2>
+                    <p>La flexibilidad y la movilidad deben ser componentes integrales de un programa de entrenamiento equilibrado.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-fire"></i> Durante el Calentamiento:</h3>
+                    <ul>
+                        <li>Priorizar <strong class="highlight">estiramientos dinámicos y ejercicios de movilidad articular (CARs)</strong>.</li>
+                        <li>Preparar las articulaciones y músculos específicos para la sesión de entrenamiento.</li>
+                        <li>Duración: 5-15 minutos.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-snowflake"></i> Durante el Enfriamiento (Vuelta a la Calma):</h3>
+                    <ul>
+                        <li>Es un buen momento para <strong class="highlight">estiramientos estáticos</strong> (15-60 segundos por estiramiento).</li>
+                        <li>Ayuda a reducir el tono muscular, promover la relajación y potencialmente mejorar el ROM a largo plazo.</li>
+                        <li>Duración: 5-10 minutos.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-dumbbell"></i> Dentro de la Sesión de Entrenamiento:</h3>
+                    <ul>
+                        <li>Realizar ejercicios de fuerza a través de un <strong class="highlight">rango de movimiento completo y controlado</strong> contribuye a mantener y mejorar la movilidad activa.</li>
+                        <li>Se pueden incluir ejercicios de movilidad específicos entre series de fuerza si es apropiado.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-bed"></i> Sesiones Dedicadas:</h3>
+                    <p>Para mejoras significativas, especialmente si hay restricciones importantes, se pueden programar <strong class="highlight">sesiones específicas de flexibilidad y movilidad</strong> 1-3 veces por semana, utilizando una combinación de técnicas (estático, PNF, CARs, etc.).</p>
+                </div>
+            </section>
+
+            <section id="slide-flexibilidad-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-search"></i>Testeo y Monitoreo</h2>
+                    <p>Evaluar la flexibilidad y la movilidad ayuda a identificar áreas de restricción, medir el progreso y ajustar el programa.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-ruler-vertical"></i> Tests Comunes de Flexibilidad:</h3>
+                    <ul>
+                        <li><strong>Sit-and-Reach Test:</strong> Evalúa la flexibilidad de la cadena posterior (isquiotibiales, lumbares).</li>
+                        <li><strong>Test de Thomas:</strong> Evalúa la flexibilidad de los flexores de cadera (psoas, recto femoral).</li>
+                        <li><strong>Test de Elevación de Pierna Recta (SLR):</strong> Evalúa la flexibilidad de los isquiotibiales.</li>
+                        <li><strong>Goniometría:</strong> Medición del ROM articular pasivo con un goniómetro (más preciso, requiere un evaluador entrenado).</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-shoe-prints"></i> Tests Comunes de Movilidad:</h3>
+                    <ul>
+                        <li><strong>Sentadilla Profunda (Overhead Squat Assessment):</strong> Evalúa la movilidad integrada de tobillos, rodillas, caderas, columna torácica y hombros.</li>
+                        <li><strong>Functional Movement Screen (FMS):</strong> Batería de 7 tests que evalúan patrones de movimiento fundamentales.</li>
+                        <li><strong>Evaluación de CARs:</strong> Observar la calidad y amplitud de las rotaciones articulares controladas.</li>
+                    </ul>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Importancia de la Calidad:</strong> Más allá de la cantidad (cuánto ROM), es crucial evaluar la <strong class="emphasis">calidad del movimiento</strong>: ¿hay compensaciones? ¿hay control?
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-flexibilidad-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-skull-crossbones text-askesis-red"></i>Errores Comunes y Precauciones</h2>
+                    <ul>
+                        <li><strong class="critical-text">Estirar en Frío Intensamente:</strong> Aumenta el riesgo de lesión. Siempre calentar antes de estiramientos intensos.</li>
+                        <li><strong class="critical-text">Forzar el Estiramiento (Rebote o Dolor Agudo):</strong> Puede causar microdesgarros o activar el reflejo miotático, siendo contraproducente. El estiramiento debe ser incómodo pero no doloroso.</li>
+                        <li><strong class="critical-text">Estiramientos Estáticos Prolongados ANTES de Actividad Explosiva:</strong> Puede disminuir el rendimiento agudo.</li>
+                        <li><strong class="critical-text">Ignorar el Dolor Articular:</strong> El dolor dentro de la articulación durante un estiramiento o ejercicio de movilidad no es normal y debe ser evaluado.</li>
+                        <li><strong class="critical-text">Falta de Consistencia:</strong> Las mejoras en flexibilidad y movilidad requieren trabajo regular y constante.</li>
+                        <li><strong class="critical-text">No Ser Específico:</strong> Estirar o movilizar áreas que no son relevantes para tus necesidades u objetivos.</li>
+                        <li><strong class="critical-text">Confundir Flexibilidad con Estabilidad:</strong> Algunas articulaciones necesitan más estabilidad que movilidad (ej. zona lumbar). El objetivo es una movilidad óptima, no una hiperlaxitud descontrolada.</li>
+                    </ul>
+                     <div class="warning-box mt-4">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Consulta Profesional:</strong> Si tienes dolor persistente, lesiones previas o dudas, consulta con un fisioterapeuta o profesional del ejercicio cualificado.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="slide-flexibilidad-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-question-circle"></i>Mitos Comunes sobre Flexibilidad y Estiramiento</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-times-circle text-askesis-red"></i> Mito 1: "El estiramiento previene TODAS las lesiones."</h3>
+                    <p><strong>Realidad:</strong> Si bien puede reducir el riesgo de ciertas lesiones musculares, no es una panacea. Otros factores como la fuerza, el control motor, la fatiga y la biomecánica son igualmente importantes. El tipo y momento del estiramiento también importan.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-times-circle text-askesis-red"></i> Mito 2: "Debes sentir dolor para que el estiramiento sea efectivo."</h3>
+                    <p><strong>Realidad:</strong> El estiramiento debe llevar a una sensación de tensión o ligera incomodidad, pero <strong class="highlight">nunca a un dolor agudo o punzante</strong>. El dolor es una señal de que estás forzando demasiado.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-times-circle text-askesis-red"></i> Mito 3: "Ser súper flexible siempre es mejor."</h3>
+                    <p><strong>Realidad:</strong> La <strong class="highlight">hipermovilidad o hiperlaxitud</strong> sin un adecuado control muscular y estabilidad puede aumentar el riesgo de lesiones articulares. El objetivo es un <strong class="highlight">rango de movimiento funcional y controlado</strong>, no la máxima flexibilidad posible a toda costa.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-times-circle text-askesis-red"></i> Mito 4: "Los estiramientos estáticos son lo mejor para el calentamiento."</h3>
+                    <p><strong>Realidad:</strong> Los <strong class="highlight">estiramientos dinámicos y los ejercicios de movilidad</strong> son generalmente más apropiados para el calentamiento, ya que preparan el cuerpo para la actividad de forma más específica y pueden mejorar el rendimiento agudo. Los estáticos son mejores para el enfriamiento o sesiones dedicadas.</p>
+                </div>
+            </section>
+
+            <section id="slide-flexibilidad-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-purple !border-askesis-green"><i class="fas fa-universal-access"></i>Conclusión: Hacia un Movimiento Libre y Eficiente</h2>
+                    <p class="text-lg mb-4">La flexibilidad y la movilidad son pilares esenciales para una <strong class="highlight">vida activa, un rendimiento deportivo óptimo y la prevención de lesiones</strong>. No son un lujo, sino una necesidad.</p>
+                    <p class="text-lg mb-6">Al comprender sus principios y aplicar estrategias de entrenamiento adecuadas, puedes mejorar significativamente cómo te mueves y cómo te sientes. En Askesis, integramos el desarrollo de la movilidad y la flexibilidad de forma <strong class="emphasis">inteligente y personalizada</strong> en nuestros programas.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre los Servicios Askesis
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-flexibilidad" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4"> <button id="prev-button-flexibilidad" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-flexibilidad" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-flexibilidad" class="hidden my-8 text-center"> <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-purple">
+                <i class="fas fa-award text-4xl mr-3 text-askesis-purple"></i>¡Guía de Flexibilidad y Movilidad Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora tienes el conocimiento para moverte con mayor libertad y seguridad. ¡Integra estos principios en tu rutina!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-flexibilidad" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Flexibilidad%20y%20Movilidad" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Flexibilidad%20y%20Movilidad." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterFlexibilidad"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop();
+            window.addEventListener('resize', adjustSecondaryNavTop);
+
+            const guideContainer = document.getElementById('interactive-presentation-container-flexibilidad');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de flexibilidad no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-flexibilidad .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-flexibilidad');
+            const nextButton = guideContainer.querySelector('#next-button-flexibilidad');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-flexibilidad');
+            const progressBar = guideContainer.querySelector('#progress-bar-flexibilidad');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-flexibilidad');
+            const completionContainer = guideContainer.querySelector('#completion-container-flexibilidad');
+            const restartButton = guideContainer.querySelector('#restart-button-flexibilidad');
+            const yearSpan = document.getElementById('currentYearFooterFlexibilidad');
+            const navLinks = document.querySelectorAll('#main-nav-flexibilidad .nav-link-flexibilidad');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de flexibilidad no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Intro Flex/Movilidad", "Definiciones Clave", "Importancia y Beneficios", "Factores Influyentes", 
+                    "Tipos de Estiramientos (I)", "Tipos de Estiramientos (II)", "Entrenamiento de Movilidad", "Integración al Plan",
+                    "Testeo y Monitoreo", "Errores Comunes", "Mitos Comunes", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-flexibilidad-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de flexibilidad.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
