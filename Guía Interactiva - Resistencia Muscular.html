@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Resistencia Muscular: Mejora tu Aguante</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Resistencia Muscular: Descubre la ciencia, métodos y estrategias para desarrollar tu capacidad de mantener esfuerzos prolongados y combatir la fatiga.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C', /* Primary for this guide */
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220',
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#dc3545',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #dc3545;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-resistencia { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.4rem; 
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.6rem; 
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-resistencia:hover,
+        .secondary-nav-askesis .nav-link-resistencia.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-blue); /* Blue for resistencia theme */
+        }
+        .secondary-nav-askesis .nav-link-resistencia.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.92); /* Darker overlay for resistencia */
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px;
+            max-width: 960px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-blue); /* Blue as primary for resistencia */
+            font-size: 2.4em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-orange); /* Orange accent */
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-orange); 
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-green); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-purple);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--askesis-purple); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f0ae"; /* fa-tasks or similar for endurance */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-blue); /* Blue bullets */
+            position: absolute;
+            left: 0;
+            top: 7px;
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: rgba(0, 90, 156, 0.3); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(220, 53, 69, 0.25); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: rgba(0, 128, 55, 0.3); border-left-color: var(--askesis-green); color: var(--askesis-text-white);}
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); }
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-green); }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-blue); /* Blue CTA */
+            color: var(--askesis-text-white);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(0, 90, 156, 0.4); /* Blue shadow */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #004175; /* Darker blue */
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 90, 156, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-orange); /* Orange for nav buttons in this guide */
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #E07017; /* Darker orange */
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-resistencia { font-size: 0.55rem; padding: 0.3rem 0.35rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-resistencia { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-resistencia" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-resistencia-0" class="nav-link-resistencia active">Intro</a></li>
+            <li><a href="#slide-resistencia-1" class="nav-link-resistencia">Tipos</a></li>
+            <li><a href="#slide-resistencia-2" class="nav-link-resistencia">Mecanismos</a></li>
+            <li><a href="#slide-resistencia-3" class="nav-link-resistencia">Variables (I)</a></li>
+            <li><a href="#slide-resistencia-4" class="nav-link-resistencia">Variables (II)</a></li>
+            <li><a href="#slide-resistencia-5" class="nav-link-resistencia">Métodos</a></li>
+            <li><a href="#slide-resistencia-6" class="nav-link-resistencia">Periodización</a></li>
+            <li><a href="#slide-resistencia-7" class="nav-link-resistencia">Nutrición</a></li>
+            <li><a href="#slide-resistencia-8" class="nav-link-resistencia">Recuperación</a></li>
+            <li><a href="#slide-resistencia-9" class="nav-link-resistencia">Testeo</a></li>
+            <li><a href="#slide-resistencia-10" class="nav-link-resistencia">Errores</a></li>
+            <li><a href="#slide-resistencia-11" class="nav-link-resistencia">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-resistencia" class="py-8"> <div id="step-indicator-resistencia" class="text-center mb-4 text-lg font-semibold text-askesis-orange font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-resistencia" class="bg-gradient-to-r from-askesis-green to-askesis-blue h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div> </div>
+
+        <div id="slides-container-resistencia"> <section id="slide-resistencia-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-lungs"></i>Resistencia Muscular: Mejora tu Aguante</h1>
+                    <p class="mb-3">La <strong class="highlight">resistencia muscular</strong> es la capacidad de un músculo o grupo muscular para <strong class="highlight">sostener contracciones repetidas contra una resistencia durante un período prolongado</strong>, o para mantener una contracción isométrica durante el mayor tiempo posible. Es una cualidad física esencial para el rendimiento en una amplia gama de deportes y actividades de la vida diaria.</p>
+                    <p>Esta guía explora la <strong class="highlight">ciencia detrás del desarrollo de la resistencia muscular</strong>, los diferentes tipos, los métodos de entrenamiento más efectivos y cómo optimizar tu capacidad para combatir la fatiga.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> Mejorar tu resistencia muscular no solo te permite <strong class="emphasis">rendir más y durante más tiempo</strong>, sino que también contribuye a una mejor salud general y a una mayor capacidad de trabajo.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-resistencia-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-tags"></i>Tipos de Resistencia Muscular</h2>
+                    <p>La resistencia muscular no es un concepto único; se puede clasificar de varias maneras:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-running"></i> Resistencia Aeróbica (o de Larga Duración)</h3>
+                    <p>Capacidad de realizar un trabajo de <strong class="highlight">baja a moderada intensidad durante un período prolongado</strong> (varios minutos a horas), utilizando predominantemente el sistema energético aeróbico (oxidativo). Ejemplos: correr largas distancias, ciclismo, natación de fondo.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-dumbbell"></i> Resistencia Anaeróbica (o de Corta-Media Duración)</h3>
+                    <p>Capacidad de realizar un trabajo de <strong class="highlight">alta intensidad durante un período más corto</strong> (segundos a pocos minutos), donde los sistemas energéticos anaeróbicos (aláctico y láctico) son predominantes. Se subdivide en:</p>
+                    <ul>
+                        <li><strong>Resistencia a la Velocidad:</strong> Mantener velocidades máximas o casi máximas (ej. sprints repetidos).</li>
+                        <li><strong>Resistencia a la Fuerza (Fuerza-Resistencia):</strong> Capacidad de realizar múltiples repeticiones contra una resistencia moderada (ej. series de 15-25 repeticiones en el gimnasio).</li>
+                    </ul>
+                     <h3 class="guide-subsection-title"><i class="fas fa-compress-arrows-alt"></i> Resistencia Muscular Local vs. General</h3>
+                    <ul>
+                        <li><strong>Local:</strong> Resistencia de un grupo muscular específico (ej. resistencia de los cuádriceps en sentadillas).</li>
+                        <li><strong>General:</strong> Involucra una gran proporción de la masa muscular del cuerpo (ej. resistencia en remo).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-resistencia-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-atom"></i>Mecanismos Fisiológicos de la Resistencia</h2>
+                    <p>Las mejoras en la resistencia muscular son el resultado de adaptaciones complejas a nivel central y periférico:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-heartbeat"></i> Adaptaciones Cardiovasculares y Respiratorias (Centrales)</h3>
+                    <ul>
+                        <li>Mejora de la capacidad del corazón para bombear sangre (aumento del volumen sistólico).</li>
+                        <li>Aumento de la capilarización (más vasos sanguíneos) en los músculos, mejorando el suministro de oxígeno y nutrientes.</li>
+                        <li>Mejora de la eficiencia pulmonar y la capacidad de transporte de oxígeno.</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-running"></i> Adaptaciones Musculares (Periféricas)</h3>
+                    <ul>
+                        <li><strong>Aumento de la Densidad Mitocondrial:</strong> Las mitocondrias son las "centrales energéticas" de las células; más mitocondrias significan mayor capacidad de producción de energía aeróbica.</li>
+                        <li><strong>Aumento de las Enzimas Oxidativas:</strong> Mejoran la capacidad de utilizar oxígeno para producir ATP.</li>
+                        <li><strong>Mayor Almacenamiento de Glucógeno Muscular y Triglicéridos Intramusculares:</strong> Más combustible disponible.</li>
+                        <li><strong>Mejora de la Capacidad de Buffer (Amortiguación):</strong> Mayor tolerancia a la acumulación de metabolitos como el lactato y los iones de hidrógeno, retrasando la fatiga.</li>
+                        <li><strong>Cambios en el Tipo de Fibra Muscular:</strong> Posible aumento de las características oxidativas de las fibras tipo IIa, o incluso un ligero aumento en la proporción de fibras tipo I (lentas y resistentes a la fatiga).</li>
+                    </ul>
+                     <h3 class="guide-subsection-title"><i class="fas fa-brain"></i> Adaptaciones Neurales</h3>
+                     <p>Mejora de la eficiencia neuromuscular y la capacidad de mantener la activación de unidades motoras durante esfuerzos prolongados.</p>
+                </div>
+            </section>
+
+            <section id="slide-resistencia-3" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-sliders-h"></i>Variables Clave (Parte 1): Intensidad y Volumen</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-percentage"></i> Intensidad</h3>
+                    <p>La intensidad para el entrenamiento de resistencia varía según el tipo de resistencia que se quiera desarrollar:</p>
+                    <ul>
+                        <li><strong>Resistencia Aeróbica:</strong> Intensidades bajas a moderadas (ej. 50-75% VO2máx o FCmáx, RPE 3-6). Permite duraciones largas.</li>
+                        <li><strong>Resistencia a la Fuerza (Fuerza-Resistencia):</strong> Cargas moderadas a ligeras (ej. 30-70% 1RM) que permitan realizar un alto número de repeticiones (ej. 15-25+).</li>
+                        <li><strong>Resistencia a la Velocidad:</strong> Esfuerzos de muy alta intensidad (cercanos al máximo) pero de corta duración, con recuperación incompleta entre esfuerzos.</li>
+                    </ul>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-calculator"></i> Volumen</h3>
+                    <p>El volumen (duración total del ejercicio, número de series y repeticiones, o distancia total) es un <strong class="highlight">componente clave</strong> para el desarrollo de la resistencia.</p>
+                    <ul>
+                        <li><strong>Resistencia Aeróbica:</strong> Se caracteriza por un alto volumen de trabajo continuo o intervalado de larga duración.</li>
+                        <li><strong>Fuerza-Resistencia:</strong> Implica un número significativo de repeticiones totales por grupo muscular (ej. múltiples series de 15-25+ repeticiones).</li>
+                        <li>El volumen debe <strong class="highlight">aumentarse progresivamente</strong> para continuar estimulando adaptaciones.</li>
+                    </ul>
+                     <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Interacción Intensidad-Volumen:</strong> Existe una relación inversa. A mayor intensidad, generalmente menor es el volumen que se puede sostener, y viceversa.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-resistencia-4" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-cogs"></i>Variables Clave (Parte 2): Descanso, Frecuencia, Ejercicios</h2>
+                    <h3 class="guide-subsection-title"><i class="fas fa-hourglass-half"></i> Descanso entre Series/Intervalos</h3>
+                    <p>El período de descanso es crucial y se manipula según el tipo de resistencia:</p>
+                    <ul>
+                        <li><strong>Fuerza-Resistencia:</strong> Descansos <strong class="highlight">cortos a moderados</strong> (ej. 30-90 segundos) para inducir estrés metabólico y mejorar la capacidad de recuperación entre esfuerzos.</li>
+                        <li><strong>Resistencia Aeróbica (Intervalos):</strong> La duración del descanso entre intervalos dependerá de la intensidad y duración del intervalo de trabajo, buscando a menudo una recuperación incompleta para mejorar la capacidad de trabajar bajo fatiga.</li>
+                        <li><strong>Resistencia a la Velocidad:</strong> Descansos más largos pueden ser necesarios para mantener la calidad de los sprints, o más cortos si se busca mejorar la capacidad de repetir esfuerzos de alta intensidad.</li>
+                    </ul>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-calendar-alt"></i> Frecuencia</h3>
+                    <p>Número de sesiones por semana. Depende de la intensidad y volumen de cada sesión, y de la capacidad de recuperación.</p>
+                    <ul>
+                        <li>Para mejoras significativas, generalmente se requieren <strong class="highlight">2-5+ sesiones por semana</strong>, dependiendo del tipo de resistencia y el nivel del individuo.</li>
+                    </ul>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-check-double"></i> Selección de Ejercicios</h3>
+                    <ul>
+                        <li><strong>Resistencia Aeróbica:</strong> Ejercicios cíclicos que involucren grandes grupos musculares (correr, nadar, remar, ciclismo).</li>
+                        <li><strong>Fuerza-Resistencia:</strong> Pueden ser ejercicios compuestos o de aislamiento, adaptados para altas repeticiones. El entrenamiento en circuito es común.</li>
+                        <li><strong>Especificidad:</strong> Elegir ejercicios que mimeticen los patrones de movimiento y las demandas del deporte o actividad objetivo.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-resistencia-5" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-fire-alt"></i>Métodos de Entrenamiento para la Resistencia</h2>
+                    <p>Existen diversos métodos para desarrollar los diferentes tipos de resistencia:</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-infinity"></i> Entrenamiento Continuo (Larga Duración, Baja Intensidad - LSD)</h4>
+                    <p>Realizar ejercicio a una intensidad constante y moderada durante un período prolongado (ej. >30 minutos). Principalmente para <strong class="highlight">resistencia aeróbica base</strong>.</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-stopwatch"></i> Entrenamiento Interválico (Interval Training)</h4>
+                    <p>Alternar períodos de ejercicio de mayor intensidad con períodos de descanso activo o pasivo. Muy versátil para desarrollar tanto resistencia aeróbica como anaeróbica.</p>
+                    <ul>
+                        <li><strong>HIIT (High-Intensity Interval Training):</strong> Intervalos de muy alta intensidad con descansos cortos.</li>
+                        <li><strong>Entrenamiento de Umbral Láctico:</strong> Intervalos o trabajo continuo cerca del umbral de lactato.</li>
+                    </ul>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-redo"></i> Entrenamiento en Circuito (Circuit Training)</h4>
+                    <p>Realizar una serie de diferentes ejercicios de forma consecutiva con poco o ningún descanso entre ellos. Excelente para <strong class="highlight">fuerza-resistencia y acondicionamiento general</strong>.</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-dumbbell"></i> Series de Altas Repeticiones</h4>
+                    <p>Realizar series de 15-25+ repeticiones con cargas ligeras a moderadas en ejercicios de fuerza. Específico para <strong class="highlight">fuerza-resistencia local</strong>.</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-running"></i> Fartlek (Juego de Velocidades)</h4>
+                    <p>Forma de entrenamiento continuo donde se varía la intensidad de forma no estructurada (ej. correr a diferentes ritmos según el terreno o sensaciones). Mejora la <strong class="highlight">resistencia aeróbica y la capacidad de cambiar de ritmo</strong>.</p>
+                    
+                    <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Combinación Estratégica:</strong> A menudo, se combinan diferentes métodos a lo largo de un plan de entrenamiento para un desarrollo integral de la resistencia.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-resistencia-6" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-calendar-check"></i>Periodización para la Resistencia</h2>
+                    <p>La periodización del entrenamiento de resistencia implica la planificación a largo plazo para optimizar las adaptaciones y alcanzar el pico de forma en momentos clave.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-layer-group"></i> Fases Comunes:</h3>
+                    <ul>
+                        <li><strong>Fase de Preparación General (Base):</strong> Énfasis en construir un alto volumen de trabajo aeróbico de baja a moderada intensidad. Se sientan las bases.</li>
+                        <li><strong>Fase de Preparación Específica:</strong> Aumentar la intensidad y la especificidad del entrenamiento, introduciendo trabajos más cercanos a las demandas de la competición o el objetivo. Se puede reducir ligeramente el volumen.</li>
+                        <li><strong>Fase Competitiva (Pico/Mantenimiento):</strong> Reducir el volumen general (tapering) mientras se mantiene o aumenta la intensidad para alcanzar el pico de forma. Si la temporada es larga, se busca mantener un alto nivel de resistencia.</li>
+                        <li><strong>Fase de Transición (Descanso Activo):</strong> Período de recuperación después de la temporada competitiva, con menor volumen e intensidad, y actividades variadas.</li>
+                    </ul>
+                    <p>Los modelos de periodización (lineal, ondulante, por bloques) también se aplican al entrenamiento de resistencia, adaptando la manipulación de volumen e intensidad a los objetivos específicos de esta cualidad.</p>
+                </div>
+            </section>
+
+            <section id="slide-resistencia-7" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-apple-alt"></i>Nutrición para la Resistencia</h2>
+                    <p>La nutrición juega un papel vital en el rendimiento y la recuperación del entrenamiento de resistencia.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-bread-slice"></i> Carbohidratos: El Combustible Principal</h3>
+                    <p>Son la <strong class="highlight">fuente de energía más importante</strong> para esfuerzos de resistencia. Es crucial asegurar una ingesta adecuada para:</p>
+                    <ul>
+                        <li>Mantener llenas las reservas de glucógeno muscular y hepático.</li>
+                        <li>Proporcionar energía durante el ejercicio.</li>
+                        <li>Facilitar la recuperación post-ejercicio.</li>
+                    </ul>
+                    <p>La cantidad necesaria varía según la duración e intensidad del entrenamiento (ej. 5-12 g/kg de peso corporal/día).</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-tint"></i> Hidratación</h3>
+                    <p>La deshidratación, incluso leve, puede <strong class="highlight">disminuir significativamente el rendimiento</strong> de resistencia. Es fundamental mantenerse bien hidratado antes, durante (si el ejercicio es prolongado) y después del ejercicio. Considerar electrolitos en sesiones largas o en climas cálidos.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-drumstick-bite"></i> Proteínas</h3>
+                    <p>Importantes para la <strong class="highlight">reparación del daño muscular</strong> inducido por el ejercicio y para la síntesis de enzimas y otras proteínas. Ingesta recomendada: 1.2-1.8 g/kg/día para atletas de resistencia.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-seedling"></i> Grasas Saludables</h3>
+                    <p>Fuente de energía importante, especialmente en ejercicios de muy larga duración y baja intensidad. También para la salud hormonal y absorción de vitaminas.</p>
+                </div>
+            </section>
+
+             <section id="slide-resistencia-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-moon"></i>Recuperación para el Entrenamiento de Resistencia</h2>
+                    <p>La recuperación es tan importante como el entrenamiento para permitir las adaptaciones y prevenir el sobreentrenamiento.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-bed"></i> Sueño</h3>
+                    <p>El <strong class="highlight">sueño de calidad (7-9 horas)</strong> es el pilar de la recuperación. Durante el sueño se producen procesos de reparación, regulación hormonal y consolidación de adaptaciones.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-utensils"></i> Nutrición Post-Ejercicio</h3>
+                    <p>Consumir una combinación de <strong class="highlight">carbohidratos y proteínas</strong> dentro de un período razonable después del ejercicio (ej. 0-2 horas) ayuda a reponer el glucógeno y a iniciar la reparación muscular.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-walking"></i> Recuperación Activa</h3>
+                    <p>Realizar actividad de muy baja intensidad (ej. caminata, ciclismo suave) en los días de descanso o después de sesiones intensas puede ayudar a <strong class="highlight">promover el flujo sanguíneo y reducir la rigidez muscular</strong>.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-calendar-day"></i> Días de Descanso y Semanas de Descarga</h3>
+                    <p>Incorporar días de descanso completo y semanas de descarga (reducción del volumen y/o intensidad) es crucial para <strong class="highlight">manejar la fatiga acumulada</strong> y permitir la supercompensación.</p>
+                    <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Ojo con el Sobreentrenamiento:</strong> La fatiga persistente, disminución del rendimiento, alteraciones del sueño o del estado de ánimo pueden ser señales de que necesitas más recuperación.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-resistencia-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-chart-line"></i>Testeo y Monitoreo de la Resistencia</h2>
+                    <p>Evaluar la resistencia es útil para medir el progreso, establecer zonas de entrenamiento y ajustar la programación.</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-vial"></i> Métodos Comunes de Testeo:</h3>
+                    <ul>
+                        <li><strong>Tests de Campo para Resistencia Aeróbica:</strong> Test de Cooper (correr la máxima distancia en 12 min), test de Course-Navette (Beep Test), tests de tiempo hasta el agotamiento a una intensidad fija (ej. en cinta o bicicleta).</li>
+                        <li><strong>Tests de Laboratorio para Resistencia Aeróbica:</strong> Medición del VO2máx (consumo máximo de oxígeno), determinación de umbrales (láctico, ventilatorio).</li>
+                        <li><strong>Tests para Fuerza-Resistencia:</strong> Máximo número de repeticiones con un porcentaje del 1RM (ej. % de peso corporal en press banca o sentadilla), o con una carga absoluta.</li>
+                        <li><strong>Tests Específicos del Deporte:</strong> Pruebas que simulan las demandas de resistencia del deporte (ej. Yo-Yo Intermittent Recovery Test para deportes de equipo).</li>
+                    </ul>
+                    <h3 class="guide-subsection-title"><i class="fas fa-clipboard-check"></i> Monitoreo Continuo:</h3>
+                    <p>Además de los tests, se puede monitorizar la <strong class="highlight">frecuencia cardíaca</strong> durante el ejercicio y en reposo, el <strong class="highlight">RPE</strong>, la <strong class="highlight">variabilidad de la frecuencia cardíaca (HRV)</strong>, y las sensaciones subjetivas de fatiga y recuperación.</p>
+                </div>
+            </section>
+
+            <section id="slide-resistencia-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-skull-crossbones text-askesis-red"></i>Errores Comunes al Entrenar Resistencia</h2>
+                    <ul>
+                        <li><strong class="critical-text">"Más es Siempre Mejor":</strong> Excesivo volumen o intensidad sin adecuada recuperación, llevando al sobreentrenamiento.</li>
+                        <li><strong class="critical-text">Falta de Progresión:</strong> Entrenar siempre a la misma intensidad o con el mismo volumen, llevando al estancamiento.</li>
+                        <li><strong class="critical-text">Descuidar la Intensidad:</strong> En el entrenamiento aeróbico, no incluir trabajos a diferentes intensidades (ej. umbral, VO2máx) para optimizar todas las adaptaciones.</li>
+                        <li><strong class="critical-text">Mala Gestión del Ritmo (Pacing):</strong> Empezar demasiado rápido en esfuerzos prolongados.</li>
+                        <li><strong class="critical-text">Nutrición e Hidratación Inadecuadas:</strong> No consumir suficientes carbohidratos o no hidratarse correctamente.</li>
+                        <li><strong class="critical-text">Ignorar la Recuperación:</strong> Especialmente el sueño y los días de descanso.</li>
+                        <li><strong class="critical-text">Falta de Especificidad:</strong> Entrenar de una manera que no se transfiere a las demandas del objetivo o deporte.</li>
+                        <li><strong class="critical-text">Entrenamiento Monótono:</strong> No variar los métodos o estímulos, lo que puede llevar al aburrimiento y al estancamiento.</li>
+                    </ul>
+                     <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Enfoque Askesis:</strong> Un entrenamiento de resistencia efectivo es <strong class="emphasis">equilibrado, progresivo, periodizado y adaptado</strong> a tus necesidades individuales.
+                    </div>
+                </div>
+            </section>
+            
+            <section id="slide-resistencia-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-blue !border-askesis-green"><i class="fas fa-shield-alt"></i>Conclusión: Forja tu Resistencia Indomable</h2>
+                    <p class="text-lg mb-4">Desarrollar la resistencia muscular es un proceso que requiere <strong class="highlight">consistencia, inteligencia en la planificación y una atención integral</strong> a todos los factores que influyen en el rendimiento y la recuperación.</p>
+                    <p class="text-lg mb-6">Ya sea que busques correr más rápido, levantar más repeticiones, o simplemente tener más energía en tu día a día, los principios y métodos descritos en esta guía te proporcionarán una base sólida. En Askesis, te ayudamos a <strong class="emphasis">aplicar esta ciencia para que superes tus límites</strong>.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre los Servicios Askesis
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-resistencia" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4"> <button id="prev-button-resistencia" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-resistencia" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-resistencia" class="hidden my-8 text-center"> <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-blue">
+                <i class="fas fa-stopwatch-20 text-4xl mr-3 text-askesis-blue"></i>¡Guía de Resistencia Muscular Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora estás equipado/a con el conocimiento para mejorar tu aguante y combatir la fatiga. ¡Es hora de entrenar con resistencia!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-resistencia" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Resistencia%20Muscular" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Resistencia%20Muscular." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterResistencia"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop();
+            window.addEventListener('resize', adjustSecondaryNavTop);
+
+            const guideContainer = document.getElementById('interactive-presentation-container-resistencia');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de resistencia no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-resistencia .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-resistencia');
+            const nextButton = guideContainer.querySelector('#next-button-resistencia');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-resistencia');
+            const progressBar = guideContainer.querySelector('#progress-bar-resistencia');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-resistencia');
+            const completionContainer = guideContainer.querySelector('#completion-container-resistencia');
+            const restartButton = guideContainer.querySelector('#restart-button-resistencia');
+            const yearSpan = document.getElementById('currentYearFooterResistencia');
+            const navLinks = document.querySelectorAll('#main-nav-resistencia .nav-link-resistencia');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de resistencia no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Introducción a la Resistencia", "Tipos de Resistencia", "Mecanismos Fisiológicos", "Variables: Intensidad y Volumen", 
+                    "Variables: Descanso, Frecuencia, Ejercicios", "Métodos de Entrenamiento", "Periodización para Resistencia", 
+                    "Nutrición para Resistencia", "Recuperación para Resistencia", "Testeo y Monitoreo", "Errores Comunes", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-resistencia-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de resistencia.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
