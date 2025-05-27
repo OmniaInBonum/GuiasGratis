@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askesis: Guía Interactiva - Entrenamiento en Circuito: Eficiencia y Versatilidad</title>
+    <meta name="description" content="Guía interactiva de Askesis sobre Entrenamiento en Circuito: Aprende a diseñar y ejecutar circuitos efectivos para mejorar tu fuerza, resistencia y composición corporal de forma eficiente.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'askesis-blue': '#005A9C',
+                        'askesis-green': '#008037',
+                        'askesis-orange': '#F58220', /* Primary for this guide */
+                        'askesis-purple': '#6f42c1',
+                        'askesis-red': '#B80F0A',
+                        'askesis-dark': '#121212',
+                        'askesis-gray': '#1E1E1E',
+                        'askesis-light-gray': '#B3B3B3',
+                        'askesis-text-white': '#FFFFFF',
+                        'askesis-border': '#333333',
+                        'askesis-orange-light': 'rgba(245, 130, 32, 0.15)',
+                    },
+                    fontFamily: {
+                        'lato': ['Lato', 'sans-serif'],
+                        'roboto': ['Roboto', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --askesis-blue: #005A9C;
+            --askesis-green: #008037;
+            --askesis-orange: #F58220;
+            --askesis-purple: #6f42c1;
+            --askesis-red: #B80F0A;
+            --askesis-dark: #121212;
+            --askesis-gray: #1E1E1E;
+            --askesis-light-gray: #B3B3B3;
+            --askesis-text-white: #FFFFFF;
+            --askesis-border: #333333;
+            --askesis-orange-light: rgba(245, 130, 32, 0.15);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Montserrat', 'sans-serif';
+            color: var(--askesis-light-gray);
+            background: linear-gradient(rgba(18, 18, 18, 0.97), rgba(18, 18, 18, 0.99)), url('https://raw.githubusercontent.com/OmniaInBonum/askesis-links/main/Cimientos%20mes%202.jpeg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            line-height: 1.7;
+        }
+
+        .main-header-askesis {
+            background-color: rgba(30, 30, 30, 0.5);
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .main-header-askesis .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+        }
+        .main-header-askesis .container a.logo-link {
+             font-family: 'Roboto', sans-serif;
+             text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+             font-size: 2rem;
+             font-weight: 900;
+             color: var(--askesis-text-white);
+             text-transform: uppercase;
+        }
+
+        .secondary-nav-askesis {
+            background-color: var(--askesis-dark);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0; /* JS will adjust this */
+            z-index: 999;
+            border-bottom: 1px solid var(--askesis-border);
+        }
+        .secondary-nav-askesis ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0.5rem;
+        }
+        .secondary-nav-askesis .nav-link-circuito { /* Unique class */
+            color: var(--askesis-light-gray);
+            padding: 0.5rem 0.35rem; 
+            margin: 0.25rem;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.55rem; 
+            text-transform: uppercase;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            white-space: nowrap;
+        }
+        .secondary-nav-askesis .nav-link-circuito:hover,
+        .secondary-nav-askesis .nav-link-circuito.active {
+            color: var(--askesis-text-white);
+            background-color: var(--askesis-orange); 
+        }
+        .secondary-nav-askesis .nav-link-circuito.active {
+            font-weight: 700;
+        }
+
+        .step-slide {
+            min-height: calc(100vh - 160px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            text-align: center;
+            animation: fadeInSlide 0.7s ease-in-out;
+        }
+        .step-slide::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(18, 18, 18, 0.96); 
+            z-index: 1;
+        }
+
+        .slide-content-wrapper {
+            position: relative;
+            z-index: 2;
+            background-color: var(--askesis-gray);
+            padding: 2.2rem 2.8rem;
+            border-radius: 12px;
+            max-width: 980px; 
+            width: 95%;
+            margin: auto;
+            color: var(--askesis-light-gray);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+            border: 1px solid var(--askesis-border);
+        }
+        
+        .slide-content-wrapper h1, .slide-content-wrapper h2 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--askesis-orange); 
+            font-size: 2.4em;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 3px solid var(--askesis-blue); 
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+        .slide-content-wrapper h1 i, .slide-content-wrapper h2 i {
+            margin-right: 0.9rem;
+            color: var(--askesis-blue); 
+        }
+        .slide-content-wrapper h3.guide-subsection-title { 
+             font-family: 'Roboto', sans-serif;
+             color: var(--askesis-green); 
+             font-size: 1.8em; 
+             margin-top: 2rem; 
+             margin-bottom: 1.3rem; 
+             padding-bottom: 0.7rem; 
+             border-bottom: 2px dashed var(--askesis-purple);
+             text-align: left;
+        }
+         .slide-content-wrapper h4.guide-subsubsection-title {
+             font-family: 'Montserrat', sans-serif;
+             color: var(--askesis-purple); 
+             font-size: 1.5em; 
+             font-weight: 600;
+             margin-top: 1.6rem; 
+             margin-bottom: 0.9rem;
+             text-align: left;
+        }
+        .slide-content-wrapper p, .slide-content-wrapper ul, .slide-content-wrapper li, .slide-content-wrapper dl {
+            color: var(--askesis-light-gray); 
+            text-align: left; 
+            font-size: 1.1em;
+            line-height: 1.9;
+            margin-bottom: 1.2rem; 
+        }
+         .slide-content-wrapper ul { list-style: none; padding-left: 0; }
+         .slide-content-wrapper ul li { padding-left: 2.3em; position: relative; margin-bottom: 0.9rem; }
+         .slide-content-wrapper ul li::before {
+            content: "\f044"; /* fa-edit or fa-tasks for circuit/planning */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--askesis-orange); 
+            position: absolute;
+            left: 0;
+            top: 7px;
+            font-size: 1.3em;
+         }
+
+        .slide-content-wrapper .highlight {
+             color: var(--askesis-orange);
+             font-weight: 700;
+        }
+         .slide-content-wrapper .critical-text {
+            color: var(--askesis-red);
+            font-weight: 700;
+        }
+        .slide-content-wrapper .info-box, .slide-content-wrapper .warning-box, .slide-content-wrapper .tip-box {
+            border-left-width: 6px; padding: 1.4rem; margin: 2rem 0; border-radius: 0 10px 10px 0; font-size: 1.05em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .slide-content-wrapper .info-box { background-color: rgba(0, 90, 156, 0.3); border-left-color: var(--askesis-blue); color: var(--askesis-text-white);}
+        .slide-content-wrapper .warning-box { background-color: rgba(184, 15, 10, 0.2); border-left-color: var(--askesis-red); color: var(--askesis-text-white);}
+        .slide-content-wrapper .tip-box { background-color: var(--askesis-orange-light); border-left-color: var(--askesis-orange); color: var(--askesis-text-white);} 
+        
+        .slide-content-wrapper .info-box strong, .slide-content-wrapper .warning-box strong, .slide-content-wrapper .tip-box strong { 
+            font-family: 'Roboto', sans-serif; font-size: 1.25em; display: block; margin-bottom: 0.8rem;
+        }
+        .slide-content-wrapper .info-box strong { color: var(--askesis-blue); }
+        .slide-content-wrapper .warning-box strong { color: var(--askesis-red); } 
+        .slide-content-wrapper .tip-box strong { color: var(--askesis-orange); } 
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-button-askesis {
+            background-color: var(--askesis-orange); 
+            color: var(--askesis-text-white);
+            padding: 1rem 2.2rem;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.1em;
+            box-shadow: 0 6px 18px rgba(245, 130, 32, 0.4); 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            width: auto;
+        }
+        .cta-button-askesis:hover {
+            background-color: #cf6a10; 
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(245, 130, 32, 0.5);
+        }
+        .nav-button-askesis {
+            background-color: var(--askesis-blue); 
+            color: var(--askesis-text-white);
+        }
+        .nav-button-askesis:hover {
+             background-color: #004175; 
+        }
+        .nav-button-askesis.prev-button {
+            background-color: var(--askesis-dark);
+            border: 1px solid var(--askesis-border);
+        }
+        .nav-button-askesis.prev-button:hover {
+             background-color: var(--askesis-gray);
+        }
+        .nav-button-askesis:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .emphasis { color: var(--askesis-orange); font-weight: bold; }
+
+        footer {
+            background-color: rgba(10, 10, 10, 0.5); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+            color: var(--askesis-light-gray); padding: 4rem 1rem 2rem; text-align: center; border-top: 1px solid var(--askesis-border);
+        }
+        footer .footer-logo a { font-family: 'Roboto', sans-serif; font-size: 2rem; font-weight: 900; color: var(--askesis-text-white); margin-bottom: 0.5rem; text-transform: uppercase; text-decoration: none; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
+        footer .footer-tagline { font-size: 0.9rem; color: #888888; margin-bottom: 2rem;}
+        footer .coach-info-footer { margin-bottom: 1rem; }
+        footer .social-links-footer a { color: var(--askesis-light-gray); transition: color 0.3s, transform 0.3s; margin: 0 0.75rem; display: inline-block; }
+        footer .social-links-footer a:hover { color: var(--askesis-orange); transform: scale(1.2); }
+        footer .social-links-footer i { font-size: 1.5rem; }
+        footer .copyright-footer { font-size: 0.875rem; color: #888888; margin-top: 2.5rem; border-top: 1px solid var(--askesis-border); padding-top: 1.5rem;}
+
+        @media (max-width: 768px) {
+            .main-header-askesis .container a.logo-link { font-size: 1.8rem; }
+            .secondary-nav-askesis .nav-link-circuito { font-size: 0.5rem; padding: 0.3rem 0.3rem;}
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 2em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.5em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.25em; }
+            .slide-content-wrapper { padding: 1.8rem; }
+            .cta-button-askesis, .nav-button-askesis { font-size: 1em; padding: 0.9rem 1.8rem;}
+        }
+         @media (max-width: 480px) {
+            .slide-content-wrapper h1, .slide-content-wrapper h2 { font-size: 1.8em; }
+            .slide-content-wrapper h3.guide-subsection-title { font-size: 1.35em; }
+            .slide-content-wrapper h4.guide-subsubsection-title { font-size: 1.15em; }
+             .secondary-nav-askesis ul {justify-content: space-around;}
+             .secondary-nav-askesis .nav-link-circuito { padding: 0.3rem; margin: 0.1rem;}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header-askesis">
+        <div class="container">
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="logo-link">
+                <i class="fas fa-arrow-alt-circle-left mr-2 text-askesis-orange"></i>Askesis
+            </a>
+        </div>
+    </header>
+
+    <nav id="main-nav-circuito" class="secondary-nav-askesis"> <ul>
+            <li><a href="#slide-circuito-0" class="nav-link-circuito active">Intro</a></li>
+            <li><a href="#slide-circuito-1" class="nav-link-circuito">Beneficios</a></li>
+            <li><a href="#slide-circuito-2" class="nav-link-circuito">Tipos</a></li>
+            <li><a href="#slide-circuito-3" class="nav-link-circuito">Diseño (I)</a></li>
+            <li><a href="#slide-circuito-4" class="nav-link-circuito">Diseño (II)</a></li>
+            <li><a href="#slide-circuito-5" class="nav-link-circuito">Ej. Fuerza</a></li>
+            <li><a href="#slide-circuito-6" class="nav-link-circuito">Ej. Resistencia</a></li>
+            <li><a href="#slide-circuito-7" class="nav-link-circuito">Ej. Hipertrofia</a></li>
+            <li><a href="#slide-circuito-8" class="nav-link-circuito">Ej. Acond. Gral.</a></li>
+            <li><a href="#slide-circuito-9" class="nav-link-circuito">Progresión</a></li>
+            <li><a href="#slide-circuito-10" class="nav-link-circuito">Errores</a></li>
+            <li><a href="#slide-circuito-11" class="nav-link-circuito">Conclusión</a></li>
+        </ul>
+    </nav>
+    
+    <div id="interactive-presentation-container-circuito" class="py-8"> <div id="step-indicator-circuito" class="text-center mb-4 text-lg font-semibold text-askesis-green font-roboto tracking-wider"></div>
+        <div class="w-11/12 mx-auto bg-askesis-dark rounded-full h-3.5 mb-8 border border-askesis-border">
+            <div id="progress-bar-circuito" class="bg-gradient-to-r from-askesis-green to-askesis-orange h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+        </div>
+
+        <div id="slides-container-circuito"> <section id="slide-circuito-0" class="step-slide">
+                <div class="slide-content-wrapper">
+                    <h1 class="text-3xl sm:text-4xl"><i class="fas fa-sync-alt"></i>Entrenamiento en Circuito: Eficiencia y Versatilidad</h1>
+                    <p class="mb-3">El <strong class="highlight">entrenamiento en circuito</strong> es un método de organización del ejercicio que implica realizar una <strong class="highlight">serie de diferentes ejercicios de forma consecutiva</strong>, con un descanso mínimo o nulo entre ellos. Una vez completada la serie de ejercicios (el "circuito"), se suele tomar un descanso más largo antes de repetir el circuito varias veces.</p>
+                    <p>Esta guía explorará la <strong class="highlight">versatilidad, los beneficios y las claves para diseñar circuitos efectivos</strong> que te ayuden a alcanzar tus objetivos de fuerza, resistencia, hipertrofia o acondicionamiento general de manera eficiente.</p>
+                    <div class="tip-box mt-4">
+                        <strong><i class="fas fa-lightbulb"></i> Idea Clave Askesis:</strong> El entrenamiento en circuito es una <strong class="emphasis">herramienta poderosa y adaptable</strong>, ideal para quienes buscan maximizar su tiempo de entrenamiento y obtener resultados integrales.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-circuito-1" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-award"></i>Beneficios del Entrenamiento en Circuito</h2>
+                    <p>Este método de entrenamiento ofrece una amplia gama de ventajas:</p>
+                    <ul>
+                        <li><strong>Eficiencia de Tiempo:</strong> Permite trabajar múltiples grupos musculares o cualidades físicas en un período de tiempo relativamente corto debido a los descansos mínimos entre ejercicios.</li>
+                        <li><strong>Mejora Cardiovascular y Resistencia Muscular Simultáneamente:</strong> Al mantener la frecuencia cardíaca elevada y los músculos bajo tensión, se pueden lograr mejoras en ambos aspectos.</li>
+                        <li><strong>Versatilidad:</strong> Se puede adaptar a diferentes niveles de condición física, objetivos (fuerza, hipertrofia, resistencia, pérdida de grasa) y equipamiento disponible (peso corporal, pesas libres, máquinas, bandas).</li>
+                        <li><strong>Aumento del Gasto Calórico:</strong> La alta intensidad y el trabajo continuo pueden llevar a un gasto calórico significativo durante y después de la sesión (EPOC).</li>
+                        <li><strong>Dinamismo y Reducción de la Monotonía:</strong> La variedad de ejercicios y el ritmo rápido pueden hacer el entrenamiento más entretenido y menos aburrido.</li>
+                        <li><strong>Desarrollo del Acondicionamiento General:</strong> Mejora la capacidad de trabajo general y la tolerancia a la fatiga.</li>
+                        <li><strong>Adaptabilidad:</strong> Se puede realizar individualmente o en grupo, en el gimnasio, en casa o al aire libre.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-circuito-2" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-tags"></i>Tipos de Entrenamiento en Circuito</h2>
+                    <p>Los circuitos pueden diseñarse con diferentes enfoques según el objetivo principal:</p>
+                    <h3 class="guide-subsection-title"><i class="fas fa-dumbbell"></i> Circuito de Fuerza:</h3>
+                    <p>Énfasis en ejercicios compuestos con cargas moderadas a pesadas, con descansos ligeramente más largos entre ejercicios si es necesario para mantener la calidad. Menor número de ejercicios por circuito (ej. 3-5) y más rondas.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-layer-group"></i> Circuito de Hipertrofia:</h3>
+                    <p>Ejercicios que apuntan a grupos musculares específicos, con repeticiones en el rango de 8-15, y descansos cortos a moderados para inducir estrés metabólico.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-running"></i> Circuito de Resistencia Muscular/Cardiovascular:</h3>
+                    <p>Mayor número de ejercicios (ej. 6-12+), repeticiones más altas o trabajo por tiempo, con descansos muy cortos o nulos entre ejercicios. El objetivo es mantener una alta frecuencia cardíaca y desafiar la capacidad de resistir la fatiga.</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-fire-alt"></i> Circuito de Acondicionamiento Metabólico (MetCon):</h3>
+                    <p>Similar al de resistencia, pero a menudo con mayor intensidad y ejercicios más complejos o de cuerpo completo, buscando un alto gasto energético y una mejora de la capacidad de trabajo (ej. CrossFit WODs).</p>
+                    
+                    <h3 class="guide-subsection-title"><i class="fas fa-heartbeat"></i> Circuito Periférico del Corazón (PHA - Peripheral Heart Action):</h3>
+                    <p>Alterna ejercicios de tren superior e inferior para mantener el flujo sanguíneo circulando por todo el cuerpo, desafiando el sistema cardiovascular.</p>
+                </div>
+            </section>
+
+            <section id="slide-circuito-3" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-drafting-compass"></i>Diseño de Circuitos Efectivos (Parte I)</h2>
+                    <p>Crear un circuito efectivo requiere una planificación cuidadosa de varias variables:</p>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-bullseye"></i> 1. Definir el Objetivo Principal:</h4>
+                    <p>¿Qué se busca mejorar principalmente? (Fuerza, hipertrofia, resistencia, acondicionamiento general, pérdida de grasa). Esto guiará la selección de ejercicios y otras variables.</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-check-double"></i> 2. Selección de Ejercicios:</h4>
+                    <ul>
+                        <li>Elegir ejercicios que se alineen con el objetivo.</li>
+                        <li>Considerar el equipamiento disponible.</li>
+                        <li>Alternar grupos musculares o patrones de movimiento para permitir cierta recuperación local (ej. empuje, tirón, pierna, core).</li>
+                        <li>Evitar colocar consecutivamente ejercicios que fatiguen excesivamente los mismos músculos o articulaciones (a menos que sea un objetivo específico como en pre-fatiga).</li>
+                        <li>Incluir movimientos en diferentes planos (sagital, frontal, transversal).</li>
+                        <li>Asegurar que el individuo tenga la competencia técnica para realizar los ejercicios de forma segura, especialmente bajo fatiga.</li>
+                    </ul>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-list-ol"></i> 3. Número de Ejercicios por Circuito (Estaciones):</h4>
+                    <p>Depende del objetivo y el tiempo disponible. Puede variar desde 3-5 ejercicios para circuitos de fuerza hasta 10-15+ para circuitos de resistencia o acondicionamiento.</p>
+                </div>
+            </section>
+
+            <section id="slide-circuito-4" class="step-slide hidden">
+                <div class="slide-content-wrapper overflow-y-auto max-h-[85vh]">
+                    <h2><i class="fas fa-cogs"></i>Diseño de Circuitos Efectivos (Parte II)</h2>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-redo-alt"></i> 4. Repeticiones o Tiempo por Estación:</h4>
+                    <ul>
+                        <li><strong>Por Repeticiones:</strong> Un número fijo de repeticiones por ejercicio (ej. 10-15 reps).</li>
+                        <li><strong>Por Tiempo:</strong> Realizar el ejercicio durante un período de tiempo determinado (ej. 30-60 segundos), seguido de un tiempo de transición/descanso.</li>
+                    </ul>
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-hourglass-half"></i> 5. Descanso entre Ejercicios (Estaciones):</h4>
+                    <p>Generalmente <strong class="highlight">mínimo o nulo</strong> para mantener la intensidad y el flujo. Puede ser el tiempo que toma moverse de una estación a la siguiente (ej. 10-30 segundos).</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-stopwatch"></i> 6. Descanso entre Circuitos (Rondas):</h4>
+                    <p>Más largo, para permitir una recuperación parcial antes de repetir el circuito completo (ej. <strong class="highlight">1-3 minutos</strong>, dependiendo de la intensidad y el objetivo).</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-sync"></i> 7. Número de Rondas (Circuitos):</h4>
+                    <p>Depende del número de ejercicios, la intensidad y el tiempo total disponible (ej. 2-5 rondas).</p>
+                    
+                    <h4 class="guide-subsubsection-title"><i class="fas fa-percentage"></i> 8. Intensidad (Carga):</h4>
+                    <p>Ajustar la carga para que se puedan completar las repeticiones o el tiempo objetivo con buena forma, pero sintiendo el esfuerzo adecuado para el objetivo (ej. cargas más ligeras para resistencia, moderadas para hipertrofia/acondicionamiento).</p>
+                    
+                     <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Flujo y Logística:</strong> Considerar la disposición del equipamiento para permitir transiciones rápidas y seguras entre ejercicios.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-circuito-5" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-fist-raised"></i>Ejemplo: Circuito Enfocado en Fuerza</h2>
+                    <p>Objetivo: Mejorar la fuerza general con énfasis en movimientos compuestos.</p>
+                    <ul>
+                        <li><strong>Ejercicios (4-5):</strong>
+                            <ol class="list-decimal list-inside ml-4">
+                                <li>Sentadilla con Barra (o Goblet Squat)</li>
+                                <li>Press de Banca (o Flexiones con Lastre)</li>
+                                <li>Peso Muerto Rumano con Mancuernas</li>
+                                <li>Remo con Barra (o Dominadas Asistidas)</li>
+                                <li>Plancha Frontal con Carga (opcional)</li>
+                            </ol>
+                        </li>
+                        <li><strong>Repeticiones:</strong> 5-8 por ejercicio.</li>
+                        <li><strong>Descanso entre Ejercicios:</strong> 60-90 segundos (para permitir cargas más pesadas y mantener calidad).</li>
+                        <li><strong>Descanso entre Circuitos:</strong> 2-3 minutos.</li>
+                        <li><strong>Número de Rondas:</strong> 3-4.</li>
+                        <li><strong>Intensidad:</strong> Carga que permita completar las repeticiones con RPE 8-9 (dejando 1-2 reps en reserva).</li>
+                    </ul>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Nota:</strong> Este tipo de circuito se acerca más a un entrenamiento de fuerza tradicional con descansos ligeramente reducidos, pero mantiene el flujo de pasar de un ejercicio a otro.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-circuito-6" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-lungs"></i>Ejemplo: Circuito Enfocado en Resistencia (Cardio y Muscular)</h2>
+                    <p>Objetivo: Mejorar la resistencia cardiovascular y la capacidad de los músculos para resistir la fatiga.</p>
+                    <ul>
+                        <li><strong>Ejercicios (8-10):</strong> Alternando grupos musculares y movimientos.
+                            <ol class="list-decimal list-inside ml-4">
+                                <li>Jumping Jacks</li>
+                                <li>Sentadillas con Peso Corporal</li>
+                                <li>Flexiones (de rodillas si es necesario)</li>
+                                <li>Zancadas Alternas</li>
+                                <li>Plancha Frontal</li>
+                                <li>Burpees (o Mountain Climbers)</li>
+                                <li>Remo con Bandas de Resistencia</li>
+                                <li>Elevaciones de Talones</li>
+                                <li>Crunches Abdominales</li>
+                                <li>Saltos a la comba (si hay espacio)</li>
+                            </ol>
+                        </li>
+                        <li><strong>Tiempo por Estación:</strong> 40-50 segundos de trabajo.</li>
+                        <li><strong>Descanso entre Ejercicios:</strong> 10-20 segundos (transición).</li>
+                        <li><strong>Descanso entre Circuitos:</strong> 60-90 segundos.</li>
+                        <li><strong>Número de Rondas:</strong> 2-4.</li>
+                        <li><strong>Intensidad:</strong> Moderada, buscando mantener un ritmo constante y una buena técnica a pesar de la fatiga. RPE 6-8.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="slide-circuito-7" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-layer-group"></i>Ejemplo: Circuito Enfocado en Hipertrofia</h2>
+                    <p>Objetivo: Estimular el crecimiento muscular a través de volumen y estrés metabólico.</p>
+                    <ul>
+                        <li><strong>Ejercicios (6-8):</strong> Agrupados por patrón de movimiento o grupos musculares antagonistas.
+                            <ol class="list-decimal list-inside ml-4">
+                                <li>Press de Banca con Mancuernas</li>
+                                <li>Remo con Mancuerna a una Mano</li>
+                                <li>Press de Hombros con Mancuernas</li>
+                                <li>Jalones al Pecho (o Dominadas Asistidas)</li>
+                                <li>Extensiones de Tríceps en Polea</li>
+                                <li>Curl de Bíceps con Barra</li>
+                                <li>Sentadillas Goblet</li>
+                                <li>Curl Femoral en Máquina</li>
+                            </ol>
+                        </li>
+                        <li><strong>Repeticiones:</strong> 8-15 por ejercicio, cerca del fallo técnico.</li>
+                        <li><strong>Descanso entre Ejercicios:</strong> 30-60 segundos.</li>
+                        <li><strong>Descanso entre Circuitos:</strong> 90-120 segundos.</li>
+                        <li><strong>Número de Rondas:</strong> 3-4.</li>
+                        <li><strong>Intensidad:</strong> Carga que permita alcanzar el rango de repeticiones objetivo con RPE 8-10.</li>
+                    </ul>
+                     <div class="tip-box mt-3">
+                        <strong><i class="fas fa-lightbulb"></i> Variación:</strong> Se pueden hacer "mini-circuitos" o superseries de 2-3 ejercicios para un mismo grupo muscular o grupos antagonistas antes de pasar al siguiente bloque.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-circuito-8" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-heartbeat"></i>Ejemplo: Circuito de Acondicionamiento General (MetCon)</h2>
+                    <p>Objetivo: Mejorar la capacidad de trabajo general, la resistencia y quemar calorías. A menudo de alta intensidad.</p>
+                    <ul>
+                        <li><strong>Ejercicios (5-7):</strong> Combinación de movimientos de cuerpo completo, cardiovasculares y de fuerza funcional.
+                            <ol class="list-decimal list-inside ml-4">
+                                <li>Burpees</li>
+                                <li>Swings con Kettlebell (o mancuerna)</li>
+                                <li>Saltos al Cajón (Box Jumps)</li>
+                                <li>Thrusters con Mancuernas</li>
+                                <li>Remo en Máquina (Row Erg) - por calorías o metros</li>
+                                <li>Wall Balls (Lanzamientos de Balón a la Pared)</li>
+                            </ol>
+                        </li>
+                        <li><strong>Formato:</strong>
+                            <ul>
+                                <li><strong>AMRAP (As Many Rounds/Reps As Possible):</strong> Completar tantas rondas o repeticiones como sea posible de los ejercicios en un tiempo determinado (ej. 10-20 minutos).</li>
+                                <li><strong>Por Tiempo (For Time):</strong> Completar un número fijo de rondas y repeticiones de cada ejercicio en el menor tiempo posible.</li>
+                                <li><strong>EMOM (Every Minute On the Minute):</strong> Realizar un número de repeticiones de un ejercicio al comienzo de cada minuto, descansando el resto del minuto.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Descanso:</strong> Mínimo o estructurado según el formato (ej. en EMOM).</li>
+                        <li><strong>Intensidad:</strong> Alta, buscando un esfuerzo considerable. RPE 8-10.</li>
+                    </ul>
+                     <div class="warning-box mt-3">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Precaución:</strong> Los circuitos MetCon de alta intensidad requieren una buena base de condición física y una técnica sólida para minimizar el riesgo de lesión.
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-circuito-9" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-arrow-trend-up"></i>Progresión en el Entrenamiento en Circuito</h2>
+                    <p>Para seguir obteniendo resultados, es necesario aplicar el principio de sobrecarga progresiva a los circuitos:</p>
+                    <ul>
+                        <li><strong>Aumentar la Resistencia/Carga:</strong> Incrementar el peso utilizado en los ejercicios de fuerza.</li>
+                        <li><strong>Aumentar el Número de Repeticiones:</strong> Si se trabaja por repeticiones, intentar hacer más con la misma carga.</li>
+                        <li><strong>Aumentar el Tiempo de Trabajo por Estación:</strong> Si se trabaja por tiempo.</li>
+                        <li><strong>Disminuir el Tiempo de Descanso entre Ejercicios.</strong></li>
+                        <li><strong>Disminuir el Tiempo de Descanso entre Circuitos (Rondas).</strong></li>
+                        <li><strong>Aumentar el Número de Rondas del Circuito.</strong></li>
+                        <li><strong>Aumentar la Complejidad de los Ejercicios:</strong> Introducir variantes más desafiantes.</li>
+                        <li><strong>Aumentar la Densidad General:</strong> Realizar más trabajo en el mismo período de tiempo total.</li>
+                    </ul>
+                    <div class="info-box mt-3">
+                        <strong><i class="fas fa-info-circle"></i> Progresión Gradual:</strong> Realizar <strong class="emphasis">un solo cambio progresivo a la vez</strong> para permitir que el cuerpo se adapte y para poder identificar qué variable está generando la mejora (o la fatiga excesiva).
+                    </div>
+                </div>
+            </section>
+
+            <section id="slide-circuito-10" class="step-slide hidden">
+                <div class="slide-content-wrapper">
+                    <h2><i class="fas fa-skull-crossbones text-askesis-red"></i>Errores Comunes al Diseñar o Ejecutar Circuitos</h2>
+                    <ul>
+                        <li><strong class="critical-text">Mala Selección de Ejercicios:</strong> Ejercicios demasiado complejos para el nivel del individuo, o que no se alinean con los objetivos.</li>
+                        <li><strong class="critical-text">Técnica Deficiente:</strong> Sacrificar la forma por la velocidad o por completar más repeticiones, especialmente bajo fatiga.</li>
+                        <li><strong class="critical-text">Descansos Inadecuados:</strong> Descansos demasiado largos (pierde el propósito del circuito) o demasiado cortos (no permite mantener la calidad si el objetivo es fuerza/hipertrofia).</li>
+                        <li><strong class="critical-text">Carga Inapropiada:</strong> Demasiado pesada (compromete la técnica y el flujo) o demasiado ligera (no genera suficiente estímulo).</li>
+                        <li><strong class="critical-text">Falta de Progresión:</strong> Realizar siempre el mismo circuito sin variar las cargas, repeticiones o ejercicios.</li>
+                        <li><strong class="critical-text">Ignorar el Calentamiento y Enfriamiento:</strong> Esenciales para preparar el cuerpo y facilitar la recuperación.</li>
+                        <li><strong class="critical-text">No Considerar la Logística:</strong> Un mal diseño del espacio o del orden de los ejercicios puede hacer que las transiciones sean lentas o peligrosas.</li>
+                        <li><strong class="critical-text">Hacerlo Demasiado Complejo:</strong> Un circuito con demasiados ejercicios o reglas puede ser difícil de seguir y ejecutar correctamente.</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="slide-circuito-11" class="step-slide hidden">
+                <div class="slide-content-wrapper text-center">
+                    <h2 class="!text-askesis-orange !border-askesis-green"><i class="fas fa-check-circle"></i>Conclusión: Circuitos Inteligentes para Resultados Óptimos</h2>
+                    <p class="text-lg mb-4">El entrenamiento en circuito es un <strong class="highlight">método altamente efectivo y adaptable</strong> para mejorar múltiples componentes de la condición física de manera eficiente. Su versatilidad lo hace adecuado para una amplia gama de objetivos y niveles.</p>
+                    <p class="text-lg mb-6">La clave del éxito con los circuitos radica en un <strong class="emphasis">diseño inteligente, una ejecución técnica cuidadosa y una progresión adecuada</strong>. En Askesis, integramos el entrenamiento en circuito de forma estratégica para ayudarte a alcanzar tus metas de forma dinámica y motivadora.</p>
+                    <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis text-lg">
+                        <i class="fas fa-cogs mr-2"></i>Descubre los Servicios Askesis
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="navigation-buttons-circuito" class="mt-8 mb-4 flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4"> <button id="prev-button-circuito" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-arrow-left mr-2"></i>Anterior
+            </button>
+            <button id="next-button-circuito" class="cta-button-askesis nav-button-askesis w-full sm:w-auto">
+                Siguiente<i class="fas fa-arrow-right ml-2"></i>
+            </button>
+        </div>
+        <div id="completion-container-circuito" class="hidden my-8 text-center"> <div class="text-2xl font-semibold text-askesis-green p-6 bg-askesis-dark rounded-lg shadow-lg mb-6 border-2 border-askesis-orange">
+                <i class="fas fa-award text-4xl mr-3 text-askesis-orange"></i>¡Guía de Entrenamiento en Circuito Completada!
+            </div>
+            <p class="text-lg text-askesis-light-gray mb-6">Ahora tienes las herramientas para diseñar circuitos efectivos y versátiles. ¡A entrenar con inteligencia y dinamismo!</p>
+            <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank" class="cta-button-askesis mb-4">
+                <i class="fas fa-running mr-2"></i>Explora los Servicios Askesis
+            </a>
+            <button id="restart-button-circuito" class="cta-button-askesis nav-button-askesis prev-button w-full sm:w-auto">
+                <i class="fas fa-redo mr-2"></i>Ver Guía de Nuevo
+            </button>
+        </div>
+    </div>
+
+    <footer class="mt-12">
+        <div class="container mx-auto">
+            <div class="footer-logo">
+                <a href="https://omniainbonum.github.io/web-test/test%20web.html" target="_blank">Askesis</a>
+            </div>
+            <p class="footer-tagline">Ciencia Aplicada al Movimiento.</p>
+            <div class="coach-info-footer mb-6">
+                 <p class="text-lg font-semibold text-askesis-text-white">Luis Patricio Ruiz Ruiz</p>
+                 <p class="text-sm">Técnico Deportivo, Esp. Entrenamiento, Musculación y Prescripción de Ejercicio Físico</p>
+            </div>
+            <div class="social-links-footer flex justify-center space-x-6 mb-8">
+                 <a href="mailto:luistdu111@gmail.com?subject=Consulta%20Guía%20Entrenamiento%20en%20Circuito" target="_blank" title="Enviar Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://wa.me/56975401150?text=Hola%20Askesis,%20tengo%20una%20consulta%20sobre%20la%20guía%20de%20Entrenamiento%20en%20Circuito." target="_blank" title="Contactar por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <a href="https://www.instagram.com/askesis111" target="_blank" title="Ver Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="https://www.youtube.com/@OmniaInBonum111" target="_blank" title="Ver YouTube"> <i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright-footer">© <span id="currentYearFooterCircuito"></span> Askesis. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainHeader = document.querySelector('.main-header-askesis');
+            const secondaryNav = document.querySelector('.secondary-nav-askesis');
+            
+            function adjustSecondaryNavTop() {
+                if (mainHeader && secondaryNav) {
+                    const mainHeaderHeight = mainHeader.offsetHeight;
+                    secondaryNav.style.top = `${mainHeaderHeight}px`;
+                }
+            }
+            adjustSecondaryNavTop();
+            window.addEventListener('resize', adjustSecondaryNavTop);
+
+            const guideContainer = document.getElementById('interactive-presentation-container-circuito');
+            if (!guideContainer) {
+                console.error("Contenedor principal de la guía de circuito no encontrado.");
+                return;
+            }
+
+            const slides = Array.from(guideContainer.querySelectorAll('#slides-container-circuito .step-slide'));
+            const prevButton = guideContainer.querySelector('#prev-button-circuito');
+            const nextButton = guideContainer.querySelector('#next-button-circuito');
+            const stepIndicator = guideContainer.querySelector('#step-indicator-circuito');
+            const progressBar = guideContainer.querySelector('#progress-bar-circuito');
+            const navigationButtonsContainer = guideContainer.querySelector('#navigation-buttons-circuito');
+            const completionContainer = guideContainer.querySelector('#completion-container-circuito');
+            const restartButton = guideContainer.querySelector('#restart-button-circuito');
+            const yearSpan = document.getElementById('currentYearFooterCircuito');
+            const navLinks = document.querySelectorAll('#main-nav-circuito .nav-link-circuito');
+
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            if(yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+            function updateSlideDisplay(scrollToSlide = true) {
+                if (!slides.length || !stepIndicator || !progressBar || !prevButton || !nextButton || !navigationButtonsContainer || !completionContainer) {
+                    console.error("Error: Uno o más elementos de la guía de circuito no se encontraron en updateSlideDisplay.");
+                    return;
+                }
+
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('hidden', index !== currentSlide);
+                });
+                
+                const slideTitles = [
+                    "Intro Entrenamiento en Circuito", "Beneficios Clave", "Tipos de Circuitos", "Diseño de Circuitos (I)", 
+                    "Diseño de Circuitos (II)", "Ejemplo: Circuito de Fuerza", "Ejemplo: Circuito de Resistencia", "Ejemplo: Circuito de Hipertrofia",
+                    "Ejemplo: Circuito MetCon", "Progresión en Circuitos", "Errores Comunes", "Conclusión Askesis"
+                ];
+                stepIndicator.textContent = slideTitles[currentSlide] || `Diapositiva ${currentSlide + 1}`;
+                
+                const progressPercentage = totalSlides > 1 ? (currentSlide / (totalSlides - 1)) * 100 : 0;
+                progressBar.style.width = `${progressPercentage}%`;
+
+                prevButton.disabled = currentSlide === 0;
+                
+                navigationButtonsContainer.classList.remove('sm:justify-between', 'sm:justify-end', 'sm:justify-start');
+                if (currentSlide === 0) {
+                    navigationButtonsContainer.classList.add('sm:justify-end');
+                } else if (currentSlide === totalSlides - 1) {
+                    navigationButtonsContainer.classList.add('sm:justify-start');
+                } else {
+                    navigationButtonsContainer.classList.add('sm:justify-between');
+                }
+
+                if (currentSlide === totalSlides - 1) {
+                    nextButton.classList.add('hidden'); 
+                    completionContainer.classList.remove('hidden'); 
+                } else {
+                    nextButton.classList.remove('hidden');
+                    completionContainer.classList.add('hidden');
+                }
+                
+                if (scrollToSlide) {
+                    const targetSlideElement = slides[currentSlide];
+                    if (targetSlideElement) {
+                        const mainHeaderActualHeight = mainHeader?.offsetHeight || 0;
+                        const secondaryNavActualHeight = secondaryNav?.offsetHeight || 0;
+                        const totalStickyHeight = mainHeaderActualHeight + secondaryNavActualHeight;
+                        
+                        const elementPosition = targetSlideElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - totalStickyHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#slide-circuito-${currentSlide}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            if (nextButton) {
+                nextButton.addEventListener('click', () => {
+                    if (currentSlide < totalSlides - 1) {
+                        currentSlide++;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (prevButton) {
+                prevButton.addEventListener('click', () => {
+                    if (currentSlide > 0) {
+                        currentSlide--;
+                        updateSlideDisplay();
+                    }
+                });
+            }
+
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    currentSlide = 0;
+                    updateSlideDisplay();
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').substring(1); 
+                    const targetSlideIndex = slides.findIndex(s => s.id === targetId);
+                    if (targetSlideIndex !== -1) {
+                        currentSlide = targetSlideIndex;
+                        updateSlideDisplay(true); 
+                    }
+                });
+            });
+            
+            if (totalSlides > 0) {
+                updateSlideDisplay(false); 
+            } else {
+                console.warn("Advertencia: No se encontraron slides en la guía de circuito.");
+                if(stepIndicator) stepIndicator.textContent = "Contenido no disponible.";
+            }
+        });
+    </script>
+
+</body>
+</html>
